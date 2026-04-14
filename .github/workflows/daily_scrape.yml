@@ -79,7 +79,7 @@ jobs:
             exit $LASTEXITCODE
           }
 
-      - - name: Commit and push ilanlar.json
+      - name: Commit and push ilanlar.json
         shell: powershell
         run: |
           git config user.name  "github-actions[bot]"
