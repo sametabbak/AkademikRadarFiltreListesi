@@ -1,15 +1,8 @@
 name: Daily Academic Announcements Scraper
 
-# ─────────────────────────────────────────────────────────────────────────────
-# This workflow lives in AkademikRadarFiltreListesi.
-# It runs the scraper and commits ilanlar.json directly to this same repo,
-# which is already public — so the mobile app can read it without any token.
-# No cross-repo checkout or PAT needed.
-# ─────────────────────────────────────────────────────────────────────────────
-
 on:
   schedule:
-    # 07:00 Turkey time = 04:00 UTC (Turkey is UTC+3, no DST)
+    # 07:00 Turkey time = 04:00 UTC (Turkey is UTC+3 year-round, no DST)
     - cron: '0 4 * * *'
   workflow_dispatch:
 
@@ -18,7 +11,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout this repo (AkademikRadarFiltreListesi)
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Ensure Python is available (skip GIMP & WindowsApps)
@@ -26,7 +19,7 @@ jobs:
         run: |
           $found = $null
 
-          # Method 1: Registry — newest version first, skip GIMP / WindowsApps
+          # Method 1: Registry — newest version first, skip GIMP/WindowsApps
           foreach ($reg in @("HKLM:\SOFTWARE\Python\PythonCore","HKCU:\SOFTWARE\Python\PythonCore")) {
             if (Test-Path $reg) {
               foreach ($ver in (Get-ChildItem $reg | Sort-Object Name -Descending)) {
@@ -80,7 +73,6 @@ jobs:
       - name: Run scraper
         shell: powershell
         run: |
-          # ilanlar.json is written to the repo root (current directory)
           & "$env:PYTHON_EXE" scraper/scrape.py
           if ($LASTEXITCODE -ne 0) {
             Write-Error "Scraper failed with exit code $LASTEXITCODE"
