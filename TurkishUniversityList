@@ -75,7 +75,7 @@
   { "Name": "ALTINBAŞ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "BAHÇEŞEHİR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "BEYKOZ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
-  { "Name": "BEZMİALEM VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "BEZM-İ ÂLEM VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "BİRUNİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "BOĞAZİÇİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
   { "Name": "DEMİROĞLU BİLİM ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
@@ -117,7 +117,7 @@
   { "Name": "MARMARA ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
   { "Name": "MEF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "MİMAR SİNAN GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
-  { "Name": "NİŞANTAŞI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL NİŞANTAŞI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "ÖZYEĞİN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "PİRİ REİS ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
   { "Name": "SABANCI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
@@ -195,4 +195,9 @@
   { "Name": "YALOVA ÜNİVERSİTESİ", "City": "Yalova", "Type": "Devlet" },
   { "Name": "YOZGAT BOZOK ÜNİVERSİTESİ", "City": "Yozgat", "Type": "Devlet" },
   { "Name": "ZONGULDAK BÜLENT ECEVİT ÜNİVERSİTESİ", "City": "Zonguldak", "Type": "Devlet" }
+  { "Name": "ABDULLAH GÜL ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet" },
+  { "Name": "ALANYA ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf" },
+  { "Name": "ANKARA MÜZİK VE GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "ANTALYA BELEK ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf" },
+  { "Name": "TOROS ÜNİVERSİTESİ", "City": "Mersin", "Type": "Vakıf" }
 ]
