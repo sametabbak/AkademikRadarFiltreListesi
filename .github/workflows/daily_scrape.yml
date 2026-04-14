@@ -79,11 +79,14 @@ jobs:
             exit $LASTEXITCODE
           }
 
-      - name: Commit and push ilanlar.json
+      - - name: Commit and push ilanlar.json
         shell: powershell
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Use PAT for push authentication
+          git remote set-url origin https://x-access-token:${{ secrets.PUSH_TOKEN }}@github.com/sametabbak/AkademikRadarFiltreListesi.git
 
           git add ilanlar.json
 
