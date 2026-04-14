@@ -24,7 +24,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 log = logging.getLogger(__name__)
 
 OUTPUT_FILE = "ilanlar.json"  # always written to the repo root (cwd)
-DAYS_TO_CHECK     = 5
+DAYS_TO_CHECK     = 20
 RG_BASE           = "https://www.resmigazete.gov.tr"
 UNIVERSITY_LIST_URL = (
     "https://raw.githubusercontent.com/sametabbak/AkademikRadarFiltreListesi"
