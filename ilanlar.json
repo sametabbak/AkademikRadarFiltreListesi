@@ -1,7 +1,254 @@
 {
-  "generatedAt": "2026-04-14T19:12:55.050018+00:00",
-  "count": 54,
+  "generatedAt": "2026-04-15T05:53:30.413606+00:00",
+  "count": 58,
   "ads": [
+    {
+      "university": "ABDULLAH GÜL ÜNİVERSİTESİ",
+      "city": "Bilinmiyor",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-15T05:53:30.413606+00:00",
+      "deadline": "2026-04-29T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "contentSnippet": "ABDULLAH GÜL ÜNİVERSİTESİ bünyesine 1 ARAŞTIRMA GÖREVLİSİ alınacaktır. Birimler: Yaşam ve Doğa Bilimleri Fakültesi. Son başvuru: 29.04.2026.",
+      "positions": [
+        {
+          "faculty": "Yaşam ve Doğa Bilimleri Fakültesi",
+          "department": "Moleküler Biyoloji ve Genetik",
+          "requirements": "Fakültelerin Moleküler Biyoloji ve Genetik ile bu lisans programına eşdeğerliliği YÖK tarafından kabul edilmiş bölümlerinden lisans mezunu olmak. Türkiye’de yerleşik bir üniversitede Moleküler Biyoloji ve Genetik, Moleküler Biyoloji, Genetik veya Biyomühendislik Ana Bilim Dalında tezli yüksek lisans yapıyor olmak.",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260415-4-2.pdf"
+    },
+    {
+      "university": "İZMİRBAKIRÇAYÜNİVERSİTESİ",
+      "city": "Bilinmiyor",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-15T05:53:30.413606+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "İZMİRBAKIRÇAYÜNİVERSİTESİ bünyesine 1 DR. ÖĞR. ÜYESİ alınacaktır.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "Tıp Fakültesi Dahili Tıp Bilimleri Bölümü Acil Tıp Anabilim Dalı",
+          "requirements": "İlaç entoksikasyonu ve akut",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260415-4-3.pdf"
+    },
+    {
+      "university": "BAHÇEŞEHİRÜNİVERSİTESİ",
+      "city": "Bilinmiyor",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-15T05:53:30.413606+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "contentSnippet": "BAHÇEŞEHİRÜNİVERSİTESİ bünyesine 2 PROFESÖR, 4 DOÇENT alınacaktır. Birimler: Tıp Fakültesi, İktisadi, İdari ve Sosyal Bilimler Fakültesi.",
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "requirements": "Deri ve zührevi hastalıklar uzmanı olmak. Deri ve zührevi hastalıklar alanında doçentlik unvanı almış olmak. BAU TIP'ın atama ve yükseltme kriterlerinde belirtilen asgari şartlara uygun olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "requirements": "Deri ve zührevi hastalıklar uzmanı olmak. Deri ve zührevi hastalıklar alanında doçentlik unvanı almış olmak. BAU TIP'ın atama ve yükseltme kriterlerinde belirtilen asgari şartlara uygun olmak.",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "requirements": "Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji uzmanı olmak. Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji alanında doçentlik unvanı almış olmak. BAU TIP'ın atama ve yükseltme kriterlerinde belirtilen asgari şartlara uygun olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Nükleer Tıp uzmanı olmak. Nükleer Tıp alanında doçentlik unvanı almış olmak. BAU TIP'ın atama ve yükseltme kriterlerinde belirtilen asgari şartlara uygun olmak.",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Nükleer Tıp uzmanı olmak. Nükleer Tıp alanında doçentlik unvanı almış olmak. BAU TIP'ın atama ve yükseltme kriterlerinde belirtilen asgari şartlara uygun olmak.",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Psikoloji alanında doktora derecesine sahip, bilişsel psikoloji alanında uzmanlaşmış; SSCI/SCI/SCI-E indeksli dergilerde yayın yapmış ve deneysel psikoloji ile bilişsel süreçler alanlarında araştırma deneyimine sahip adaylar.",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260415-4-15.pdf"
+    },
+    {
+      "university": "KASTAMONU ÜNİVERSİTESİ",
+      "city": "Bilinmiyor",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-15T05:53:30.413606+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "contentSnippet": "KASTAMONU ÜNİVERSİTESİ bünyesine 2 PROFESÖR, 3 DOÇENT alınacaktır. Birimler: Eğitim Fakültesi, Tıp Fakültesi.",
+      "positions": [
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Eğitim Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Türkçe ve Sosyal Bilimler Eğitimi Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Yayın Listesi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260415-4-16.pdf"
+    },
     {
       "university": "ANKARA MEDİPOL ÜNİVERSİTESİ",
       "city": "Ankara",
