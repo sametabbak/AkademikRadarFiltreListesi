@@ -4,7 +4,7 @@
   "ads": [
     {
       "university": "ABDULLAH GÜL ÜNİVERSİTESİ",
-      "city": "Bilinmiyor",
+      "city": "Kayseri",
       "uniType": "Devlet",
       "publishDate": "2026-04-15T05:53:30.413606+00:00",
       "deadline": "2026-04-29T23:59:00+00:00",
@@ -31,15 +31,15 @@
       "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260415-4-2.pdf"
     },
     {
-      "university": "İZMİRBAKIRÇAYÜNİVERSİTESİ",
-      "city": "Bilinmiyor",
+      "university": "İZMİR BAKIRÇAY ÜNİVERSİTESİ",
+      "city": "İzmir",
       "uniType": "Devlet",
       "publishDate": "2026-04-15T05:53:30.413606+00:00",
       "deadline": null,
       "detectedTitles": [
         "DR. ÖĞR. ÜYESİ"
       ],
-      "contentSnippet": "İZMİRBAKIRÇAYÜNİVERSİTESİ bünyesine 1 DR. ÖĞR. ÜYESİ alınacaktır.",
+      "contentSnippet": "İZMİR BAKIRÇAY ÜNİVERSİTESİ bünyesine 1 DR. ÖĞR. ÜYESİ alınacaktır.",
       "positions": [
         {
           "faculty": "",
@@ -59,8 +59,8 @@
       "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260415-4-3.pdf"
     },
     {
-      "university": "BAHÇEŞEHİRÜNİVERSİTESİ",
-      "city": "Bilinmiyor",
+      "university": "BAHÇEŞEHİR ÜNİVERSİTESİ",
+      "city": "İstanbul",
       "uniType": "Devlet",
       "publishDate": "2026-04-15T05:53:30.413606+00:00",
       "deadline": null,
@@ -68,7 +68,7 @@
         "PROFESÖR",
         "DOÇENT"
       ],
-      "contentSnippet": "BAHÇEŞEHİRÜNİVERSİTESİ bünyesine 2 PROFESÖR, 4 DOÇENT alınacaktır. Birimler: Tıp Fakültesi, İktisadi, İdari ve Sosyal Bilimler Fakültesi.",
+      "contentSnippet": "BAHÇEŞEHİR ÜNİVERSİTESİ bünyesine 2 PROFESÖR, 4 DOÇENT alınacaktır. Birimler: Tıp Fakültesi, İktisadi, İdari ve Sosyal Bilimler Fakültesi.",
       "positions": [
         {
           "faculty": "Tıp Fakültesi",
@@ -161,7 +161,7 @@
     },
     {
       "university": "KASTAMONU ÜNİVERSİTESİ",
-      "city": "Bilinmiyor",
+      "city": "Kastamonu",
       "uniType": "Devlet",
       "publishDate": "2026-04-15T05:53:30.413606+00:00",
       "deadline": null,
