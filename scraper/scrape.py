@@ -95,17 +95,14 @@ def normalize_for_match(s: str) -> str:
 
 
 def clean_cell(value: str) -> str:
-    """
-    Clean a single PDF table cell value.
-    PDFs sometimes embed \r\n inside cell text when a cell spans lines.
-    - Collapse \r\n / \r / \n to a single space
-    - Collapse multiple spaces
-    - Strip whitespace
-    """
     if not value:
         return ""
     text = re.sub(r"[\r\n]+", " ", value)
     text = re.sub(r"[ \t]{2,}", " ", text)
+    # Insert spaces at known Turkish suffix boundaries
+    for suffix in ["ÜNİVERSİTESİ", "ÜNİVERSİTESI", "FAKÜLTESİ", "ENSTİTÜSÜ",
+                   "YÜKSEKOKULU", "REKTÖRLÜĞÜNDEN", "BÖLÜMÜ", "PROGRAMI"]:
+        text = re.sub(rf"({re.escape(suffix)})([A-ZÇĞİÖŞÜ])", r"\1 \2", text)
     return text.strip()
 
 
@@ -181,27 +178,47 @@ def to_pdf_url(url):
 
 # ── PDF text cleaner ──────────────────────────────────────────────────────────
 def clean_pdf_text(raw: str) -> str:
-    """
-    Fix common PDF extraction artefacts:
-    - Hyphenated line breaks merged
-    - Single newlines (not paragraph breaks) replaced with space
-    - Words run together due to missing space inserted
-    - Multiple spaces collapsed
-    """
-    # Merge hyphenated line breaks: "uygula-\nma" -> "uygulama"
+    # Merge hyphenated line breaks
     text = re.sub(r"-\n", "", raw)
     # Single newlines that are NOT paragraph breaks → space
     text = re.sub(r"(?<!\n)\n(?!\n)", " ", text)
-    # Insert space between lowercase/uppercase Turkish run-together words
-    # e.g. "FAKÜLTESİBİYOFİZİK" → "FAKÜLTESİ BİYOFİZİK"
-    text = re.sub(r"([a-zçğışöüA-ZÇĞİÖŞÜ])([A-ZÇĞİÖŞÜ]{2,})", r"\1 \2", text)
     # Collapse multiple spaces
     text = re.sub(r"[ \t]{2,}", " ", text)
-    # Strip per line
+
+    # ── Insert missing spaces between run-together uppercase words ────────────
+    # Strategy 1: lowercase→uppercase boundary (original, still needed)
+    text = re.sub(r"([a-zçğışöüA-ZÇĞİÖŞÜ])([A-ZÇĞİÖŞÜ]{2,})", r"\1 \2", text)
+
+    # Strategy 2: known Turkish word-ending suffixes followed immediately by
+    # another word — covers ALL-CAPS run-together strings like
+    # "HACETTEPЕÜNIVERSITESI" or "TIBBIYEFAKULTESI"
+    suffixes = [
+        r"(ÜNİVERSİTESİ)([A-ZÇĞİÖŞÜ])",
+        r"(ÜNİVERSİTESI)([A-ZÇĞİÖŞÜ])",   # PDF encoding variant
+        r"(FAKÜLTESİ)([A-ZÇĞİÖŞÜ])",
+        r"(FAKULTESİ)([A-ZÇĞİÖŞÜ])",
+        r"(ENSTİTÜSÜ)([A-ZÇĞİÖŞÜ])",
+        r"(YÜKSEKOKULU)([A-ZÇĞİÖŞÜ])",
+        r"(MÜDÜRLÜĞÜ)([A-ZÇĞİÖŞÜ])",
+        r"(REKTÖRLÜĞÜNDEN)([A-ZÇĞİÖŞÜ])",
+        r"(REKTORLUGUNDEN)([A-ZÇĞİÖŞÜ])",
+        r"(ANABİLİM DALI)([A-ZÇĞİÖŞÜ])",
+        r"(BÖLÜMÜ)([A-ZÇĞİÖŞÜ])",
+        r"(PROGRAMI)([A-ZÇĞİÖŞÜ])",
+        r"(TEKNİK)([A-ZÇĞİÖŞÜ])",
+        r"(ÜNİVERSİTESİ)(REKTÖRLÜĞÜNDEN)",
+    ]
+    for pattern in suffixes:
+        text = re.sub(pattern, r"\1 \2", text)
+
+    # Strategy 3: split on digit→letter and letter→digit boundaries
+    text = re.sub(r"(\d)([A-ZÇĞİÖŞÜa-zçğışöü])", r"\1 \2", text)
+    text = re.sub(r"([A-ZÇĞİÖŞÜa-zçğışöü])(\d)", r"\1 \2", text)
+
+    # Final cleanup
+    text = re.sub(r"[ \t]{2,}", " ", text)
     lines = [l.strip() for l in text.split("\n")]
-    # Collapse 3+ blank lines to 2
-    text = re.sub(r"\n{3,}", "\n\n", "\n".join(lines))
-    return text.strip()
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
 
 # ── Existing JSON loader (deduplication) ─────────────────────────────────────
 def load_existing_ads():
