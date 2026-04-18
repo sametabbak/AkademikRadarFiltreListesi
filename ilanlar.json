@@ -1,7 +1,143 @@
 {
-  "generatedAt": "2026-04-17T05:56:30.017442+00:00",
-  "count": 69,
+  "generatedAt": "2026-04-18T05:27:39.459417+00:00",
+  "count": 71,
   "ads": [
+    {
+      "university": "İSTANBUL GEDİK ÜNİVERSİTESİ",
+      "city": "Bilinmiyor",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-18T05:27:39.459417+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "contentSnippet": "İSTANBUL GEDİK ÜNİVERSİTESİ bünyesine 1 ÖĞRETİM GÖREVLİSİ alınacaktır. Birimler: Gedik Meslek Yüksekokulu.",
+      "positions": [
+        {
+          "faculty": "Gedik Meslek Yüksekokulu",
+          "department": "Çocuk Gelişimi",
+          "requirements": "Lisans eğitimini Psikoloji alanında tamamlamış olup, Özel Eğitim alanında Yüksek Lisans yapmış olmak, belgelendirilmek kaydıyla en az beş yıl ders verme deneyimine sahip olmak.",
+          "count": 1,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260418-4-4.pdf"
+    },
+    {
+      "university": "KARAMANOĞLUMEHMETBEYÜNİVERSİTESİ",
+      "city": "Bilinmiyor",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-18T05:27:39.459417+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "contentSnippet": "KARAMANOĞLUMEHMETBEYÜNİVERSİTESİ bünyesine 2 PROFESÖR, 3 DR. ÖĞR. ÜYESİ, 2 DOÇENT alınacaktır. Birimler: Edebiyat Fakültesi, Mühendislik Fakültesi, Sağlık Bilimleri Fakültesi ve 2 birim daha.",
+      "positions": [
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Türk Dili ve Edebiyatı",
+          "requirements": "Doçentliğini Türk Dili alanında almış olup Osmanlı Türkçesi dönemi Arapça ve Latince metinler konularında çalışma yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Gıda Mühendisliği",
+          "requirements": "Lisans ve lisansüstü eğitimlerini Gıda Mühendisliği alanında tamamlamış olup bitkisel kaynaklı süt ürünleri ve gıda güvenliği sensörleri konularında çalışma",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "requirements": "Doçentliğini Çocuk sağlığı ve hastalıkları hemşireliği alanında almış olup çocukluk çağı kanserlerinde hemşirelik bakımı ve semptom yönetimi konularında",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "requirements": "Lisansüstü eğitimlerini Çocuk Sağlığı ve Hastalıkları Hemşireliği alanında tamamlamış olup çocuklarda uyku kalitesi ve emzirme konularında çalışma yapmış",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon",
+          "requirements": "Lisansüstü eğitimlerini Fizyoterapi ve Rehabilitasyon veya Fizik Tedavi ve Rehabilitasyon alanında tamamlamış olup geriatrik ve nöromusküler hastalıklar",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Beden Eğitimi ve Spor",
+          "requirements": "Doçentliğini Sporda Psikososyal Alanlar veya Spor Bilimleri alanında almış olup sporcularda psikofizyolojik müdahaleler ve bilinçli farkındalık",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Uygulamalı Bilimler Fakültesi",
+          "department": "Uluslararası Ticaret ve Lojistik",
+          "requirements": "Doçentliğini Uluslararası Ticaret veya Üretim ve Operasyon Yönetimi alanında almış olup lojistikte yapay zekâ ve dış kaynak kullanımı konularında",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260418-4-13.pdf"
+    },
     {
       "university": "İSTANBULMEDİPOLÜNİVERSİTESİ",
       "city": "Bilinmiyor",
