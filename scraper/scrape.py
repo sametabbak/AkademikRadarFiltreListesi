@@ -277,7 +277,7 @@ def clean_pdf_text(raw: str) -> str:
 
 def extract_titles_from_cell(raw: str) -> list:
     """
-    Hücre içindeki tüm unvanları tarar ve ayıklar.
+    Hücre ve metin içindeki tüm unvanları tarar ve ayıklar.
     Araya giren rakamları ve satır boşluklarını temizleyerek 
     'Araştırma 2 Görevlisi' veya 'Profesör / Doçent' gibi bozuk metinleri onarır.
     """
@@ -403,11 +403,12 @@ def extract_documents(text: str) -> list:
 
 # ── Table / text position extractors ─────────────────────────────────────────
 
-FACULTY_KEYS = ["FAKÜLTESİ","YÜKSEKOKUL","ENSTİTÜSÜ","MYO","MESLEK","BİRİM","OKUL"]
-DEPT_KEYS    = ["ANABİLİM","PROGRAM","BÖLÜM","DAL","ALAN"]
-TITLE_KEYS   = ["UNVAN","ÜNVAN","KADRO ÜNVANI","POZİSYON","ÜNVANI"]
-COUNT_KEYS   = ["SAYI","ADET","KADRO ADEDİ","KADRO SAYISI"]
-REQ_KEYS     = ["AÇIKLAMA","NİTELİK","ÖZEL ŞART","ARANAN ŞART","KOŞUL","NİTELİKLER"]
+# FAKÜLTE eklendi (Fakültesi'ni bulamıyordu)
+FACULTY_KEYS = ["FAKÜLTE", "FAKÜLTESİ", "YÜKSEKOKUL", "ENSTİTÜ", "ENSTİTÜSÜ", "MYO", "MESLEK", "BİRİM", "OKUL"]
+DEPT_KEYS    = ["ANABİLİM", "PROGRAM", "BÖLÜM", "DAL", "ALAN"]
+TITLE_KEYS   = ["UNVAN", "ÜNVAN", "KADRO", "POZİSYON", "ÜNVANI"]
+COUNT_KEYS   = ["SAYI", "ADET", "KADRO ADEDİ", "KADRO SAYISI"]
+REQ_KEYS     = ["AÇIKLAMA", "NİTELİK", "ÖZEL ŞART", "ARANAN ŞART", "KOŞUL", "NİTELİKLER"]
 
 def extract_positions_from_tables(tables: list, full_text: str) -> list:
     positions = []
@@ -493,25 +494,45 @@ def extract_positions_from_text(full_text: str) -> list:
     current_faculty = ""
     for i, line in enumerate(lines):
         lu = tr_upper(line)
-        if any(tr_upper(k) in lu for k in ["FAKÜLTESİ","YÜKSEKOKULU","ENSTİTÜSÜ","MYO"]):
-            if not any(tr_upper(t) in lu for t in ACADEMIC_TITLES):
-                current_faculty = line.strip(); continue
-        found = next((t for t in ACADEMIC_TITLES if tr_upper(t) in lu), None)
-        if not found: continue
+        
+        # Fakülte satırını yakala
+        if any(tr_upper(k) in lu for k in ["FAKÜLTE","YÜKSEKOKULU","ENSTİTÜSÜ","MYO"]):
+            if not extract_titles_from_cell(line):
+                current_faculty = line.strip()
+                continue
+                
+        # Yedek Motor da artık Gelişmiş Unvan Ayıklayıcıyı kullanıyor!
+        found_titles = extract_titles_from_cell(line)
+        if not found_titles: continue
+        
+        # Sırf başlık (Header) olduğu için unvan geçen sahte satırları atla
+        if any(k in lu for k in ["BELGE", "İSTENEN", "GEREKLİ", "ŞART", "BAŞVURU", "KADROSU İÇİN"]):
+            continue
+
         m = re.search(r'\b(\d{1,2})\b', line)
         cnt = int(m.group(1)) if m else 1
-        dept = lu.split(tr_upper(found))[0].strip()
-        reqs = []
-        for j in range(i+1, min(i+6, len(lines))):
-            nu = tr_upper(lines[j])
-            if any(tr_upper(t) in nu for t in ACADEMIC_TITLES): break
-            if any(tr_upper(k) in nu for k in ["FAKÜLTESİ","YÜKSEKOKULU"]): break
-            if lines[j].strip(): reqs.append(lines[j].strip())
-        req = " ".join(reqs)
-        pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
-               "title": found, "count": cnt, "requirements": req}
-        pos.update(extract_ales(req+"\n"+full_text, found)); pos.update(extract_language(req+"\n"+full_text, found))
-        positions.append(pos)
+        
+        for found in found_titles:
+            dept = lu
+            for t in ACADEMIC_TITLES:
+                if t in lu:
+                    dept = lu.split(t)[0].strip()
+                    break
+            
+            reqs = []
+            for j in range(i+1, min(i+6, len(lines))):
+                nu = tr_upper(lines[j])
+                if extract_titles_from_cell(lines[j]): break
+                if any(tr_upper(k) in nu for k in ["FAKÜLTE","YÜKSEKOKULU"]): break
+                if lines[j].strip(): reqs.append(lines[j].strip())
+            req = " ".join(reqs)
+            
+            pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
+                   "title": found, "count": cnt, "requirements": req}
+            pos.update(extract_ales(req+"\n"+full_text, found))
+            pos.update(extract_language(req+"\n"+full_text, found))
+            positions.append(pos)
+            
     return positions
 
 def generate_snippet(university: str, positions: list, deadline: str | None) -> str:
@@ -540,7 +561,16 @@ def parse_pdf(pdf_bytes: bytes, link_text: str, publish_date: datetime, ulist: l
             all_tables: list = []
             for page in pdf.pages:
                 try:
+                    # 1. Çizgili normal tabloları ara
                     tbls = page.extract_tables()
+                    
+                    # 2. BULAMAZSAN: Çizgisiz (Borderless) Tabloları zorla oku!
+                    if not tbls:
+                        tbls = page.extract_tables({
+                            "vertical_strategy": "text",
+                            "horizontal_strategy": "text"
+                        })
+                        
                     if tbls: all_tables.extend(tbls)
                 except: pass
     except Exception as e:
