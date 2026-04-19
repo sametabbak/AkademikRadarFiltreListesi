@@ -2,27 +2,18 @@
 
 import requests
 from bs4 import BeautifulSoup
-import json, re, io, os, time, logging
+import json, re, io, time, logging
 from datetime import datetime, timezone, timedelta
 
-import pdfplumber
+from pdf2image import convert_from_bytes
+import pytesseract
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
-# ─────────────────────────────────────────────
-MAX_RUNTIME_SECONDS = 20 * 60
-MAX_PDFS_PER_RUN = 30
-
-CONNECT_TIMEOUT = 10
-READ_TIMEOUT = 25
-TIMEOUT = (CONNECT_TIMEOUT, READ_TIMEOUT)
-
+RG_BASE = "https://www.resmigazete.gov.tr"
 OUTPUT_FILE = "ilanlar.json"
 DAYS_TO_CHECK = 5
-RG_BASE = "https://www.resmigazete.gov.tr"
-
-HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 ACADEMIC_TITLES = [
     "PROFESÖR",
@@ -40,45 +31,8 @@ TITLE_ALIASES = {
     "ARŞ. GÖR.": "ARAŞTIRMA GÖREVLİSİ",
 }
 
-# ─────────────────────────────────────────────
-start_time = time.monotonic()
-
-def budget_ok():
-    return (time.monotonic() - start_time) < MAX_RUNTIME_SECONDS
-
-# ─────────────────────────────────────────────
-def tr_upper(s):
-    return s.replace("i","İ").replace("ı","I").upper()
-
-def normalize(s):
-    return (
-        s.replace("İ","I").replace("ı","I")
-        .replace("ğ","g").replace("ş","s")
-        .replace("ç","c").replace("ö","o").replace("ü","u")
-        .upper()
-    )
-
-def clean(text):
-    return re.sub(r"\s+", " ", text or "").strip()
-
-# ─────────────────────────────────────────────
 session = requests.Session()
-session.headers.update(HEADERS)
-
-def fetch_html(url):
-    try:
-        r = session.get(url, timeout=TIMEOUT)
-        r.raise_for_status()
-        return BeautifulSoup(r.text, "html.parser")
-    except:
-        return None
-
-def fetch_pdf(url):
-    try:
-        r = session.get(url, timeout=TIMEOUT)
-        return r.content
-    except:
-        return None
+session.headers.update({"User-Agent": "Mozilla/5.0"})
 
 # ─────────────────────────────────────────────
 def build_url(date):
@@ -93,34 +47,76 @@ def to_pdf(url):
     return url.replace(".htm",".pdf")
 
 # ─────────────────────────────────────────────
+def fetch_html(url):
+    try:
+        r = session.get(url, timeout=20)
+        r.raise_for_status()
+        return BeautifulSoup(r.text, "html.parser")
+    except:
+        return None
+
+def fetch_pdf(url):
+    try:
+        r = session.get(url, timeout=30)
+        return r.content
+    except:
+        return None
+
+# ─────────────────────────────────────────────
+def tr_upper(s):
+    return s.replace("i","İ").replace("ı","I").upper()
+
+def clean_text(text):
+    text = re.sub(r"-\n","",text)
+    text = re.sub(r"\n"," ",text)
+    text = re.sub(r"\s+"," ",text)
+    return text.strip()
+
+# ─────────────────────────────────────────────
 def extract_titles(text):
-    found = []
+
+    found = set()
     text_up = tr_upper(text)
 
     for alias, real in TITLE_ALIASES.items():
         if tr_upper(alias) in text_up:
-            found.append(real)
+            found.add(real)
 
     for t in ACADEMIC_TITLES:
         if tr_upper(t) in text_up:
-            found.append(t)
+            found.add(t)
 
-    return list(set(found))
+    return list(found)
 
 # ─────────────────────────────────────────────
-def clean_pdf_text(text):
-    text = re.sub(r"-\n","",text)
-    text = re.sub(r"\n"," ",text)
-    return clean(text)
+def parse_pdf_ocr(pdf_bytes):
+
+    try:
+        images = convert_from_bytes(pdf_bytes, dpi=300)
+    except Exception as e:
+        log.warning(f"PDF → image hata: {e}")
+        return ""
+
+    all_text = []
+
+    for img in images:
+        text = pytesseract.image_to_string(
+            img,
+            lang="tur",
+            config="--oem 3 --psm 6"
+        )
+        all_text.append(text)
+
+    return "\n".join(all_text)
 
 # ─────────────────────────────────────────────
 def extract_positions(text):
+
     positions = []
+    words = text.split()
 
-    lines = text.split(" ")
-
-    for i in range(len(lines)):
-        chunk = " ".join(lines[i:i+15])
+    for i in range(len(words)):
+        chunk = " ".join(words[i:i+20])
         titles = extract_titles(chunk)
 
         if titles:
@@ -138,13 +134,12 @@ def extract_positions(text):
 # ─────────────────────────────────────────────
 def parse_pdf(pdf_bytes, publish_date, url):
 
-    try:
-        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
-            text = "\n".join(p.extract_text() or "" for p in pdf.pages)
-    except:
+    text = parse_pdf_ocr(pdf_bytes)
+
+    if not text or len(text) < 50:
         return None
 
-    text = clean_pdf_text(text)
+    text = clean_text(text)
 
     positions = extract_positions(text)
 
@@ -176,20 +171,23 @@ def scrape_day(date):
     for a in soup.find_all("a", href=True):
 
         text = a.get_text()
+
         if "Rektörlüğünden" not in text:
             continue
 
-        link = to_pdf(resolve(a["href"], url))
+        pdf_url = to_pdf(resolve(a["href"], url))
 
-        pdf = fetch_pdf(link)
-        if not pdf:
+        log.info(f"PDF indiriliyor: {pdf_url}")
+
+        pdf_bytes = fetch_pdf(pdf_url)
+        if not pdf_bytes:
             continue
 
-        ad = parse_pdf(pdf, date, link)
+        ad = parse_pdf(pdf_bytes, date, pdf_url)
 
         if ad:
             ads.append(ad)
-            log.info(f"✓ bulundu: {link}")
+            log.info(f"✓ ilan bulundu")
 
     return ads
 
@@ -200,13 +198,10 @@ def main():
     today = datetime.now(timezone.utc)
 
     for i in range(DAYS_TO_CHECK):
-        if not budget_ok():
-            break
-
         ads = scrape_day(today - timedelta(days=i))
         all_ads.extend(ads)
 
-    with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump({
             "generatedAt": today.isoformat(),
             "count": len(all_ads),
