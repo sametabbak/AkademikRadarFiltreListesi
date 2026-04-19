@@ -2,40 +2,108 @@ name: Daily Academic Announcements Scraper
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    # 07:00 Turkey time = 04:00 UTC (Turkey is UTC+3 year-round, no DST)
+    - cron: '0 4 * * *'
   workflow_dispatch:
 
 jobs:
   scrape:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Python setup
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: System dependencies (OCR)
+      - name: Ensure Python is available (skip GIMP & WindowsApps)
+        shell: powershell
         run: |
-          sudo apt-get update
-          sudo apt-get install -y tesseract-ocr
-          sudo apt-get install -y tesseract-ocr-tur
-          sudo apt-get install -y poppler-utils
+          $found = $null
 
-      - name: Install Python packages
+          # Method 1: Registry — newest version first, skip GIMP/WindowsApps
+          foreach ($reg in @("HKLM:\SOFTWARE\Python\PythonCore","HKCU:\SOFTWARE\Python\PythonCore")) {
+            if (Test-Path $reg) {
+              foreach ($ver in (Get-ChildItem $reg | Sort-Object Name -Descending)) {
+                $ip = (Get-ItemProperty "$($ver.PSPath)\InstallPath" -ErrorAction SilentlyContinue).'(default)'
+                if ($ip) {
+                  $candidate = Join-Path $ip "python.exe"
+                  if ((Test-Path $candidate) -and
+                      ($candidate -notlike "*GIMP*") -and
+                      ($candidate -notlike "*WindowsApps*")) {
+                    $found = $candidate; break
+                  }
+                }
+              }
+            }
+            if ($found) { break }
+          }
+
+          # Method 2: Filesystem scan under Program Files
+          if (-not $found) {
+            foreach ($root in @("C:\Program Files\","C:\Program Files (x86)\")) {
+              $hit = Get-ChildItem -Path $root -Filter "python.exe" -Recurse `
+                       -ErrorAction SilentlyContinue -Depth 5 |
+                     Where-Object { $_.FullName -notlike "*GIMP*" -and $_.FullName -notlike "*WindowsApps*" } |
+                     Sort-Object { $_.FullName.Length } | Select-Object -First 1
+              if ($hit) { $found = $hit.FullName; break }
+            }
+          }
+
+          # Method 3: where.exe
+          if (-not $found) {
+            $found = (& where.exe python 2>$null) |
+                     Where-Object { $_ -notlike "*WindowsApps*" -and $_ -notlike "*GIMP*" } |
+                     Select-Object -First 1
+          }
+
+          if (-not $found) {
+            Write-Error "Python not found. Install Python for all users from python.org."
+            exit 1
+          }
+
+          Write-Host "Using Python: $found"
+          & "$found" --version
+          echo "PYTHON_EXE=$found" >> $env:GITHUB_ENV
+
+      - name: Install dependencies
+        shell: powershell
         run: |
-          pip install -r scraper/requirements.txt
+          & "$env:PYTHON_EXE" -m pip install --upgrade pip --quiet
+          & "$env:PYTHON_EXE" -m pip install -r scraper/requirements.txt --quiet
 
       - name: Run scraper
+        shell: powershell
         run: |
-          python scraper/scrape.py
+          # Force Python to use UTF-8 on Windows (avoids encoding errors with Turkish chars)
+          $env:PYTHONUTF8 = "1"
+          $env:PYTHONIOENCODING = "utf-8"
+          & "$env:PYTHON_EXE" scraper/scrape.py
+          if ($LASTEXITCODE -ne 0) {
+            Write-Error "Scraper failed with exit code $LASTEXITCODE"
+            exit $LASTEXITCODE
+          }
 
-      - name: Commit results
+      - name: Commit and push ilanlar.json
+        shell: powershell
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add ilanlar.json
-          git commit -m "daily update" || echo "no changes"
-          git push
+
+          $diff = git diff --staged --name-only
+          if ($diff) {
+            $timestamp = [System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+            git commit -m "chore: update ilanlar.json [$timestamp]"
+
+            $maxRetries = 3; $attempt = 0; $pushed = $false
+            while (-not $pushed -and $attempt -lt $maxRetries) {
+              $attempt++
+              Write-Host "Push attempt $attempt..."
+              git push
+              if ($LASTEXITCODE -eq 0) { $pushed = $true; Write-Host "Push succeeded." }
+              else { Write-Host "Retrying in 5 s..."; Start-Sleep -Seconds 5 }
+            }
+            if (-not $pushed) { Write-Error "Push failed after $maxRetries attempts."; exit 1 }
+          } else {
+            Write-Host "No changes to commit."
+          }
