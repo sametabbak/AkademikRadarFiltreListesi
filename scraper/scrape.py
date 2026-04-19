@@ -276,9 +276,21 @@ def clean_pdf_text(raw: str) -> str:
 # ── Title helpers ─────────────────────────────────────────────────────────────
 
 def extract_titles_from_cell(raw: str) -> list:
-    """Hücre içindeki tüm unvanları tarar ve ayıklar."""
+    """
+    Hücre içindeki tüm unvanları tarar ve ayıklar.
+    Araya giren rakamları ve satır boşluklarını temizleyerek 
+    'Araştırma 2 Görevlisi' veya 'Profesör / Doçent' gibi bozuk metinleri onarır.
+    """
     found = []
-    raw_up = tr_upper(raw)
+    
+    # Rakamları ve araya giren işaretleri (slash, tire, satır başı) boşluğa çevir
+    raw_clean = re.sub(r'\d+', ' ', raw)
+    raw_clean = re.sub(r'[\r\n/\\-]', ' ', raw_clean)
+    
+    # Fazla boşlukları tek boşluğa indir ve büyült
+    raw_up = tr_upper(raw_clean)
+    raw_up = re.sub(r'\s+', ' ', raw_up).strip()
+    
     all_search_terms = list(TITLE_ALIASES.keys()) + list(ACADEMIC_TITLES)
     all_search_terms.sort(key=len, reverse=True)
     
@@ -287,7 +299,8 @@ def extract_titles_from_cell(raw: str) -> list:
     
     for match in matches:
         canonical = TITLE_ALIASES.get(match, match)
-        if canonical in ACADEMIC_TITLES and canonical not in found:
+        if canonical in ACADEMIC_TITLES:
+            # Aynı hücrede birden fazla aynı unvan geçiyorsa hepsini ekler
             found.append(canonical)
             
     return found
