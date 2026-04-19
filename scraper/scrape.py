@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-AkademikRadar Scraper (Enhanced Version)
-"""
 
 import requests
 from bs4 import BeautifulSoup
@@ -9,13 +6,11 @@ import json, re, io, os, time, logging
 from datetime import datetime, timezone, timedelta
 
 import pdfplumber
-import fitz  # PyMuPDF
-from rapidfuzz import fuzz
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
-# ── CONFIG ─────────────────────────────────────────────────
+# ─────────────────────────────────────────────
 MAX_RUNTIME_SECONDS = 20 * 60
 MAX_PDFS_PER_RUN = 30
 
@@ -29,188 +24,197 @@ RG_BASE = "https://www.resmigazete.gov.tr"
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
-ACADEMIC_TITLES = {
-    "PROFESÖR","DOÇENT","DR. ÖĞR. ÜYESİ",
-    "ÖĞRETİM GÖREVLİSİ","ARAŞTIRMA GÖREVLİSİ"
+ACADEMIC_TITLES = [
+    "PROFESÖR",
+    "DOÇENT",
+    "DR. ÖĞR. ÜYESİ",
+    "ÖĞRETİM GÖREVLİSİ",
+    "ARAŞTIRMA GÖREVLİSİ",
+]
+
+TITLE_ALIASES = {
+    "PROF.": "PROFESÖR",
+    "DOÇ.": "DOÇENT",
+    "DR. ÖĞR.": "DR. ÖĞR. ÜYESİ",
+    "ÖĞR. GÖR.": "ÖĞRETİM GÖREVLİSİ",
+    "ARŞ. GÖR.": "ARAŞTIRMA GÖREVLİSİ",
 }
 
-# ── TIME ───────────────────────────────────────────────────
-_start_time = time.monotonic()
+# ─────────────────────────────────────────────
+start_time = time.monotonic()
 
 def budget_ok():
-    return (time.monotonic() - _start_time) < MAX_RUNTIME_SECONDS
+    return (time.monotonic() - start_time) < MAX_RUNTIME_SECONDS
 
-# ── HELPERS ────────────────────────────────────────────────
-def tr_upper(s): return s.replace("i","İ").replace("ı","I").upper()
+# ─────────────────────────────────────────────
+def tr_upper(s):
+    return s.replace("i","İ").replace("ı","I").upper()
 
-def normalize_for_match(s):
-    return re.sub(r"[^A-Z]", "", tr_upper(s))
+def normalize(s):
+    return (
+        s.replace("İ","I").replace("ı","I")
+        .replace("ğ","g").replace("ş","s")
+        .replace("ç","c").replace("ö","o").replace("ü","u")
+        .upper()
+    )
 
-# ── MULTI PARSER ───────────────────────────────────────────
-def extract_text_pymupdf(pdf_bytes):
+def clean(text):
+    return re.sub(r"\s+", " ", text or "").strip()
+
+# ─────────────────────────────────────────────
+session = requests.Session()
+session.headers.update(HEADERS)
+
+def fetch_html(url):
     try:
-        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
-        return "\n".join(page.get_text() for page in doc)
+        r = session.get(url, timeout=TIMEOUT)
+        r.raise_for_status()
+        return BeautifulSoup(r.text, "html.parser")
     except:
-        return ""
+        return None
 
-def extract_pdf_text(pdf_bytes):
+def fetch_pdf(url):
     try:
-        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
-            text1 = "\n".join(page.extract_text() or "" for page in pdf.pages)
+        r = session.get(url, timeout=TIMEOUT)
+        return r.content
     except:
-        text1 = ""
+        return None
 
-    text2 = extract_text_pymupdf(pdf_bytes)
+# ─────────────────────────────────────────────
+def build_url(date):
+    return f"{RG_BASE}/ilanlar/eskiilanlar/{date:%Y/%m}/{date:%Y%m%d}-4.htm"
 
-    return max([text1, text2], key=len)
+def resolve(href, base):
+    if href.startswith("http"): return href
+    if href.startswith("/"): return RG_BASE + href
+    return base.rsplit("/",1)[0] + "/" + href
 
-# ── FUZZY UNIVERSITY MATCH ─────────────────────────────────
-def match_university(name, ulist):
-    name_norm = normalize_for_match(name)
-    best, score = None, 0
+def to_pdf(url):
+    return url.replace(".htm",".pdf")
 
-    for u in ulist:
-        s = fuzz.partial_ratio(name_norm, normalize_for_match(u["Name"]))
-        if s > score:
-            best, score = u, s
+# ─────────────────────────────────────────────
+def extract_titles(text):
+    found = []
+    text_up = tr_upper(text)
 
-    if best and score > 80:
-        return best["Name"], best["City"], best["Type"]
+    for alias, real in TITLE_ALIASES.items():
+        if tr_upper(alias) in text_up:
+            found.append(real)
 
-    return name, "Bilinmiyor", "Devlet"
+    for t in ACADEMIC_TITLES:
+        if tr_upper(t) in text_up:
+            found.append(t)
 
-# ── VALIDATION ─────────────────────────────────────────────
-def validate_ad(ad):
-    if not ad["positions"]: return False
-    for p in ad["positions"]:
-        if p["count"] <= 0: return False
-        if p["title"] not in ACADEMIC_TITLES: return False
-    return True
+    return list(set(found))
 
-# ── CONFIDENCE ─────────────────────────────────────────────
-def compute_confidence(ad):
-    score = 0
-    if ad["positions"]: score += 0.3
-    if ad["deadline"]: score += 0.2
-    if ad["city"] != "Bilinmiyor": score += 0.2
-    if ad["detectedTitles"]: score += 0.2
-    if ad["applicationDocuments"]: score += 0.1
-    return round(score,2)
+# ─────────────────────────────────────────────
+def clean_pdf_text(text):
+    text = re.sub(r"-\n","",text)
+    text = re.sub(r"\n"," ",text)
+    return clean(text)
 
-# ── SIMPLE EXTRACTION (LIGHT VERSION) ──────────────────────
+# ─────────────────────────────────────────────
 def extract_positions(text):
     positions = []
-    for t in ACADEMIC_TITLES:
-        if t in tr_upper(text):
-            positions.append({
-                "title": t,
-                "count": 1,
-                "department": "",
-                "faculty": ""
-            })
+
+    lines = text.split(" ")
+
+    for i in range(len(lines)):
+        chunk = " ".join(lines[i:i+15])
+        titles = extract_titles(chunk)
+
+        if titles:
+            for t in titles:
+                positions.append({
+                    "title": t,
+                    "department": "",
+                    "faculty": "",
+                    "count": 1,
+                    "requirements": chunk[:200]
+                })
+
     return positions
 
-def extract_deadline(text):
-    m = re.search(r"(\d{1,2})[./](\d{2})[./](\d{4})", text)
-    if m:
-        return f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
-    return None
+# ─────────────────────────────────────────────
+def parse_pdf(pdf_bytes, publish_date, url):
 
-# ── PDF PARSER ─────────────────────────────────────────────
-def parse_pdf(pdf_bytes, link_text, publish_date, ulist):
-    text = extract_pdf_text(pdf_bytes)
+    try:
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            text = "\n".join(p.extract_text() or "" for p in pdf.pages)
+    except:
+        return None
 
-    uni, city, typ = match_university(link_text, ulist)
+    text = clean_pdf_text(text)
+
     positions = extract_positions(text)
 
     if not positions:
         return None
 
-    ad = {
-        "university": uni,
-        "city": city,
-        "uniType": typ,
+    return {
+        "university": "Bilinmiyor",
+        "city": "Bilinmiyor",
+        "uniType": "Devlet",
         "publishDate": publish_date.isoformat(),
-        "deadline": extract_deadline(text),
+        "deadline": None,
+        "detectedTitles": list(set(p["title"] for p in positions)),
         "positions": positions,
-        "detectedTitles": [p["title"] for p in positions],
-        "applicationDocuments": [],
-        "url": ""
+        "url": url
     }
 
-    if not validate_ad(ad):
-        return None
+# ─────────────────────────────────────────────
+def scrape_day(date):
 
-    ad["confidence"] = compute_confidence(ad)
+    url = build_url(date)
+    soup = fetch_html(url)
 
-    return ad
-
-# ── SCRAPER ────────────────────────────────────────────────
-def fetch_html(url):
-    try:
-        r = requests.get(url, timeout=TIMEOUT)
-        return BeautifulSoup(r.text, "html.parser")
-    except:
-        return None
-
-def fetch_bytes(url):
-    try:
-        return requests.get(url, timeout=TIMEOUT).content
-    except:
-        return None
-
-def build_index_url(date):
-    return f"{RG_BASE}/ilanlar/eskiilanlar/{date.strftime('%Y/%m')}/{date.strftime('%Y%m%d')}-4.htm"
-
-def scrape_day(date, ulist):
-    soup = fetch_html(build_index_url(date))
-    if not soup: return []
+    if not soup:
+        return []
 
     ads = []
+
     for a in soup.find_all("a", href=True):
-        if "Rektörlüğünden" in a.text:
-            url = RG_BASE + "/" + a["href"]
-            pdf_url = url.replace(".htm",".pdf")
 
-            pdf = fetch_bytes(pdf_url)
-            if not pdf: continue
+        text = a.get_text()
+        if "Rektörlüğünden" not in text:
+            continue
 
-            ad = parse_pdf(pdf, a.text, date, ulist)
-            if ad:
-                ad["url"] = pdf_url
-                ads.append(ad)
+        link = to_pdf(resolve(a["href"], url))
+
+        pdf = fetch_pdf(link)
+        if not pdf:
+            continue
+
+        ad = parse_pdf(pdf, date, link)
+
+        if ad:
+            ads.append(ad)
+            log.info(f"✓ bulundu: {link}")
 
     return ads
 
-# ── MAIN ───────────────────────────────────────────────────
+# ─────────────────────────────────────────────
 def main():
-    log.info("Starting scraper")
-
-    # minimal university list
-    ulist = [
-        {"Name":"ANKARA ÜNİVERSİTESİ","City":"Ankara","Type":"Devlet"},
-        {"Name":"HACETTEPE ÜNİVERSİTESİ","City":"Ankara","Type":"Devlet"},
-        {"Name":"İSTANBUL ÜNİVERSİTESİ","City":"İstanbul","Type":"Devlet"}
-    ]
 
     all_ads = []
     today = datetime.now(timezone.utc)
 
     for i in range(DAYS_TO_CHECK):
-        if not budget_ok(): break
-        all_ads.extend(scrape_day(today - timedelta(days=i), ulist))
+        if not budget_ok():
+            break
 
-    output = {
-        "generatedAt": today.isoformat(),
-        "count": len(all_ads),
-        "ads": all_ads
-    }
+        ads = scrape_day(today - timedelta(days=i))
+        all_ads.extend(ads)
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+    with open(OUTPUT_FILE,"w",encoding="utf-8") as f:
+        json.dump({
+            "generatedAt": today.isoformat(),
+            "count": len(all_ads),
+            "ads": all_ads
+        }, f, ensure_ascii=False, indent=2)
 
-    log.info(f"Done: {len(all_ads)} ads")
+    log.info(f"Toplam ilan: {len(all_ads)}")
 
+# ─────────────────────────────────────────────
 if __name__ == "__main__":
     main()
