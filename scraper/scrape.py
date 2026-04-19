@@ -687,8 +687,14 @@ def extract_positions_from_tables(tables: list, full_text: str) -> list:
             pos["title"]        = normalize_title(row[col["title"]]) if "title" in col else \
                                   next((t for t in ACADEMIC_TITLES if tr_upper(t) in tr_upper(" ".join(row))), "")
             if not pos["title"] and not pos["faculty"] and not pos["department"]: continue
-            ctx = pos["requirements"] + "\n" + full_text
-            pos.update(extract_ales(ctx, pos.get("title", ""))); pos.update(extract_language(ctx, pos.get("title", "")))
+            req_ctx = pos["requirements"]
+            ales = extract_ales(req_ctx, pos.get("title", ""))
+            if not ales["alesRequired"]:
+                ales = extract_ales(full_text, pos.get("title", ""))
+            lang = extract_language(req_ctx, pos.get("title", ""))
+            if not lang["foreignLanguageRequired"]:
+                lang = extract_language(full_text, pos.get("title", ""))
+            pos.update(ales); pos.update(lang)
             positions.append(pos)
     return positions
 
@@ -713,7 +719,13 @@ def extract_positions_from_text(full_text: str) -> list:
         req = " ".join(reqs)
         pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
                "title": found, "count": cnt, "requirements": req}
-        pos.update(extract_ales(req+"\n"+full_text, found)); pos.update(extract_language(req+"\n"+full_text, found))
+        ales = extract_ales(req, found)
+        if not ales["alesRequired"]:
+            ales = extract_ales(full_text, found)
+        lang = extract_language(req, found)
+        if not lang["foreignLanguageRequired"]:
+            lang = extract_language(full_text, found)
+        pos.update(ales); pos.update(lang)
         positions.append(pos)
     return positions
 
