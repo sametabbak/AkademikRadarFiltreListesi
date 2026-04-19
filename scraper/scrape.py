@@ -201,174 +201,207 @@ UNIVERSITY_CACHE_FILE = "university_list_cache.json"
 
 # Hardcoded fallback — covers universities most likely to appear in Resmî Gazete
 FALLBACK_UNIVERSITY_LIST = [
-    {"Name": "ANKARA ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "GAZİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "HACETTEPE ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ORTA DOĞU TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA YILDIRIM BEYAZIT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA HACI BAYRAM VELİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA SOSYAL BİLİMLER ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA MÜZİK VE GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "BAŞKENT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ATILIM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ÇANKAYA ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "İHSAN DOĞRAMACI BİLKENT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "TED ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "TOBB EKONOMİ VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "UFUK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ANKARA BİLİM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ANKARA MEDİPOL ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "LOKMAN HEKİM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "OSTİM TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "YÜKSEK İHTİSAS ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "BOĞAZİÇİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "İSTANBUL TEKNİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "İSTANBUL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "İSTANBUL ÜNİVERSİTESİ-CERRAHPAŞA", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "MARMARA ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "YILDIZ TEKNİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "GALATASARAYÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "GALATASARAY ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "MİMAR SİNAN GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "İSTANBUL MEDENİYET ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "TÜRK-ALMAN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "KOÇ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "SABANCI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "BAHÇEŞEHİR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL BİLGİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL AYDIN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL MEDİPOL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "BİRUNİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "ACIBADEM MEHMET ALİ AYDINLAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "BEZM-İ ÂLEM VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "FATİH SULTAN MEHMET VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL NİŞANTAŞI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "EGE ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "DOKUZ EYLÜL ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR YÜKSEK TEKNOLOJİ ENSTİTÜSÜ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR KATİP ÇELEBİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR BAKIRÇAY ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR DEMOKRASİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR EKONOMİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf"},
-    {"Name": "İZMİR TINAZTEPE ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf"},
-    {"Name": "YAŞAR ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf"},
-    {"Name": "SELÇUK ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet"},
-    {"Name": "KONYA TEKNİK ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet"},
-    {"Name": "NECMETTİN ERBAKAN ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet"},
-    {"Name": "KTO KARATAY ÜNİVERSİTESİ", "City": "Konya", "Type": "Vakıf"},
-    {"Name": "KONYA GIDA VE TARIM ÜNİVERSİTESİ", "City": "Konya", "Type": "Vakıf"},
-    {"Name": "ÇUKUROVA ÜNİVERSİTESİ", "City": "Adana", "Type": "Devlet"},
-    {"Name": "ADANA ALPARSLAN TÜRKEŞ BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Adana", "Type": "Devlet"},
-    {"Name": "KARADENİZ TEKNİK ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Devlet"},
-    {"Name": "TRABZON ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Devlet"},
-    {"Name": "AVRASYA ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Vakıf"},
-    {"Name": "ATATÜRK ÜNİVERSİTESİ", "City": "Erzurum", "Type": "Devlet"},
-    {"Name": "ERZURUM TEKNİK ÜNİVERSİTESİ", "City": "Erzurum", "Type": "Devlet"},
-    {"Name": "BURSA ULUDAĞ ÜNİVERSİTESİ", "City": "Bursa", "Type": "Devlet"},
-    {"Name": "BURSA TEKNİK ÜNİVERSİTESİ", "City": "Bursa", "Type": "Devlet"},
-    {"Name": "MUDANYA ÜNİVERSİTESİ", "City": "Bursa", "Type": "Vakıf"},
-    {"Name": "ERCİYES ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet"},
-    {"Name": "KAYSERİ ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet"},
-    {"Name": "ABDULLAH GÜL ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet"},
-    {"Name": "NUH NACİ YAZGAN ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Vakıf"},
-    {"Name": "AKDENİZ ÜNİVERSİTESİ", "City": "Antalya", "Type": "Devlet"},
-    {"Name": "ALANYA ALAADDİN KEYKUBAT ÜNİVERSİTESİ", "City": "Antalya", "Type": "Devlet"},
-    {"Name": "ANTALYA BİLİM ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf"},
-    {"Name": "ALANYA ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf"},
-    {"Name": "ANTALYA BELEK ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf"},
-    {"Name": "ONDOKUZ MAYIS ÜNİVERSİTESİ", "City": "Samsun", "Type": "Devlet"},
-    {"Name": "SAMSUN ÜNİVERSİTESİ", "City": "Samsun", "Type": "Devlet"},
-    {"Name": "GAZİANTEP ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Devlet"},
-    {"Name": "GAZİANTEP İSLAM BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Devlet"},
-    {"Name": "HASAN KALYONCU ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Vakıf"},
-    {"Name": "SANKO ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Vakıf"},
-    {"Name": "PAMUKKALE ÜNİVERSİTESİ", "City": "Denizli", "Type": "Devlet"},
-    {"Name": "ANADOLU ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet"},
-    {"Name": "ESKİŞEHİR OSMANGAZİ ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet"},
-    {"Name": "ESKİŞEHİR TEKNİK ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet"},
-    {"Name": "TRAKYA ÜNİVERSİTESİ", "City": "Edirne", "Type": "Devlet"},
-    {"Name": "FIRAT ÜNİVERSİTESİ", "City": "Elazığ", "Type": "Devlet"},
-    {"Name": "İNÖNÜ ÜNİVERSİTESİ", "City": "Malatya", "Type": "Devlet"},
-    {"Name": "MALATYA TURGUT ÖZAL ÜNİVERSİTESİ", "City": "Malatya", "Type": "Devlet"},
-    {"Name": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ", "City": "Karaman", "Type": "Devlet"},
-    {"Name": "MERSİN ÜNİVERSİTESİ", "City": "Mersin", "Type": "Devlet"},
-    {"Name": "TARSUS ÜNİVERSİTESİ", "City": "Mersin", "Type": "Devlet"},
-    {"Name": "TOROS ÜNİVERSİTESİ", "City": "Mersin", "Type": "Vakıf"},
-    {"Name": "ÇAĞ ÜNİVERSİTESİ", "City": "Mersin", "Type": "Vakıf"},
-    {"Name": "DİCLE ÜNİVERSİTESİ", "City": "Diyarbakır", "Type": "Devlet"},
-    {"Name": "HARRAN ÜNİVERSİTESİ", "City": "Şanlıurfa", "Type": "Devlet"},
-    {"Name": "KIRIKKALE ÜNİVERSİTESİ", "City": "Kırıkkale", "Type": "Devlet"},
-    {"Name": "GEBZE TEKNİK ÜNİVERSİTESİ", "City": "Kocaeli", "Type": "Devlet"},
-    {"Name": "KOCAELİ ÜNİVERSİTESİ", "City": "Kocaeli", "Type": "Devlet"},
-    {"Name": "SAKARYA ÜNİVERSİTESİ", "City": "Sakarya", "Type": "Devlet"},
-    {"Name": "SAKARYA UYGULAMALI BİLİMLER ÜNİVERSİTESİ", "City": "Sakarya", "Type": "Devlet"},
-    {"Name": "DÜZCE ÜNİVERSİTESİ", "City": "Düzce", "Type": "Devlet"},
-    {"Name": "BOLU ABANT İZZET BAYSAL ÜNİVERSİTESİ", "City": "Bolu", "Type": "Devlet"},
-    {"Name": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ", "City": "Isparta", "Type": "Devlet"},
-    {"Name": "ISPARTA UYGULAMALI BİLİMLER ÜNİVERSİTESİ", "City": "Isparta", "Type": "Devlet"},
-    {"Name": "MANİSA CELÂL BAYAR ÜNİVERSİTESİ", "City": "Manisa", "Type": "Devlet"},
-    {"Name": "MUĞLA SITKI KOÇMAN ÜNİVERSİTESİ", "City": "Muğla", "Type": "Devlet"},
-    {"Name": "BALIKESİR ÜNİVERSİTESİ", "City": "Balıkesir", "Type": "Devlet"},
-    {"Name": "BANDIRMA ONYEDİ EYLÜL ÜNİVERSİTESİ", "City": "Balıkesir", "Type": "Devlet"},
-    {"Name": "ÇANAKKALE ONSEKİZ MART ÜNİVERSİTESİ", "City": "Çanakkale", "Type": "Devlet"},
-    {"Name": "AYDIN ADNAN MENDERES ÜNİVERSİTESİ", "City": "Aydın", "Type": "Devlet"},
-    {"Name": "AFYON KOCATEPE ÜNİVERSİTESİ", "City": "Afyonkarahisar", "Type": "Devlet"},
-    {"Name": "AFYONKARAHİSAR SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "Afyonkarahisar", "Type": "Devlet"},
-    {"Name": "KÜTAHYA DUMLUPINAR ÜNİVERSİTESİ", "City": "Kütahya", "Type": "Devlet"},
-    {"Name": "KÜTAHYA SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "Kütahya", "Type": "Devlet"},
-    {"Name": "UŞAK ÜNİVERSİTESİ", "City": "Uşak", "Type": "Devlet"},
-    {"Name": "RECEP TAYYİP ERDOĞAN ÜNİVERSİTESİ", "City": "Rize", "Type": "Devlet"},
-    {"Name": "GİRESUN ÜNİVERSİTESİ", "City": "Giresun", "Type": "Devlet"},
-    {"Name": "GÜMÜŞHANE ÜNİVERSİTESİ", "City": "Gümüşhane", "Type": "Devlet"},
-    {"Name": "SİVAS CUMHURİYET ÜNİVERSİTESİ", "City": "Sivas", "Type": "Devlet"},
-    {"Name": "SİVAS BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Sivas", "Type": "Devlet"},
-    {"Name": "ORDU ÜNİVERSİTESİ", "City": "Ordu", "Type": "Devlet"},
-    {"Name": "TOKAT GAZİOSMANPAŞA ÜNİVERSİTESİ", "City": "Tokat", "Type": "Devlet"},
-    {"Name": "KASTAMONU ÜNİVERSİTESİ", "City": "Kastamonu", "Type": "Devlet"},
-    {"Name": "BARTIN ÜNİVERSİTESİ", "City": "Bartın", "Type": "Devlet"},
-    {"Name": "KARABÜK ÜNİVERSİTESİ", "City": "Karabük", "Type": "Devlet"},
-    {"Name": "ZONGULDAK BÜLENT ECEVİT ÜNİVERSİTESİ", "City": "Zonguldak", "Type": "Devlet"},
-    {"Name": "AMASYA ÜNİVERSİTESİ", "City": "Amasya", "Type": "Devlet"},
-    {"Name": "ÇANKIRI KARATEKİN ÜNİVERSİTESİ", "City": "Çankırı", "Type": "Devlet"},
-    {"Name": "HİTİT ÜNİVERSİTESİ", "City": "Çorum", "Type": "Devlet"},
-    {"Name": "YOZGAT BOZOK ÜNİVERSİTESİ", "City": "Yozgat", "Type": "Devlet"},
-    {"Name": "NEVŞEHİR HACI BEKTAŞ VELİ ÜNİVERSİTESİ", "City": "Nevşehir", "Type": "Devlet"},
-    {"Name": "KAPADOKYA ÜNİVERSİTESİ", "City": "Nevşehir", "Type": "Vakıf"},
-    {"Name": "NİĞDE ÖMER HALİSDEMİR ÜNİVERSİTESİ", "City": "Niğde", "Type": "Devlet"},
-    {"Name": "AHİ EVRAN ÜNİVERSİTESİ", "City": "Kırşehir", "Type": "Devlet"},
-    {"Name": "AKSARAY ÜNİVERSİTESİ", "City": "Aksaray", "Type": "Devlet"},
-    {"Name": "KIRKLARELİ ÜNİVERSİTESİ", "City": "Kırklareli", "Type": "Devlet"},
-    {"Name": "TEKİRDAĞ NAMIK KEMAL ÜNİVERSİTESİ", "City": "Tekirdağ", "Type": "Devlet"},
-    {"Name": "KAFKAS ÜNİVERSİTESİ", "City": "Kars", "Type": "Devlet"},
-    {"Name": "ARDAHAN ÜNİVERSİTESİ", "City": "Ardahan", "Type": "Devlet"},
-    {"Name": "IĞDIR ÜNİVERSİTESİ", "City": "Iğdır", "Type": "Devlet"},
-    {"Name": "AĞRI İBRAHİM ÇEÇEN ÜNİVERSİTESİ", "City": "Ağrı", "Type": "Devlet"},
-    {"Name": "MUŞ ALPARSLAN ÜNİVERSİTESİ", "City": "Muş", "Type": "Devlet"},
-    {"Name": "BİTLİS EREN ÜNİVERSİTESİ", "City": "Bitlis", "Type": "Devlet"},
-    {"Name": "HAKKARİ ÜNİVERSİTESİ", "City": "Hakkari", "Type": "Devlet"},
-    {"Name": "ŞIRNAK ÜNİVERSİTESİ", "City": "Şırnak", "Type": "Devlet"},
-    {"Name": "SİİRT ÜNİVERSİTESİ", "City": "Siirt", "Type": "Devlet"},
-    {"Name": "SİNOP ÜNİVERSİTESİ", "City": "Sinop", "Type": "Devlet"},
-    {"Name": "BATMAN ÜNİVERSİTESİ", "City": "Batman", "Type": "Devlet"},
-    {"Name": "MARDİN ARTUKLU ÜNİVERSİTESİ", "City": "Mardin", "Type": "Devlet"},
-    {"Name": "ADIYAMAN ÜNİVERSİTESİ", "City": "Adıyaman", "Type": "Devlet"},
-    {"Name": "KİLİS 7 ARALIK ÜNİVERSİTESİ", "City": "Kilis", "Type": "Devlet"},
-    {"Name": "OSMANİYE KORKUT ATA ÜNİVERSİTESİ", "City": "Osmaniye", "Type": "Devlet"},
-    {"Name": "HATAY MUSTAFA KEMAL ÜNİVERSİTESİ", "City": "Hatay", "Type": "Devlet"},
-    {"Name": "İSKENDERUN TEKNİK ÜNİVERSİTESİ", "City": "Hatay", "Type": "Devlet"},
-    {"Name": "KAHRAMANMARAŞ SÜTÇÜ İMAM ÜNİVERSİTESİ", "City": "Kahramanmaraş", "Type": "Devlet"},
-    {"Name": "KAHRAMANMARAŞ İSTİKLAL ÜNİVERSİTESİ", "City": "Kahramanmaraş", "Type": "Devlet"},
-    {"Name": "ERZİNCAN BİNALİ YILDIRIM ÜNİVERSİTESİ", "City": "Erzincan", "Type": "Devlet"},
-    {"Name": "MUNZUR ÜNİVERSİTESİ", "City": "Tunceli", "Type": "Devlet"},
-    {"Name": "BİNGÖL ÜNİVERSİTESİ", "City": "Bingöl", "Type": "Devlet"},
-    {"Name": "VAN YÜZÜNCÜ YIL ÜNİVERSİTESİ", "City": "Van", "Type": "Devlet"},
-    {"Name": "YALOVA ÜNİVERSİTESİ", "City": "Yalova", "Type": "Devlet"},
-    {"Name": "BİLECİK ŞEYH EDEBALİ ÜNİVERSİTESİ", "City": "Bilecik", "Type": "Devlet"},
-    {"Name": "BAYBURT ÜNİVERSİTESİ", "City": "Bayburt", "Type": "Devlet"},
-    {"Name": "BURDUR MEHMET AKİF ERSOY ÜNİVERSİTESİ", "City": "Burdur", "Type": "Devlet"},
-    {"Name": "ARTVİN ÇORUH ÜNİVERSİTESİ", "City": "Artvin", "Type": "Devlet"},
-    {"Name": "AKSARAY ÜNİVERSİTESİ", "City": "Aksaray", "Type": "Devlet"},
+  { "Name": "ADANA ALPARSLAN TÜRKEŞ BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Adana", "Type": "Devlet" },
+  { "Name": "ÇUKUROVA ÜNİVERSİTESİ", "City": "Adana", "Type": "Devlet" },
+  { "Name": "ADIYAMAN ÜNİVERSİTESİ", "City": "Adıyaman", "Type": "Devlet" },
+  { "Name": "AFYON KOCATEPE ÜNİVERSİTESİ", "City": "Afyonkarahisar", "Type": "Devlet" },
+  { "Name": "AFYONKARAHİSAR SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "Afyonkarahisar", "Type": "Devlet" },
+  { "Name": "AĞRI İBRAHİM ÇEÇEN ÜNİVERSİTESİ", "City": "Ağrı", "Type": "Devlet" },
+  { "Name": "AKSARAY ÜNİVERSİTESİ", "City": "Aksaray", "Type": "Devlet" },
+  { "Name": "AMASYA ÜNİVERSİTESİ", "City": "Amasya", "Type": "Devlet" },
+  { "Name": "ANKARA BİLİM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "ANKARA HACI BAYRAM VELİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "ANKARA MEDİPOL ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "ANKARA SOSYAL BİLİMLER ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "ANKARA ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "ANKARA YILDIRIM BEYAZIT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "ATILIM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "BAŞKENT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "ÇANKAYA ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "GAZİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "HACETTEPE ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "İHSAN DOĞRAMACI BİLKENT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "LOKMAN HEKİM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "ORTA DOĞU TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "OSTİM TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "TED ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "TOBB EKONOMİ VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "UFUK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "YÜKSEK İHTİSAS ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf" },
+  { "Name": "AKDENİZ ÜNİVERSİTESİ", "City": "Antalya", "Type": "Devlet" },
+  { "Name": "ALANYA ALAADDİN KEYKUBAT ÜNİVERSİTESİ", "City": "Antalya", "Type": "Devlet" },
+  { "Name": "ANTALYA BİLİM ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf" },
+  { "Name": "ARDAHAN ÜNİVERSİTESİ", "City": "Ardahan", "Type": "Devlet" },
+  { "Name": "ARTVİN ÇORUH ÜNİVERSİTESİ", "City": "Artvin", "Type": "Devlet" },
+  { "Name": "AYDIN ADNAN MENDERES ÜNİVERSİTESİ", "City": "Aydın", "Type": "Devlet" },
+  { "Name": "BALIKESİR ÜNİVERSİTESİ", "City": "Balıkesir", "Type": "Devlet" },
+  { "Name": "BANDIRMA ONYEDİ EYLÜL ÜNİVERSİTESİ", "City": "Balıkesir", "Type": "Devlet" },
+  { "Name": "BARTIN ÜNİVERSİTESİ", "City": "Bartın", "Type": "Devlet" },
+  { "Name": "BATMAN ÜNİVERSİTESİ", "City": "Batman", "Type": "Devlet" },
+  { "Name": "BAYBURT ÜNİVERSİTESİ", "City": "Bayburt", "Type": "Devlet" },
+  { "Name": "BİLECİK ŞEYH EDEBALİ ÜNİVERSİTESİ", "City": "Bilecik", "Type": "Devlet" },
+  { "Name": "BİNGÖL ÜNİVERSİTESİ", "City": "Bingöl", "Type": "Devlet" },
+  { "Name": "BİTLİS EREN ÜNİVERSİTESİ", "City": "Bitlis", "Type": "Devlet" },
+  { "Name": "BOLU ABANT İZZET BAYSAL ÜNİVERSİTESİ", "City": "Bolu", "Type": "Devlet" },
+  { "Name": "BURDUR MEHMET AKİF ERSOY ÜNİVERSİTESİ", "City": "Burdur", "Type": "Devlet" },
+  { "Name": "BURSA TEKNİK ÜNİVERSİTESİ", "City": "Bursa", "Type": "Devlet" },
+  { "Name": "BURSA ULUDAĞ ÜNİVERSİTESİ", "City": "Bursa", "Type": "Devlet" },
+  { "Name": "MUDANYA ÜNİVERSİTESİ", "City": "Bursa", "Type": "Vakıf" },
+  { "Name": "ÇANAKKALE ONSEKİZ MART ÜNİVERSİTESİ", "City": "Çanakkale", "Type": "Devlet" },
+  { "Name": "ÇANKIRI KARATEKİN ÜNİVERSİTESİ", "City": "Çankırı", "Type": "Devlet" },
+  { "Name": "HİTİT ÜNİVERSİTESİ", "City": "Çorum", "Type": "Devlet" },
+  { "Name": "PAMUKKALE ÜNİVERSİTESİ", "City": "Denizli", "Type": "Devlet" },
+  { "Name": "DİCLE ÜNİVERSİTESİ", "City": "Diyarbakır", "Type": "Devlet" },
+  { "Name": "DÜZCE ÜNİVERSİTESİ", "City": "Düzce", "Type": "Devlet" },
+  { "Name": "TRAKYA ÜNİVERSİTESİ", "City": "Edirne", "Type": "Devlet" },
+  { "Name": "FIRAT ÜNİVERSİTESİ", "City": "Elazığ", "Type": "Devlet" },
+  { "Name": "ERZİNCAN BİNALİ YILDIRIM ÜNİVERSİTESİ", "City": "Erzincan", "Type": "Devlet" },
+  { "Name": "ATATÜRK ÜNİVERSİTESİ", "City": "Erzurum", "Type": "Devlet" },
+  { "Name": "ERZURUM TEKNİK ÜNİVERSİTESİ", "City": "Erzurum", "Type": "Devlet" },
+  { "Name": "ANADOLU ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet" },
+  { "Name": "ESKİŞEHİR OSMANGAZİ ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet" },
+  { "Name": "ESKİŞEHİR TEKNİK ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet" },
+  { "Name": "GAZİANTEP İSLAM BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Devlet" },
+  { "Name": "GAZİANTEP ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Devlet" },
+  { "Name": "HASAN KALYONCU ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Vakıf" },
+  { "Name": "SANKO ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Vakıf" },
+  { "Name": "GİRESUN ÜNİVERSİTESİ", "City": "Giresun", "Type": "Devlet" },
+  { "Name": "GÜMÜŞHANE ÜNİVERSİTESİ", "City": "Gümüşhane", "Type": "Devlet" },
+  { "Name": "HAKKARİ ÜNİVERSİTESİ", "City": "Hakkari", "Type": "Devlet" },
+  { "Name": "İSKENDERUN TEKNİK ÜNİVERSİTESİ", "City": "Hatay", "Type": "Devlet" },
+  { "Name": "HATAY MUSTAFA KEMAL ÜNİVERSİTESİ", "City": "Hatay", "Type": "Devlet" },
+  { "Name": "IĞDIR ÜNİVERSİTESİ", "City": "Iğdır", "Type": "Devlet" },
+  { "Name": "ISPARTA UYGULAMALI BİLİMLER ÜNİVERSİTESİ", "City": "Isparta", "Type": "Devlet" },
+  { "Name": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ", "City": "Isparta", "Type": "Devlet" },
+  { "Name": "ACIBADEM MEHMET ALİ AYDINLAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "ALTINBAŞ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "BAHÇEŞEHİR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "BEYKOZ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "BEZM-İ ÂLEM VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "BİRUNİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "BOĞAZİÇİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "DEMİROĞLU BİLİM ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "DOĞUŞ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "FATİH SULTAN MEHMET VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "FENERBAHÇE ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "GALATASARAY ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "HALİÇ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "IŞIK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İBN HALDUN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL 29 MAYIS ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL AREL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL ATLAS ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL AYDIN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL BEYKENT ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL BİLGİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL ESENYURT ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL GALATA ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL GEDİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL GELİŞİM ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL KENT ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL KÜLTÜR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL MEDENİYET ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "İSTANBUL MEDİPOL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL OKAN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL RUMELİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL SABAHATTİN ZAİM ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL TİCARET ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL TEKNİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "İSTANBUL TOPKAPI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTANBUL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "İSTANBUL ÜNİVERSİTESİ-CERRAHPAŞA", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "İSTANBUL YENİ YÜZYIL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "İSTİNYE ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "KADİR HAS ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "KOÇ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "MALTEPE ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "MARMARA ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "MEF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "MİMAR SİNAN GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "İSTANBUL NİŞANTAŞI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "ÖZYEĞİN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "PİRİ REİS ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "SABANCI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "TÜRK-ALMAN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "TÜRKİYE ULUSLARARASI İSLAM BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "ÜSKÜDAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "YEDİTEPE ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf" },
+  { "Name": "YILDIZ TEKNİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet" },
+  { "Name": "DOKUZ EYLÜL ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet" },
+  { "Name": "EGE ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet" },
+  { "Name": "İZMİR BAKIRÇAY ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet" },
+  { "Name": "İZMİR DEMOKRASİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet" },
+  { "Name": "İZMİR EKONOMİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf" },
+  { "Name": "İZMİR KÂTİP ÇELEBİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet" },
+  { "Name": "İZMİR TINAZTEPE ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf" },
+  { "Name": "İZMİR YÜKSEK TEKNOLOJİ ENSTİTÜSÜ", "City": "İzmir", "Type": "Devlet" },
+  { "Name": "YAŞAR ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf" },
+  { "Name": "KAHRAMANMARAŞ İSTİKLAL ÜNİVERSİTESİ", "City": "Kahramanmaraş", "Type": "Devlet" },
+  { "Name": "KAHRAMANMARAŞ SÜTÇÜ İMAM ÜNİVERSİTESİ", "City": "Kahramanmaraş", "Type": "Devlet" },
+  { "Name": "KARABÜK ÜNİVERSİTESİ", "City": "Karabük", "Type": "Devlet" },
+  { "Name": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ", "City": "Karaman", "Type": "Devlet" },
+  { "Name": "KAFKAS ÜNİVERSİTESİ", "City": "Kars", "Type": "Devlet" },
+  { "Name": "KASTAMONU ÜNİVERSİTESİ", "City": "Kastamonu", "Type": "Devlet" },
+  { "Name": "ERCİYES ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet" },
+  { "Name": "KAYSERİ ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet" },
+  { "Name": "NUH NACİ YAZGAN ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Vakıf" },
+  { "Name": "KIRIKKALE ÜNİVERSİTESİ", "City": "Kırıkkale", "Type": "Devlet" },
+  { "Name": "KIRKLARELİ ÜNİVERSİTESİ", "City": "Kırklareli", "Type": "Devlet" },
+  { "Name": "AHİ EVRAN ÜNİVERSİTESİ", "City": "Kırşehir", "Type": "Devlet" },
+  { "Name": "KİLİS 7 ARALIK ÜNİVERSİTESİ", "City": "Kilis", "Type": "Devlet" },
+  { "Name": "GEBZE TEKNİK ÜNİVERSİTESİ", "City": "Kocaeli", "Type": "Devlet" },
+  { "Name": "KOCAELİ SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Kocaeli", "Type": "Vakıf" },
+  { "Name": "KOCAELİ ÜNİVERSİTESİ", "City": "Kocaeli", "Type": "Devlet" },
+  { "Name": "KONYA GIDA VE TARIM ÜNİVERSİTESİ", "City": "Konya", "Type": "Vakıf" },
+  { "Name": "KONYA TEKNİK ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet" },
+  { "Name": "KTO KARATAY ÜNİVERSİTESİ", "City": "Konya", "Type": "Vakıf" },
+  { "Name": "NECMETTİN ERBAKAN ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet" },
+  { "Name": "SELÇUK ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet" },
+  { "Name": "KÜTAHYA DUMLUPINAR ÜNİVERSİTESİ", "City": "Kütahya", "Type": "Devlet" },
+  { "Name": "KÜTAHYA SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "Kütahya", "Type": "Devlet" },
+  { "Name": "İNÖNÜ ÜNİVERSİTESİ", "City": "Malatya", "Type": "Devlet" },
+  { "Name": "MALATYA TURGUT ÖZAL ÜNİVERSİTESİ", "City": "Malatya", "Type": "Devlet" },
+  { "Name": "MANİSA CELÂL BAYAR ÜNİVERSİTESİ", "City": "Manisa", "Type": "Devlet" },
+  { "Name": "MARDİN ARTUKLU ÜNİVERSİTESİ", "City": "Mardin", "Type": "Devlet" },
+  { "Name": "MERSİN ÜNİVERSİTESİ", "City": "Mersin", "Type": "Devlet" },
+  { "Name": "TARSUS ÜNİVERSİTESİ", "City": "Mersin", "Type": "Devlet" },
+  { "Name": "ÇAĞ ÜNİVERSİTESİ", "City": "Mersin", "Type": "Vakıf" },
+  { "Name": "MUĞLA SITKI KOÇMAN ÜNİVERSİTESİ", "City": "Muğla", "Type": "Devlet" },
+  { "Name": "MUŞ ALPARSLAN ÜNİVERSİTESİ", "City": "Muş", "Type": "Devlet" },
+  { "Name": "KAPADOKYA ÜNİVERSİTESİ", "City": "Nevşehir", "Type": "Vakıf" },
+  { "Name": "NEVŞEHİR HACI BEKTAŞ VELİ ÜNİVERSİTESİ", "City": "Nevşehir", "Type": "Devlet" },
+  { "Name": "NİĞDE ÖMER HALİSDEMİR ÜNİVERSİTESİ", "City": "Niğde", "Type": "Devlet" },
+  { "Name": "ORDU ÜNİVERSİTESİ", "City": "Ordu", "Type": "Devlet" },
+  { "Name": "OSMANİYE KORKUT ATA ÜNİVERSİTESİ", "City": "Osmaniye", "Type": "Devlet" },
+  { "Name": "RECEP TAYYİP ERDOĞAN ÜNİVERSİTESİ", "City": "Rize", "Type": "Devlet" },
+  { "Name": "SAKARYA UYGULAMALI BİLİMLER ÜNİVERSİTESİ", "City": "Sakarya", "Type": "Devlet" },
+  { "Name": "SAKARYA ÜNİVERSİTESİ", "City": "Sakarya", "Type": "Devlet" },
+  { "Name": "ONDOKUZ MAYIS ÜNİVERSİTESİ", "City": "Samsun", "Type": "Devlet" },
+  { "Name": "SAMSUN ÜNİVERSİTESİ", "City": "Samsun", "Type": "Devlet" },
+  { "Name": "SİİRT ÜNİVERSİTESİ", "City": "Siirt", "Type": "Devlet" },
+  { "Name": "SİNOP ÜNİVERSİTESİ", "City": "Sinop", "Type": "Devlet" },
+  { "Name": "SİVAS CUMHURİYET ÜNİVERSİTESİ", "City": "Sivas", "Type": "Devlet" },
+  { "Name": "SİVAS BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Sivas", "Type": "Devlet" },
+  { "Name": "HARRAN ÜNİVERSİTESİ", "City": "Şanlıurfa", "Type": "Devlet" },
+  { "Name": "ŞIRNAK ÜNİVERSİTESİ", "City": "Şırnak", "Type": "Devlet" },
+  { "Name": "TEKİRDAĞ NAMIK KEMAL ÜNİVERSİTESİ", "City": "Tekirdağ", "Type": "Devlet" },
+  { "Name": "TOKAT GAZİOSMANPAŞA ÜNİVERSİTESİ", "City": "Tokat", "Type": "Devlet" },
+  { "Name": "KARADENİZ TEKNİK ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Devlet" },
+  { "Name": "TRABZON ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Devlet" },
+  { "Name": "AVRASYA ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Vakıf" },
+  { "Name": "MUNZUR ÜNİVERSİTESİ", "City": "Tunceli", "Type": "Devlet" },
+  { "Name": "UŞAK ÜNİVERSİTESİ", "City": "Uşak", "Type": "Devlet" },
+  { "Name": "VAN YÜZÜNCÜ YIL ÜNİVERSİTESİ", "City": "Van", "Type": "Devlet" },
+  { "Name": "YALOVA ÜNİVERSİTESİ", "City": "Yalova", "Type": "Devlet" },
+  { "Name": "YOZGAT BOZOK ÜNİVERSİTESİ", "City": "Yozgat", "Type": "Devlet" },
+  { "Name": "ZONGULDAK BÜLENT ECEVİT ÜNİVERSİTESİ", "City": "Zonguldak", "Type": "Devlet" }
+  { "Name": "ABDULLAH GÜL ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet" },
+  { "Name": "ALANYA ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf" },
+  { "Name": "ANKARA MÜZİK VE GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
+  { "Name": "ANTALYA BELEK ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf" },
+  { "Name": "TOROS ÜNİVERSİTESİ", "City": "Mersin", "Type": "Vakıf" }
 ]
 
 def load_university_list() -> list:
@@ -414,15 +447,40 @@ def load_university_list() -> list:
     return FALLBACK_UNIVERSITY_LIST
 
 def match_university(name: str, ulist: list) -> tuple:
-    name_norm = normalize_for_match(clean_cell(name))
+    """
+    Match a raw name string (from PDF or link text) against the university list.
+    Returns the canonical name, city and type from the list if found.
+
+    Two-pass matching:
+    Pass 1 — with spaces preserved: handles clean text that already has spaces.
+    Pass 2 — spaces stripped from both sides: handles run-together PDF text like
+              'KARAMANOGLUMEHMETBEYUNIVERSITESI' which should match
+              'KARAMANOGLU MEHMETBEY UNIVERSITESI' from the list.
+    The canonical name from the list is ALWAYS what gets stored — never the raw PDF text.
+    """
+    name_norm       = normalize_for_match(clean_cell(name))
+    name_norm_nsp   = name_norm.replace(" ", "").replace("-", "")   # space+hyphen stripped
+
     best, best_len = None, 0
+
     for uni in ulist:
-        u_norm = normalize_for_match(uni["Name"])
-        if u_norm in name_norm or name_norm in u_norm:
-            if len(u_norm) > best_len:
-                best, best_len = uni, len(u_norm)
+        u_norm     = normalize_for_match(uni["Name"])
+        u_norm_nsp = u_norm.replace(" ", "").replace("-", "")
+
+        # Pass 1: substring match with spaces intact
+        matched = u_norm in name_norm or name_norm in u_norm
+        # Pass 2: substring match ignoring spaces (catches run-together words)
+        if not matched:
+            matched = u_norm_nsp in name_norm_nsp or name_norm_nsp in u_norm_nsp
+
+        if matched and len(u_norm) > best_len:
+            best, best_len = uni, len(u_norm)
+
     if best:
+        # Always write the clean canonical name from our list, never the raw PDF text
         return best["Name"], best["City"], best["Type"]
+
+    log.warning(f"  No university match found for: '{name.strip()}'")
     return tr_upper(name.strip()), "Bilinmiyor", "Devlet"
 
 # ── Existing JSON (deduplication) ─────────────────────────────────────────────
@@ -469,25 +527,39 @@ def is_academic(title: str) -> bool:
 # ── Extraction helpers ────────────────────────────────────────────────────────
 
 def extract_university_from_link_text(link_text: str) -> str:
-    up = tr_upper(clean_cell(link_text))
-    marker = tr_upper("REKTÖRLÜĞÜNDEN")
-    if marker in up:
-        return up.split(marker)[0].strip()
+    """
+    Extract the university name portion from a gazette link text.
+    e.g. "Hacettepe Üniversitesi Rektörlüğünden" → "HACETTEPE ÜNİVERSİTESİ"
+         "KARAMANOĞLUMEHMETBEYÜNİVERSİTESİ Rektörlüğünden" → "KARAMANOĞLUMEHMETBEYÜNIVERSITESI"
+    The raw result (possibly run-together) is then passed to match_university
+    which handles space-stripped comparison.
+    """
+    cleaned = clean_cell(link_text)
+    up = tr_upper(cleaned)
+    for marker in [tr_upper("REKTÖRLÜĞÜNDEN"), tr_upper("REKTORLUGUNDEN"), "REKTORLUGUNDEN"]:
+        if marker in up:
+            return up.split(marker)[0].strip()
     return up
 
 def extract_university_from_text(text: str, ulist: list) -> str:
-    text_norm = normalize_for_match(text)
+    """
+    Scan the full PDF text for any university name from the list.
+    Uses space-stripped comparison so run-together words still match.
+    Returns the canonical name from the list if found.
+    """
+    text_norm     = normalize_for_match(text)
+    text_norm_nsp = text_norm.replace(" ", "")
     best, best_len = None, 0
+
     for uni in ulist:
-        u_norm = normalize_for_match(uni["Name"])
-        if u_norm in text_norm and len(u_norm) > best_len:
+        u_norm     = normalize_for_match(uni["Name"])
+        u_norm_nsp = u_norm.replace(" ", "").replace("-", "")
+        # Try both with-spaces and without-spaces
+        if (u_norm in text_norm or u_norm_nsp in text_norm_nsp) and len(u_norm) > best_len:
             best, best_len = uni["Name"], len(u_norm)
-    if best: return best
-    m = re.search(r"([\wCGIOSUcgiosu\s]+?)\s*REKTORLUGUNDEN", text_norm)
-    if m:
-        for uni in ulist:
-            if normalize_for_match(uni["Name"]) in m.group(1):
-                return uni["Name"]
+
+    if best:
+        return best
     return "Bilinmiyor"
 
 def extract_deadline(text: str, publish_date: datetime) -> str | None:
