@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 AkademikRadar Scraper
 Scrapes academic job announcements from Resmî Gazete and produces ilanlar.json.
