@@ -397,7 +397,7 @@ FALLBACK_UNIVERSITY_LIST = [
   { "Name": "VAN YÜZÜNCÜ YIL ÜNİVERSİTESİ", "City": "Van", "Type": "Devlet" },
   { "Name": "YALOVA ÜNİVERSİTESİ", "City": "Yalova", "Type": "Devlet" },
   { "Name": "YOZGAT BOZOK ÜNİVERSİTESİ", "City": "Yozgat", "Type": "Devlet" },
-  { "Name": "ZONGULDAK BÜLENT ECEVİT ÜNİVERSİTESİ", "City": "Zonguldak", "Type": "Devlet" }
+  { "Name": "ZONGULDAK BÜLENT ECEVİT ÜNİVERSİTESİ", "City": "Zonguldak", "Type": "Devlet" },
   { "Name": "ABDULLAH GÜL ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet" },
   { "Name": "ALANYA ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf" },
   { "Name": "ANKARA MÜZİK VE GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet" },
