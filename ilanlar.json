@@ -1,700 +1,3472 @@
-# -*- coding: utf-8 -*-
-"""
-AkademikRadar Scraper
-Scrapes academic job announcements from Resmî Gazete and produces ilanlar.json.
-"""
-
-import requests
-from bs4 import BeautifulSoup
-import json, re, io, os, time, logging
-from datetime import datetime, timezone, timedelta
-
-try:
-    import pdfplumber
-    PDF_AVAILABLE = True
-except ImportError:
-    PDF_AVAILABLE = False
-
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-log = logging.getLogger(__name__)
-
-# ── Runtime limits ────────────────────────────────────────────────────────────
-MAX_RUNTIME_SECONDS = 20 * 60
-MAX_PDFS_PER_RUN    = 30
-
-# ── Request timeouts ──────────────────────────────────────────────────────────
-CONNECT_TIMEOUT = 10
-READ_TIMEOUT    = 25
-TIMEOUT         = (CONNECT_TIMEOUT, READ_TIMEOUT)
-MAX_PDF_BYTES   = 6 * 1024 * 1024
-
-OUTPUT_FILE = "ilanlar.json"
-DAYS_TO_CHECK = 5
-RG_BASE = "https://www.resmigazete.gov.tr"
-UNIVERSITY_LIST_URL = (
-    "https://raw.githubusercontent.com/sametabbak/AkademikRadarFiltreListesi"
-    "/refs/heads/main/TurkishUniversityList"
-)
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-    ),
-    "Accept": "text/html,application/pdf,*/*",
-    "Accept-Language": "tr-TR,tr;q=0.9",
-}
-
-ACADEMIC_TITLES = {
-    "PROFESÖR",
-    "DOÇENT",
-    "DR. ÖĞR. ÜYESİ",
-    "ÖĞRETİM GÖREVLİSİ",
-    "ARAŞTIRMA GÖREVLİSİ",
-}
-
-TITLE_ALIASES = {
-    "PROF.":                      "PROFESÖR",
-    "PROF. DR.":                  "PROFESÖR",
-    "DOÇ.":                       "DOÇENT",
-    "DOÇ. DR.":                   "DOÇENT",
-    "DOÇENT DR.":                 "DOÇENT",
-    "YARDIMCI DOÇENT":            "DR. ÖĞR. ÜYESİ",
-    "DR. ÖĞR.":                   "DR. ÖĞR. ÜYESİ",
-    "DR.ÖĞR.ÜYESİ":               "DR. ÖĞR. ÜYESİ",
-    "DOKTOR ÖĞRETİM ÜYESİ":       "DR. ÖĞR. ÜYESİ",
-    "DR. ÖĞRETİM ÜYESİ":          "DR. ÖĞR. ÜYESİ",
-    "DR.ÖĞRETİM ÜYESİ":           "DR. ÖĞR. ÜYESİ",
-    "DR ÖĞRETİM ÜYESİ":           "DR. ÖĞR. ÜYESİ",
-    "DOKTOR OGRETIM UYESI":       "DR. ÖĞR. ÜYESİ",
-    "DR. OGRETIM UYESI":          "DR. ÖĞR. ÜYESİ",
-    "ÖĞR. GÖR.":                  "ÖĞRETİM GÖREVLİSİ",
-    "ÖĞRETİM GÖR.":               "ÖĞRETİM GÖREVLİSİ",
-    "OGRETIM GOREVLISI":          "ÖĞRETİM GÖREVLİSİ",
-    "ARŞ. GÖR.":                  "ARAŞTIRMA GÖREVLİSİ",
-    "ARAŞTIRMA GÖR.":             "ARAŞTIRMA GÖREVLİSİ",
-    "ARASTIRMA GOREVLISI":        "ARAŞTIRMA GÖREVLİSİ",
-}
-
-TR_MONTHS = {
-    "Ocak":1,"Şubat":2,"Mart":3,"Nisan":4,"Mayıs":5,"Haziran":6,
-    "Temmuz":7,"Ağustos":8,"Eylül":9,"Ekim":10,"Kasım":11,"Aralık":12,
-}
-
-_start_time = time.monotonic()
-
-def time_remaining() -> float:
-    return MAX_RUNTIME_SECONDS - (time.monotonic() - _start_time)
-
-def budget_ok() -> bool:
-    remaining = time_remaining()
-    if remaining <= 0:
-        log.warning(f"Time budget exhausted after {MAX_RUNTIME_SECONDS}s.")
-    return remaining > 0
-
-def tr_upper(s: str) -> str:
-    return s.replace("i", "İ").replace("ı", "I").upper()
-
-def normalize_for_match(s: str) -> str:
-    return (
-        s
-        .replace("İ", "I").replace("ı", "I").replace("i", "I")
-        .replace("ğ", "g").replace("Ğ", "G")
-        .replace("ş", "s").replace("Ş", "S")
-        .replace("ç", "c").replace("Ç", "C")
-        .replace("ö", "o").replace("Ö", "O")
-        .replace("ü", "u").replace("Ü", "U")
-        .upper()
-    )
-
-def clean_cell(value: str) -> str:
-    if not value: return ""
-    text = re.sub(r"[\r\n]+", " ", value)
-    return re.sub(r"[ \t]{2,}", " ", text).strip()
-
-_session = requests.Session()
-_session.headers.update(HEADERS)
-from requests.adapters import HTTPAdapter
-_adapter = HTTPAdapter(max_retries=0)
-_session.mount("http://", _adapter)
-_session.mount("https://", _adapter)
-
-def fetch_html(url: str) -> BeautifulSoup | None:
-    if not budget_ok(): return None
-    try:
-        r = _session.get(url, timeout=TIMEOUT)
-        r.raise_for_status()
-        r.encoding = r.apparent_encoding
-        return BeautifulSoup(r.text, "html.parser")
-    except Exception:
-        return None
-
-def fetch_bytes(url: str, retries: int = 2) -> bytes | None:
-    if not budget_ok(): return None
-    for attempt in range(1, retries + 1):
-        if not budget_ok(): return None
-        try:
-            with _session.get(url, timeout=TIMEOUT, stream=True) as r:
-                r.raise_for_status()
-                content_length = int(r.headers.get("Content-Length", 0))
-                if content_length > MAX_PDF_BYTES: return None
-                chunks = []
-                total = 0
-                chunk_deadline = time.monotonic() + READ_TIMEOUT
-                for chunk in r.iter_content(chunk_size=65536):
-                    if not chunk: continue
-                    total += len(chunk)
-                    if total > MAX_PDF_BYTES: return None
-                    if time.monotonic() > chunk_deadline: return None
-                    chunk_deadline = time.monotonic() + READ_TIMEOUT
-                    chunks.append(chunk)
-                return b"".join(chunks)
-        except Exception:
-            if attempt < retries: time.sleep(3)
-    return None
-
-def build_index_url(date: datetime) -> str:
-    return f"{RG_BASE}/ilanlar/eskiilanlar/{date.strftime('%Y')}/{date.strftime('%m')}/{date.strftime('%Y%m%d')}-4.htm"
-
-def resolve_url(href: str, index_url: str) -> str:
-    if href.startswith("http"): return href
-    if href.startswith("/"): return RG_BASE + href
-    return index_url.rsplit("/", 1)[0] + "/" + href
-
-def to_pdf_url(url: str) -> str:
-    if url.endswith(".htm"): return url[:-4] + ".pdf"
-    if url.endswith(".pdf"): return url
-    return url + ".pdf"
-
-UNIVERSITY_CACHE_FILE = "university_list_cache.json"
-
-FALLBACK_UNIVERSITY_LIST = [
-    {"Name": "ANKARA ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "GAZİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "HACETTEPE ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA BİLİM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ORTA DOĞU TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "İSTANBUL TEKNİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "İSTANBUL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "MARMARA ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-]
-
-def load_university_list() -> list:
-    for attempt in range(1, 4):
-        try:
-            r = _session.get(UNIVERSITY_LIST_URL, timeout=TIMEOUT)
-            r.raise_for_status()
-            data = r.json()
-            if data:
-                try:
-                    with open(UNIVERSITY_CACHE_FILE, "w", encoding="utf-8") as f:
-                        json.dump(data, f, ensure_ascii=False)
-                except Exception: pass
-                return data
-        except Exception:
-            if attempt < 3: time.sleep(3)
-    if os.path.exists(UNIVERSITY_CACHE_FILE):
-        try:
-            with open(UNIVERSITY_CACHE_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            if data: return data
-        except Exception: pass
-    return FALLBACK_UNIVERSITY_LIST
-
-def match_university(name: str, ulist: list) -> tuple:
-    name_norm       = normalize_for_match(clean_cell(name))
-    name_norm_nsp   = name_norm.replace(" ", "").replace("-", "") 
-    best, best_len = None, 0
-    for uni in ulist:
-        u_norm     = normalize_for_match(uni["Name"])
-        u_norm_nsp = u_norm.replace(" ", "").replace("-", "")
-        matched = u_norm in name_norm or name_norm in u_norm
-        if not matched: matched = u_norm_nsp in name_norm_nsp or name_norm_nsp in u_norm_nsp
-        if matched and len(u_norm) > best_len:
-            best, best_len = uni, len(u_norm)
-    if best: return best["Name"], best["City"], best["Type"]
-    return tr_upper(name.strip()), "Bilinmiyor", "Devlet"
-
-def load_existing_ads() -> tuple[list, set]:
-    if not os.path.exists(OUTPUT_FILE): return [], set()
-    try:
-        with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        ads = data.get("ads", [])
-        urls = {ad["url"] for ad in ads if "url" in ad}
-        return ads, urls
-    except Exception: return [], set()
-
-def clean_pdf_text(raw: str) -> str:
-    text = re.sub(r"-\n", "", raw)
-    text = re.sub(r"(?<!\n)\n(?!\n)", " ", text)
-    text = re.sub(r"([a-zçğışöüA-ZÇĞİÖŞÜ])([A-ZÇĞİÖŞÜ]{2,})", r"\1 \2", text)
-    text = re.sub(r"[ \t]{2,}", " ", text)
-    lines = [l.strip() for l in text.split("\n")]
-    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
-
-def extract_titles_from_cell(raw: str) -> list:
-    found = []
-    raw_clean = re.sub(r'\d+', ' ', raw)
-    raw_clean = re.sub(r'[\r\n/\\-]', ' ', raw_clean)
-    raw_up = tr_upper(raw_clean)
-    raw_up = re.sub(r'\s+', ' ', raw_up).strip()
-    
-    all_search_terms = list(TITLE_ALIASES.keys()) + list(ACADEMIC_TITLES)
-    all_search_terms.sort(key=len, reverse=True)
-    pattern = "|".join(map(re.escape, [tr_upper(t) for t in all_search_terms]))
-    matches = re.findall(pattern, raw_up)
-    
-    for match in matches:
-        canonical = TITLE_ALIASES.get(match, match)
-        if canonical in ACADEMIC_TITLES: found.append(canonical)
-    return found
-
-def is_academic(title: str) -> bool:
-    return title in ACADEMIC_TITLES
-
-def extract_university_from_link_text(link_text: str) -> str:
-    cleaned = clean_cell(link_text)
-    up = tr_upper(cleaned)
-    for marker in [tr_upper("REKTÖRLÜĞÜNDEN"), tr_upper("REKTÖRLÜĞÜ"), tr_upper("REKTORLUGUNDEN"), tr_upper("REKTORLUGU"), tr_upper("DÜZELTME İLAN")]:
-        if marker in up: return up.split(marker)[0].strip()
-    return up
-
-def extract_university_from_text(text: str, ulist: list) -> str:
-    text_norm     = normalize_for_match(text)
-    text_norm_nsp = text_norm.replace(" ", "")
-    best, best_len = None, 0
-    for uni in ulist:
-        u_norm     = normalize_for_match(uni["Name"])
-        u_norm_nsp = u_norm.replace(" ", "").replace("-", "")
-        if (u_norm in text_norm or u_norm_nsp in text_norm_nsp) and len(u_norm) > best_len:
-            best, best_len = uni["Name"], len(u_norm)
-    if best: return best
-    return "Bilinmiyor"
-
-def extract_deadline(text: str, publish_date: datetime) -> str | None:
-    m = re.search(r"son\s+başvuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{2})[./](\d{4})", text, re.IGNORECASE)
-    if not m:
-        for candidate in re.finditer(r"başvuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{2})[./](\d{4})", text, re.IGNORECASE):
-            try:
-                cd = datetime(int(candidate.group(3)), int(candidate.group(2)), int(candidate.group(1)), tzinfo=timezone.utc)
-                if cd > publish_date: m = candidate; break
-            except ValueError: pass
-    if m:
-        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
-        tm = re.search(r"saat\s*(\d{1,2})[:\.](\d{2})", text[max(0, m.start()-20): m.start()+200], re.IGNORECASE)
-        h, mi = (int(tm.group(1)), int(tm.group(2))) if tm else (23, 59)
-        try: return datetime(y, mo, d, h, mi, tzinfo=timezone.utc).isoformat()
-        except ValueError: pass
-
-    for mname, mnum in TR_MONTHS.items():
-        for m in re.finditer(rf"(\d{{1,2}})\s+{mname}\s+(\d{{4}})", text, re.IGNORECASE):
-            d, y = int(m.group(1)), int(m.group(2))
-            try:
-                dt = datetime(y, mnum, d, 23, 59, tzinfo=timezone.utc)
-                if dt > publish_date: return dt.isoformat()
-            except ValueError: pass
-
-    m = re.search(r"(?:ilan[ıi]n?\s+yay[ıi]m\w*\s+tarihi[nk]den\s+itibaren|ilan\s+tarihinden\s+itibaren)[^0-9]*(\d+)", text, re.IGNORECASE)
-    if m:
-        days = int(m.group(1))
-        if 7 <= days <= 60: return (publish_date + timedelta(days=days)).replace(tzinfo=timezone.utc).isoformat()
-    return None
-
-ALES_EXEMPT_TITLES = {"PROFESÖR", "DOÇENT"}
-
-def extract_ales(text: str, title: str = "") -> dict:
-    r = {"alesRequired": False, "alesScore": None, "alesType": None}
-    if title in ALES_EXEMPT_TITLES: return r
-    if "ALES" not in tr_upper(text): return r
-    r["alesRequired"] = True
-    m = re.search(r"ALES[^0-9\n]{0,60}?(\d{2,3})\s*(?:ve üzeri|veya üzeri|puan|puanı)", text, re.IGNORECASE)
-    if not m: m = re.search(r"en\s+az\s*(\d{2,3})\s*(?:ALES|puan)", text, re.IGNORECASE)
-    if m: r["alesScore"] = int(m.group(1))
-    tm = re.search(r"ALES[^()\n]{0,60}?\b(SAY|SÖZ|EA|DİL|DIL)\b", text, re.IGNORECASE)
-    if tm: r["alesType"] = tm.group(1).upper().replace("DIL", "DİL")
-    return r
-
-def extract_language(text: str, title: str = "") -> dict:
-    r = {"foreignLanguageRequired": False, "foreignLanguageScore": None, "foreignLanguageExam": None}
-    for exam in ["YÖKDİL", "YOKDIL", "E-YDS", "YDS", "TOEFL", "IELTS"]:
-        if exam in tr_upper(text):
-            r["foreignLanguageRequired"] = True
-            r["foreignLanguageExam"] = exam.replace("YOKDIL", "YÖKDİL")
-            m = re.search(rf"{re.escape(exam)}[^0-9\n]{{0,60}}?(\d{{2,3}})\s*(?:ve üzeri|puan|puanı)", text, re.IGNORECASE)
-            if m: r["foreignLanguageScore"] = int(m.group(1))
-            break
-    if not r["foreignLanguageRequired"] and re.search(r"yabancı\s+dil", text, re.IGNORECASE):
-        r["foreignLanguageRequired"] = True
-    return r
-
-def extract_documents(text: str) -> list:
-    docs, tl = [], text.lower()
-    for kw, label in [
-        ("özgeçmiş","Özgeçmiş"), ("nüfus cüzdan","Nüfus Cüzdanı Sureti"),
-        ("diploma","Diploma Fotokopisi"), ("ales belgesi","ALES Belgesi"),
-        ("ales sonuç","ALES Sonuç Belgesi"), ("yds belgesi","YDS Belgesi"),
-        ("yokdil belgesi","YÖKDİL Belgesi"), ("yabancı dil belgesi","Yabancı Dil Belgesi"),
-        ("fotoğraf","Vesikalık Fotoğraf"), ("askerlik","Askerlik Durum Belgesi"),
-        ("transkript","Transkript (Not Döküm Belgesi)"), ("yayın listesi","Yayın Listesi"), 
-    ]:
-        if kw in tl and label not in docs: docs.append(label)
-    return docs
-
-FACULTY_KEYS = ["FAKÜLTE", "FAKÜLTESİ", "YÜKSEKOKUL", "ENSTİTÜ", "ENSTİTÜSÜ", "MYO", "MESLEK", "BİRİM", "OKUL"]
-DEPT_KEYS    = ["ANABİLİM", "PROGRAM", "BÖLÜM", "DAL", "ALAN"]
-TITLE_KEYS   = ["UNVAN", "ÜNVAN", "KADRO", "POZİSYON", "ÜNVANI"]
-COUNT_KEYS   = ["SAYI", "ADET", "KADRO ADEDİ", "KADRO SAYISI"]
-REQ_KEYS     = ["AÇIKLAMA", "NİTELİK", "ÖZEL ŞART", "ARANAN ŞART", "KOŞUL", "NİTELİKLER"]
-
-def extract_positions_from_tables(tables: list, full_text: str) -> list:
-    positions = []
-    
-    global_col = None
-    global_max_col = 0
-    
-    # State Machine (Durum Takibi) Değişkenleri
-    current_faculty = ""
-    current_dept = ""
-    pending_titles_with_counts = []
-    pending_reqs = []
-    
-    # Mevcut birikmiş (bekleyen) kadroyu ve şartlarını kaydeden yardımcı fonksiyon
-    def save_pending_block():
-        if not pending_titles_with_counts:
-            return
-        # Şart satırlarını aralarında boşlukla birleştir (String Concatenation)
-        req_text = " ".join(r for r in pending_reqs if r).strip()
-        
-        for title, count in pending_titles_with_counts:
-            pos = {
-                "faculty": current_faculty,
-                "department": current_dept,
-                "title": title,
-                "count": count,
-                "requirements": req_text
-            }
-            # Her bir kadro için Özel Şartlar metninden ALES ve Dil çek
-            ales = extract_ales(req_text, title)
-            if not ales["alesRequired"]: ales = extract_ales(full_text, title)
-            lang = extract_language(req_text, title)
-            if not lang["foreignLanguageRequired"]: lang = extract_language(full_text, title)
-            pos.update(ales)
-            pos.update(lang)
-            positions.append(pos)
-        
-        # Kaydettikten sonra sepeti (hafızayı) temizle
-        pending_titles_with_counts.clear()
-        pending_reqs.clear()
-
-    for table in tables:
-        if not table or len(table) < 2: continue
-        
-        header_idx = None
-        for i, row in enumerate(table[:5]):
-            row_up = tr_upper(" ".join(str(c or "") for c in row))
-            hits = sum(1 for k in TITLE_KEYS + COUNT_KEYS + FACULTY_KEYS if tr_upper(k) in row_up)
-            if hits >= 2: 
-                header_idx = i
-                break
-                
-        if header_idx is not None:
-            header = table[header_idx]
-            col: dict[str, int] = {}
-            for j, cell in enumerate(header):
-                cu = tr_upper(str(cell or "").strip())
-                if re.match(r"^\d+$", cu.strip()): continue
-                if "faculty"  not in col and any(tr_upper(k) in cu for k in FACULTY_KEYS): col["faculty"] = j
-                elif "dept"   not in col and any(tr_upper(k) in cu for k in DEPT_KEYS):    col["dept"] = j
-                elif "title"  not in col and any(tr_upper(k) in cu for k in TITLE_KEYS):   col["title"] = j
-                elif "count"  not in col and any(tr_upper(k) in cu for k in COUNT_KEYS):   col["count"] = j
-                elif "req"    not in col and any(tr_upper(k) in cu for k in REQ_KEYS):     col["req"] = j
-                
-            if col:
-                global_col = col
-                global_max_col = max(col.values()) if col else 0
-                start_idx = header_idx + 1
-            else:
-                start_idx = 0
-        else:
-            if global_col:
-                start_idx = 0
-            else:
-                continue
-                
-        current_col = global_col
-        max_col_idx = global_max_col
-        
-        for row in table[start_idx:]:
-            if not row or not any(row): continue
-            
-            if len(row) <= max_col_idx:
-                row.extend([""] * (max_col_idx - len(row) + 1))
-                
-            row = [clean_cell(str(c or "")) for c in row]
-            
-            # Sütunlardan verileri çek
-            fac_val = row[current_col["faculty"]] if "faculty" in current_col else ""
-            dept_val = row[current_col["dept"]] if "dept" in current_col else ""
-            title_val = row[current_col["title"]] if "title" in current_col else ""
-            count_val = row[current_col["count"]] if "count" in current_col else "1"
-            req_val = row[current_col["req"]] if "req" in current_col else ""
-            
-            # 1. HAFIZAYI GÜNCELLE (Forward Fill)
-            # Eğer satırda dolu bir fakülte veya bölüm varsa hafızayı ona güncelle.
-            if fac_val: current_faculty = fac_val
-            if dept_val: current_dept = dept_val
-            
-            # 2. YENİ KADRO TETİKLEYİCİSİ (Sadece "Unvan" sütununda aranır!)
-            row_titles = extract_titles_from_cell(title_val)
-            
-            if row_titles:
-                # EĞER YENİ UNVAN BULUNDUYSA: Bu yeni bir kadrodur!
-                # a) Eskisini paketle ve kaydet
-                save_pending_block()
-                
-                # b) Yeni kadronun Adetlerini hesapla
-                counts = [int(c) for c in re.findall(r'\d+', str(count_val))]
-                if not counts: counts = [1]
-                
-                # c) Yeni unvanları (ve adetleri) hafızaya al
-                for idx, t in enumerate(row_titles):
-                    c = counts[idx] if idx < len(counts) else counts[-1]
-                    pending_titles_with_counts.append((t, c))
-                    
-                # d) Yeni kadronun özel şartlarını sepete at
-                if req_val:
-                    pending_reqs = [req_val]
-            else:
-                # EĞER UNVAN YOKSA: Bu bir devam (continuation) satırıdır!
-                # Sadece özel şart cümlesini mevcut sepete eklemeye devam et.
-                if req_val:
-                    pending_reqs.append(req_val)
-                    
-    # Tüm tablolar ve satırlar bittikten sonra hafızada kalan en son kadroyu da kaydet
-    save_pending_block()
-    
-    return positions
-
-def extract_positions_from_text(full_text: str) -> list:
-    positions, lines = [], [l.strip() for l in full_text.split("\n") if l.strip()]
-    current_faculty = ""
-    for i, line in enumerate(lines):
-        lu = tr_upper(line)
-        if any(tr_upper(k) in lu for k in ["FAKÜLTE","YÜKSEKOKULU","ENSTİTÜSÜ","MYO"]):
-            if not extract_titles_from_cell(line):
-                current_faculty = line.strip(); continue
-                
-        found_titles = extract_titles_from_cell(line)
-        if not found_titles: continue
-        
-        if any(k in lu for k in ["BELGE", "İSTENEN", "GEREKLİ", "ŞART", "BAŞVURU", "KADROSU İÇİN"]):
-            continue
-
-        m = re.search(r'\b(\d{1,2})\b', line)
-        cnt = int(m.group(1)) if m else 1
-        
-        for found in found_titles:
-            dept = lu
-            for t in ACADEMIC_TITLES:
-                if t in lu:
-                    dept = lu.split(t)[0].strip(); break
-            reqs = []
-            for j in range(i+1, min(i+6, len(lines))):
-                nu = tr_upper(lines[j])
-                if extract_titles_from_cell(lines[j]): break
-                if any(tr_upper(k) in nu for k in ["FAKÜLTE","YÜKSEKOKULU"]): break
-                if lines[j].strip(): reqs.append(lines[j].strip())
-            req = " ".join(reqs)
-            
-            pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
-                   "title": found, "count": cnt, "requirements": req}
-            pos.update(extract_ales(req+"\n"+full_text, found))
-            pos.update(extract_language(req+"\n"+full_text, found))
-            positions.append(pos)
-    return positions
-
-def generate_snippet(university: str, positions: list, deadline: str | None) -> str:
-    if not positions: return f"{university} akademik personel alım ilanı."
-    tc: dict[str, int] = {}
-    for p in positions:
-        t = p.get("title","")
-        if is_academic(t): tc[t] = tc.get(t,0) + p.get("count",1)
-    summary = ", ".join(f"{c} {t}" for t, c in tc.items())
-    faculties = list(dict.fromkeys(p.get("faculty","") for p in positions if p.get("faculty")))
-    fac_str = ", ".join(faculties[:3]) + (f" ve {len(faculties)-3} birim daha" if len(faculties) > 3 else "")
-    snippet = f"{university} bünyesine {summary} alınacaktır."
-    if fac_str: snippet += f" Birimler: {fac_str}."
-    if deadline:
-        try: snippet += f" Son başvuru: {datetime.fromisoformat(deadline).strftime('%d.%m.%Y')}."
-        except: pass
-    return snippet
-
-def parse_pdf(pdf_bytes: bytes, link_text: str, publish_date: datetime, ulist: list) -> dict | None:
-    if not PDF_AVAILABLE: return None
-    try:
-        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
-            raw_pages = [page.extract_text() or "" for page in pdf.pages]
-            all_tables: list = []
-            for page in pdf.pages:
-                try:
-                    tbls = page.extract_tables()
-                    if not tbls:
-                        tbls = page.extract_tables({"vertical_strategy": "text", "horizontal_strategy": "text", "intersection_tolerance": 15})
-                    if tbls: all_tables.extend(tbls)
-                except Exception: pass
-    except Exception: return None
-
-    full_text = "\n\n".join(clean_pdf_text(p) for p in raw_pages if p.strip())
-    if not full_text.strip(): return None
-
-    raw_from_link = extract_university_from_link_text(link_text)
-    uni_name, city, uni_type = match_university(raw_from_link, ulist)
-    if city == "Bilinmiyor":
-        n2, c2, t2 = match_university(extract_university_from_text(full_text, ulist), ulist)
-        if c2 != "Bilinmiyor": uni_name, city, uni_type = n2, c2, t2
-
-    deadline  = extract_deadline(full_text, publish_date)
-    docs      = extract_documents(full_text)
-    
-    positions = extract_positions_from_tables(all_tables, full_text)
-    if not positions: positions = extract_positions_from_text(full_text)
-        
-    positions = [p for p in positions if is_academic(p.get("title",""))]
-    if not positions: return None
-
-    snippet  = generate_snippet(uni_name, positions, deadline)
-    detected = list(dict.fromkeys(p["title"] for p in positions if is_academic(p["title"])))
-
-    return {
-        "university": uni_name, "city": city, "uniType": uni_type,
-        "publishDate": publish_date.isoformat(), "deadline": deadline,
-        "detectedTitles": detected, "contentSnippet": snippet,
-        "positions": positions, "applicationDocuments": docs,
+{
+  "generatedAt": "2026-04-20T06:23:25.344781+00:00",
+  "count": 19,
+  "ads": [
+    {
+      "university": "ADANA ALPARSLAN TÜRKEŞ BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "Adana",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-20T06:23:25.344781+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "ADANA ALPARSLAN TÜRKEŞ BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 1 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: Havacılık ve Uzay Bilimleri Fakültesi, Mühendislik Fakültesi.",
+      "positions": [
+        {
+          "faculty": "Havacılık ve Uzay Bilimleri Fakültesi",
+          "department": "Havacılık Yönetimi",
+          "requirements": "Makine Mühendisliği lisans mezunu olup Makine Mühendisliği bilim dalında doçent ünvanına sahip olmak. Enerji, toplam faktör verimliliği ve performans değerlendirmesi konularında çalışmalar yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Makine Mühendisliği",
+          "requirements": "İmalat Mühendisliği lisans mezunu olup, Makine Mühendisliği Konstrüksiyon ve İmalat alanında doktora yapmış olmak. Eklemeli imalat, ileri imalat teknolojileri, kompozit malzemeler ve kırılma mekaniği üzerine çalışmalar yapmış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260420-4-3.pdf"
+    },
+    {
+      "university": "KAPADOKYA ÜNİVERSİTESİ",
+      "city": "Nevşehir",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-20T06:23:25.344781+00:00",
+      "deadline": "2026-05-04T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "contentSnippet": "KAPADOKYA ÜNİVERSİTESİ bünyesine 4 ARAŞTIRMA GÖREVLİSİ, 10 ÖĞRETİM GÖREVLİSİ alınacaktır. Son başvuru: 04.05.2026.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "Havacılık Elektrik Elektroniği Gastronomi ve",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Elektrik ve Elektroniği Mühendisliği lisans olmak. Uçak Mühendisliği yüksek lisans yapıyor ve Mutfak Sanatları olmak. Aynı alanda",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Elektroniği Gastronomi ve Mutfak Sanatları Gastronomi ve",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "yüksek lisans yapıyor ve Mutfak Sanatları olmak. Aynı alanda lisans yapmış olmak. kurumunda sahibi olmak. ve Mutfak Sanatları yüksek lisans mezunu",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Mutfak Sanatları Gastronomi ve Mutfak Sanatları",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "kurumunda sahibi olmak. ve Mutfak Sanatları yüksek lisans mezunu alanda doktora yapıyor ve doktora yeterlilik tamamlamış olmak. mezunu olmak.",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Mutfak Sanatları Ebelik Bilgisayar",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "ve doktora yeterlilik tamamlamış olmak. mezunu olmak. yüksek lisans veya doktora olmak. Mühendisliği, Yazılım alanlarından birinden",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Bilgisayar Programcılığı İnsansız Hava",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "olmak. Mühendisliği, Yazılım alanlarından birinden mezunu olmak. Alanında lisans veya doktora yapmış Elektrik ve Elektroniği olmak. Aynı alandan lisans yapmış olmak.",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Programcılığı İnsansız Hava Aracı Teknolojisi ve Operatörlüğü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "lisans veya doktora yapmış Elektrik ve Elektroniği olmak. Aynı alandan lisans yapmış olmak. hava araçları alanında sektörel tecrübeye sahip",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Sivil Hava Ulaştırma İşletmeciliği Sivil Havacılık ve",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Ulaştırma İşletmeciliği Yönetimi lisans olmak. Sivil Hava İşletmeciliği, Havacılık Sivil Havacılık, İşletme, birinden yüksek olmak. Dili Edebiyatı, İngilizce -Tercümanlık, İngiliz Dili Eğitimi, İngilizce bölümlerinin birinde",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "İşletmeciliği Sivil Havacılık ve Kabin Hizmetleri Sivil Havacılık ve",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sivil Havacılık, İşletme, birinden yüksek olmak. Dili Edebiyatı, İngilizce -Tercümanlık, İngiliz Dili Eğitimi, İngilizce bölümlerinin birinde mezunu olmak. Alanında lisans yapmış olmak. kurumunda İngilizcesi alanında en vermiş olmak. Lisans mezunu olmak.",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Kabin Hizmetleri Sivil Havacılık ve Kabin Hizmetleri Uçuş Harekat",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "lisans yapmış olmak. kurumunda İngilizcesi alanında en vermiş olmak. Lisans mezunu olmak. üyesi olarak en az sahibi olmak. lisans mezunu olmak. sektöründe 3 yıl tecrübesi",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Kabin Hizmetleri Uçuş Harekat Yöneticiliği Uçuş Harekat",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "sahibi olmak. lisans mezunu olmak. sektöründe 3 yıl tecrübesi veya Uçuş Harekat Lisansına sahip olmak. Dili Edebiyatı, İngilizce -Tercümanlık, İngiliz Dili Eğitimi, İngilizce bölümlerinin birinde",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Yöneticiliği Uçuş Harekat Yöneticiliği",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "veya Uçuş Harekat Lisansına sahip olmak. Dili Edebiyatı, İngilizce -Tercümanlık, İngiliz Dili Eğitimi, İngilizce bölümlerinin birinde mezunu olmak. Alanında lisans yapmış olmak. kurumunda İngilizcesi alanında en vermiş olmak. Fiziği alanında yüksek",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Yöneticiliği Radyoterapi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "lisans yapmış olmak. kurumunda İngilizcesi alanında en vermiş olmak. Fiziği alanında yüksek olmak. alanında lisans mezunu Aynı alanda yüksek lisans",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Odyometri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "olmak. alanında lisans mezunu Aynı alanda yüksek lisans olmak. Bir yükseköğretim en az 2 yıl ders vermiş",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Yayın Listesi",
+        "Doktora Belgesi",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260420-4-4.pdf"
+    },
+    {
+      "university": "ANTALYA BELEK ÜNİVERSİTESİ",
+      "city": "Antalya",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-20T06:23:25.344781+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "ANTALYA BELEK ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 4 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: Mühendislik Mimarlık Fakültesi Mühendislik, Fakültesi Mühendislik Mimarlık Fakültesi İnsani, Fakültesi İnsani Bilimler Fakültesi Mühendislik ve 1 birim daha.",
+      "positions": [
+        {
+          "faculty": "Mühendislik Mimarlık Fakültesi Mühendislik",
+          "department": "Yazılım Mühendisliği Yazılım",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği ya da Yazılım Sıra 1 alanında almış olmak. Bilgisayar Mühendisliği ya da Yazılım",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik Mimarlık Fakültesi İnsani",
+          "department": "Mühendisliği Yazılım Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "alanında almış olmak. Bilgisayar Mühendisliği ya da Yazılım Sıra 2 alanında almış olmak.",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İnsani Bilimler Fakültesi Mühendislik",
+          "department": "Mühendisliği Psikoloji Yazılım",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "alanında almış olmak. Sıra 3 Psikoloji alanında yapmış olmak. Bilgisayar Mühendisliği ya da Yazılım",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik Mimarlık Fakültesi Akademik 2 Birim Sanat ve",
+          "department": "Yazılım Mühendisliği Bölüm Radyo",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Bilgisayar Mühendisliği ya da Yazılım Sıra 4 alanında almış olmak. Yabancı Tablo İlan Şartları ALES Dil Televizyon veya Radyo ve Sinema Bölümlerinden olmak, Sinema veya 70",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "DİL",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Transkript (Not Döküm Belgesi)",
+        "Yayın Listesi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260420-4-5.pdf"
+    },
+    {
+      "university": "KONYA GIDA VE TARIM ÜNİVERSİTESİ",
+      "city": "Konya",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-20T06:23:25.344781+00:00",
+      "deadline": "2026-05-04T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "contentSnippet": "KONYA GIDA VE TARIM ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 1 DOÇENT, 3 DR. ÖĞR. ÜYESİ, 1 ÖĞRETİM GÖREVLİSİ, 1 ARAŞTIRMA GÖREVLİSİ alınacaktır. Birimler: Tarım ve Doğa Bilimleri Fakültesi, Meslek Yüksekokulu, Sosyal ve Beşerî Bilimler Fakültesi. Son başvuru: 04.05.2026.",
+      "positions": [
+        {
+          "faculty": "Tarım ve Doğa Bilimleri Fakültesi",
+          "department": "Bitkisel Üretim ve Teknolojileri (İngilizce)",
+          "requirements": "Bitkisel Üretim ve Teknolojileri, Ziraat Fakültesi, Biyoloji, Moleküler Biyoloji ve Genetik, Biyomühendislik, Biyoteknoloji, Kimya veya Kimya Mühendisliği lisans derecesine sahip olmak ve bu alanların birinden doktora ve/veya doçentlik derecesine sahip olmak. Toprak Bilimi ve Bitki Besleme alanındaki tüm alt disiplinlere ait dersleri verme yeterliliğine ve bu alanda çalışmalara sahip olmak. İngilizce ders verme yeterliliğine sahip olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tarım ve Doğa Bilimleri Fakültesi",
+          "department": "Bitkisel Üretim ve Teknolojileri (İngilizce)",
+          "requirements": "Bitkisel Üretim ve Teknolojileri, Ziraat Fakültesi, Biyoloji, Moleküler Biyoloji ve Genetik, Biyomühendislik, Biyoteknoloji, Kimya veya Kimya Mühendisliği lisans derecesine sahip olmak ve bu alanların birinden doktora ve/veya doçentlik derecesine sahip olmak. Toprak Bilimi ve Bitki Besleme alanındaki tüm alt disiplinlere ait dersleri verme yeterliliğine ve bu alanda çalışmalara sahip olmak. İngilizce ders verme yeterliliğine sahip olmak.",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tarım ve Doğa Bilimleri Fakültesi",
+          "department": "Bitkisel Üretim ve Teknolojileri (İngilizce)",
+          "requirements": "Bitkisel Üretim ve Teknolojileri, Ziraat Fakültesi, Biyoloji, Moleküler Biyoloji ve Genetik, Biyomühendislik, Biyoteknoloji, Kimya veya Kimya Mühendisliği lisans derecesine sahip olmak ve bu alanların birinden doktora ve/veya doçentlik derecesine sahip olmak. Toprak Bilimi ve Bitki Besleme alanındaki tüm alt disiplinlere ait dersleri verme yeterliliğine ve bu alanda çalışmalara sahip olmak. İngilizce ders verme yeterliliğine sahip olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Gıda Kalite Kontrolü ve Analizi Programı",
+          "requirements": "Gıda Mühendisliği lisans, yüksek lisans ve doktora derecelerine ve İngilizce ders verme yeterliliğine sahip olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Dijital Tarım",
+          "requirements": "Biyosistem Mühendisliği lisans derecesine ve aynı alanda yüksek lisans ve doktora derecelerine sahip olmak. Tarımda yapay zekâ, derin öğrenme, görüntü işleme ve nesne tanıma gibi dijital tarım konularında çalışmalarda bulunmuş olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Dijital Tarım",
+          "requirements": "Bilgisayar Mühendisliği lisans ve yüksek lisans derecelerine sahip olmak. Stok yönetimi, üretim planlama ve benzeri Kurumsal Kaynak Planlaması (ERP) operasyonlarının SAP vb. platformlarda yürütülmesi konusunda akademik ya da ticari tecrübeye sahip olmak.",
+          "count": 1,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sosyal ve Beşerî Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri Bölümü lisans",
+          "requirements": "",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260420-4-8.pdf"
+    },
+    {
+      "university": "İBN HALDUN ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-20T06:23:25.344781+00:00",
+      "deadline": "2026-05-04T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "İBN HALDUN ÜNİVERSİTESİ bünyesine 1 ARAŞTIRMA GÖREVLİSİ, 4 ÖĞRETİM GÖREVLİSİ, 1 DR. ÖĞR. ÜYESİ alınacaktır. Son başvuru: 04.05.2026.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "Felsefe ve Yapay Zeka (Felsefe ve Yapay Zeka Anabilim Dalı)",
+          "requirements": "Felsefe ya da Fizik alanında lisans mezuniyeti olmak, Felsefe alanında doktora yapıyor olmak. (ALES: EA Türünde en az 85 puan, YDS – YÖKDİL: En az 85 puan almış olmak)",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": true,
+          "alesScore": 85,
+          "alesType": "EA",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL"
+        },
+        {
+          "faculty": "",
+          "department": "Yabancı Diller Bölümü (Türkçe)",
+          "requirements": "Türk Dili ve Edebiyatı, Türkçe Öğretmenliği veya eşdeğeri olan fakültelerden birinden lisans ve yüksek lisans mezunu olmak, Yabancı Diller Yüksekokul/Hazırlık Okulunda en az 2 yıl ders vermiş olmak, YDS – YÖKDİL: En az 50 puan almış olmak (İngilizce ya da Arapça), ALES (SÖZ): En az 70 puan almış olmak,",
+          "count": 1,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YÖKDİL"
+        },
+        {
+          "faculty": "",
+          "department": "Yabancı Diller Bölümü (İngilizce)",
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce), İngiliz Filolojisi veya eşdeğeri olan fakültelerden birinden lisans mezunu olmak, İngilizce eğitim veren bir sosyal ve beşerî bilimler bölümünden en az tezli yüksek lisans mezunu olmak, Yabancı Diller Yüksekokul/Hazırlık Okulunda en az 2 yıl ders vermiş olmak, YDS – YÖKDİL: En az 85 puan almış olmak (İngilizce), ALES (SÖZ): En az 70 puan almış olmak,",
+          "count": 3,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL"
+        },
+        {
+          "faculty": "",
+          "department": "Yeni Medya ve İletişim",
+          "requirements": "Doktorasını Medya ve İletişim Çalışmaları alanında yapmış olmak (YDS-YÖKDİL: En az 85 puan almış olmak.)",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL"
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260420-4-9.pdf"
+    },
+    {
+      "university": "DOĞUŞ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-20T06:23:25.344781+00:00",
+      "deadline": "2026-05-05T06:23:25.344781+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "DOĞUŞ ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 1 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: İktisadi, İdari Ve Sosyal Bilimler Fakültesi, Sağlık Bilimleri Yüksekokulu. Son başvuru: 05.05.2026.",
+      "positions": [
+        {
+          "faculty": "İktisadi, İdari Ve Sosyal Bilimler Fakültesi",
+          "department": "İktisat (İngilizce)",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Yüksekokulu",
+          "department": "Hemşirelik",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Doktora Belgesi",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260420-4-10.pdf"
+    },
+    {
+      "university": "İSTANBUL GEDİK ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-18T06:23:25.344781+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "contentSnippet": "İSTANBUL GEDİK ÜNİVERSİTESİ bünyesine 1 ÖĞRETİM GÖREVLİSİ alınacaktır.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "Çocuk Gelişimi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "PUANI Lisans eğitimini Psikoloji alanında tamamlamış olup, Gedik Meslek Özel Eğitim alanında Yüksek Lisans yapmış olmak, ALES/SÖZ: 70 Yüksekokulu belgelendirilmek kaydıyla en az beş yıl ders verme deneyimine sahip olmak. DUYURULUR. 4055/1-1",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SÖZ",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260418-4-4.pdf"
+    },
+    {
+      "university": "ANKARA BİLİM ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-18T06:23:25.344781+00:00",
+      "deadline": "2026-05-02T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "ANKARA BİLİM ÜNİVERSİTESİ bünyesine 15 ARAŞTIRMA GÖREVLİSİ, 4 PROFESÖR / DOÇENT / DR. ÖĞR. ÜYESİ, 2 PROFESÖR / DOÇENT, 5 DR. ÖĞR. ÜYESİ, 3 DR. ÖĞR. ÜYESİ / DOÇENT, 1 DOÇENT / DR. ÖĞR. ÜYESİ alınacaktır. Birimler: Güzel Sanatlar ve Tasarım Fakültesi Güzel Sanatlar, Fakültesi Güzel Sanatlar ve Tasarım Fakültesi Güzel Sanatlar, Fakültesi Güzel Sanatlar ve Tasarım Fakültesi ve 8 birim daha. Son başvuru: 02.05.2026.",
+      "positions": [
+        {
+          "faculty": "Güzel Sanatlar ve Tasarım Fakültesi Güzel Sanatlar",
+          "department": "Dalı/Program İç Mimarlık ve Çevre Tasarımı (İngilizce) Film Tasarım ve",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İç Mimarlık ve Çevre bölümünden lisans ya lisans mezunu olmak; veya yapıyor olmak. Dil Puanı en az 85 ve Yönetimi bölümü lisans lisans mezunu olmak; veya",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Güzel Sanatlar ve Tasarım Fakültesi Güzel Sanatlar",
+          "department": "(İngilizce) Film Tasarım ve Yönetimi Yeni Medya ve",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 2,
+          "requirements": "yapıyor olmak. Dil Puanı en az 85 ve Yönetimi bölümü lisans lisans mezunu olmak; veya yapıyor olmak. Dil Puanı en az 85 Halkla İlişkiler ve Tanıtım, ve Sinema, Medya Çalışmaları, Yeni Medya ve Görsel İletişim Tasarımı",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Güzel Sanatlar ve Tasarım Fakültesi",
+          "department": "Yönetimi Yeni Medya ve İletişim",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Dil Puanı en az 85 Halkla İlişkiler ve Tanıtım, ve Sinema, Medya Çalışmaları, Yeni Medya ve Görsel İletişim Tasarımı birinden lisans ya da mezunu olmak; veya yüksek yapıyor olmak. İngilizce Puanı en az 85 olmak.",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi Hukuk",
+          "department": "Ticaret Hukuku Anabilim Dalı Milletlerarası",
+          "title": "PROFESÖR / DOÇENT / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "mezunu olmak Ticaret Hukuku ya da Özel yapmış olmak. Ticaret Hukuku alanında Profesör başvuruları için ayrıca: alanında Doçentlik olmak mezunu olmak Milletlerarası Hukuk ya da alanında yapmış olmak. Milletlerarası Hukuk",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT",
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Hukuk Fakültesi Hukuk",
+          "department": "Anabilim Dalı Milletlerarası Hukuk Anabilim Dalı Mali Hukuk",
+          "title": "PROFESÖR / DOÇENT / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Profesör başvuruları için ayrıca: alanında Doçentlik olmak mezunu olmak Milletlerarası Hukuk ya da alanında yapmış olmak. Milletlerarası Hukuk olmak Profesör başvuruları için ayrıca: Hukuk alanında Doçentlik olmak mezunu olmak Mali Hukuk ya da Kamu yapmış olmak. Mali Hukuk alanında",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT",
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Hukuk Fakültesi İnsan ve Toplum",
+          "department": "Dalı Mali Hukuk Anabilim Dalı Mütercim",
+          "title": "PROFESÖR / DOÇENT / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "olmak Profesör başvuruları için ayrıca: Hukuk alanında Doçentlik olmak mezunu olmak Mali Hukuk ya da Kamu yapmış olmak. Mali Hukuk alanında Profesör başvuruları için ayrıca: alanında Doçentlik unvanına Tercümanlık lisans ya da yüksek lisans",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT",
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İnsan ve Toplum Bilimleri Fakültesi İnsan ve Toplum",
+          "department": "Anabilim Dalı Mütercim Tercümanlık (ingilizce) Yönetim Bilişim",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Profesör başvuruları için ayrıca: alanında Doçentlik unvanına Tercümanlık lisans ya da yüksek lisans veya yüksek lisans/doktora İngilizce Yabancı Dil 85 olmak. Sistemleri bölümünden yüksek lisans mezunu olmak;",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İnsan ve Toplum Bilimleri Fakültesi İnsan ve Toplum",
+          "department": "(ingilizce) Yönetim Bilişim Sistemleri (İngilizce) Yönetim Bilişim",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İngilizce Yabancı Dil 85 olmak. Sistemleri bölümünden yüksek lisans mezunu olmak; lisans/doktora yapıyor olmak. Dil Puanı en az 85 Sistemleri bölümünden",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İnsan ve Toplum Bilimleri Fakültesi İnsan ve Toplum",
+          "department": "(İngilizce) Yönetim Bilişim Sistemleri Psikoloji",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Dil Puanı en az 85 Sistemleri bölümünden yüksek lisans mezunu olmak; lisans/doktora yapıyor olmak. lisans ya da yüksek olmak; veya yüksek",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İnsan ve Toplum Bilimleri Fakültesi İnsan ve Toplum",
+          "department": "Sistemleri Psikoloji (İngilizce)",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "lisans/doktora yapıyor olmak. lisans ya da yüksek olmak; veya yüksek yapıyor olmak. İngilizce Puanı en az 85 olmak. lisans ya da yüksek",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "(İngilizce) Psikoloji",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "yapıyor olmak. İngilizce Puanı en az 85 olmak. lisans ya da yüksek olmak; veya yüksek yapıyor olmak.",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "Bilgisayar Mühendisliği (İngilizce) Bilgisayar",
+          "title": "PROFESÖR / DOÇENT",
+          "count": 2,
+          "requirements": "Doçentlik derecelerini Bilimleri ve Mühendisliği olmak. Yazılım veya Bilgisayar",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "(İngilizce) Bilgisayar Mühendisliği (İngilizce) Yazılım",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "olmak. Yazılım veya Bilgisayar alanından almış olmak. Yazılım veya Bilgisayar",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "(İngilizce) Yazılım Mühendisliği (İngilizce) Elektrik Elektronik",
+          "title": "DR. ÖĞR. ÜYESİ / DOÇENT",
+          "count": 3,
+          "requirements": "alanından almış olmak. Yazılım veya Bilgisayar alanından almış olmak. lisans ve doktora Elektrik-Elektronik, Elektrik mühendisliği alanlarından Elektrik makineleri, güç",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ",
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "(İngilizce) Elektrik Elektronik Mühendisliği (İngilizce) Elektrik Elektronik",
+          "title": "PROFESÖR / DOÇENT / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "alanından almış olmak. lisans ve doktora Elektrik-Elektronik, Elektrik mühendisliği alanlarından Elektrik makineleri, güç güç sistemlerinin analizi ve enerjisi iletimi ve dersleri lisans ve yüksek verebilecek niteliklere derecelerini Elektrik alanından almış olmak.",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT",
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "Mühendisliği (İngilizce) Elektrik Elektronik Mühendisliği (İngilizce) Elektrik Elektronik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "enerjisi iletimi ve dersleri lisans ve yüksek verebilecek niteliklere derecelerini Elektrik alanından almış olmak. I ve II derslerini en az vermiş olmak. derecelerini Elektrik alanından almış olmak.",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "Mühendisliği (İngilizce) Elektrik Elektronik Mühendisliği (İngilizce) Endüstri",
+          "title": "DOÇENT / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "I ve II derslerini en az vermiş olmak. derecelerini Elektrik alanından almış olmak. I ve II derslerini en az iki dönem lisans ve Doktora",
+          "_all_titles": [
+            "DOÇENT",
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "Mühendisliği (İngilizce) Endüstri Mühendisliği (İngilizce) Elektrik Elektronik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "I ve II derslerini en az iki dönem lisans ve Doktora Endüstri Mühendisliği olmak. Elektrik Elektronik bölümü alanından almış",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "(İngilizce) Elektrik Elektronik Mühendisliği (İngilizce) Endüstri",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "olmak. Elektrik Elektronik bölümü alanından almış Yabancı Dil Puanı en az Endüstri Mühendisliği almış olmak. İngilizce",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "Mühendisliği (İngilizce) Endüstri Mühendisliği (İngilizce) Bilgisayar",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Yabancı Dil Puanı en az Endüstri Mühendisliği almış olmak. İngilizce sınavından asgari 85 puan almış Bilgisayar Mühendisliği almış olmak. İngilizce",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik ve",
+          "department": "(İngilizce) Bilgisayar Mühendisliği (İngilizce) Yazılım",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 2,
+          "requirements": "sınavından asgari 85 puan almış Bilgisayar Mühendisliği almış olmak. İngilizce sınavından asgari 85 puan almış Yazılım Mühendisliği almış olmak. İngilizce",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi",
+          "department": "(İngilizce) Yazılım Mühendisliği (İngilizce)",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 2,
+          "requirements": "sınavından asgari 85 puan almış Yazılım Mühendisliği almış olmak. İngilizce sınavından asgari 85 puan almış 3990/1-1",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Yayın Listesi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260418-4-12.pdf"
+    },
+    {
+      "university": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ",
+      "city": "Karaman",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-18T06:23:25.344781+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "contentSnippet": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ bünyesine 2 PROFESÖR, 3 DR. ÖĞR. ÜYESİ, 2 DOÇENT alınacaktır. Birimler: Edebiyat Fakültesi, Mühendislik Fakültesi, Sağlık Bilimleri Fakültesi ve 2 birim daha.",
+      "positions": [
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Türk Dili ve Edebiyatı",
+          "requirements": "Doçentliğini Türk Dili alanında almış olup Osmanlı Türkçesi dönemi Arapça ve Latince metinler konularında çalışma yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Gıda Mühendisliği",
+          "requirements": "Lisans ve lisansüstü eğitimlerini Gıda Mühendisliği alanında tamamlamış olup bitkisel kaynaklı süt ürünleri ve gıda güvenliği sensörleri konularında çalışma",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "requirements": "Doçentliğini Çocuk sağlığı ve hastalıkları hemşireliği alanında almış olup çocukluk çağı kanserlerinde hemşirelik bakımı ve semptom yönetimi konularında",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "requirements": "Lisansüstü eğitimlerini Çocuk Sağlığı ve Hastalıkları Hemşireliği alanında tamamlamış olup çocuklarda uyku kalitesi ve emzirme konularında çalışma yapmış",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon",
+          "requirements": "Lisansüstü eğitimlerini Fizyoterapi ve Rehabilitasyon veya Fizik Tedavi ve Rehabilitasyon alanında tamamlamış olup geriatrik ve nöromusküler hastalıklar",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Beden Eğitimi ve Spor",
+          "requirements": "Doçentliğini Sporda Psikososyal Alanlar veya Spor Bilimleri alanında almış olup sporcularda psikofizyolojik müdahaleler ve bilinçli farkındalık",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Uygulamalı Bilimler Fakültesi",
+          "department": "Uluslararası Ticaret ve Lojistik",
+          "requirements": "Doçentliğini Uluslararası Ticaret veya Üretim ve Operasyon Yönetimi alanında almış olup lojistikte yapay zekâ ve dış kaynak kullanımı konularında",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260418-4-13.pdf"
+    },
+    {
+      "university": "İSTANBUL MEDİPOL ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-17T06:23:25.344781+00:00",
+      "deadline": "2026-05-01T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ",
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "contentSnippet": "İSTANBUL MEDİPOL ÜNİVERSİTESİ bünyesine 4 ARAŞTIRMA GÖREVLİSİ, 1 ÖĞRETİM GÖREVLİSİ, 1 PROFESÖR, 5 DR. ÖĞR. ÜYESİ, 2 DOÇENT alınacaktır. Birimler: Mühendislik ve Doğa Bilimleri Fakültesi, Güzel Sanatlar Tasarım ve Mimarlık Fakültesi, Eczacılık Fakültesi (İngilizce) ve 4 birim daha. Son başvuru: 01.05.2026.",
+      "positions": [
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Bilgisayar Mühendisliği Bölümü",
+          "requirements": "",
+          "count": 2,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Güzel Sanatlar Tasarım ve Mimarlık Fakültesi",
+          "department": "Gastronomi ve Mutfak Sanatları Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Eczacılık Fakültesi (İngilizce)",
+          "department": "Eczacılık Meslek Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Eczacılık Fakültesi (İngilizce)",
+          "department": "Eczacılık Teknolojisi Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Uluslararası Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Uluslararası Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İşletme ve Yönetim Bilimleri Fakültesi",
+          "department": "Ekonomi ve Finans Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İşletme ve Yönetim Bilimleri Fakültesi",
+          "department": "İnsan Kaynakları Yönetimi Bölümü",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Yayın Listesi",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260417-4-11.pdf"
+    },
+    {
+      "university": "BİRUNİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-17T06:23:25.344781+00:00",
+      "deadline": "2026-05-04T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "DOÇENT"
+      ],
+      "contentSnippet": "BİRUNİ ÜNİVERSİTESİ bünyesine 1 ARAŞTIRMA GÖREVLİSİ, 7 DOÇENT alınacaktır. Birimler: BİLİMLERİ FAKÜLTESİ. Son başvuru: 04.05.2026.",
+      "positions": [
+        {
+          "faculty": "BİLİMLERİ FAKÜLTESİ",
+          "department": "Ergoterapi Ergoterapi Hemşirelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "alanında lisans mezunu olmak.",
+          "_all_titles": [
+            "ARAŞTIRMA GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Farmakognozi̇ Alaninda",
+          "title": "DOÇENT",
+          "count": 2,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "S Ağlik B İli̇mleri̇ F Akültesi̇ Di̇l Ve Konuşma Terapi̇si̇ Di̇l Ve Konuşma Terapi̇si̇ Alaninda",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "T Ip F Akültesi̇ Dahi̇li̇ Tip Bi̇li̇mleri̇ Radyoloji̇ Radyoloji̇ Alaninda",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Kadin Hastaliklari Ve Doğum Alaninda",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Fi̇zi̇ksel Tip Ve Rehabi̇li̇tasyon Alaninda",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Hi̇stoloji̇ Ve Embri̇yoloji̇ Alaninda",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Transkript (Not Döküm Belgesi)",
+        "Doktora Belgesi",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260417-4-14.pdf"
+    },
+    {
+      "university": "DİCLE ÜNİVERSİTESİ",
+      "city": "Diyarbakır",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-17T06:23:25.344781+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "contentSnippet": "DİCLE ÜNİVERSİTESİ bünyesine 9 PROFESÖR, 2 DOÇENT alınacaktır. Birimler: Eczacılık Fakültesi, Fen Fakültesi, Mühendislik Fakültesi ve 2 birim daha.",
+      "positions": [
+        {
+          "faculty": "Eczacılık Fakültesi",
+          "department": "Temel Eczacılık Bilimleri",
+          "requirements": "Doçentliğini Kimya bilim alanında almış olup, LC-MS IT- TOF, LC-MS/MS teknikleriyle fitokimyasal içerik ve yöntem validasyonu konusunda çalışmalar yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fen Fakültesi",
+          "department": "Kimya",
+          "requirements": "Doçentliğini Kimya bilim alanında almış olup, enzimatik ve oksidatif polimerizasyon üzerine çalışmalar yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fen Fakültesi",
+          "department": "Biyoloji",
+          "requirements": "Doçentliğini Biyoloji bilim alanında almış olup, yumuşakça histopatolojisi konusunda çalışmalar yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fen Fakültesi",
+          "department": "İstatistik",
+          "requirements": "Doçentliğini İstatistik bilim alanında almış olup, yarı parametrik karma model konusunda çalışmalar yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "İnşaat Mühendisliği",
+          "requirements": "Doçentliğini İnşaat Mühendisliği Hidrolik bilim alanında almış olup, Yukarı Dicle Havzası yeraltı su potansiyeli ve iklim değişikliği konularında çalışması olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İşletme",
+          "requirements": "Doçentliğini Turizm bilim alanında almış olup, işletmelerde yönetim bilgi sistemleri ve turizmde büyük veri çalışmaları konularında çalışması olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sezai Karakoç Edebiyat Fakültesi",
+          "department": "Türk Dili ve Edebiyatı",
+          "requirements": "Doçentliğini Klasik Türk Edebiyatı bilim alanında almış olup, Klasik Türk Hikayeciliği ve Edebi Muhitler üzerine çalışma yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "A Nabi̇li̇m D Ali/ K Adro B İri̇m B Ölüm P Rog. U Nvani E Cered T Eda A Çiklama",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "A Nabi̇li̇m D Ali/ K Adro B İri̇m B Ölüm P Rog. U Nvani E Cered T Eda A Çiklama",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260417-4-15.pdf"
+    },
+    {
+      "university": "SAMSUN ÜNİVERSİTESİ",
+      "city": "Samsun",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-17T06:23:25.344781+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "SAMSUN ÜNİVERSİTESİ bünyesine 12 PROFESÖR, 8 DOÇENT, 11 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: Tıp Fakültesi Cerrahi Tıp, Tıp Fakültesi Dahili Tıp, Tıp Fakültesi Dahili Tıp Özdemir Bayraktar Havacılık ve 9 birim daha.",
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi Cerrahi Tıp",
+          "department": "Bilimleri Genel Cerrahi Kulak Burun ve Boğaz",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "iskemi, malign barsak obstrüksiyonu ve obezite 2026- 1/1 konularında SCI veya SCI-E kapsamlı dergilerde çalışmaları olmak. kaybı ve fasiyal paralizi konularında SCI veya SCI-E dergilerde yayınlanmış çalışmaları olmak ve",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Cerrahi Tıp",
+          "department": "Kulak Burun ve Boğaz Bilimleri Hastalıkları",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "çalışmaları olmak. kaybı ve fasiyal paralizi konularında SCI veya SCI-E dergilerde yayınlanmış çalışmaları olmak ve 2026- 1/2 kaydıyla kafa tabanı cerrahisi konusunda sahip olmak. elektromekanik fonksiyonlar ve normotansif non-",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "Hastalıkları Bilimleri Kardiyoloji 17.04.2026 “ÇEŞİTLİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "kaydıyla kafa tabanı cerrahisi konusunda sahip olmak. elektromekanik fonksiyonlar ve normotansif non- 2026- 1/3 tansiyon paterni konularında Q1 veya Q2 kapsamlı yayımlanmış çalışmaları olmak.",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "Bilimleri Kardiyoloji İç Hastalıkları",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "kaydıyla elektrofizyoloji aritmi alanında eğitim 2026- 1/4 bu alanda aktif vaka yapıyor olmak. Kontrast konusunda hayvan deneyi çalışması yapmış olmak. ünvanını Endokrinoloji ve Metabolizma Hastalıkları almış olup polikistik over sendromu ve prediyabet",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "İç Hastalıkları Bilimleri (Endokrinoloji ve Metabolizma Hastalıkları)",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "konusunda hayvan deneyi çalışması yapmış olmak. ünvanını Endokrinoloji ve Metabolizma Hastalıkları almış olup polikistik over sendromu ve prediyabet 2026- 1/5 Q1 veya Q2 kapsamlı dergilerde yayımlanmış olmak. bağlı kardiyak arrest sonrası mast hücre kaynaklı",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "Metabolizma Hastalıkları) Bilimleri Acil Tıp Çocuk Sağlığı ve",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Q1 veya Q2 kapsamlı dergilerde yayımlanmış olmak. bağlı kardiyak arrest sonrası mast hücre kaynaklı 2026- 1/6 nöroenflamasyona etkisi konusunda çalışması olmak. ünvanını Çocuk Romatolojisi alanında almış olup",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp Özdemir Bayraktar Havacılık",
+          "department": "Çocuk Sağlığı ve Bilimleri Hastalıkları ve Uzay Havacılık ve Uzay",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "nöroenflamasyona etkisi konusunda çalışması olmak. ünvanını Çocuk Romatolojisi alanında almış olup 2026- 1/7 faktör pozitif juvenil idiyopatik artritli hastalarda çok ulusal çalışma yapmış olmak. Reynolds Sayısı Aerodinamiği ve Delta Kanat",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Özdemir Bayraktar Havacılık Havacılık ve Uzay Mühendisliği Bilimleri Fakültesi",
+          "department": "Hastalıkları ve Uzay Havacılık ve Uzay Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "ulusal çalışma yapmış olmak. Reynolds Sayısı Aerodinamiği ve Delta Kanat 2026- 1/8 konularında Q1 veya Q2 kapsamlı dergilerde çalışmaları olmak. üstü nübüvvet yaklaşımları, âlemin yaratılış gayesi,",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendisliği Bilimleri Fakültesi İlahiyat Fakültesi Temel İslam İnsan ve Toplum",
+          "department": "Mühendisliği Bilimleri Kelam",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "çalışmaları olmak. üstü nübüvvet yaklaşımları, âlemin yaratılış gayesi, 2026- 1/9 sorunu ve dinin rasyonelliği konularında yayımlanmış olmak. okul öncesi dönemde gelişim alanları, kariyer kararları ve süpervizyon konularında",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İnsan ve Toplum Psikoloji Bilimleri Fakültesi İnsan ve Toplum",
+          "department": "Gelişim Psikolojisi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "olmak. okul öncesi dönemde gelişim alanları, kariyer kararları ve süpervizyon konularında 2026- 1/10 yapmış olup TÜBİTAK 1001 ve 3501 projelerinde veya yürütücü olarak görev almış olmak. algısı, kişilerarası iletişim, sosyal tutumlar, sağlık afet ve salgın durumlarının psikolojik etkileri",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi İnsan ve Toplum Psikoloji Bilimleri Fakültesi",
+          "department": "Sosyal Psikoloji 17.04.2026 “ÇEŞİTLİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "yapmış olup TÜBİTAK 1001 ve 3501 projelerinde veya yürütücü olarak görev almış olmak. algısı, kişilerarası iletişim, sosyal tutumlar, sağlık afet ve salgın durumlarının psikolojik etkileri 2026- 1/11 çalışmalar yapmış olup TÜBİTAK 1001 projelerinde veya yürütücü olarak görev almış olmak.",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Cerrahi Tıp",
+          "department": "Bilimleri Genel Cerrahi Genel Cerrahi",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "ünvanını Genel Cerrahi alanında almış olup obezite herni cerrahi teknikleri konularında uluslararası 2026- 1/12 SCI-E kapsamlı dergilerde yayımlanmış çalışmaları Ayrıca üst gastrointestinal sistem (mide ve özefagus) cerrahisi konusunda yurtdışı deneyimi bulunmak. ünvanını Gastroenteroloji Cerrahisi alanında almış olup ve metabolik cerrahi, minimal invazif",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Cerrahi Tıp",
+          "department": "Genel Cerrahi Bilimleri (Gastroenteroloji)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ayrıca üst gastrointestinal sistem (mide ve özefagus) cerrahisi konusunda yurtdışı deneyimi bulunmak. ünvanını Gastroenteroloji Cerrahisi alanında almış olup ve metabolik cerrahi, minimal invazif 2026- 1/13 teknikleri, kolonoskopi öncesi bağırsak akut apandisit konularında Q1 veya Q2 kapsamlı yayımlanmış çalışmaları olmak. ünvanını Ortopedi ve Travmatoloji alanında almış ve yumuşak doku tümörleri alanında deneyimli",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Cerrahi Tıp",
+          "department": "(Gastroenteroloji) Bilimleri Ortopedi ve Travmatoloji İç Hastalıkları",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "akut apandisit konularında Q1 veya Q2 kapsamlı yayımlanmış çalışmaları olmak. ünvanını Ortopedi ve Travmatoloji alanında almış ve yumuşak doku tümörleri alanında deneyimli 2026- 1/14 ve bu alanda Q1 kapsamlı dergilerde yayımlanmış çalışmalara sahip olmak. ünvanını İmmünoloji ve Alerji alanında almış olup",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "İç Hastalıkları Bilimleri (Yetişkin Alerji)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "ve bu alanda Q1 kapsamlı dergilerde yayımlanmış çalışmalara sahip olmak. ünvanını İmmünoloji ve Alerji alanında almış olup 2026- 1/15 ve allerjen moleküler analizi konusunda Q1 veya Q2 dergilerde yayımlanmış çalışmaları olmak. ünvanını Temel İslam Bilimleri alanında almış olup",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi Temel İslam İnsan ve Toplum İletişim Tasarımı",
+          "department": "(Yetişkin Alerji) Bilimleri İslam Hukuku ve İletişim Tasarımı ve",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "dergilerde yayımlanmış çalışmaları olmak. ünvanını Temel İslam Bilimleri alanında almış olup 2026- 1/16 indekslerde taranan dergilerde ve BKCI indeksli yayımlanmış çalışmaları olmak. ünvanını Grafik alanında almış olup Tipografi, Karakter",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İnsan ve Toplum İletişim Tasarımı Bilimleri Fakültesi Yönetimi ve Doğa",
+          "department": "ve İletişim Tasarımı ve Yönetimi",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "yayımlanmış çalışmaları olmak. ünvanını Grafik alanında almış olup Tipografi, Karakter 2026- 1/17 ve Görsel Kimlik Tasarımı konularında çalışmalar olmak. Mühendislik kaplamalar ve fotokatalitik konularında",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi Yönetimi ve Doğa Biyomedikal Mühendisliği Bilimleri Fakültesi",
+          "department": "Yönetimi Biyomedikal Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "olmak. Mühendislik kaplamalar ve fotokatalitik konularında 2026- 1/18 dergilerde yayımlanmış çalışmaları olmak. stimülasyonu konusunda SCI veya SCI-E kapsamlı yayımlanmış çalışmaları olmak. Ayrıca omurga",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi Tıp Fakültesi Cerrahi Tıp",
+          "department": "Bilimleri Beyin ve Sinir Cerrahisi 17.04.2026 “ÇEŞİTLİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "dergilerde yayımlanmış çalışmaları olmak. stimülasyonu konusunda SCI veya SCI-E kapsamlı yayımlanmış çalışmaları olmak. Ayrıca omurga 2026- 1/19 alanında ürün geliştirme, inovasyon çalışmaları yapmış sahibi olmak.",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Cerrahi Tıp",
+          "department": "Anesteziyoloji ve Bilimleri Reanimasyon",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "ve Reanimasyon uzmanı olup deney Hayvanları ve belgelendirmek kaydıyla karaciğer nakli anestezisi 2026- 1/20 almış olmak. Ortopedi, bariyatrik cerrahi ve göğüs alanında SCI veya SCI-E kapsamlı dergilerde çalışmaları bulunmak. uzmanı olup elektromanyetik alanlar ile iskemik İnme",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "Reanimasyon Bilimleri Nöroloji Çocuk Sağlığı ve",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "alanında SCI veya SCI-E kapsamlı dergilerde çalışmaları bulunmak. uzmanı olup elektromanyetik alanlar ile iskemik İnme 2026- 1/21 çalışmalar yapmış olmak ve nadir hastalıklar sahip olmak. Sağlığı ve Hastalıkları uzmanı olup Sosyal Pediatri doktora derecesine sahip olmak ve çocuk sağlığı",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "Çocuk Sağlığı ve Bilimleri Hastalıkları Çocuk ve Ergen Ruh",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "sahip olmak. Sağlığı ve Hastalıkları uzmanı olup Sosyal Pediatri doktora derecesine sahip olmak ve çocuk sağlığı 2026- 1/22 uyku, beslenme ve ebeveynlik süreçleri ile duygusal ve davranışsal özellikleri konularında yapmış olmak. ve Ergen Ruh Sağlığı uzmanı olup bipolar bozuklukta dengesi üzerine ve çocukluk otizminde makine",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "Hastalıkları Çocuk ve Ergen Ruh Bilimleri Sağlığı Hastalıkları",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "duygusal ve davranışsal özellikleri konularında yapmış olmak. ve Ergen Ruh Sağlığı uzmanı olup bipolar bozuklukta dengesi üzerine ve çocukluk otizminde makine 2026- 1/23 yöntemlerinin klinik uygulamada kullanımı konularında Q2 kapsamlı dergilerde yayımlanmış çalışmaları olmak. uzmanı olup girişimsel radyoloji alanında klinik tecrübe",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Dahili Tıp",
+          "department": "Sağlığı Hastalıkları Bilimleri Radyoloji",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "yöntemlerinin klinik uygulamada kullanımı konularında Q2 kapsamlı dergilerde yayımlanmış çalışmaları olmak. uzmanı olup girişimsel radyoloji alanında klinik tecrübe 2026- 1/24 ve üriner sistem taş hastalığı konusunda Q1 veya dergilerde yayımlanmış çalışması bulunmak. mezunu olup TUS’la Tıbbi Mikrobiyoloji Uzmanı Ülseratif kolit hastalarında, hastalardaki aktivasyonu",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Temel Tıp",
+          "department": "Bilimleri Tıbbi Mikrobiyoloji",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "dergilerde yayımlanmış çalışması bulunmak. mezunu olup TUS’la Tıbbi Mikrobiyoloji Uzmanı Ülseratif kolit hastalarında, hastalardaki aktivasyonu 2026- 1/25 ve immünfloresan antikor testi ANCA ile SCI çalışması olmak. mezunu olup tıpta uzmanlık eğitimini Anatomi yapmış olmak. Morfometrik kadavra çalışması ve",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Temel Tıp",
+          "department": "Bilimleri Anatomi 17.04.2026 “ÇEŞİTLİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "ve immünfloresan antikor testi ANCA ile SCI çalışması olmak. mezunu olup tıpta uzmanlık eğitimini Anatomi yapmış olmak. Morfometrik kadavra çalışması ve 2026- 1/26 alanında SCI veya SCI-E kapsamlı dergilerde çalışmaları olmak. 3893/1-1",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "D Oçent Kadrolarina Başvuracak Adaylar İçi̇n: •",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "D Oçent Kadrolarina Başvuracak Adaylar İçi̇n: •",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "D Oçent Kadrolarina Başvuracak Adaylar İçi̇n: •",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Yayın Listesi",
+        "Doktora Belgesi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260417-4-16.pdf"
+    },
+    {
+      "university": "TOROS ÜNİVERSİTESİ",
+      "city": "Mersin",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-17T06:23:25.344781+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "contentSnippet": "TOROS ÜNİVERSİTESİ bünyesine 1 ÖĞRETİM GÖREVLİSİ alınacaktır.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "Bilgisayar Programcılığı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mühendisliği, Bilgisayar ve Yazılım Mühendisliği, Yapay Zekâ Mühendisliği, Bilişim Sistemleri Mühendisliği, Geliştirme, Bilişim Sistemleri ve Teknolojileri, Bilgisayar Sistemleri ve Teknolojileri, Yapay Zekâ ve Meslek Veri Mühendisliği Bölümlerinden Lisans ve Yüksek Lisans (Tezli) Mezunu olmak ya da bu alanlarda Doktora Yüksekokulu tamamlamış olmak. “CUMA” YALÇIN 3891-92 “EBYS” “ÇEŞİTLİ İlanlar” 2",
+          "_all_titles": [
+            "ÖĞRETİM GÖREVLİSİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260417-4-17.pdf"
+    },
+    {
+      "university": "BEYKOZ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-16T06:23:25.344781+00:00",
+      "deadline": "2026-04-30T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "BEYKOZ ÜNİVERSİTESİ bünyesine 4 PROFESÖR / DOÇENT, 2 DOÇENT / PROFESÖR, 1 DOÇENT / PROFESÖR / DR. ÖĞR. ÜYESİ, 1 DR. ÖĞR. ÜYESİ / DOÇENT / PROFESÖR, 2 DR. ÖĞR. ÜYESİ / PROFESÖR / DOÇENT, 1 DOÇENT, 1 DOÇENT / DR. ÖĞR. ÜYESİ, 12 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: Mühendislik ve Mimarlık Fakültesi Mühendislik, Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik, Fakültesi Mühendislik ve Mimarlık Fakültesi ve 13 birim daha. Son başvuru: 30.04.2026.",
+      "positions": [
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi Mühendislik",
+          "department": "VE EĞİTİM DİLİ Yapay Zeka Mühendisliği (İngilizce)* Bilgisayar",
+          "title": "PROFESÖR / DOÇENT",
+          "count": 2,
+          "requirements": "Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim Matematik ve Bilgisayar alanlarından derecesine sahip olmak ve Yapay Zeka Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik",
+          "department": "(İngilizce)* Bilgisayar Mühendisliği (İngilizce)* Endüstri",
+          "title": "DOÇENT / PROFESÖR",
+          "count": 1,
+          "requirements": "derecesine sahip olmak ve Yapay Zeka Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim Matematik ve Bilgisayar alanlarından derecesine sahip olmak. Yükseköğretim kabul edilen bir sınavdan en az almış olmak. alanında doçentlik derecesine sahip",
+          "_all_titles": [
+            "DOÇENT",
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik",
+          "department": "(İngilizce)* Endüstri Mühendisliği (İngilizce)* Yazılım",
+          "title": "PROFESÖR / DOÇENT",
+          "count": 1,
+          "requirements": "derecesine sahip olmak. Yükseköğretim kabul edilen bir sınavdan en az almış olmak. alanında doçentlik derecesine sahip Kurulunca eşdeğerliliği kabul edilen bir dil puanı almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi",
+          "department": "(İngilizce)* Yazılım Mühendisliği",
+          "title": "DOÇENT / PROFESÖR",
+          "count": 1,
+          "requirements": "dil puanı almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim Matematik ve Bilgisayar alanlarından derecesine sahip olmak. Tercihen Kurulunca eşdeğerliliği kabul edilen bir almış olmak.",
+          "_all_titles": [
+            "DOÇENT",
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi İşletme ve Yönetim",
+          "department": "Yapay Zeka Mühendisliği (İngilizce)* Yönetim Bilişim",
+          "title": "PROFESÖR / DOÇENT",
+          "count": 1,
+          "requirements": "Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim Matematik ve Bilgisayar alanlarından derecesine sahip olmak ve Yapay Zeka Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış bilişim sistemleri mühendisliği, teknoloji ve bilgi yönetimi, veri geliştirme, yazılım mühendisliği, endüstri bilimi ve analitiği, yönetim bilişim sistemleri",
+          "_all_titles": [
+            "PROFESÖR",
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İşletme ve Yönetim Bilimleri Fakültesi İşletme ve Yönetim",
+          "department": "(İngilizce)* Yönetim Bilişim Sistemleri Yönetim Bilişim",
+          "title": "DOÇENT / PROFESÖR / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "derecesine sahip olmak ve Yapay Zeka Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış bilişim sistemleri mühendisliği, teknoloji ve bilgi yönetimi, veri geliştirme, yazılım mühendisliği, endüstri bilimi ve analitiği, yönetim bilişim sistemleri öğretim üyesi için doktora derecesine profesör unvanı için bu alanlardan almış olmak. Tercihen Yükseköğretim kabul edilen bir sınavdan en az bilişim sistemleri mühendisliği, teknoloji ve bilgi yönetimi, veri geliştirme, yazılım mühendisliği, endüstri bilimi ve analitiği, yönetim bilişim sistemleri",
+          "_all_titles": [
+            "DOÇENT",
+            "PROFESÖR",
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi İşletme ve Yönetim Bilimleri Fakültesi Sosyal",
+          "department": "Sistemleri Yönetim Bilişim Sistemleri (İngilizce)*",
+          "title": "DR. ÖĞR. ÜYESİ / DOÇENT / PROFESÖR",
+          "count": 1,
+          "requirements": "profesör unvanı için bu alanlardan almış olmak. Tercihen Yükseköğretim kabul edilen bir sınavdan en az bilişim sistemleri mühendisliği, teknoloji ve bilgi yönetimi, veri geliştirme, yazılım mühendisliği, endüstri bilimi ve analitiği, yönetim bilişim sistemleri öğretim üyesi için doktora derecesine profesör unvanı için bu alanlardan almış olmak. Yükseköğretim Kurulunca edilen bir sınavdan en az 85 dil puanı mezunu olmak, yüksek lisans ve doktora veya ilişkili disiplinler arası alanlardan",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ",
+            "DOÇENT",
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi Sosyal Bilimler Fakültesi İşletme ve Yönetim",
+          "department": "(İngilizce)* Psikoloji İşletme",
+          "title": "DR. ÖĞR. ÜYESİ / PROFESÖR / DOÇENT",
+          "count": 2,
+          "requirements": "profesör unvanı için bu alanlardan almış olmak. Yükseköğretim Kurulunca edilen bir sınavdan en az 85 dil puanı mezunu olmak, yüksek lisans ve doktora veya ilişkili disiplinler arası alanlardan ve doçentliğini klinik psikoloji bilim Yükseköğretim Kurulunca eşdeğerliliği sınavdan en az 85 dil puanı almış olmak. doktora derecesine ve yönetim ve organizasyon strateji) alanında doçentlik unvanına lisansüstü düzeyde ilgili uzmanlık alanlarında",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ",
+            "PROFESÖR",
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İşletme ve Yönetim Bilimleri Fakültesi İşletme ve Yönetim",
+          "department": "İşletme (İngilizce)* Yönetim Bilişim",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Yükseköğretim Kurulunca eşdeğerliliği sınavdan en az 85 dil puanı almış olmak. doktora derecesine ve yönetim ve organizasyon strateji) alanında doçentlik unvanına lisansüstü düzeyde ilgili uzmanlık alanlarında sahip olmak. Uzaktan çalışma, duygusal akademik çalışmalar yapmış olmak. Kurulunca eşdeğerliliği kabul edilen bir almış olmak. alanında doktora derecesine, yönetim alanında doçent unvanına sahip olmak.",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi İşletme ve Yönetim Bilimleri Fakültesi Mühendislik",
+          "department": "(İngilizce)* Yönetim Bilişim Sistemleri (İngilizce)* Bilgisayar",
+          "title": "DOÇENT / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "akademik çalışmalar yapmış olmak. Kurulunca eşdeğerliliği kabul edilen bir almış olmak. alanında doktora derecesine, yönetim alanında doçent unvanına sahip olmak. Kurulunca eşdeğerliliği kabul edilen bir almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim",
+          "_all_titles": [
+            "DOÇENT",
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi Mühendislik ve Mimarlık Fakültesi",
+          "department": "(İngilizce)* Bilgisayar Mühendisliği (İngilizce)*",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kurulunca eşdeğerliliği kabul edilen bir almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim Matematik ve Bilgisayar alanlarından derecesine sahip olmak. Yükseköğretim edilen bir sınavdan en az 85 (İngilizce)",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi Mühendislik",
+          "department": "Endüstri Mühendisliği (İngilizce)* Yazılım",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "alanında doktora derecesine sahip Kurulunca eşdeğerliliği kabul edilen bir dil puanı almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi Mühendislik",
+          "department": "(İngilizce)* Yazılım Mühendisliği Yapay Zeka",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "dil puanı almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim Matematik ve Bilgisayar alanlarından derecesine sahip olmak. Tercihen Yükseköğretim kabul edilen bir sınavdan en az almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Mimarlık Fakültesi İşletme ve Yönetim",
+          "department": "Mühendisliği Yapay Zeka Mühendisliği (İngilizce)* Yönetim Bilişim",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "derecesine sahip olmak. Tercihen Yükseköğretim kabul edilen bir sınavdan en az almış olmak. Bilgisayar Bilimleri, Yazılım Sistemleri Mühendisliği, Yapay Siber Güvenlik, Veri Bilimi, Yönetim Matematik ve Bilgisayar alanlarından derecesine sahip olmak ve Yapay Zeka Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış doktora derecesine sahip olmak, yönetim",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İşletme ve Yönetim Bilimleri Fakültesi İşletme ve Yönetim",
+          "department": "(İngilizce)* Yönetim Bilişim Sistemleri Yönetim Bilişim",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "derecesine sahip olmak ve Yapay Zeka Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış doktora derecesine sahip olmak, yönetim alanında çalışmaları bulunmak üç yıl ders verme tecrübesine sahip olmak. alanında doktora derecesine sahip kuramları, nanoteknoloji ve metaverse",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi İşletme ve Yönetim Bilimleri Fakültesi İşletme ve Yönetim",
+          "department": "Sistemleri Yönetim Bilişim Sistemleri Yönetim Bilişim",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "üç yıl ders verme tecrübesine sahip olmak. alanında doktora derecesine sahip kuramları, nanoteknoloji ve metaverse yapmış, yönetim alanında en az bulunmak. lisans derecelerini işletme, doktora derecesini almış olmak; çok kıstaslı karar verme,",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi İşletme ve Yönetim Bilimleri Fakültesi Beykoz Lojistik",
+          "department": "Sistemleri Yönetim Bilişim Sistemleri (İngilizce)* Sivil Hava",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "yapmış, yönetim alanında en az bulunmak. lisans derecelerini işletme, doktora derecesini almış olmak; çok kıstaslı karar verme, işletme istatistiği konularında çalışmalar Kurulunca eşdeğerliliği kabul edilen 85 dil puanı almış olmak. alanında doktora derecesine sahip markası konusunda akademik çalışmalar",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi Beykoz Lojistik Meslek Yüksekokulu Meslek",
+          "department": "(İngilizce)* Sivil Hava Ulaştırma İşletmeciliği Yapay Zeka",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kurulunca eşdeğerliliği kabul edilen 85 dil puanı almış olmak. alanında doktora derecesine sahip markası konusunda akademik çalışmalar Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış Yazılım Mühendisliği, Bilgisayar Bilimleri ve Mühendisliği, Bilişim ve/veya Elektronik Mühendisliği, Yapay Zekâ ve Veri Mühendisliği,",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu Meslek Yüksekokulu Meslek",
+          "department": "İşletmeciliği Yapay Zeka Operatörlüğü Dijital Oyun",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Yükseköğretim Kurulunca eşdeğerliliği en az 85 (İngilizce) dil puanı almış Yazılım Mühendisliği, Bilgisayar Bilimleri ve Mühendisliği, Bilişim ve/veya Elektronik Mühendisliği, Yapay Zekâ ve Veri Mühendisliği, Yapay Zeka Teknolojileri, Siber Güvenlik, Sistemleri, Veri Bilimi, Veri Analitiği, ve Bilgisayar, İstatistik, Matematik Endüstri Mühendisliği alanlarından derecesine sahip olmak. Sinema, Gazetecilik, Görsel İletişim doktora yapmış olmak ve doktora tezini",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Yüksekokulu Meslek Yüksekokulu",
+          "department": "Operatörlüğü Dijital Oyun Teknolojileri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Sistemleri, Veri Bilimi, Veri Analitiği, ve Bilgisayar, İstatistik, Matematik Endüstri Mühendisliği alanlarından derecesine sahip olmak. Sinema, Gazetecilik, Görsel İletişim doktora yapmış olmak ve doktora tezini yazmış olmak. Dijital oyun, oyun tasarımı, akademik çalışma yapmış olmak olmak.",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu Meslek",
+          "department": "Dijital Oyun Teknolojileri Yapay Zeka",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Yazılım Mühendisliği, Bilgisayar Bilimleri ve Mühendisliği, Bilişim ve Öğretim Teknolojileri Öğretmenliği, Teknolojileri Eğitimi, Bilişim Sistemleri, Sistemleri alanlarından birinden doktora Yazılım Mühendisliği, Yapay Zeka, Yapay Zekâ ve Veri Mühendisliği, Mühendisliği, Bilgi Güvenliği Mühendisliği, Mühendisliği ve Kriptografi, Bilişim Sistemleri, ve Teknolojileri, Bilgi Teknolojileri,",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Doktora Belgesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260416-4-8.pdf"
+    },
+    {
+      "university": "İSTANBUL SABAHATTİN ZAİM ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-16T06:23:25.344781+00:00",
+      "deadline": "2026-04-30T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "contentSnippet": "İSTANBUL SABAHATTİN ZAİM ÜNİVERSİTESİ bünyesine 4 DR. ÖĞR. ÜYESİ, 1 DOÇENT alınacaktır. Birimler: Spor Bilimleri Fakültesi İşletme ve Yönetim, Fakültesi İşletme ve Yönetim Bilimleri Fakültesi Mühendislik ve, Bilimleri Fakültesi Mühendislik ve Doğa Bilimleri Fakültesi Mühendislik ve ve 1 birim daha. Son başvuru: 30.04.2026.",
+      "positions": [
+        {
+          "faculty": "Spor Bilimleri Fakültesi İşletme ve Yönetim",
+          "department": "DALI Spor Yöneticiliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "yüksek lisansını spor yöneticiliği dalında, doktorasını spor bilimleri 1 yapmış olmak, yerel yönetimler ilgili çalışmaları bulunmak. İktisat ve Gelişme İktisadı alanında",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi İşletme ve Yönetim Bilimleri Fakültesi Mühendislik ve",
+          "department": "İktisat Endüstri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "yapmış olmak, yerel yönetimler ilgili çalışmaları bulunmak. İktisat ve Gelişme İktisadı alanında 2 almış olmak ve Gelişme İktisadı bulunmak. Mühendisliği alanında doktora yapmış Simülasyon vb. konularda",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi Mühendislik ve Doğa Bilimleri Fakültesi Mühendislik ve",
+          "department": "Endüstri Mühendisliği (%30 İngilizce) Endüstri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "bulunmak. Mühendisliği alanında doktora yapmış Simülasyon vb. konularda 3 bulunmak ve İngilizce ders verme sahip olmak. Mühendisliği alanında doktora yapmış",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Doğa Bilimleri Fakültesi Mühendislik ve",
+          "department": "İngilizce) Endüstri Mühendisliği (%30 İngilizce) Elektrik-Elektronik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "bulunmak ve İngilizce ders verme sahip olmak. Mühendisliği alanında doktora yapmış 4 İngilizce ders verme yeterliliğine sahip Mühendisliği, Mekatronik veya Elektronik ve Haberleşme lisans derecesine sahip olup,",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Mühendislik ve Doğa Bilimleri Fakültesi Mühendislik ve",
+          "department": "İngilizce) Elektrik-Elektronik Mühendisliği (%30 İngilizce) Elektrik-Elektronik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Mühendisliği, Mekatronik veya Elektronik ve Haberleşme lisans derecesine sahip olup, 5 ve Otomasyon veya Robotikler ve doktora tezini tamamlamış ve bilimsel yayınları olmak. İngilizce yeterliliğine sahip olmak. Mühendisliği, Mekatronik veya Elektronik ve Haberleşme lisans derecesine sahip olup,",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260416-4-9.pdf"
+    },
+    {
+      "university": "İSTANBUL GEDİK ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-16T06:23:25.344781+00:00",
+      "deadline": "2026-04-30T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "İSTANBUL GEDİK ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 3 DR. ÖĞR. ÜYESİ alınacaktır. Son başvuru: 30.04.2026.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "Ticaret ve Finansman (İngilizce) Ticaret",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "İktisadi, İdari ve Uluslararası İktisat, Finans, Uluslararası Ticaret, Uluslararası Ticaret Sosyal Bilimler Ticaret ve Lojistik veya benzeri alanlarda Profesör unvanı Fakültesi dil yeterliliğine (85 puan) sahip olmak. İktisadi, İdari ve Uluslararası İktisat, Finans, Uluslararası Ticaret, Uluslararası Ticaret",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "(İngilizce) Ticaret ve Finansman (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fakültesi dil yeterliliğine (85 puan) sahip olmak. İktisadi, İdari ve Uluslararası İktisat, Finans, Uluslararası Ticaret, Uluslararası Ticaret Sosyal Bilimler Ticaret ve Lojistik veya benzeri alanlarda Doktora derecesini Fakültesi İngilizce dil yeterliliğine (85 puan) sahip olmak ve Doktora eğitimlerini Metalurji ve Malzeme Mühendisliği Gedik Meslek",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "(İngilizce) Muayene Mahkeme Büro",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fakültesi İngilizce dil yeterliliğine (85 puan) sahip olmak ve Doktora eğitimlerini Metalurji ve Malzeme Mühendisliği Gedik Meslek Tahribatsız olmak. Alanında en az 5 yıl ders vermiş olmak. Belgelemek Yüksekokulu muayene alanında tecrübeli olmak. Gedik Meslek mezunu olup, doktorasını Kamu Hukuku alanında yapmış",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "Mahkeme Büro Hizmetleri Tıbbi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Yüksekokulu muayene alanında tecrübeli olmak. Gedik Meslek mezunu olup, doktorasını Kamu Hukuku alanında yapmış Yüksekokulu Kurumlarında en az beş yıl ders verme deneyime sahip olmak ve Doktora eğitimini Sağlık Yönetimi alanında tamamlamış Gedik Meslek",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260416-4-10.pdf"
+    },
+    {
+      "university": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ",
+      "city": "Karaman",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-16T06:23:25.344781+00:00",
+      "deadline": "2026-04-30T23:59:00+00:00",
+      "detectedTitles": [
+        "DOÇENT",
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ bünyesine 10 DOÇENT, 8 PROFESÖR, 8 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: MYO Keleşoğlu Diş Hekimliği Fakültesi, Hekimliği Fakültesi Edebiyat Fakültesi, Edebiyat Fakültesi ve 15 birim daha. Son başvuru: 30.04.2026.",
+      "positions": [
+        {
+          "faculty": "MYO Keleşoğlu Diş Hekimliği Fakültesi",
+          "department": "SANAT DALI/PROGRAM Klinik Bilimler Periodontoloji",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Periodontoloji alanında almış olup periodontal Ahmet 1 lazerlerin kombine kullanımı konusunda çalışma olmak. Felsefe ve Din Bilimleri alanında almış olup",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Hekimliği Fakültesi Edebiyat Fakültesi",
+          "department": "Felsefe Din Felsefesi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "olmak. Felsefe ve Din Bilimleri alanında almış olup 2 Dönemi düşünürleri üzerine çalışma yapmış olmak. Ortaçağ Tarihi alanında almış olup",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Tarih Ortaçağ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Dönemi düşünürleri üzerine çalışma yapmış olmak. Ortaçağ Tarihi alanında almış olup 3 Beyliği, Selçuklular ve diplomasi tarihi çalışma yapmış olmak. Türk Dili alanında almış olup Osmanlı Türkçesi",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Türk Dili ve Edebiyatı Yeni Türk Eğitim Programları",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "çalışma yapmış olmak. Türk Dili alanında almış olup Osmanlı Türkçesi 4 Arapça ve Latince metinler konularında çalışma yapmış Eğitim Programları ve Öğretim alanında almış olup",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Eğitim Programları Eğitim Bilimleri Öğretim Rehberlik",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Eğitim Programları ve Öğretim alanında almış olup 5 değerlendirme ve hayat boyu öğrenme konularında yapmış olmak. Rehberlik ve Psikolojik Danışmanlık alanında",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi ve İdari Bilimler",
+          "department": "Öğretim Rehberlik Eğitim Bilimleri Danışmanlık Siyaset Bilimi ve Kamu",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "yapmış olmak. Rehberlik ve Psikolojik Danışmanlık alanında 6 elektronik iletişim becerileri ve siber zorbalık çalışma yapmış olmak. İktisadi Siyaset Bilimi alanında almış olup siyasal kültür ve",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "ve İdari Bilimler Fakültesi ve İdari Bilimler",
+          "department": "Danışmanlık Siyaset Bilimi ve Kamu Siyaset ve Sosyal Yönetimi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "çalışma yapmış olmak. İktisadi Siyaset Bilimi alanında almış olup siyasal kültür ve 7 konularında çalışma yapmış olmak. İktisadi Makro İktisat alanında almış olup dijital ekonomi",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi ve İdari Bilimler Fakültesi",
+          "department": "Yönetimi İktisat İktisat 16.04.2026",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "konularında çalışma yapmış olmak. İktisadi Makro İktisat alanında almış olup dijital ekonomi 8 harcamaları konularında çalışma yapmış olmak.",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi Karabekir Meslek",
+          "department": "Temel İslam Bilimleri Hadis Büro Hizmetleri ve Büro Yönetimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İlimler Fakültesi mezunu ve Hadis alanında 9 yapmış olup Osmanlı hadis şerhçiliği konusunda yapmış olmak. ve Organizasyon alanında doçent ünvanı almış olup Kazım",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Karabekir Meslek Yüksekokulu",
+          "department": "Büro Hizmetleri ve Büro Yönetimi Sekreterlik Asistanlığı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "yapmış olmak. ve Organizasyon alanında doçent ünvanı almış olup Kazım 10 disiplin ve yeşil insan kaynakları yönetimi çalışma yapmış olmak. ve lisansüstü eğitimlerini Gıda Mühendisliği alanında",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Yüksekokulu Fakültesi",
+          "department": "Sekreterlik Asistanlığı Gıda Mühendisliği Gıda Teknolojisi Çocuk",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "çalışma yapmış olmak. ve lisansüstü eğitimlerini Gıda Mühendisliği alanında 11 Mühendislik olup bitkisel kaynaklı süt ürünleri ve gıda güvenliği konularında çalışma Çocuk sağlığı ve hastalıkları hemşireliği alanında",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi",
+          "department": "Çocuk Hemşirelik Hastalıkları",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "konularında çalışma Çocuk sağlığı ve hastalıkları hemşireliği alanında 12 Sağlık çocukluk çağı kanserlerinde hemşirelik bakımı ve yönetimi konularında Sağlık Yönetimi veya Yönetim ve Organizasyon",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimleri Fakültesi",
+          "department": "Hastalıkları Sağlık Yönetimi Hastane Çocuk",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "yönetimi konularında Sağlık Yönetimi veya Yönetim ve Organizasyon 13 Sağlık almış olup örgütsel davranış ve stratejik yönetim çalışma yapmış olmak. eğitimlerini Çocuk Sağlığı ve Hastalıkları",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Hizmetleri Meslek Yüksekokulu Hizmetleri Meslek",
+          "department": "Rehabilitasyon Eczane Hizmetleri Eczane Terapi ve Engelli",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "hastalıklar Sağlık Kimya alanında almış olup biyoorganik laktamlar 16 konularında çalışma yapmış olmak. Özel Eğitim alanında tamamlamış olup tanılama Sağlık",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Yüksekokulu Hizmetleri Meslek Yüksekokulu Hizmetleri Meslek",
+          "department": "Terapi ve Engelli Rehabilitasyon Rehabilitasyon Terapi ve",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "konularında çalışma yapmış olmak. Özel Eğitim alanında tamamlamış olup tanılama Sağlık 17 ve otizm farkındalığı konularında çalışma yapmış Rehabilitasyon alanında doktora yapmış olup Sağlık",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Yüksekokulu Hizmetleri Meslek Yüksekokulu",
+          "department": "Rehabilitasyon Rehabilitasyon Terapi ve Fizyoterapi Rehabilitasyon 16.04.2026",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Rehabilitasyon alanında doktora yapmış olup Sağlık 18 fiziksel aktivite ve kalp yağ dokusu konularında yapmış olmak.",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Yüksekokulu Tasarım ve Mimarlık Fakültesi",
+          "department": "Teknikler Geleneksel Türk Halı-Kilim Sanatları",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "ve fizyoloji konularında çalışma yapmış olmak. Sanat, Türk Sanatları alanında doçent ünvanı almış olup 21 dokumalar konusunda çalışmalar yapmış olmak. Sporda Psikososyal Alanlar veya Spor Bilimleri",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Fakültesi Bilimleri Fakültesi",
+          "department": "Sanatları Beden Eğitimi ve Spor Beden Eğitimi Anesteziyoloji",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "dokumalar konusunda çalışmalar yapmış olmak. Sporda Psikososyal Alanlar veya Spor Bilimleri 22 Spor almış olup sporcularda psikofizyolojik müdahaleler ve farkındalık Anesteziyoloji ve Reanimasyon alanında almış",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Anesteziyoloji Cerrahi Tıp Bilimleri Reanimasyon",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "farkındalık Anesteziyoloji ve Reanimasyon alanında almış 23 anksiyete konusunda çalışma yapmış olmak. Üroloji alanında almış olup erektil disfonksiyon",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Reanimasyon Cerrahi Tıp Bilimleri Üroloji",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "anksiyete konusunda çalışma yapmış olmak. Üroloji alanında almış olup erektil disfonksiyon 24 çalışma yapmış olmak. radyoloji alanında almış olup perkütan",
+          "_all_titles": [
+            "DOÇENT"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Radyoloji Gastronomi ve Mutfak Gastronomi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "çalışma yapmış olmak. radyoloji alanında almış olup perkütan 25 ve perfüzyon MR inceleme konularında çalışma olmak. ve lisansüstü eğitimlerini Gastronomi ve Mutfak",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimler Fakültesi",
+          "department": "Gastronomi ve Mutfak Gastronomi Sanatları Sanatları Gastronomi ve Mutfak Gastronomi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "olmak. ve lisansüstü eğitimlerini Gastronomi ve Mutfak 26 Uygulamalı alanında yapmış olup menü geliştirme ve su ürünleri konularında çalışma yapmış olmak. Gastronomi ve Mutfak Sanatları alanında almış",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimler Fakültesi",
+          "department": "Sanatları Sanatları Gastronomi ve Mutfak Gastronomi Sanatları Sanatları",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "konularında çalışma yapmış olmak. Gastronomi ve Mutfak Sanatları alanında almış 27 Uygulamalı ve gastrodiplomasi konularında yapmış olmak. Spor Bilimleri alanında almış olup rekreasyonel",
+          "_all_titles": [
+            "DR. ÖĞR. ÜYESİ"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Bilimler Fakültesi",
+          "department": "Sanatları Sanatları Rekreasyon Yönetimi Rekreasyon",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "yapmış olmak. Spor Bilimleri alanında almış olup rekreasyonel 28 Uygulamalı davranışı ve antrenman konularında çalışma yapmış eğitimlerini Rekreasyon Yönetimi alanında yapmış",
+          "_all_titles": [
+            "PROFESÖR"
+          ],
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Transkript (Not Döküm Belgesi)",
+        "Başvuru Dilekçesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260416-4-11.pdf"
+    },
+    {
+      "university": "HASAN KALYONCU ÜNİVERSİTESİ",
+      "city": "Gaziantep",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-16T06:23:25.344781+00:00",
+      "deadline": "2026-05-04T23:59:00+00:00",
+      "detectedTitles": [
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR",
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "contentSnippet": "HASAN KALYONCU ÜNİVERSİTESİ bünyesine 10 DOÇENT, 7 DR. ÖĞR. ÜYESİ, 3 PROFESÖR, 1 ÖĞRETİM GÖREVLİSİ, 1 ARAŞTIRMA GÖREVLİSİ alınacaktır. Birimler: GÜZEL SANATLAR VE MİMARLIK FAKÜLTESİ, HAVACILIK VE UZAY BİLİMLERİ FAKÜLTESİ, HUKUK FAKÜLTESİ ve 4 birim daha. Son başvuru: 04.05.2026.",
+      "positions": [
+        {
+          "faculty": "GÜZEL SANATLAR VE MİMARLIK FAKÜLTESİ",
+          "department": "ENDÜSTRİYEL TASARIM BÖLÜMÜ",
+          "requirements": "Doçentlik ünvanını Endüstriyel Tasarım alanında almış olmak.",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "GÜZEL SANATLAR VE MİMARLIK FAKÜLTESİ",
+          "department": "",
+          "requirements": "Doktora derecesini Endüstriyel Tasarım alanında almış olmak.",
+          "count": 2,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "HAVACILIK VE UZAY BİLİMLERİ FAKÜLTESİ",
+          "department": "HAVACILIK VE UZAY MÜHENDİSLİĞİ BÖLÜMÜ (İNGİLİZCE)",
+          "requirements": "Doktora derecesini ve/veya doçentlik ünvanını Havacılık ve Uzay Mühendisliği, Uçak Mühendisliği, Uçak ve Uzay Mühendisliği veya Uzay Mühendisliği alanlarının birinde almış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "HAVACILIK VE UZAY BİLİMLERİ FAKÜLTESİ",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "HAVACILIK VE UZAY BİLİMLERİ FAKÜLTESİ",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "HUKUK FAKÜLTESİ",
+          "department": "ÖZEL HUKUK",
+          "requirements": "Doçentlik ünvanını Medeni Usul ve İcra İflas Hukuku alanında almış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "HUKUK FAKÜLTESİ",
+          "department": "KAMU HUKUKU",
+          "requirements": "Doktora derecesini Kamu Hukuku alanında almış olmak. Anayasa ve insan hakları hukuku konularında bilimsel çalışmalar yapmış olmak. TR dizin indekslerinde taranan dergilerde en az 1 (bir) makale yayınlamış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İKTİSADİ, İDARİ VE SOSYAL BİLİMLER FAKÜLTESİ",
+          "department": "İŞLETME BÖLÜMÜ",
+          "requirements": "Doktora derecesini İşletme (Pazarlama) alanında almış olmak. Marka aktivizmi, tüketici davranışı ve pazarlama konularında bilimsel çalışmalar yapmış olmak. SCIE/SSCI/ESCI indekslerinde taranan dergilerde en az 1 (bir) makale yayınlamış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK FAKÜLTESİ",
+          "department": "BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ (İNGİLİZCE)",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK FAKÜLTESİ",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK FAKÜLTESİ",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK FAKÜLTESİ",
+          "department": "YAZILIM MÜHENDİSLİĞİ BÖLÜMÜ (İNGİLİZCE)",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK FAKÜLTESİ",
+          "department": "ELEKTRİK-ELEKTRONİK MÜHENDİSLİĞİ BÖLÜMÜ (İNGİLİZCE)",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK FAKÜLTESİ",
+          "department": "ENDÜSTRİ MÜHENDİSLİĞİ",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "SAĞLIK BİLİMLERİ FAKÜLTESİ",
+          "department": "FİZYOTERAPİ VE REHABİLİTASYON",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "SAĞLIK BİLİMLERİ FAKÜLTESİ",
+          "department": "HEMŞİRELİK",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MESLEK YÜKSEKOKULU",
+          "department": "VERİ TABANI, AĞ TASARIMI VE YÖNETİMİ BÖLÜMÜ SİBER GÜVENLİK PR.",
+          "requirements": "Adli Bilişim, Bilgisayar Mühendisliği, Yazılım Mühendisliği, Bilişim Sistemleri Mühendisliği, Bilişim Sistemleri ve Teknolojileri, Bilgisayar ve Öğretim Teknolojileri Eğitimi, lisans mezunu olup, bu alanlardan birinde veya Elektronik- Bilgisayar Mühendisliği, alanında tezli yüksek lisans yapmış olmak ya da belgelendirmek kaydıyla bu alanlarda en az 2 (iki) yıl çalışma tecrübesine sahip olmak.",
+          "count": 1,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İKTİSADİ, İDARİ VE SOSYAL BİLİMLER FAKÜLTESİ",
+          "department": "İşletme lisans mezunu olmak. Aynı alanda tezli yüksek lisans veya doktora yapıyor olmak.",
+          "requirements": "",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "P Rofesör Doktora Derecesi̇ni̇ Ve/Veya",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Yayın Listesi",
+        "Başvuru Dilekçesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260416-4-12.pdf"
     }
-
-EXAM_META = {
-    "ALES":    {"field":"Kariyer","url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "YDS":     {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "E-YDS":   {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "YÖK-DİL": {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "YOKDIL":  {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "TUS":     {"field":"Tıp",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "DUS":     {"field":"Diş",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "E-TEP":   {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
-    "STS":     {"field":"Tıp",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+  ],
+  "examCalendar": []
 }
-
-def fetch_exam_calendar() -> list:
-    if not budget_ok(): return []
-    exams: list = []
-    for url in ["https://www.osym.gov.tr/TR,6/sinav-takvimi.html", "https://www.osym.gov.tr/TR,6/"]:
-        soup = fetch_html(url)
-        if not soup: continue
-        for row in soup.find_all("tr"):
-            cells = [td.get_text(" ", strip=True) for td in row.find_all(["td","th"])]
-            if len(cells) < 2: continue
-            row_text = " ".join(cells)
-            matched_name, meta = None, None
-            for name, m in EXAM_META.items():
-                if name in tr_upper(row_text):
-                    matched_name, meta = name, m; break
-            if not matched_name: continue
-            dm = re.search(r"(\d{1,2})[.\-/](\d{2})[.\-/](\d{4})", row_text)
-            if dm:
-                try:
-                    dt = datetime(int(dm.group(3)), int(dm.group(2)), int(dm.group(1)))
-                    exams.append({"shortName": f"{matched_name} {dt.year}", "name": cells[0],
-                                  "field": meta["field"], "examDate": dt.strftime("%Y-%m-%d"),
-                                  "year": dt.year, "officialUrl": meta["url"]})
-                    continue
-                except ValueError: pass
-            for mname, mnum in TR_MONTHS.items():
-                m2 = re.search(rf"(\d{{1,2}})\s+{mname}\s+(\d{{4}})", row_text, re.IGNORECASE)
-                if m2:
-                    try:
-                        dt = datetime(int(m2.group(2)), mnum, int(m2.group(1)))
-                        exams.append({"shortName": f"{matched_name} {dt.year}", "name": cells[0],
-                                      "field": meta["field"], "examDate": dt.strftime("%Y-%m-%d"),
-                                      "year": dt.year, "officialUrl": meta["url"]})
-                    except ValueError: pass
-                    break
-        if exams: break
-    return exams
-
-def scrape_day(date: datetime, ulist: list, existing_urls: set, pdf_counter: list) -> list:
-    if not budget_ok(): return []
-    index_url = build_index_url(date)
-    soup = fetch_html(index_url)
-    if not soup: return []
-
-    links: list[tuple[str, str]] = []
-    for a in soup.find_all("a", href=True):
-        lt = a.get_text(strip=True)
-        lt_up = tr_upper(lt)
-        if (tr_upper("Rektörlüğünden") in lt_up or tr_upper("Düzeltme İlan") in lt_up or
-            (tr_upper("Rektörlüğü") in lt_up and tr_upper("Üniversite") in lt_up)):
-            abs_url = resolve_url(a["href"], index_url)
-            pdf_url = to_pdf_url(abs_url)
-            if pdf_url in existing_urls: continue
-            links.append((pdf_url, lt))
-
-    ads: list = []
-    for pdf_url, lt in links:
-        if not budget_ok(): break
-        if pdf_counter[0] >= MAX_PDFS_PER_RUN: break
-        pdf_counter[0] += 1
-        time.sleep(0.5)
-
-        pdf_bytes = fetch_bytes(pdf_url)
-        if not pdf_bytes: continue
-
-        parsed = parse_pdf(pdf_bytes, lt, date, ulist)
-        if parsed is None: continue
-        parsed["url"] = pdf_url
-        ads.append(parsed)
-        log.info(f"  ✓ {parsed['university']} — {parsed['detectedTitles']}")
-
-    return ads
-
-def main():
-    log.info("=== AkademikRadar Scraper Starting ===")
-    if not PDF_AVAILABLE: raise SystemExit(1)
-
-    ulist = load_university_list()
-    existing_ads, existing_urls = load_existing_ads()
-    pdf_counter = [0]
-    new_ads: list = []
-    today = datetime.now(timezone.utc)
-
-    for i in range(DAYS_TO_CHECK):
-        if not budget_ok(): break
-        new_ads.extend(scrape_day(today - timedelta(days=i), ulist, existing_urls, pdf_counter))
-
-    seen: set = set()
-    unique_new: list = []
-    for ad in new_ads:
-        if ad["url"] not in seen:
-            seen.add(ad["url"]); unique_new.append(ad)
-
-    cutoff = today - timedelta(days=90)
-    all_ads = unique_new + existing_ads
-    all_ads = [
-        ad for ad in all_ads
-        if datetime.fromisoformat(ad.get("publishDate", today.isoformat())).replace(tzinfo=timezone.utc) >= cutoff
-    ]
-    all_ads.sort(key=lambda x: x.get("publishDate",""), reverse=True)
-
-    output = {
-        "generatedAt": today.isoformat(),
-        "count": len(all_ads),
-        "ads": all_ads,
-        "examCalendar": fetch_exam_calendar(),
-    }
-
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-
-    log.info(f"=== Done in {int(time.monotonic() - _start_time)}s ===")
-
-if __name__ == "__main__":
-    main()
