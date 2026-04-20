@@ -518,7 +518,12 @@ def extract_titles_from_cell(raw: str) -> list:
     return found
 
 def is_academic(title: str) -> bool:
-    return title in ACADEMIC_TITLES
+    """Check if a title (single or combined like 'PROFESÖR / DOÇENT') is academic."""
+    if title in ACADEMIC_TITLES:
+        return True
+    # Check combined titles — at least one part must be academic
+    parts = re.split(r"[/]", title)
+    return any(p.strip() in ACADEMIC_TITLES for p in parts)
 
 # ── Extraction helpers ────────────────────────────────────────────────────────
 
@@ -669,10 +674,271 @@ TITLE_KEYS   = ["UNVAN","ÜNVAN","KADRO ÜNVANI","POZİSYON","ÜNVANI"]
 COUNT_KEYS   = ["SAYI","ADET","KADRO ADEDİ","KADRO SAYISI"]
 REQ_KEYS     = ["AÇIKLAMA","NİTELİK","ÖZEL ŞART","ARANAN ŞART","KOŞUL","NİTELİKLER"]
 
+def extract_positions_coordinate(pdf_pages, full_text: str) -> list:
+    """
+    Primary position extractor using word coordinates from pdfplumber.
+
+    Approach:
+    1. Find the header row (Fakülte / Unvan / Adet / Aranan Nitelikler)
+    2. Determine column X boundaries from header
+    3. Find all count-column entries (single digits at the count X position)
+       — each one marks exactly one position row
+    4. For each count entry, gather all words between it and the next count,
+       assign to columns by X position, and build the position
+    """
+    ROW_TOLERANCE = 4
+
+    HEADER_KEYWORDS = {
+        "faculty": ["FAKÜLTE", "BİRİM"],
+        "dept":    ["BÖLÜM", "PROGRAM", "ANABİLİM"],
+        "title":   ["UNVAN", "ÜNVAN", "KADRO"],
+        "count":   ["ADET", "SAYI"],
+        "req":     ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART"],
+    }
+
+    all_positions = []
+
+    # ── Pass 1: find header and column boundaries on any page ─────────
+    header_found = False
+    col_x: dict[str, float] = {}  # midpoint X for each column
+
+    for page in pdf_pages:
+        try:
+            words = page.extract_words(x_tolerance=2, y_tolerance=2)
+        except Exception:
+            continue
+        if not words: continue
+
+        # Group into rows
+        rows = _group_words_to_rows(words, ROW_TOLERANCE)
+
+        for row in rows:
+            row_text_up = tr_upper(" ".join(w['text'] for w in row))
+            # Count which column types are present in this row
+            found_cols = set()
+            for col_name, kws in HEADER_KEYWORDS.items():
+                if any(tr_upper(kw) in row_text_up for kw in kws):
+                    found_cols.add(col_name)
+            # A valid header MUST contain both "title" (Unvan) and "count" (Adet) keywords
+            # — these two never appear together in data rows
+            if "title" in found_cols and "count" in found_cols and len(found_cols) >= 3:
+                for w in row:
+                    w_up = tr_upper(w['text'])
+                    for col_name, keywords in HEADER_KEYWORDS.items():
+                        if any(tr_upper(kw) in w_up for kw in keywords):
+                            col_x[col_name] = (w['x0'] + w['x1']) / 2
+                # Also check adjacent rows for split headers
+                ri = rows.index(row)
+                for extra in [ri - 1, ri + 1]:
+                    if 0 <= extra < len(rows):
+                        for w in rows[extra]:
+                            w_up = tr_upper(w['text'])
+                            for col_name, keywords in HEADER_KEYWORDS.items():
+                                if col_name not in col_x and any(tr_upper(kw) in w_up for kw in keywords):
+                                    col_x[col_name] = (w['x0'] + w['x1']) / 2
+                header_found = True
+                break
+        if header_found: break
+
+    if not header_found or "count" not in col_x:
+        return []
+
+    count_x = col_x["count"]
+
+    # ── Build column assignment function ──────────────────────────────
+    sorted_cols = sorted(col_x.items(), key=lambda x: x[1])
+    col_ranges: list[tuple[str, float, float]] = []
+    for i, (name, mid_x) in enumerate(sorted_cols):
+        left = mid_x - 30 if i == 0 else (sorted_cols[i-1][1] + mid_x) / 2
+        right = mid_x + 30 if i == len(sorted_cols) - 1 else (mid_x + sorted_cols[i+1][1]) / 2
+        col_ranges.append((name, left, right))
+    # Last column (requirements) extends to right edge
+    if col_ranges:
+        last = col_ranges[-1]
+        col_ranges[-1] = (last[0], last[1], 9999)
+
+    def assign_col(w: dict) -> str:
+        x = w['x0']
+        for name, left, right in col_ranges:
+            if left <= x <= right:
+                return name
+        return col_ranges[-1][0]  # fallback to last column
+
+    # ── Pass 2: on each page, find count entries and extract positions ──
+    for page in pdf_pages:
+        try:
+            words = page.extract_words(x_tolerance=2, y_tolerance=2)
+        except Exception:
+            continue
+        if not words: continue
+
+        rows = _group_words_to_rows(words, ROW_TOLERANCE)
+
+        # Find header on this page to know where data starts
+        header_ri = None
+        for ri, row in enumerate(rows):
+            row_text_up = tr_upper(" ".join(w['text'] for w in row))
+            found_cols_page = set()
+            for col_name, kws in HEADER_KEYWORDS.items():
+                if any(tr_upper(kw) in row_text_up for kw in kws):
+                    found_cols_page.add(col_name)
+            if "title" in found_cols_page and "count" in found_cols_page:
+                header_ri = ri
+                break
+
+        # Find count entries BELOW the header (or from row 0 if no header on this page)
+        data_start_ri = (header_ri + 1) if header_ri is not None else 0
+
+        count_entries: list[tuple[int, int]] = []
+        for ri, row in enumerate(rows):
+            if ri < data_start_ri: continue
+            for w in row:
+                if abs(w['x0'] - count_x) < 15 and w['text'].strip().isdigit():
+                    val = int(w['text'].strip())
+                    if 1 <= val <= 10:
+                        count_entries.append((ri, val))
+                        break
+
+        if not count_entries: continue
+
+        # For each count entry, gather words from surrounding rows
+        # A position spans from after the previous count to the current count's row group
+        for ci, (count_ri, count_val) in enumerate(count_entries):
+            # Determine row range: from previous count's row + 1 to current count's row
+            # But we need to look ABOVE the count row for faculty/dept/title
+            prev_end = count_entries[ci - 1][0] if ci > 0 else -1
+
+            # Scan rows between prev_end+1 and a few rows after count_ri
+            # to capture multi-line cells
+            scan_start = max(data_start_ri, prev_end + 1)
+            scan_end = count_entries[ci + 1][0] if ci + 1 < len(count_entries) else len(rows)
+            # Don't go more than 12 rows back from count
+            scan_start = max(scan_start, count_ri - 12)
+
+            # Collect all words in this range, assign to columns
+            col_words: dict[str, list[str]] = {c[0]: [] for c in col_ranges}
+
+            for ri in range(scan_start, min(scan_end, len(rows))):
+                for w in sorted(rows[ri], key=lambda w: w['x0']):
+                    col = assign_col(w)
+                    # Skip the count word itself
+                    if col == "count" and w['text'].strip().isdigit():
+                        continue
+                    col_words[col].append(w['text'])
+
+            # Build position fields
+            faculty_text = " ".join(col_words.get("faculty", [])).strip()
+            dept_text = " ".join(col_words.get("dept", [])).strip()
+            title_text = " ".join(col_words.get("title", [])).strip()
+            req_text = " ".join(col_words.get("req", [])).strip()
+
+            # Extract academic titles
+            title_list = extract_titles_from_cell(title_text)
+            if not title_list: continue
+
+            # Validate
+            if len(faculty_text) > 120 or len(dept_text) > 120: continue
+
+            # Keep combined titles as a single entry — "Profesör / Doçent / Dr. Öğr. Üyesi x1"
+            # means ONE person hired at whatever rank, not three separate positions.
+            combined_title = " / ".join(title_list)
+            # Use the highest-rank title for ALES/language checks
+            primary_title = title_list[0]
+            pos = {
+                "faculty": faculty_text,
+                "department": dept_text,
+                "title": combined_title,
+                "count": count_val,
+                "requirements": req_text,
+                "_all_titles": title_list,  # for detectedTitles at ad level
+            }
+            ales = extract_ales(req_text, primary_title)
+            if not ales["alesRequired"]:
+                ales = extract_ales(full_text, primary_title)
+            lang = extract_language(req_text, primary_title)
+            if not lang["foreignLanguageRequired"]:
+                lang = extract_language(full_text, primary_title)
+            pos.update(ales)
+            pos.update(lang)
+            all_positions.append(pos)
+
+    return all_positions
+
+
+def _group_words_to_rows(words: list, tolerance: int = 4) -> list[list[dict]]:
+    """Group words into rows by Y position."""
+    sorted_words = sorted(words, key=lambda w: (round(w['top'], 0), w['x0']))
+    rows: list[list[dict]] = []
+    current_row: list[dict] = []
+    current_y: float | None = None
+
+    for w in sorted_words:
+        y = round(w['top'], 0)
+        if current_y is None or abs(y - current_y) <= tolerance:
+            current_row.append(w)
+            if current_y is None: current_y = y
+        else:
+            rows.append(current_row)
+            current_row = [w]
+            current_y = y
+    if current_row:
+        rows.append(current_row)
+    return rows
+
+
+
+def collapse_sparse_table(table: list) -> list:
+    """
+    Fix pdfplumber's over-segmented tables where data is spread across many columns
+    with most cells empty. Collapses by removing entirely empty columns and merging
+    consecutive rows that belong to the same logical row (detected when most cells
+    in a row are empty — the non-empty cells are continuations of the row above).
+    """
+    if not table or not table[0]:
+        return table
+    ncols = max(len(r) for r in table)
+
+    # Pad all rows to same length
+    padded = [list(r) + [None]*(ncols - len(r)) for r in table]
+
+    # Step 1: find columns that have at least one non-empty value
+    used_cols = []
+    for j in range(ncols):
+        if any(str(padded[i][j] or "").strip() for i in range(len(padded))):
+            used_cols.append(j)
+
+    # Only collapse if there are many empty columns (> 8 total columns, < 40% used)
+    if ncols <= 8 or len(used_cols) / ncols > 0.5:
+        return table
+
+    # Step 2: keep only used columns
+    collapsed = []
+    for row in padded:
+        collapsed.append([row[j] for j in used_cols])
+
+    # Step 3: merge continuation rows — a row where most cells are empty is
+    # a continuation of the previous row (append text to previous row's cells)
+    merged = []
+    for row in collapsed:
+        non_empty = sum(1 for c in row if str(c or "").strip())
+        if merged and non_empty <= 2 and non_empty < len(row) * 0.4:
+            # This is a continuation row — merge into previous
+            for j in range(len(row)):
+                val = str(row[j] or "").strip()
+                if val:
+                    prev = str(merged[-1][j] or "").strip()
+                    merged[-1][j] = (prev + " " + val).strip() if prev else val
+        else:
+            merged.append(list(row))
+
+    return merged
+
 def extract_positions_from_tables(tables: list, full_text: str) -> list:
     positions = []
     for table in tables:
         if not table or len(table) < 2: continue
+        # Collapse sparse tables (pdfplumber sometimes creates 15+ column grids)
+        table = collapse_sparse_table(table)
         header_idx = None
         for i, row in enumerate(table[:5]):
             row_up = tr_upper(" ".join(str(c or "") for c in row))
@@ -731,15 +997,37 @@ def extract_positions_from_tables(tables: list, full_text: str) -> list:
 def extract_positions_from_text(full_text: str) -> list:
     positions, lines = [], [l.strip() for l in full_text.split("\n") if l.strip()]
     current_faculty = ""
+
+    # Build a "joined" version where each line is merged with the next for proximity matching
+    # This catches multi-word titles split across table columns like "Araştırma ... Görevlisi"
+    joined_lines = []
+    for k in range(len(lines)):
+        combined = lines[k]
+        if k + 1 < len(lines):
+            combined += " " + lines[k+1]
+        joined_lines.append(combined)
+
     for i, line in enumerate(lines):
         lu = tr_upper(line)
+        # Detect faculty lines (don't contain a title keyword)
         if any(tr_upper(k) in lu for k in ["FAKÜLTESİ","YÜKSEKOKULU","ENSTİTÜSÜ","MYO"]):
             if not any(tr_upper(t) in lu for t in ACADEMIC_TITLES):
                 current_faculty = line.strip(); continue
-        found = next((t for t in ACADEMIC_TITLES if tr_upper(t) in lu), None)
-        if not found: continue
+
+        # Search for titles in the current line first
+        found_titles = extract_titles_from_cell(line)
+
+        # If not found, try proximity search on current+next line (catches split titles)
+        if not found_titles and i < len(joined_lines):
+            found_titles = extract_titles_from_cell(joined_lines[i])
+
+        if not found_titles:
+            continue
         cnt = int(m.group(1)) if (m := re.search(r'\b(\d{1,2})\b', line)) else 1
-        dept = lu.split(tr_upper(found))[0].strip()
+        # Grab the text before the first title as department
+        first_title = found_titles[0]
+        dept = lu.split(tr_upper(first_title))[0].strip()
+        # Collect requirement lines after the title line
         reqs = []
         for j in range(i+1, min(i+6, len(lines))):
             nu = tr_upper(lines[j])
@@ -747,10 +1035,20 @@ def extract_positions_from_text(full_text: str) -> list:
             if any(tr_upper(k) in nu for k in ["FAKÜLTESİ","YÜKSEKOKULU"]): break
             if lines[j].strip(): reqs.append(lines[j].strip())
         req = " ".join(reqs)
-        pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
-               "title": found, "count": cnt, "requirements": req}
-        pos.update(extract_ales(req+"\n"+full_text, found)); pos.update(extract_language(req+"\n"+full_text, found))
-        positions.append(pos)
+        # Create one position per detected title
+        for title in found_titles:
+            pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
+                   "title": title, "count": cnt, "requirements": req}
+            # ALES: try position requirements first, fall back to full text
+            ales = extract_ales(req, title)
+            if not ales["alesRequired"]:
+                ales = extract_ales(full_text, title)
+            # Language: same two-pass approach
+            lang = extract_language(req, title)
+            if not lang["foreignLanguageRequired"]:
+                lang = extract_language(full_text, title)
+            pos.update(ales); pos.update(lang)
+            positions.append(pos)
     return positions
 
 def generate_snippet(university: str, positions: list, deadline: str | None) -> str:
@@ -795,15 +1093,68 @@ def parse_pdf(pdf_bytes: bytes, link_text: str, publish_date: datetime, ulist: l
         if c2 != "Bilinmiyor": uni_name, city, uni_type = n2, c2, t2
 
     deadline  = extract_deadline(full_text, publish_date)
-    positions = extract_positions_from_tables(all_tables, full_text)
-    if not positions: positions = extract_positions_from_text(full_text)
-    positions = [p for p in positions if is_academic(p.get("title",""))]
+
+    # ── Extract positions using ALL methods, then merge ─────────────────
+    # 1. Coordinate-based (best for standard tables with clear columns)
+    try:
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf2:
+            coord_positions = extract_positions_coordinate(pdf2.pages, full_text)
+    except Exception as e:
+        log.warning(f"  Coordinate extraction failed: {e}")
+        coord_positions = []
+
+    # 2. Table-based — only if coordinates found nothing (avoids duplicates)
+    table_positions = []
+    if not coord_positions:
+        table_positions = extract_positions_from_tables(all_tables, full_text)
+
+    # 3. Text-based (catches anything the structured extractors miss)
+    text_positions = extract_positions_from_text(full_text)
+
+    # ── Validate: discard garbage entries ─────────────────────────────
+    def is_valid_position(p: dict) -> bool:
+        if not is_academic(p.get("title", "")): return False
+        if len(p.get("faculty", "")) > 100: return False
+        if len(p.get("department", "")) > 100: return False
+        # Cap unreasonable counts
+        if p.get("count", 1) > 10: p["count"] = 1
+        return True
+
+    # ── Merge and deduplicate ─────────────────────────────────────────
+    def pos_key(p: dict) -> str:
+        t = normalize_for_match(p.get("title", "")).strip()
+        f = normalize_for_match(p.get("faculty", "")).strip()[:50]
+        d = normalize_for_match(p.get("department", "")).strip()[:50]
+        return f"{t}|{f}|{d}"
+
+    seen_keys: set = set()
+    positions: list = []
+
+    # Priority: coordinate > table > text
+    for source in [coord_positions, table_positions, text_positions]:
+        for p in source:
+            if not is_valid_position(p): continue
+            key = pos_key(p)
+            if key not in seen_keys:
+                seen_keys.add(key)
+                positions.append(p)
+
     if not positions:
         log.info(f"  Skipping {uni_name} — no academic titles."); return None
 
     docs     = extract_documents(full_text)
     snippet  = generate_snippet(uni_name, positions, deadline)
-    detected = list(dict.fromkeys(p["title"] for p in positions if is_academic(p["title"])))
+    # Collect individual titles from both single and combined entries
+    all_detected = []
+    for p in positions:
+        if "_all_titles" in p:
+            for t in p["_all_titles"]:
+                if t not in all_detected and t in ACADEMIC_TITLES:
+                    all_detected.append(t)
+        elif is_academic(p["title"]):
+            if p["title"] not in all_detected:
+                all_detected.append(p["title"])
+    detected = all_detected
 
     return {
         "university": uni_name, "city": city, "uniType": uni_type,
