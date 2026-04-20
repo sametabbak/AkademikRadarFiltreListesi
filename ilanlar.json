@@ -19,19 +19,14 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 log = logging.getLogger(__name__)
 
 # ── Runtime limits ────────────────────────────────────────────────────────────
-# Hard wall-clock budget. Scraper writes whatever it has and exits cleanly
-# before the GitHub Actions job timeout can kill it.
-MAX_RUNTIME_SECONDS = 20 * 60        # 20 minutes total
-MAX_PDFS_PER_RUN    = 30             # cap to avoid runaway on busy gazette days
+MAX_RUNTIME_SECONDS = 20 * 60
+MAX_PDFS_PER_RUN    = 30
 
 # ── Request timeouts ──────────────────────────────────────────────────────────
-# Use (connect, read) tuple:  connect must succeed in 10 s, each read chunk
-# in 25 s.  This is different from a *total* download timeout, but it prevents
-# the most common hang: server accepts the connection then sends data very slowly.
 CONNECT_TIMEOUT = 10
 READ_TIMEOUT    = 25
 TIMEOUT         = (CONNECT_TIMEOUT, READ_TIMEOUT)
-MAX_PDF_BYTES   = 6 * 1024 * 1024   # skip PDFs larger than 6 MB (corrupt / huge)
+MAX_PDF_BYTES   = 6 * 1024 * 1024
 
 OUTPUT_FILE = "ilanlar.json"
 DAYS_TO_CHECK = 5
@@ -66,14 +61,18 @@ TITLE_ALIASES = {
     "YARDIMCI DOÇENT":            "DR. ÖĞR. ÜYESİ",
     "DR. ÖĞR.":                   "DR. ÖĞR. ÜYESİ",
     "DR.ÖĞR.ÜYESİ":               "DR. ÖĞR. ÜYESİ",
-    "DOKTOR ÖĞRETİM ÜYESİ":      "DR. ÖĞR. ÜYESİ",
-    "DR. ÖĞRETİM ÜYESİ":         "DR. ÖĞR. ÜYESİ",
-    "DR.ÖĞRETİM ÜYESİ":          "DR. ÖĞR. ÜYESİ",
-    "DR ÖĞRETİM ÜYESİ":          "DR. ÖĞR. ÜYESİ",
+    "DOKTOR ÖĞRETİM ÜYESİ":       "DR. ÖĞR. ÜYESİ",
+    "DR. ÖĞRETİM ÜYESİ":          "DR. ÖĞR. ÜYESİ",
+    "DR.ÖĞRETİM ÜYESİ":           "DR. ÖĞR. ÜYESİ",
+    "DR ÖĞRETİM ÜYESİ":           "DR. ÖĞR. ÜYESİ",
+    "DOKTOR OGRETIM UYESI":       "DR. ÖĞR. ÜYESİ",
+    "DR. OGRETIM UYESI":          "DR. ÖĞR. ÜYESİ",
     "ÖĞR. GÖR.":                  "ÖĞRETİM GÖREVLİSİ",
     "ÖĞRETİM GÖR.":               "ÖĞRETİM GÖREVLİSİ",
+    "OGRETIM GOREVLISI":          "ÖĞRETİM GÖREVLİSİ",
     "ARŞ. GÖR.":                  "ARAŞTIRMA GÖREVLİSİ",
     "ARAŞTIRMA GÖR.":             "ARAŞTIRMA GÖREVLİSİ",
+    "ARASTIRMA GOREVLISI":        "ARAŞTIRMA GÖREVLİSİ",
 }
 
 TR_MONTHS = {
@@ -81,7 +80,6 @@ TR_MONTHS = {
     "Temmuz":7,"Ağustos":8,"Eylül":9,"Ekim":10,"Kasım":11,"Aralık":12,
 }
 
-# ── Global time budget ────────────────────────────────────────────────────────
 _start_time = time.monotonic()
 
 def time_remaining() -> float:
@@ -90,16 +88,13 @@ def time_remaining() -> float:
 def budget_ok() -> bool:
     remaining = time_remaining()
     if remaining <= 0:
-        log.warning(f"Time budget exhausted after {MAX_RUNTIME_SECONDS}s — writing output now.")
+        log.warning(f"Time budget exhausted after {MAX_RUNTIME_SECONDS}s.")
     return remaining > 0
-
-# ── Turkish string helpers ────────────────────────────────────────────────────
 
 def tr_upper(s: str) -> str:
     return s.replace("i", "İ").replace("ı", "I").upper()
 
 def normalize_for_match(s: str) -> str:
-    """Flatten all Turkish i-variants + accented chars to plain ASCII for matching."""
     return (
         s
         .replace("İ", "I").replace("ı", "I").replace("i", "I")
@@ -116,11 +111,8 @@ def clean_cell(value: str) -> str:
     text = re.sub(r"[\r\n]+", " ", value)
     return re.sub(r"[ \t]{2,}", " ", text).strip()
 
-# ── HTTP session ──────────────────────────────────────────────────────────────
-# One session, no automatic retries (we handle retries ourselves with time checks).
 _session = requests.Session()
 _session.headers.update(HEADERS)
-# Disable urllib3 automatic retries — we want full control
 from requests.adapters import HTTPAdapter
 _adapter = HTTPAdapter(max_retries=0)
 _session.mount("http://", _adapter)
@@ -133,61 +125,35 @@ def fetch_html(url: str) -> BeautifulSoup | None:
         r.raise_for_status()
         r.encoding = r.apparent_encoding
         return BeautifulSoup(r.text, "html.parser")
-    except Exception as e:
-        log.warning(f"HTML fetch failed [{url}]: {e}")
+    except Exception:
         return None
 
 def fetch_bytes(url: str, retries: int = 2) -> bytes | None:
-    """
-    Download a binary file with a hard per-attempt timeout.
-    Uses streaming + manual accumulation so we can enforce a MAX_PDF_BYTES cap
-    and abort oversized or stalled downloads early.
-    """
     if not budget_ok(): return None
     for attempt in range(1, retries + 1):
         if not budget_ok(): return None
         try:
             with _session.get(url, timeout=TIMEOUT, stream=True) as r:
                 r.raise_for_status()
-
-                # Check Content-Length header upfront
                 content_length = int(r.headers.get("Content-Length", 0))
-                if content_length > MAX_PDF_BYTES:
-                    log.warning(f"  PDF too large ({content_length} bytes), skipping: {url}")
-                    return None
-
+                if content_length > MAX_PDF_BYTES: return None
                 chunks = []
                 total = 0
                 chunk_deadline = time.monotonic() + READ_TIMEOUT
                 for chunk in r.iter_content(chunk_size=65536):
-                    if not chunk:
-                        continue
+                    if not chunk: continue
                     total += len(chunk)
-                    if total > MAX_PDF_BYTES:
-                        log.warning(f"  PDF exceeded {MAX_PDF_BYTES} bytes mid-download, skipping.")
-                        return None
-                    if time.monotonic() > chunk_deadline:
-                        log.warning(f"  PDF download stalled (no new chunk in {READ_TIMEOUT}s), skipping.")
-                        return None
-                    chunk_deadline = time.monotonic() + READ_TIMEOUT  # reset on each chunk
+                    if total > MAX_PDF_BYTES: return None
+                    if time.monotonic() > chunk_deadline: return None
+                    chunk_deadline = time.monotonic() + READ_TIMEOUT
                     chunks.append(chunk)
-
                 return b"".join(chunks)
-
-        except Exception as e:
-            log.warning(f"  Bytes fetch attempt {attempt} failed [{url}]: {e}")
-            if attempt < retries:
-                time.sleep(3)
+        except Exception:
+            if attempt < retries: time.sleep(3)
     return None
 
-# ── URL helpers ───────────────────────────────────────────────────────────────
-
 def build_index_url(date: datetime) -> str:
-    return (
-        f"{RG_BASE}/ilanlar/eskiilanlar/"
-        f"{date.strftime('%Y')}/{date.strftime('%m')}/"
-        f"{date.strftime('%Y%m%d')}-4.htm"
-    )
+    return f"{RG_BASE}/ilanlar/eskiilanlar/{date.strftime('%Y')}/{date.strftime('%m')}/{date.strftime('%Y%m%d')}-4.htm"
 
 def resolve_url(href: str, index_url: str) -> str:
     if href.startswith("http"): return href
@@ -199,279 +165,64 @@ def to_pdf_url(url: str) -> str:
     if url.endswith(".pdf"): return url
     return url + ".pdf"
 
-# ── University list ───────────────────────────────────────────────────────────
-
-# Local cache path for university list — survives across runs
 UNIVERSITY_CACHE_FILE = "university_list_cache.json"
 
-# Hardcoded fallback — covers universities most likely to appear in Resmî Gazete
 FALLBACK_UNIVERSITY_LIST = [
     {"Name": "ANKARA ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
     {"Name": "GAZİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
     {"Name": "HACETTEPE ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ORTA DOĞU TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA YILDIRIM BEYAZIT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA HACI BAYRAM VELİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA SOSYAL BİLİMLER ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "ANKARA MÜZİK VE GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
-    {"Name": "BAŞKENT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ATILIM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ÇANKAYA ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "İHSAN DOĞRAMACI BİLKENT ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "TED ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "TOBB EKONOMİ VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "UFUK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
     {"Name": "ANKARA BİLİM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "ANKARA MEDİPOL ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "LOKMAN HEKİM ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "OSTİM TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "YÜKSEK İHTİSAS ÜNİVERSİTESİ", "City": "Ankara", "Type": "Vakıf"},
-    {"Name": "BOĞAZİÇİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
+    {"Name": "ORTA DOĞU TEKNİK ÜNİVERSİTESİ", "City": "Ankara", "Type": "Devlet"},
     {"Name": "İSTANBUL TEKNİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
     {"Name": "İSTANBUL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "İSTANBUL ÜNİVERSİTESİ-CERRAHPAŞA", "City": "İstanbul", "Type": "Devlet"},
     {"Name": "MARMARA ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "YILDIZ TEKNİK ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "GALATASARAYÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "GALATASARAY ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "MİMAR SİNAN GÜZEL SANATLAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "İSTANBUL MEDENİYET ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "TÜRK-ALMAN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Devlet"},
-    {"Name": "KOÇ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "SABANCI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "BAHÇEŞEHİR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL BİLGİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL AYDIN ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL MEDİPOL ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "BİRUNİ ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "ACIBADEM MEHMET ALİ AYDINLAR ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "BEZM-İ ÂLEM VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "FATİH SULTAN MEHMET VAKIF ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "İSTANBUL NİŞANTAŞI ÜNİVERSİTESİ", "City": "İstanbul", "Type": "Vakıf"},
-    {"Name": "EGE ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "DOKUZ EYLÜL ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR YÜKSEK TEKNOLOJİ ENSTİTÜSÜ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR KATİP ÇELEBİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR BAKIRÇAY ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR DEMOKRASİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Devlet"},
-    {"Name": "İZMİR EKONOMİ ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf"},
-    {"Name": "İZMİR TINAZTEPE ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf"},
-    {"Name": "YAŞAR ÜNİVERSİTESİ", "City": "İzmir", "Type": "Vakıf"},
-    {"Name": "SELÇUK ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet"},
-    {"Name": "KONYA TEKNİK ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet"},
-    {"Name": "NECMETTİN ERBAKAN ÜNİVERSİTESİ", "City": "Konya", "Type": "Devlet"},
-    {"Name": "KTO KARATAY ÜNİVERSİTESİ", "City": "Konya", "Type": "Vakıf"},
-    {"Name": "KONYA GIDA VE TARIM ÜNİVERSİTESİ", "City": "Konya", "Type": "Vakıf"},
-    {"Name": "ÇUKUROVA ÜNİVERSİTESİ", "City": "Adana", "Type": "Devlet"},
-    {"Name": "ADANA ALPARSLAN TÜRKEŞ BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Adana", "Type": "Devlet"},
-    {"Name": "KARADENİZ TEKNİK ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Devlet"},
-    {"Name": "TRABZON ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Devlet"},
-    {"Name": "AVRASYA ÜNİVERSİTESİ", "City": "Trabzon", "Type": "Vakıf"},
-    {"Name": "ATATÜRK ÜNİVERSİTESİ", "City": "Erzurum", "Type": "Devlet"},
-    {"Name": "ERZURUM TEKNİK ÜNİVERSİTESİ", "City": "Erzurum", "Type": "Devlet"},
-    {"Name": "BURSA ULUDAĞ ÜNİVERSİTESİ", "City": "Bursa", "Type": "Devlet"},
-    {"Name": "BURSA TEKNİK ÜNİVERSİTESİ", "City": "Bursa", "Type": "Devlet"},
-    {"Name": "MUDANYA ÜNİVERSİTESİ", "City": "Bursa", "Type": "Vakıf"},
-    {"Name": "ERCİYES ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet"},
-    {"Name": "KAYSERİ ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet"},
-    {"Name": "ABDULLAH GÜL ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Devlet"},
-    {"Name": "NUH NACİ YAZGAN ÜNİVERSİTESİ", "City": "Kayseri", "Type": "Vakıf"},
-    {"Name": "AKDENİZ ÜNİVERSİTESİ", "City": "Antalya", "Type": "Devlet"},
-    {"Name": "ALANYA ALAADDİN KEYKUBAT ÜNİVERSİTESİ", "City": "Antalya", "Type": "Devlet"},
-    {"Name": "ANTALYA BİLİM ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf"},
-    {"Name": "ALANYA ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf"},
-    {"Name": "ANTALYA BELEK ÜNİVERSİTESİ", "City": "Antalya", "Type": "Vakıf"},
-    {"Name": "ONDOKUZ MAYIS ÜNİVERSİTESİ", "City": "Samsun", "Type": "Devlet"},
-    {"Name": "SAMSUN ÜNİVERSİTESİ", "City": "Samsun", "Type": "Devlet"},
-    {"Name": "GAZİANTEP ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Devlet"},
-    {"Name": "GAZİANTEP İSLAM BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Devlet"},
-    {"Name": "HASAN KALYONCU ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Vakıf"},
-    {"Name": "SANKO ÜNİVERSİTESİ", "City": "Gaziantep", "Type": "Vakıf"},
-    {"Name": "PAMUKKALE ÜNİVERSİTESİ", "City": "Denizli", "Type": "Devlet"},
-    {"Name": "ANADOLU ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet"},
-    {"Name": "ESKİŞEHİR OSMANGAZİ ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet"},
-    {"Name": "ESKİŞEHİR TEKNİK ÜNİVERSİTESİ", "City": "Eskişehir", "Type": "Devlet"},
-    {"Name": "TRAKYA ÜNİVERSİTESİ", "City": "Edirne", "Type": "Devlet"},
-    {"Name": "FIRAT ÜNİVERSİTESİ", "City": "Elazığ", "Type": "Devlet"},
-    {"Name": "İNÖNÜ ÜNİVERSİTESİ", "City": "Malatya", "Type": "Devlet"},
-    {"Name": "MALATYA TURGUT ÖZAL ÜNİVERSİTESİ", "City": "Malatya", "Type": "Devlet"},
-    {"Name": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ", "City": "Karaman", "Type": "Devlet"},
-    {"Name": "MERSİN ÜNİVERSİTESİ", "City": "Mersin", "Type": "Devlet"},
-    {"Name": "TARSUS ÜNİVERSİTESİ", "City": "Mersin", "Type": "Devlet"},
-    {"Name": "TOROS ÜNİVERSİTESİ", "City": "Mersin", "Type": "Vakıf"},
-    {"Name": "ÇAĞ ÜNİVERSİTESİ", "City": "Mersin", "Type": "Vakıf"},
-    {"Name": "DİCLE ÜNİVERSİTESİ", "City": "Diyarbakır", "Type": "Devlet"},
-    {"Name": "HARRAN ÜNİVERSİTESİ", "City": "Şanlıurfa", "Type": "Devlet"},
-    {"Name": "KIRIKKALE ÜNİVERSİTESİ", "City": "Kırıkkale", "Type": "Devlet"},
-    {"Name": "GEBZE TEKNİK ÜNİVERSİTESİ", "City": "Kocaeli", "Type": "Devlet"},
-    {"Name": "KOCAELİ ÜNİVERSİTESİ", "City": "Kocaeli", "Type": "Devlet"},
-    {"Name": "SAKARYA ÜNİVERSİTESİ", "City": "Sakarya", "Type": "Devlet"},
-    {"Name": "SAKARYA UYGULAMALI BİLİMLER ÜNİVERSİTESİ", "City": "Sakarya", "Type": "Devlet"},
-    {"Name": "DÜZCE ÜNİVERSİTESİ", "City": "Düzce", "Type": "Devlet"},
-    {"Name": "BOLU ABANT İZZET BAYSAL ÜNİVERSİTESİ", "City": "Bolu", "Type": "Devlet"},
-    {"Name": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ", "City": "Isparta", "Type": "Devlet"},
-    {"Name": "ISPARTA UYGULAMALI BİLİMLER ÜNİVERSİTESİ", "City": "Isparta", "Type": "Devlet"},
-    {"Name": "MANİSA CELÂL BAYAR ÜNİVERSİTESİ", "City": "Manisa", "Type": "Devlet"},
-    {"Name": "MUĞLA SITKI KOÇMAN ÜNİVERSİTESİ", "City": "Muğla", "Type": "Devlet"},
-    {"Name": "BALIKESİR ÜNİVERSİTESİ", "City": "Balıkesir", "Type": "Devlet"},
-    {"Name": "BANDIRMA ONYEDİ EYLÜL ÜNİVERSİTESİ", "City": "Balıkesir", "Type": "Devlet"},
-    {"Name": "ÇANAKKALE ONSEKİZ MART ÜNİVERSİTESİ", "City": "Çanakkale", "Type": "Devlet"},
-    {"Name": "AYDIN ADNAN MENDERES ÜNİVERSİTESİ", "City": "Aydın", "Type": "Devlet"},
-    {"Name": "AFYON KOCATEPE ÜNİVERSİTESİ", "City": "Afyonkarahisar", "Type": "Devlet"},
-    {"Name": "AFYONKARAHİSAR SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "Afyonkarahisar", "Type": "Devlet"},
-    {"Name": "KÜTAHYA DUMLUPINAR ÜNİVERSİTESİ", "City": "Kütahya", "Type": "Devlet"},
-    {"Name": "KÜTAHYA SAĞLIK BİLİMLERİ ÜNİVERSİTESİ", "City": "Kütahya", "Type": "Devlet"},
-    {"Name": "UŞAK ÜNİVERSİTESİ", "City": "Uşak", "Type": "Devlet"},
-    {"Name": "RECEP TAYYİP ERDOĞAN ÜNİVERSİTESİ", "City": "Rize", "Type": "Devlet"},
-    {"Name": "GİRESUN ÜNİVERSİTESİ", "City": "Giresun", "Type": "Devlet"},
-    {"Name": "GÜMÜŞHANE ÜNİVERSİTESİ", "City": "Gümüşhane", "Type": "Devlet"},
-    {"Name": "SİVAS CUMHURİYET ÜNİVERSİTESİ", "City": "Sivas", "Type": "Devlet"},
-    {"Name": "SİVAS BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ", "City": "Sivas", "Type": "Devlet"},
-    {"Name": "ORDU ÜNİVERSİTESİ", "City": "Ordu", "Type": "Devlet"},
-    {"Name": "TOKAT GAZİOSMANPAŞA ÜNİVERSİTESİ", "City": "Tokat", "Type": "Devlet"},
-    {"Name": "KASTAMONU ÜNİVERSİTESİ", "City": "Kastamonu", "Type": "Devlet"},
-    {"Name": "BARTIN ÜNİVERSİTESİ", "City": "Bartın", "Type": "Devlet"},
-    {"Name": "KARABÜK ÜNİVERSİTESİ", "City": "Karabük", "Type": "Devlet"},
-    {"Name": "ZONGULDAK BÜLENT ECEVİT ÜNİVERSİTESİ", "City": "Zonguldak", "Type": "Devlet"},
-    {"Name": "AMASYA ÜNİVERSİTESİ", "City": "Amasya", "Type": "Devlet"},
-    {"Name": "ÇANKIRI KARATEKİN ÜNİVERSİTESİ", "City": "Çankırı", "Type": "Devlet"},
-    {"Name": "HİTİT ÜNİVERSİTESİ", "City": "Çorum", "Type": "Devlet"},
-    {"Name": "YOZGAT BOZOK ÜNİVERSİTESİ", "City": "Yozgat", "Type": "Devlet"},
-    {"Name": "NEVŞEHİR HACI BEKTAŞ VELİ ÜNİVERSİTESİ", "City": "Nevşehir", "Type": "Devlet"},
-    {"Name": "KAPADOKYA ÜNİVERSİTESİ", "City": "Nevşehir", "Type": "Vakıf"},
-    {"Name": "NİĞDE ÖMER HALİSDEMİR ÜNİVERSİTESİ", "City": "Niğde", "Type": "Devlet"},
-    {"Name": "AHİ EVRAN ÜNİVERSİTESİ", "City": "Kırşehir", "Type": "Devlet"},
-    {"Name": "AKSARAY ÜNİVERSİTESİ", "City": "Aksaray", "Type": "Devlet"},
-    {"Name": "KIRKLARELİ ÜNİVERSİTESİ", "City": "Kırklareli", "Type": "Devlet"},
-    {"Name": "TEKİRDAĞ NAMIK KEMAL ÜNİVERSİTESİ", "City": "Tekirdağ", "Type": "Devlet"},
-    {"Name": "KAFKAS ÜNİVERSİTESİ", "City": "Kars", "Type": "Devlet"},
-    {"Name": "ARDAHAN ÜNİVERSİTESİ", "City": "Ardahan", "Type": "Devlet"},
-    {"Name": "IĞDIR ÜNİVERSİTESİ", "City": "Iğdır", "Type": "Devlet"},
-    {"Name": "AĞRI İBRAHİM ÇEÇEN ÜNİVERSİTESİ", "City": "Ağrı", "Type": "Devlet"},
-    {"Name": "MUŞ ALPARSLAN ÜNİVERSİTESİ", "City": "Muş", "Type": "Devlet"},
-    {"Name": "BİTLİS EREN ÜNİVERSİTESİ", "City": "Bitlis", "Type": "Devlet"},
-    {"Name": "HAKKARİ ÜNİVERSİTESİ", "City": "Hakkari", "Type": "Devlet"},
-    {"Name": "ŞIRNAK ÜNİVERSİTESİ", "City": "Şırnak", "Type": "Devlet"},
-    {"Name": "SİİRT ÜNİVERSİTESİ", "City": "Siirt", "Type": "Devlet"},
-    {"Name": "SİNOP ÜNİVERSİTESİ", "City": "Sinop", "Type": "Devlet"},
-    {"Name": "BATMAN ÜNİVERSİTESİ", "City": "Batman", "Type": "Devlet"},
-    {"Name": "MARDİN ARTUKLU ÜNİVERSİTESİ", "City": "Mardin", "Type": "Devlet"},
-    {"Name": "ADIYAMAN ÜNİVERSİTESİ", "City": "Adıyaman", "Type": "Devlet"},
-    {"Name": "KİLİS 7 ARALIK ÜNİVERSİTESİ", "City": "Kilis", "Type": "Devlet"},
-    {"Name": "OSMANİYE KORKUT ATA ÜNİVERSİTESİ", "City": "Osmaniye", "Type": "Devlet"},
-    {"Name": "HATAY MUSTAFA KEMAL ÜNİVERSİTESİ", "City": "Hatay", "Type": "Devlet"},
-    {"Name": "İSKENDERUN TEKNİK ÜNİVERSİTESİ", "City": "Hatay", "Type": "Devlet"},
-    {"Name": "KAHRAMANMARAŞ SÜTÇÜ İMAM ÜNİVERSİTESİ", "City": "Kahramanmaraş", "Type": "Devlet"},
-    {"Name": "KAHRAMANMARAŞ İSTİKLAL ÜNİVERSİTESİ", "City": "Kahramanmaraş", "Type": "Devlet"},
-    {"Name": "ERZİNCAN BİNALİ YILDIRIM ÜNİVERSİTESİ", "City": "Erzincan", "Type": "Devlet"},
-    {"Name": "MUNZUR ÜNİVERSİTESİ", "City": "Tunceli", "Type": "Devlet"},
-    {"Name": "BİNGÖL ÜNİVERSİTESİ", "City": "Bingöl", "Type": "Devlet"},
-    {"Name": "VAN YÜZÜNCÜ YIL ÜNİVERSİTESİ", "City": "Van", "Type": "Devlet"},
-    {"Name": "YALOVA ÜNİVERSİTESİ", "City": "Yalova", "Type": "Devlet"},
-    {"Name": "BİLECİK ŞEYH EDEBALİ ÜNİVERSİTESİ", "City": "Bilecik", "Type": "Devlet"},
-    {"Name": "BAYBURT ÜNİVERSİTESİ", "City": "Bayburt", "Type": "Devlet"},
-    {"Name": "BURDUR MEHMET AKİF ERSOY ÜNİVERSİTESİ", "City": "Burdur", "Type": "Devlet"},
-    {"Name": "ARTVİN ÇORUH ÜNİVERSİTESİ", "City": "Artvin", "Type": "Devlet"},
-    {"Name": "AKSARAY ÜNİVERSİTESİ", "City": "Aksaray", "Type": "Devlet"},
 ]
 
 def load_university_list() -> list:
-    """
-    Load university list with 3 layers of fallback:
-    1. Fetch from GitHub URL (with 3 retries)
-    2. Read from local cache file (written on last successful fetch)
-    3. Use hardcoded fallback list
-    """
-    # Layer 1: Try fetching from URL with retries
     for attempt in range(1, 4):
         try:
             r = _session.get(UNIVERSITY_LIST_URL, timeout=TIMEOUT)
             r.raise_for_status()
             data = r.json()
             if data:
-                log.info(f"Loaded {len(data)} universities from URL.")
-                # Save to local cache for future fallback
                 try:
                     with open(UNIVERSITY_CACHE_FILE, "w", encoding="utf-8") as f:
                         json.dump(data, f, ensure_ascii=False)
-                except Exception:
-                    pass
+                except Exception: pass
                 return data
-        except Exception as e:
-            log.warning(f"University list fetch attempt {attempt} failed: {e}")
-            if attempt < 3:
-                time.sleep(3)
-
-    # Layer 2: Try local cache
+        except Exception:
+            if attempt < 3: time.sleep(3)
     if os.path.exists(UNIVERSITY_CACHE_FILE):
         try:
             with open(UNIVERSITY_CACHE_FILE, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            if data:
-                log.info(f"Loaded {len(data)} universities from local cache.")
-                return data
-        except Exception as e:
-            log.warning(f"Local cache read failed: {e}")
-
-    # Layer 3: Hardcoded fallback
-    log.warning(f"Using hardcoded fallback list ({len(FALLBACK_UNIVERSITY_LIST)} universities).")
+            if data: return data
+        except Exception: pass
     return FALLBACK_UNIVERSITY_LIST
 
 def match_university(name: str, ulist: list) -> tuple:
-    """
-    Match a raw name string (from PDF or link text) against the university list.
-    Returns the canonical name, city and type from the list if found.
-
-    Two-pass matching:
-    Pass 1 — with spaces preserved: handles clean text that already has spaces.
-    Pass 2 — spaces stripped from both sides: handles run-together PDF text like
-              'KARAMANOGLUMEHMETBEYUNIVERSITESI' which should match
-              'KARAMANOGLU MEHMETBEY UNIVERSITESI' from the list.
-    The canonical name from the list is ALWAYS what gets stored — never the raw PDF text.
-    """
     name_norm       = normalize_for_match(clean_cell(name))
-    name_norm_nsp   = name_norm.replace(" ", "").replace("-", "")   # space+hyphen stripped
-
+    name_norm_nsp   = name_norm.replace(" ", "").replace("-", "") 
     best, best_len = None, 0
-
     for uni in ulist:
         u_norm     = normalize_for_match(uni["Name"])
         u_norm_nsp = u_norm.replace(" ", "").replace("-", "")
-
-        # Pass 1: substring match with spaces intact
         matched = u_norm in name_norm or name_norm in u_norm
-        # Pass 2: substring match ignoring spaces (catches run-together words)
-        if not matched:
-            matched = u_norm_nsp in name_norm_nsp or name_norm_nsp in u_norm_nsp
-
+        if not matched: matched = u_norm_nsp in name_norm_nsp or name_norm_nsp in u_norm_nsp
         if matched and len(u_norm) > best_len:
             best, best_len = uni, len(u_norm)
-
-    if best:
-        # Always write the clean canonical name from our list, never the raw PDF text
-        return best["Name"], best["City"], best["Type"]
-
-    log.warning(f"  No university match found for: '{name.strip()}'")
+    if best: return best["Name"], best["City"], best["Type"]
     return tr_upper(name.strip()), "Bilinmiyor", "Devlet"
 
-# ── Existing JSON (deduplication) ─────────────────────────────────────────────
-
 def load_existing_ads() -> tuple[list, set]:
-    if not os.path.exists(OUTPUT_FILE):
-        return [], set()
+    if not os.path.exists(OUTPUT_FILE): return [], set()
     try:
         with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
             data = json.load(f)
         ads = data.get("ads", [])
         urls = {ad["url"] for ad in ads if "url" in ad}
-        log.info(f"Loaded {len(ads)} existing ads ({len(urls)} URLs).")
         return ads, urls
-    except Exception as e:
-        log.warning(f"Could not read {OUTPUT_FILE}: {e}")
-        return [], set()
-
-# ── PDF text cleaning ─────────────────────────────────────────────────────────
+    except Exception: return [], set()
 
 def clean_pdf_text(raw: str) -> str:
     text = re.sub(r"-\n", "", raw)
@@ -481,118 +232,56 @@ def clean_pdf_text(raw: str) -> str:
     lines = [l.strip() for l in text.split("\n")]
     return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
 
-# ── Title helpers ─────────────────────────────────────────────────────────────
-
-def normalize_title(raw: str) -> str:
-    """Return the first academic title found in raw text."""
-    titles = extract_titles_from_cell(raw)
-    return titles[0] if titles else tr_upper(raw.strip())
-
 def extract_titles_from_cell(raw: str) -> list:
-    """
-    Extract all academic titles from a cell that may contain combined/slash titles.
-    e.g. "Profesör / Doçent/Dr. Öğretim Üyesi" → ["PROFESÖR", "DOÇENT", "DR. ÖĞR. ÜYESİ"]
-    Returns a list of canonical academic title strings (may be empty).
-    """
     found = []
-    # Split on common separators used in combined title cells
-    parts = re.split(r"[/,;]|ve|veya", raw, flags=re.IGNORECASE)
-    for part in parts:
-        part = part.strip()
-        if not part:
-            continue
-        part_up = tr_upper(part)
-        matched = None
-        # Check aliases first (longer aliases take priority)
-        for alias in sorted(TITLE_ALIASES, key=len, reverse=True):
-            if tr_upper(alias) in part_up:
-                matched = TITLE_ALIASES[alias]
-                break
-        if not matched:
-            for t in ACADEMIC_TITLES:
-                if tr_upper(t) in part_up:
-                    matched = t
-                    break
-        if matched and matched not in found:
-            found.append(matched)
+    raw_clean = re.sub(r'\d+', ' ', raw)
+    raw_clean = re.sub(r'[\r\n/\\-]', ' ', raw_clean)
+    raw_up = tr_upper(raw_clean)
+    raw_up = re.sub(r'\s+', ' ', raw_up).strip()
+    
+    all_search_terms = list(TITLE_ALIASES.keys()) + list(ACADEMIC_TITLES)
+    all_search_terms.sort(key=len, reverse=True)
+    pattern = "|".join(map(re.escape, [tr_upper(t) for t in all_search_terms]))
+    matches = re.findall(pattern, raw_up)
+    
+    for match in matches:
+        canonical = TITLE_ALIASES.get(match, match)
+        if canonical in ACADEMIC_TITLES: found.append(canonical)
     return found
 
 def is_academic(title: str) -> bool:
     return title in ACADEMIC_TITLES
 
-# ── Extraction helpers ────────────────────────────────────────────────────────
-
 def extract_university_from_link_text(link_text: str) -> str:
-    """
-    Extract the university name portion from a gazette link text.
-    e.g. "Hacettepe Üniversitesi Rektörlüğünden" → "HACETTEPE ÜNİVERSİTESİ"
-         "KARAMANOĞLUMEHMETBEYÜNİVERSİTESİ Rektörlüğünden" → "KARAMANOĞLUMEHMETBEYÜNIVERSITESI"
-    The raw result (possibly run-together) is then passed to match_university
-    which handles space-stripped comparison.
-    """
     cleaned = clean_cell(link_text)
     up = tr_upper(cleaned)
-    for marker in [
-        tr_upper("REKTÖRLÜĞÜNDEN"),
-        tr_upper("REKTÖRLÜĞÜ"),
-        tr_upper("REKTORLUGUNDEN"),
-        tr_upper("REKTORLUGU"),
-        tr_upper("DÜZELTME İLAN"),
-        tr_upper("DUZELTME ILAN"),
-    ]:
-        if marker in up:
-            return up.split(marker)[0].strip()
+    for marker in [tr_upper("REKTÖRLÜĞÜNDEN"), tr_upper("REKTÖRLÜĞÜ"), tr_upper("REKTORLUGUNDEN"), tr_upper("REKTORLUGU"), tr_upper("DÜZELTME İLAN")]:
+        if marker in up: return up.split(marker)[0].strip()
     return up
 
 def extract_university_from_text(text: str, ulist: list) -> str:
-    """
-    Scan the full PDF text for any university name from the list.
-    Uses space-stripped comparison so run-together words still match.
-    Returns the canonical name from the list if found.
-    """
     text_norm     = normalize_for_match(text)
     text_norm_nsp = text_norm.replace(" ", "")
     best, best_len = None, 0
-
     for uni in ulist:
         u_norm     = normalize_for_match(uni["Name"])
         u_norm_nsp = u_norm.replace(" ", "").replace("-", "")
-        # Try both with-spaces and without-spaces
         if (u_norm in text_norm or u_norm_nsp in text_norm_nsp) and len(u_norm) > best_len:
             best, best_len = uni["Name"], len(u_norm)
-
-    if best:
-        return best
+    if best: return best
     return "Bilinmiyor"
 
 def extract_deadline(text: str, publish_date: datetime) -> str | None:
-    # Pass 1: strict — must have "son" before "başvuru tarihi"
-    m = re.search(
-        r"son\s+başvuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{2})[./](\d{4})",
-        text, re.IGNORECASE
-    )
-    # Pass 2: broader — any "başvuru tarihi" that is AFTER the publish date
+    m = re.search(r"son\s+başvuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{2})[./](\d{4})", text, re.IGNORECASE)
     if not m:
-        for candidate in re.finditer(
-            r"başvuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{2})[./](\d{4})",
-            text, re.IGNORECASE
-        ):
+        for candidate in re.finditer(r"başvuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{2})[./](\d{4})", text, re.IGNORECASE):
             try:
-                cd = datetime(int(candidate.group(3)), int(candidate.group(2)),
-                              int(candidate.group(1)), tzinfo=timezone.utc)
-                if cd > publish_date:
-                    m = candidate
-                    break
-            except ValueError:
-                pass
-    # Keep original variable name for the rest of the function
-    if False: m = None  # dummy to keep linter happy
+                cd = datetime(int(candidate.group(3)), int(candidate.group(2)), int(candidate.group(1)), tzinfo=timezone.utc)
+                if cd > publish_date: m = candidate; break
+            except ValueError: pass
     if m:
         d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
-        tm = re.search(
-            r"saat\s*(\d{1,2})[:\.](\d{2})",
-            text[max(0, m.start()-20): m.start()+200], re.IGNORECASE
-        )
+        tm = re.search(r"saat\s*(\d{1,2})[:\.](\d{2})", text[max(0, m.start()-20): m.start()+200], re.IGNORECASE)
         h, mi = (int(tm.group(1)), int(tm.group(2))) if tm else (23, 59)
         try: return datetime(y, mo, d, h, mi, tzinfo=timezone.utc).isoformat()
         except ValueError: pass
@@ -605,24 +294,17 @@ def extract_deadline(text: str, publish_date: datetime) -> str | None:
                 if dt > publish_date: return dt.isoformat()
             except ValueError: pass
 
-    m = re.search(
-        r"(?:ilan[ıi]n?\s+yay[ıi]m\w*\s+tarihi[nk]den\s+itibaren|ilan\s+tarihinden\s+itibaren)[^0-9]*(\d+)",
-        text, re.IGNORECASE
-    )
+    m = re.search(r"(?:ilan[ıi]n?\s+yay[ıi]m\w*\s+tarihi[nk]den\s+itibaren|ilan\s+tarihinden\s+itibaren)[^0-9]*(\d+)", text, re.IGNORECASE)
     if m:
         days = int(m.group(1))
-        if 7 <= days <= 60:
-            return (publish_date + timedelta(days=days)).replace(tzinfo=timezone.utc).isoformat()
+        if 7 <= days <= 60: return (publish_date + timedelta(days=days)).replace(tzinfo=timezone.utc).isoformat()
     return None
 
-# Titles that are legally exempt from ALES requirement
 ALES_EXEMPT_TITLES = {"PROFESÖR", "DOÇENT"}
 
 def extract_ales(text: str, title: str = "") -> dict:
     r = {"alesRequired": False, "alesScore": None, "alesType": None}
-    # Profesör and Doçent are legally exempt from ALES
-    if title in ALES_EXEMPT_TITLES:
-        return r
+    if title in ALES_EXEMPT_TITLES: return r
     if "ALES" not in tr_upper(text): return r
     r["alesRequired"] = True
     m = re.search(r"ALES[^0-9\n]{0,60}?(\d{2,3})\s*(?:ve üzeri|veya üzeri|puan|puanı)", text, re.IGNORECASE)
@@ -653,79 +335,144 @@ def extract_documents(text: str) -> list:
         ("ales sonuç","ALES Sonuç Belgesi"), ("yds belgesi","YDS Belgesi"),
         ("yokdil belgesi","YÖKDİL Belgesi"), ("yabancı dil belgesi","Yabancı Dil Belgesi"),
         ("fotoğraf","Vesikalık Fotoğraf"), ("askerlik","Askerlik Durum Belgesi"),
-        ("transkript","Transkript (Not Döküm Belgesi)"), ("not döküm","Transkript (Not Döküm Belgesi)"),
-        ("yayın listesi","Yayın Listesi"), ("sabıka","Sabıka Kaydı"),
-        ("doktora belgesi","Doktora Belgesi"), ("doçentlik belgesi","Doçentlik Belgesi"),
-        ("başvuru dilekçe","Başvuru Dilekçesi"), ("öğrenci belgesi","Öğrenci Belgesi"),
+        ("transkript","Transkript (Not Döküm Belgesi)"), ("yayın listesi","Yayın Listesi"), 
     ]:
         if kw in tl and label not in docs: docs.append(label)
     return docs
 
-# ── Table / text position extractors ─────────────────────────────────────────
-
-FACULTY_KEYS = ["FAKÜLTESİ","YÜKSEKOKUL","ENSTİTÜSÜ","MYO","MESLEK","BİRİM","OKUL"]
-DEPT_KEYS    = ["ANABİLİM","PROGRAM","BÖLÜM","DAL","ALAN"]
-TITLE_KEYS   = ["UNVAN","ÜNVAN","KADRO ÜNVANI","POZİSYON","ÜNVANI"]
-COUNT_KEYS   = ["SAYI","ADET","KADRO ADEDİ","KADRO SAYISI"]
-REQ_KEYS     = ["AÇIKLAMA","NİTELİK","ÖZEL ŞART","ARANAN ŞART","KOŞUL","NİTELİKLER"]
+FACULTY_KEYS = ["FAKÜLTE", "FAKÜLTESİ", "YÜKSEKOKUL", "ENSTİTÜ", "ENSTİTÜSÜ", "MYO", "MESLEK", "BİRİM", "OKUL"]
+DEPT_KEYS    = ["ANABİLİM", "PROGRAM", "BÖLÜM", "DAL", "ALAN"]
+TITLE_KEYS   = ["UNVAN", "ÜNVAN", "KADRO", "POZİSYON", "ÜNVANI"]
+COUNT_KEYS   = ["SAYI", "ADET", "KADRO ADEDİ", "KADRO SAYISI"]
+REQ_KEYS     = ["AÇIKLAMA", "NİTELİK", "ÖZEL ŞART", "ARANAN ŞART", "KOŞUL", "NİTELİKLER"]
 
 def extract_positions_from_tables(tables: list, full_text: str) -> list:
     positions = []
+    
+    global_col = None
+    global_max_col = 0
+    
+    # State Machine (Durum Takibi) Değişkenleri
+    current_faculty = ""
+    current_dept = ""
+    pending_titles_with_counts = []
+    pending_reqs = []
+    
+    # Mevcut birikmiş (bekleyen) kadroyu ve şartlarını kaydeden yardımcı fonksiyon
+    def save_pending_block():
+        if not pending_titles_with_counts:
+            return
+        # Şart satırlarını aralarında boşlukla birleştir (String Concatenation)
+        req_text = " ".join(r for r in pending_reqs if r).strip()
+        
+        for title, count in pending_titles_with_counts:
+            pos = {
+                "faculty": current_faculty,
+                "department": current_dept,
+                "title": title,
+                "count": count,
+                "requirements": req_text
+            }
+            # Her bir kadro için Özel Şartlar metninden ALES ve Dil çek
+            ales = extract_ales(req_text, title)
+            if not ales["alesRequired"]: ales = extract_ales(full_text, title)
+            lang = extract_language(req_text, title)
+            if not lang["foreignLanguageRequired"]: lang = extract_language(full_text, title)
+            pos.update(ales)
+            pos.update(lang)
+            positions.append(pos)
+        
+        # Kaydettikten sonra sepeti (hafızayı) temizle
+        pending_titles_with_counts.clear()
+        pending_reqs.clear()
+
     for table in tables:
         if not table or len(table) < 2: continue
+        
         header_idx = None
         for i, row in enumerate(table[:5]):
             row_up = tr_upper(" ".join(str(c or "") for c in row))
             hits = sum(1 for k in TITLE_KEYS + COUNT_KEYS + FACULTY_KEYS if tr_upper(k) in row_up)
-            if hits >= 2: header_idx = i; break
-        if header_idx is None: continue
-        header = table[header_idx]
-        col: dict[str, int] = {}
-        for j, cell in enumerate(header):
-            cu = tr_upper(str(cell or "").strip())
-            # Skip purely numeric header cells (e.g. row-number columns in düzeltme ilanları)
-            if re.match(r"^\d+$", cu.strip()): continue
-            if "faculty"  not in col and any(tr_upper(k) in cu for k in FACULTY_KEYS): col["faculty"] = j
-            elif "dept"   not in col and any(tr_upper(k) in cu for k in DEPT_KEYS):    col["dept"] = j
-            elif "title"  not in col and any(tr_upper(k) in cu for k in TITLE_KEYS):   col["title"] = j
-            elif "count"  not in col and any(tr_upper(k) in cu for k in COUNT_KEYS):   col["count"] = j
-            elif "req"    not in col and any(tr_upper(k) in cu for k in REQ_KEYS):     col["req"] = j
-        if not col: continue
-        last_faculty = ""
-        for row in table[header_idx+1:]:
-            if not row or not any(row): continue
-            row = [clean_cell(str(c or "")) for c in row]
-            base: dict = {}
-            if "faculty" in col:
-                v = row[col["faculty"]]
-                if v: last_faculty = v
-                base["faculty"] = last_faculty
+            if hits >= 2: 
+                header_idx = i
+                break
+                
+        if header_idx is not None:
+            header = table[header_idx]
+            col: dict[str, int] = {}
+            for j, cell in enumerate(header):
+                cu = tr_upper(str(cell or "").strip())
+                if re.match(r"^\d+$", cu.strip()): continue
+                if "faculty"  not in col and any(tr_upper(k) in cu for k in FACULTY_KEYS): col["faculty"] = j
+                elif "dept"   not in col and any(tr_upper(k) in cu for k in DEPT_KEYS):    col["dept"] = j
+                elif "title"  not in col and any(tr_upper(k) in cu for k in TITLE_KEYS):   col["title"] = j
+                elif "count"  not in col and any(tr_upper(k) in cu for k in COUNT_KEYS):   col["count"] = j
+                elif "req"    not in col and any(tr_upper(k) in cu for k in REQ_KEYS):     col["req"] = j
+                
+            if col:
+                global_col = col
+                global_max_col = max(col.values()) if col else 0
+                start_idx = header_idx + 1
             else:
-                base["faculty"] = ""
-            base["department"]   = row[col["dept"]]  if "dept"  in col else ""
-            base["requirements"] = row[col["req"]]   if "req"   in col else ""
-            base["count"]        = max(1, int(re.sub(r"\D","", row[col["count"]] or "1") or "1")) if "count" in col else 1
-            # Extract titles — may be a combined cell like "Profesör / Doçent / Dr. Öğr. Üyesi"
-            raw_title_cell = row[col["title"]] if "title" in col else " ".join(row)
-            title_list = extract_titles_from_cell(raw_title_cell)
-            if not title_list:
-                # Last resort: scan entire row
-                title_list = [t for t in ACADEMIC_TITLES if tr_upper(t) in tr_upper(" ".join(row))]
-            if not title_list and not base["faculty"] and not base["department"]: continue
-            if not title_list: title_list = [""]  # keep position with blank title for faculty/dept data
-            # Create one position entry per detected academic title
-            for title in title_list:
-                pos = dict(base)
-                pos["title"] = title
-                req_ctx = pos["requirements"]
-                ales = extract_ales(req_ctx, title)
-                if not ales["alesRequired"]:
-                    ales = extract_ales(full_text, title)
-                lang = extract_language(req_ctx, title)
-                if not lang["foreignLanguageRequired"]:
-                    lang = extract_language(full_text, title)
-                pos.update(ales); pos.update(lang)
-                positions.append(pos)
+                start_idx = 0
+        else:
+            if global_col:
+                start_idx = 0
+            else:
+                continue
+                
+        current_col = global_col
+        max_col_idx = global_max_col
+        
+        for row in table[start_idx:]:
+            if not row or not any(row): continue
+            
+            if len(row) <= max_col_idx:
+                row.extend([""] * (max_col_idx - len(row) + 1))
+                
+            row = [clean_cell(str(c or "")) for c in row]
+            
+            # Sütunlardan verileri çek
+            fac_val = row[current_col["faculty"]] if "faculty" in current_col else ""
+            dept_val = row[current_col["dept"]] if "dept" in current_col else ""
+            title_val = row[current_col["title"]] if "title" in current_col else ""
+            count_val = row[current_col["count"]] if "count" in current_col else "1"
+            req_val = row[current_col["req"]] if "req" in current_col else ""
+            
+            # 1. HAFIZAYI GÜNCELLE (Forward Fill)
+            # Eğer satırda dolu bir fakülte veya bölüm varsa hafızayı ona güncelle.
+            if fac_val: current_faculty = fac_val
+            if dept_val: current_dept = dept_val
+            
+            # 2. YENİ KADRO TETİKLEYİCİSİ (Sadece "Unvan" sütununda aranır!)
+            row_titles = extract_titles_from_cell(title_val)
+            
+            if row_titles:
+                # EĞER YENİ UNVAN BULUNDUYSA: Bu yeni bir kadrodur!
+                # a) Eskisini paketle ve kaydet
+                save_pending_block()
+                
+                # b) Yeni kadronun Adetlerini hesapla
+                counts = [int(c) for c in re.findall(r'\d+', str(count_val))]
+                if not counts: counts = [1]
+                
+                # c) Yeni unvanları (ve adetleri) hafızaya al
+                for idx, t in enumerate(row_titles):
+                    c = counts[idx] if idx < len(counts) else counts[-1]
+                    pending_titles_with_counts.append((t, c))
+                    
+                # d) Yeni kadronun özel şartlarını sepete at
+                if req_val:
+                    pending_reqs = [req_val]
+            else:
+                # EĞER UNVAN YOKSA: Bu bir devam (continuation) satırıdır!
+                # Sadece özel şart cümlesini mevcut sepete eklemeye devam et.
+                if req_val:
+                    pending_reqs.append(req_val)
+                    
+    # Tüm tablolar ve satırlar bittikten sonra hafızada kalan en son kadroyu da kaydet
+    save_pending_block()
+    
     return positions
 
 def extract_positions_from_text(full_text: str) -> list:
@@ -733,24 +480,37 @@ def extract_positions_from_text(full_text: str) -> list:
     current_faculty = ""
     for i, line in enumerate(lines):
         lu = tr_upper(line)
-        if any(tr_upper(k) in lu for k in ["FAKÜLTESİ","YÜKSEKOKULU","ENSTİTÜSÜ","MYO"]):
-            if not any(tr_upper(t) in lu for t in ACADEMIC_TITLES):
+        if any(tr_upper(k) in lu for k in ["FAKÜLTE","YÜKSEKOKULU","ENSTİTÜSÜ","MYO"]):
+            if not extract_titles_from_cell(line):
                 current_faculty = line.strip(); continue
-        found = next((t for t in ACADEMIC_TITLES if tr_upper(t) in lu), None)
-        if not found: continue
-        cnt = int(m.group(1)) if (m := re.search(r'\b(\d{1,2})\b', line)) else 1
-        dept = lu.split(tr_upper(found))[0].strip()
-        reqs = []
-        for j in range(i+1, min(i+6, len(lines))):
-            nu = tr_upper(lines[j])
-            if any(tr_upper(t) in nu for t in ACADEMIC_TITLES): break
-            if any(tr_upper(k) in nu for k in ["FAKÜLTESİ","YÜKSEKOKULU"]): break
-            if lines[j].strip(): reqs.append(lines[j].strip())
-        req = " ".join(reqs)
-        pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
-               "title": found, "count": cnt, "requirements": req}
-        pos.update(extract_ales(req+"\n"+full_text, found)); pos.update(extract_language(req+"\n"+full_text, found))
-        positions.append(pos)
+                
+        found_titles = extract_titles_from_cell(line)
+        if not found_titles: continue
+        
+        if any(k in lu for k in ["BELGE", "İSTENEN", "GEREKLİ", "ŞART", "BAŞVURU", "KADROSU İÇİN"]):
+            continue
+
+        m = re.search(r'\b(\d{1,2})\b', line)
+        cnt = int(m.group(1)) if m else 1
+        
+        for found in found_titles:
+            dept = lu
+            for t in ACADEMIC_TITLES:
+                if t in lu:
+                    dept = lu.split(t)[0].strip(); break
+            reqs = []
+            for j in range(i+1, min(i+6, len(lines))):
+                nu = tr_upper(lines[j])
+                if extract_titles_from_cell(lines[j]): break
+                if any(tr_upper(k) in nu for k in ["FAKÜLTE","YÜKSEKOKULU"]): break
+                if lines[j].strip(): reqs.append(lines[j].strip())
+            req = " ".join(reqs)
+            
+            pos = {"faculty": current_faculty, "department": dept.title() if dept else "",
+                   "title": found, "count": cnt, "requirements": req}
+            pos.update(extract_ales(req+"\n"+full_text, found))
+            pos.update(extract_language(req+"\n"+full_text, found))
+            positions.append(pos)
     return positions
 
 def generate_snippet(university: str, positions: list, deadline: str | None) -> str:
@@ -769,8 +529,6 @@ def generate_snippet(university: str, positions: list, deadline: str | None) -> 
         except: pass
     return snippet
 
-# ── PDF parser ────────────────────────────────────────────────────────────────
-
 def parse_pdf(pdf_bytes: bytes, link_text: str, publish_date: datetime, ulist: list) -> dict | None:
     if not PDF_AVAILABLE: return None
     try:
@@ -780,10 +538,11 @@ def parse_pdf(pdf_bytes: bytes, link_text: str, publish_date: datetime, ulist: l
             for page in pdf.pages:
                 try:
                     tbls = page.extract_tables()
+                    if not tbls:
+                        tbls = page.extract_tables({"vertical_strategy": "text", "horizontal_strategy": "text", "intersection_tolerance": 15})
                     if tbls: all_tables.extend(tbls)
-                except: pass
-    except Exception as e:
-        log.warning(f"pdfplumber failed: {e}"); return None
+                except Exception: pass
+    except Exception: return None
 
     full_text = "\n\n".join(clean_pdf_text(p) for p in raw_pages if p.strip())
     if not full_text.strip(): return None
@@ -795,13 +554,14 @@ def parse_pdf(pdf_bytes: bytes, link_text: str, publish_date: datetime, ulist: l
         if c2 != "Bilinmiyor": uni_name, city, uni_type = n2, c2, t2
 
     deadline  = extract_deadline(full_text, publish_date)
+    docs      = extract_documents(full_text)
+    
     positions = extract_positions_from_tables(all_tables, full_text)
     if not positions: positions = extract_positions_from_text(full_text)
+        
     positions = [p for p in positions if is_academic(p.get("title",""))]
-    if not positions:
-        log.info(f"  Skipping {uni_name} — no academic titles."); return None
+    if not positions: return None
 
-    docs     = extract_documents(full_text)
     snippet  = generate_snippet(uni_name, positions, deadline)
     detected = list(dict.fromkeys(p["title"] for p in positions if is_academic(p["title"])))
 
@@ -812,18 +572,16 @@ def parse_pdf(pdf_bytes: bytes, link_text: str, publish_date: datetime, ulist: l
         "positions": positions, "applicationDocuments": docs,
     }
 
-# ── Exam calendar ─────────────────────────────────────────────────────────────
-
 EXAM_META = {
-    "ALES":    {"field":"Kariyer","url":"https://www.osym.gov.tr"},
-    "YDS":     {"field":"Dil",    "url":"https://www.osym.gov.tr"},
-    "E-YDS":   {"field":"Dil",    "url":"https://www.osym.gov.tr"},
-    "YÖK-DİL": {"field":"Dil",    "url":"https://yokdil.yok.gov.tr"},
-    "YOKDIL":  {"field":"Dil",    "url":"https://yokdil.yok.gov.tr"},
-    "TUS":     {"field":"Tıp",    "url":"https://www.osym.gov.tr"},
-    "DUS":     {"field":"Diş",    "url":"https://www.osym.gov.tr"},
-    "E-TEP":   {"field":"Dil",    "url":"https://www.osym.gov.tr"},
-    "STS":     {"field":"Tıp",    "url":"https://www.osym.gov.tr"},
+    "ALES":    {"field":"Kariyer","url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "YDS":     {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "E-YDS":   {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "YÖK-DİL": {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "YOKDIL":  {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "TUS":     {"field":"Tıp",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "DUS":     {"field":"Diş",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "E-TEP":   {"field":"Dil",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
+    "STS":     {"field":"Tıp",    "url":"https://ais.osym.gov.tr/IslemTakvimi"},
 }
 
 def fetch_exam_calendar() -> list:
@@ -861,57 +619,34 @@ def fetch_exam_calendar() -> list:
                     except ValueError: pass
                     break
         if exams: break
-    log.info(f"Exam calendar: {len(exams)} entries.")
     return exams
 
-# ── Day scraper ───────────────────────────────────────────────────────────────
-
-def scrape_day(date: datetime, ulist: list, existing_urls: set,
-               pdf_counter: list) -> list:
-    """
-    pdf_counter is a mutable 1-element list used to share the count
-    across calls without globals.
-    """
+def scrape_day(date: datetime, ulist: list, existing_urls: set, pdf_counter: list) -> list:
     if not budget_ok(): return []
     index_url = build_index_url(date)
-    log.info(f"Checking {date.strftime('%Y-%m-%d')}: {index_url}")
     soup = fetch_html(index_url)
-    if not soup:
-        log.info("  No gazette page."); return []
+    if not soup: return []
 
     links: list[tuple[str, str]] = []
     for a in soup.find_all("a", href=True):
         lt = a.get_text(strip=True)
         lt_up = tr_upper(lt)
-        # Match standard ads (Rektörlüğünden) and correction notices (Düzeltme İlanı)
-        is_academic_link = (
-            tr_upper("Rektörlüğünden") in lt_up or
-            tr_upper("Düzeltme İlan")  in lt_up or
-            # Some correction notices just say "Rektörlüğü" without "nden"
-            (tr_upper("Rektörlüğü") in lt_up and tr_upper("Üniversite") in lt_up)
-        )
-        if is_academic_link:
+        if (tr_upper("Rektörlüğünden") in lt_up or tr_upper("Düzeltme İlan") in lt_up or
+            (tr_upper("Rektörlüğü") in lt_up and tr_upper("Üniversite") in lt_up)):
             abs_url = resolve_url(a["href"], index_url)
             pdf_url = to_pdf_url(abs_url)
-            if pdf_url in existing_urls:
-                log.info(f"  Already known: {pdf_url}"); continue
+            if pdf_url in existing_urls: continue
             links.append((pdf_url, lt))
 
-    log.info(f"  {len(links)} new academic links.")
     ads: list = []
-
     for pdf_url, lt in links:
         if not budget_ok(): break
-        if pdf_counter[0] >= MAX_PDFS_PER_RUN:
-            log.warning(f"  Reached MAX_PDFS_PER_RUN={MAX_PDFS_PER_RUN}, stopping."); break
-
+        if pdf_counter[0] >= MAX_PDFS_PER_RUN: break
         pdf_counter[0] += 1
-        log.info(f"  [{pdf_counter[0]}/{MAX_PDFS_PER_RUN}] Downloading: {pdf_url}")
         time.sleep(0.5)
 
         pdf_bytes = fetch_bytes(pdf_url)
-        if not pdf_bytes:
-            log.warning(f"  Download failed: {pdf_url}"); continue
+        if not pdf_bytes: continue
 
         parsed = parse_pdf(pdf_bytes, lt, date, ulist)
         if parsed is None: continue
@@ -921,20 +656,13 @@ def scrape_day(date: datetime, ulist: list, existing_urls: set,
 
     return ads
 
-# ── Main ──────────────────────────────────────────────────────────────────────
-
 def main():
     log.info("=== AkademikRadar Scraper Starting ===")
-    log.info(f"Budget: {MAX_RUNTIME_SECONDS}s | Max PDFs: {MAX_PDFS_PER_RUN}")
-
-    if not PDF_AVAILABLE:
-        log.error("pdfplumber not installed. Run: pip install pdfplumber")
-        raise SystemExit(1)
+    if not PDF_AVAILABLE: raise SystemExit(1)
 
     ulist = load_university_list()
     existing_ads, existing_urls = load_existing_ads()
-
-    pdf_counter = [0]  # mutable counter shared across scrape_day calls
+    pdf_counter = [0]
     new_ads: list = []
     today = datetime.now(timezone.utc)
 
@@ -942,41 +670,31 @@ def main():
         if not budget_ok(): break
         new_ads.extend(scrape_day(today - timedelta(days=i), ulist, existing_urls, pdf_counter))
 
-    # Deduplicate new ads
     seen: set = set()
     unique_new: list = []
     for ad in new_ads:
         if ad["url"] not in seen:
             seen.add(ad["url"]); unique_new.append(ad)
 
-    # Merge, prune > 90 days, sort
     cutoff = today - timedelta(days=90)
     all_ads = unique_new + existing_ads
     all_ads = [
         ad for ad in all_ads
-        if datetime.fromisoformat(
-            ad.get("publishDate", today.isoformat())
-        ).replace(tzinfo=timezone.utc) >= cutoff
+        if datetime.fromisoformat(ad.get("publishDate", today.isoformat())).replace(tzinfo=timezone.utc) >= cutoff
     ]
     all_ads.sort(key=lambda x: x.get("publishDate",""), reverse=True)
-
-    exam_calendar = fetch_exam_calendar()
 
     output = {
         "generatedAt": today.isoformat(),
         "count": len(all_ads),
         "ads": all_ads,
-        "examCalendar": exam_calendar,
+        "examCalendar": fetch_exam_calendar(),
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    elapsed = int(time.monotonic() - _start_time)
-    log.info(
-        f"=== Done in {elapsed}s. "
-        f"{len(unique_new)} new + {len(existing_ads)} kept = {len(all_ads)} total ==="
-    )
+    log.info(f"=== Done in {int(time.monotonic() - _start_time)}s ===")
 
 if __name__ == "__main__":
     main()
