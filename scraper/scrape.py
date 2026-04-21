@@ -562,7 +562,7 @@ def parse_pdf_with_gemini(pdf_bytes: bytes, uni_name: str) -> dict | None:
     
     try:
         model = genai.GenerativeModel(
-            'gemini-1.5-flash', 
+            'gemini-1.5-flash-latest', 
             generation_config={"response_mime_type": "application/json"}
         )
         
