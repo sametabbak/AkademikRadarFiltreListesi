@@ -3,34 +3,6 @@
   "count": 23,
   "ads": [
     {
-      "university": "TEKİRDAĞ NAMIK KEMAL ÜNİVERSİTESİ",
-      "city": "Tekirdağ",
-      "uniType": "Devlet",
-      "publishDate": "2026-04-21T06:09:02.784824+00:00",
-      "deadline": null,
-      "detectedTitles": [
-        "PROFESÖR"
-      ],
-      "contentSnippet": "TEKİRDAĞ NAMIK KEMAL ÜNİVERSİTESİ bünyesine 1 PROFESÖR alınacaktır. Birimler: Tıp Fakültesi.",
-      "positions": [
-        {
-          "faculty": "Tıp Fakültesi",
-          "department": "Temel Tıp Bilimleri",
-          "requirements": "Mikrobiyoloji ve Klinik Mikrobiyoloji Tıpta Uzmanlık Eğitimi almış olmak. Tıbbi Mikrobiyoloji Doktorası yapmış olmak. Psöriasis lezyonlarında onikomikoz etkenlerinin rolü üzerine çalışmalar yapmış olmak. Bir Üniversite hastanesinde merkezi laboratuvar koordinatörü ve mikrobiyoloji laboratuvar sorumlusu olarak en az 8 (sekiz) yıl görev yapmış olmak.",
-          "count": 1,
-          "title": "PROFESÖR",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        }
-      ],
-      "applicationDocuments": [],
-      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260421-4-4.pdf"
-    },
-    {
       "university": "İSTANBUL NİŞANTAŞI ÜNİVERSİTESİ",
       "city": "İstanbul",
       "uniType": "Vakıf",
