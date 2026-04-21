@@ -1,7 +1,137 @@
 {
-  "generatedAt": "2026-04-20T06:27:56.471489+00:00",
-  "count": 20,
+  "generatedAt": "2026-04-21T06:09:02.784824+00:00",
+  "count": 23,
   "ads": [
+    {
+      "university": "TEKİRDAĞ NAMIK KEMAL ÜNİVERSİTESİ",
+      "city": "Tekirdağ",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-21T06:09:02.784824+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "contentSnippet": "TEKİRDAĞ NAMIK KEMAL ÜNİVERSİTESİ bünyesine 1 PROFESÖR alınacaktır. Birimler: Tıp Fakültesi.",
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "requirements": "Mikrobiyoloji ve Klinik Mikrobiyoloji Tıpta Uzmanlık Eğitimi almış olmak. Tıbbi Mikrobiyoloji Doktorası yapmış olmak. Psöriasis lezyonlarında onikomikoz etkenlerinin rolü üzerine çalışmalar yapmış olmak. Bir Üniversite hastanesinde merkezi laboratuvar koordinatörü ve mikrobiyoloji laboratuvar sorumlusu olarak en az 8 (sekiz) yıl görev yapmış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260421-4-4.pdf"
+    },
+    {
+      "university": "İSTANBUL NİŞANTAŞI ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-21T06:09:02.784824+00:00",
+      "deadline": "2026-04-21T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "contentSnippet": "İSTANBUL NİŞANTAŞI ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 1 DOÇENT alınacaktır. Son başvuru: 21.04.2026.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "İşletme lisans mezunu olup doçentliğini Yönetim Organizasyon alanında almış olmak. Tübitak projelerinde görev almış olmak.",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260421-4-12.pdf"
+    },
+    {
+      "university": "FATİH SULTAN MEHMET VAKIF ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-21T06:09:02.784824+00:00",
+      "deadline": "2026-05-05T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "FATİH SULTAN MEHMET VAKIF ÜNİVERSİTESİ bünyesine 2 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: MESLEK YÜKSEKOKULU. Son başvuru: 05.05.2026.",
+      "positions": [
+        {
+          "faculty": "MESLEK YÜKSEKOKULU",
+          "department": "ESER KORUMA PROGRAMI",
+          "requirements": "- Üniversitelerin Taşınır Kültür Varlıklarını Koruma ve Onarım Bölümü lisans mezunu olmak. - Sanat Tarihi alanında tezli yüksek lisans ve Kültür Varlıklarını Koruma alanında doktora yapmış olmak. - İlgili alanlarda bilimsel çalışmalara sahip olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MESLEK YÜKSEKOKULU",
+          "department": "SİLAH SANAYİ TEKNİKERLİĞİ PROGRAMI",
+          "requirements": "- Üniversitelerin Metalurji ve Malzeme Mühendisliği alanında lisans ve yüksek lisans mezunu olmak. - İmalat Mühendisliği alanında doktora yapmış olmak. - İlgili alanlarda bilimsel çalışmalara sahip olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Transkript (Not Döküm Belgesi)",
+        "Yayın Listesi",
+        "Sabıka Kaydı",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260421-4-13.pdf"
+    },
     {
       "university": "ADANA ALPARSLAN TÜRKEŞ BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ",
       "city": "Adana",
