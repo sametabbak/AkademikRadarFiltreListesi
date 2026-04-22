@@ -72,8 +72,6 @@ jobs:
 
       - name: Run scraper
         shell: powershell
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           # Force Python to use UTF-8 on Windows (avoids encoding errors with Turkish chars)
           $env:PYTHONUTF8 = "1"
