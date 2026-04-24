@@ -1,7 +1,249 @@
 {
-  "generatedAt": "2026-04-23T06:12:12.397706+00:00",
-  "count": 26,
+  "generatedAt": "2026-04-24T06:16:35.390120+00:00",
+  "count": 29,
   "ads": [
+    {
+      "university": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ",
+      "city": "Isparta",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-24T06:16:35.390120+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT"
+      ],
+      "contentSnippet": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ bünyesine 2 DOÇENT alınacaktır. Birimler: İdari.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İdari",
+          "department": "",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260424-4-2.pdf"
+    },
+    {
+      "university": "İSTANBUL BEYKENT ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-24T06:16:35.390120+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "İSTANBUL BEYKENT ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 1 DOÇENT, 4 DR. ÖĞR. ÜYESİ alınacaktır. Birimler: Tıp Fakültesi, Hukuk Fakültesi, Mühendislik- Mimarlık Fakültesi.",
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Nükleer Tıp ABD",
+          "requirements": "Nükleer Tıp alanında doçentlik unvanını almış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "",
+          "requirements": "Nükleer Tıp alanında doçentlik unvanını almış olmak.",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "",
+          "requirements": "Tıp Fakültesi mezunu olup, Nükleer Tıp alanında uzmanlık eğitimi tamamlamış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "İç Hastalıkları ABD",
+          "requirements": "Tıp Fakültesi mezunu olup, Endokrinoloji ve Metabolizma Hastalıkları alanında uzmanlık eğitimi tamamlamış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Kamu Hukuku ABD",
+          "requirements": "Kamu Hukuku alanında doktora yapmış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik- Mimarlık Fakültesi",
+          "department": "Elektrik-Elektronik Mühendisliği",
+          "requirements": "Elektrik, Elektronik, Elektrik-Elektronik, Kontrol, Haberleşme, Elektronik ve Haberleşme, Kontrol ve Otomasyon alanlarından birinde doktora yapmış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260424-4-5.pdf"
+    },
+    {
+      "university": "BİTLİS EREN ÜNİVERSİTESİ",
+      "city": "Bitlis",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-24T06:16:35.390120+00:00",
+      "deadline": "2026-05-08T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "contentSnippet": "BİTLİS EREN ÜNİVERSİTESİ bünyesine 4 DR. ÖĞR. ÜYESİ, 1 PROFESÖR, 1 DOÇENT alınacaktır. Son başvuru: 08.05.2026.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "DAHİLİ TIP BİLİMLERİ",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "DAHİLİ TIP BİLİMLERİ",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "DAHİLİ TIP BİLİMLERİ",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "DAHİLİ TIP BİLİMLERİ",
+          "requirements": "",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "TEMEL TIP BİLİMLERİ",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "TEMEL TIP BİLİMLERİ",
+          "requirements": "",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Yayın Listesi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260424-4-6.pdf"
+    },
     {
       "university": "KAPADOKYA ÜNİVERSİTESİ",
       "city": "Nevşehir",
