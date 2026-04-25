@@ -1,7 +1,35 @@
 {
-  "generatedAt": "2026-04-24T06:16:35.390120+00:00",
-  "count": 29,
+  "generatedAt": "2026-04-25T05:53:36.980787+00:00",
+  "count": 30,
   "ads": [
+    {
+      "university": "ANKARA BİLİM ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-25T05:53:36.980787+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "contentSnippet": "ANKARA BİLİM ÜNİVERSİTESİ bünyesine 1 ÖĞRETİM GÖREVLİSİ alınacaktır. Birimler: Meslek Yüksek Okulu.",
+      "positions": [
+        {
+          "faculty": "Meslek Yüksek Okulu",
+          "department": "Turizm ve Otel İşletmeciliği Programı",
+          "requirements": "",
+          "count": 1,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260425-4-2.pdf"
+    },
     {
       "university": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ",
       "city": "Isparta",
