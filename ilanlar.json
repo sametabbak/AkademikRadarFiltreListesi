@@ -1,7 +1,219 @@
 {
-  "generatedAt": "2026-04-26T06:14:51.948613+00:00",
-  "count": 30,
+  "generatedAt": "2026-04-27T06:35:51.759800+00:00",
+  "count": 33,
   "ads": [
+    {
+      "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-27T06:35:51.759800+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "contentSnippet": "İSTANBUL RUMELİ ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 1 DR. ÖĞR. ÜYESİ alınacaktır.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "PSİKOLOJİ",
+          "requirements": "Doçentliğini Klinik Psikoloji alanında almış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "AMELİYATHANE HİZMETLERİ",
+          "requirements": "Tıp Fakültesi mezunu olmak. Uzmanlığını Plastik, Rekonstrüktif ve Estetik Cerrahi alanında almış olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Diploma Fotokopisi",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Doçentlik Belgesi",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260427-4-3.pdf"
+    },
+    {
+      "university": "İSTANBUL GEDİK ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-27T06:35:51.759800+00:00",
+      "deadline": "2026-05-11T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "contentSnippet": "İSTANBUL GEDİK ÜNİVERSİTESİ bünyesine 1 PROFESÖR, 2 DOÇENT, 1 DR. ÖĞR. ÜYESİ, 3 ARAŞTIRMA GÖREVLİSİ alınacaktır. Birimler: İktisadi, İdari ve Sosyal Bilimler Fakültesi, Spor Bilimleri Fakültesi, Hukuk Fakültesi. Son başvuru: 11.05.2026.",
+      "positions": [
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Psikoloji",
+          "requirements": "Psikoloji veya Ruh Sağlığı ve Hastalıkları alanında Doçent ünvanı almış olmak. Ruhsal Travma, Kadın Ruh Sağlığı, Psikanalitik Psikoterapiler alanlarından en az birinde çalışmaları olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Beden Eğitimi ve Spor Öğretmenliği",
+          "requirements": "Doçentliğini Eğitim Yönetimi alanında almış olmak. Yükseköğretim çalışanları ile ilgili SSCI yayını bulunmak.",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Egzersiz ve Spor Bilimleri",
+          "requirements": "Doçentliğini Spor Bilimleri Temel alanında almış olmak. Hız temelli kuvvet antrenmanları alanında SCI indeksli yayınları olmak, UEFA C belgesine sahip olmak.",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Spor Yöneticiliği",
+          "requirements": "Lisans eğitimini Spor Yöneticiliği bölümünde tamamlamış olmak. Yüksek lisans ve doktora eğitimini Spor Yönetim Bilimleri alanında tamamlamış olmak. Spor yönetimi ve spor tarihi alanında çalışmaları bulunmak, basketbol branşında antrenörlük belgesine sahip olmak.",
+          "count": 1,
+          "title": "DR. ÖĞR. ÜYESİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Kamu Hukuku Bölümü Ceza ve Ceza Muhakemesi Hukuku Anabilim Dalı",
+          "requirements": "Hukuk Fakültesi mezunu olmak. Kamu Hukuku alanında Tezli Yüksek Lisans Programı öğrencisi olmak.",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Spor Yöneticiliği Bölümü",
+          "requirements": "Spor Yöneticiliği bölümünde lisans eğitimini tamamlamış olmak. Beden Eğitimi ve Spor alanlarında Yüksek Lisans yapıyor olmak.",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Egzersiz ve Spor Bilimleri Bölümü",
+          "requirements": "Beden Eğitimi ve Spor alanında lisans mezunu olup, alanında tezli yüksek lisans yapıyor veya yapmış olmak.",
+          "count": 1,
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Öğrenci Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260427-4-4.pdf"
+    },
+    {
+      "university": "TOBB EKONOMİ VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-27T06:35:51.759800+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "contentSnippet": "TOBB EKONOMİ VE TEKNOLOJİ ÜNİVERSİTESİ bünyesine 7 ÖĞRETİM GÖREVLİSİ alınacaktır.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "requirements": "a) İngilizce Öğretmenliği, İngilizce Mütercim Tercümanlık, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dil Bilimi Bölümlerinin birinden lisans derecesine sahip olmak b) En az tezli yüksek lisans derecesine sahip olmak c)Lisans alanı İngilizce öğretmenliği dışındaki adaylar için İngilizce Öğretmenliği, Eğitim Programları ve Öğretimi, Eğitim Yönetimi, Eğitimde Ölçme ve Değerlendirme, Eğitim Psikolojisi, Rehberlik ve Psikolojik Danışmanlık, Hayat Boyu Öğrenme ve Yetişkin Eğitimi, Bilgisayar ve Öğretim Teknolojileri gibi eğitim alanlarından birinde yüksek lisans derecesine sahip olmak.",
+          "count": 5,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "requirements": "a) İspanyolca Öğretmenliği, İspanyol Dili ve Edebiyatı, İspanyolca Mütercim Tercümanlık Bölümlerinin birinden lisans derecesine sahip olmak b) En az tezli yüksek lisans derecesine sahip olmak",
+          "count": 2,
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Nüfus Cüzdanı Sureti",
+        "Diploma Fotokopisi",
+        "Yabancı Dil Belgesi",
+        "Vesikalık Fotoğraf",
+        "Transkript (Not Döküm Belgesi)",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260427-4-5.pdf"
+    },
     {
       "university": "ANKARA BİLİM ÜNİVERSİTESİ",
       "city": "Ankara",
