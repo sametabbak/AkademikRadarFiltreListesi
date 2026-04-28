@@ -1,7 +1,130 @@
 {
-  "generatedAt": "2026-04-27T06:35:51.759800+00:00",
-  "count": 33,
+  "generatedAt": "2026-04-28T06:36:57.859619+00:00",
+  "count": 36,
   "ads": [
+    {
+      "university": "BİTLİS EREN ÜNİVERSİTESİ",
+      "city": "Bitlis",
+      "uniType": "Devlet",
+      "publishDate": "2026-04-28T06:36:57.859619+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "contentSnippet": "BİTLİS EREN ÜNİVERSİTESİ bünyesine 1 PROFESÖR alınacaktır.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "TEMEL TIP BİLİMLERİ",
+          "requirements": "",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260428-4-1.pdf"
+    },
+    {
+      "university": "İHSAN DOĞRAMACI BİLKENT ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-28T06:36:57.859619+00:00",
+      "deadline": "2026-05-13T06:36:57.859619+00:00",
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "contentSnippet": "İHSAN DOĞRAMACI BİLKENT ÜNİVERSİTESİ bünyesine 26 PROFESÖR alınacaktır. Son başvuru: 13.05.2026.",
+      "positions": [
+        {
+          "faculty": "",
+          "department": "İhsan Doğramaci Bi̇lkent Üni̇versi̇tesi̇ Rektörlüğünden: Ö Ğreti̇m Ü Yesi̇ A Lim İ Lani 2547 Sayili Yüksek Öğreti̇m Kanununun 26. Maddesi̇, 12 Hazi̇ran 2018 Tari̇h Ve 30449 Sayili Resmi̇ Gazetede Yayinlanmiş Olan “Öğreti̇m Üyeli̇ği̇ne Yükselti̇lme Ve Atanma Yönetmeli̇ği̇”Ni̇n",
+          "title": "PROFESÖR",
+          "count": 26,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Askerlik Durum Belgesi",
+        "Başvuru Dilekçesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260428-4-8.pdf"
+    },
+    {
+      "university": "KOCAELİ SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "Kocaeli",
+      "uniType": "Vakıf",
+      "publishDate": "2026-04-28T06:36:57.859619+00:00",
+      "deadline": "2026-05-12T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "contentSnippet": "KOCAELİ SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ bünyesine 2 PROFESÖR, 1 DOÇENT alınacaktır. Birimler: Avrupa Meslek Yüksekokulu, Sosyal ve Beşeri Bilimler Fak.. Son başvuru: 12.05.2026.",
+      "positions": [
+        {
+          "faculty": "Avrupa Meslek Yüksekokulu",
+          "department": "Optisyenlik Pr.",
+          "requirements": "Doçentliğini Göz Hastalıkları alanından almış olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Avrupa Meslek Yüksekokulu",
+          "department": "Tıbbi Görüntüleme Teknikleri Pr.",
+          "requirements": "Doçentliğini Radyoloji alanından almış olmak.",
+          "count": 1,
+          "title": "DOÇENT",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sosyal ve Beşeri Bilimler Fak.",
+          "department": "İşletme Pr.",
+          "requirements": "Doktora veya doçent unvanını İnsan Kaynakları Yönetimi alanından almış olmak. İlgili bilim alanında uluslararası düzeyde orijinal eserler vermiş ve uygulamaya yönelik çalışmalarda bulunmuş olmak.",
+          "count": 1,
+          "title": "PROFESÖR",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "applicationDocuments": [
+        "Özgeçmiş",
+        "Nüfus Cüzdanı Sureti",
+        "Vesikalık Fotoğraf",
+        "Askerlik Durum Belgesi",
+        "Yayın Listesi",
+        "Doçentlik Belgesi"
+      ],
+      "url": "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2026/04/20260428-4-10.pdf"
+    },
     {
       "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
       "city": "İstanbul",
