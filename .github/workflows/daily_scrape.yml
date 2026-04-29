@@ -2,85 +2,31 @@ name: Daily Academic Announcements Scraper
 
 on:
   schedule:
-    # 07:00 Turkey time = 04:00 UTC (Turkey is UTC+3 year-round, no DST)
+    # 07:00 Turkey time = 04:00 UTC
     - cron: '0 4 * * *'
   workflow_dispatch:
 
 jobs:
   scrape:
-    runs-on: self-hosted
-    timeout-minutes: 25
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Ensure Python is available (skip GIMP & WindowsApps)
-        shell: powershell
-        run: |
-          $found = $null
-
-          foreach ($reg in @("HKLM:\SOFTWARE\Python\PythonCore","HKCU:\SOFTWARE\Python\PythonCore")) {
-            if (Test-Path $reg) {
-              foreach ($ver in (Get-ChildItem $reg | Sort-Object Name -Descending)) {
-                $ip = (Get-ItemProperty "$($ver.PSPath)\InstallPath" -ErrorAction SilentlyContinue).'(default)'
-                if ($ip) {
-                  $candidate = Join-Path $ip "python.exe"
-                  if ((Test-Path $candidate) -and
-                      ($candidate -notlike "*GIMP*") -and
-                      ($candidate -notlike "*WindowsApps*")) {
-                    $found = $candidate; break
-                  }
-                }
-              }
-            }
-            if ($found) { break }
-          }
-
-          if (-not $found) {
-            foreach ($root in @("C:\Program Files\","C:\Program Files (x86)\")) {
-              $hit = Get-ChildItem -Path $root -Filter "python.exe" -Recurse `
-                       -ErrorAction SilentlyContinue -Depth 5 |
-                     Where-Object { $_.FullName -notlike "*GIMP*" -and $_.FullName -notlike "*WindowsApps*" } |
-                     Sort-Object { $_.FullName.Length } | Select-Object -First 1
-              if ($hit) { $found = $hit.FullName; break }
-            }
-          }
-
-          if (-not $found) {
-            $found = (& where.exe python 2>$null) |
-                     Where-Object { $_ -notlike "*WindowsApps*" -and $_ -notlike "*GIMP*" } |
-                     Select-Object -First 1
-          }
-
-          if (-not $found) {
-            Write-Error "Python not found."
-            exit 1
-          }
-
-          Write-Host "Using Python: $found"
-          & "$found" --version
-          echo "PYTHON_EXE=$found" >> $env:GITHUB_ENV
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: Install dependencies
-        shell: powershell
-        run: |
-          & "$env:PYTHON_EXE" -m pip install --upgrade pip --quiet
-          & "$env:PYTHON_EXE" -m pip install -r scraper/requirements.txt --quiet
+        run: pip install requests beautifulsoup4
 
       - name: Run scraper
-        shell: powershell
-        run: |
-          $env:PYTHONUTF8 = "1"
-          $env:PYTHONIOENCODING = "utf-8"
-          & "$env:PYTHON_EXE" scraper/scrape.py
-          if ($LASTEXITCODE -ne 0) {
-            Write-Error "Scraper failed with exit code $LASTEXITCODE"
-            exit $LASTEXITCODE
-          }
+        run: python scraper/scrape.py
 
       - name: Commit and push ilanlar.json
-        shell: powershell
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -89,20 +35,13 @@ jobs:
 
           git add ilanlar.json
 
-          $diff = git diff --staged --name-only
-          if ($diff) {
-            $timestamp = [System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            git commit -m "chore: update ilanlar.json [$timestamp]"
-
-            $maxRetries = 3; $attempt = 0; $pushed = $false
-            while (-not $pushed -and $attempt -lt $maxRetries) {
-              $attempt++
-              Write-Host "Push attempt $attempt..."
-              git push
-              if ($LASTEXITCODE -eq 0) { $pushed = $true; Write-Host "Push succeeded." }
-              else { Write-Host "Retrying in 5 s..."; Start-Sleep -Seconds 5 }
-            }
-            if (-not $pushed) { Write-Error "Push failed after $maxRetries attempts."; exit 1 }
-          } else {
-            Write-Host "No changes to commit."
-          }
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update ilanlar.json [$(date -u +%Y-%m-%dT%H:%M:%SZ)]"
+            for i in 1 2 3; do
+              git push && echo "Push succeeded." && break
+              echo "Push attempt $i failed, retrying in 5s..."
+              sleep 5
+            done
+          fi
