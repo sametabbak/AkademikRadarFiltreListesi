@@ -1,7 +1,36 @@
 {
-  "lastUpdated": "2026-04-29T12:21:36.981524+00:00",
+  "lastUpdated": "2026-04-29T12:45:20.777003+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "BİTLİS EREN ÜNİVERSİTESİ",
+      "city": "Bi̇tli̇s",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2094289/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-bitlis-eren-universitesi-ogretim-uyesi-alim-ilani-",
+      "ilanNo": "YOK852536",
+      "publishDate": "2026-04-28T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "TEMEL TIP BİLİMLERİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak. İlgili alanda çalışması bulunmak. (Bitlis Eren Üniversitesi Akademik Yükseltilme ve Atanma Yönergesinde belirtilen puan ve diğer şartların sağlanmaması durumunda, bu yönergenin 9/c maddesi uygulanacaktır.)",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Bitlis Eren Üniversitesi Rektörlüğünden DÜZELTME İLANI 24.04.2026 tarihli ve 33233 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Öğretim Üyesi ilanımızda, Tıp Fakültesi bünyesinde yer alan 202605 ilan numaralı kadro için BAŞVURU ŞARTI sütununda aşağıdaki şekilde düzeltme yapılmıştır. TIP FAK",
+      "applicationDocuments": []
+    },
     {
       "university": "KAYSERİ ÜNİVERSİTESİ",
       "city": "Kayseri̇",
