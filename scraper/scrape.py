@@ -409,8 +409,8 @@ def parse_positions(content_html: str, full_text: str) -> list:
             cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
             if not cells: continue
             cell_up = tr_upper(" ".join(cells))
-            has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO UNVAN"])
-            has_count = "ADET" in cell_up
+            has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO", "AKADEMİK"])
+            has_count = any(tr_upper(k) in cell_up for k in ["ADET", "ADEDİ", "SAYI", "KONTENJAN"])
             if has_title and has_count:
                 header_idx = ri
                 for ci, cell in enumerate(cells):
@@ -421,7 +421,7 @@ def parse_positions(content_html: str, full_text: str) -> list:
                         col_map["dept"] = ci
                     elif any(tr_upper(k) in cu for k in ["UNVAN", "ÜNVAN", "KADRO"]) and "title" not in col_map:
                         col_map["title"] = ci
-                    elif "ADET" in cu and "count" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["ADET", "ADEDİ", "SAYI", "KONTENJAN"]) and "count" not in col_map:
                         col_map["count"] = ci
                     elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "KOŞUL", "BAŞVURU"]) and "req" not in col_map:
                         col_map["req"] = ci
@@ -467,6 +467,153 @@ def parse_positions(content_html: str, full_text: str) -> list:
             positions.append(pos)
 
     return positions
+
+def parse_positions_from_text(content_html: str, full_text: str) -> list:
+    """
+    Fallback parser for ads that use key-value text format instead of HTML tables.
+    Handles patterns like:
+        FAKÜLTE          : İktisadi, İdari ve Sosyal Bilimler Fakültesi
+        BÖLÜM            : Tarih Bölümü
+        AKADEMİK ÜNVANI  : Profesör
+        ALINACAK AKADEMİSYEN SAYISI : 1
+        ÖZEL KOŞULLAR    : ...
+    Also handles repeated blocks for multiple positions.
+    """
+    soup = BeautifulSoup(content_html, "html.parser")
+    text = soup.get_text("\n")
+    lines = [l.strip() for l in text.split("\n") if l.strip()]
+
+    # Key synonyms for each field
+    FACULTY_KEYS = ["FAKÜLTE", "BİRİM", "OKUL", "YUKSEKOKUL", "ENSTITU"]
+    DEPT_KEYS    = ["BÖLÜM", "ANABİLİM", "PROGRAM", "ABD"]
+    TITLE_KEYS   = ["ÜNVAN", "UNVAN", "KADRO", "AKADEMİK ÜNVAN", "AKADEMIK UNVAN"]
+    COUNT_KEYS   = ["ADET", "SAYI", "ALINACAK", "KONTENJAN"]
+    REQ_KEYS     = ["ÖZEL KOŞUL", "ARANAN NİTELİK", "AÇIKLAMA", "KOŞUL", "ŞART", "GENEL ŞART"]
+
+    def match_key(line_up: str, keys: list) -> bool:
+        return any(tr_upper(k) in line_up for k in keys)
+
+    def extract_value(line: str) -> str:
+        """Get the value after ':' in a key-value line."""
+        if ":" in line:
+            return line.split(":", 1)[1].strip()
+        return ""
+
+    # Try to find key-value structured content
+    # First check if ANY title key exists in the text
+    text_up = tr_upper(text)
+    if not any(tr_upper(k) in text_up for k in TITLE_KEYS):
+        return []
+
+    positions = []
+
+    # Strategy: scan for position blocks
+    # Each block starts when we find a faculty or title key
+    # and ends when we hit the next block or end of content
+    i = 0
+    current: dict = {}
+
+    def flush(current: dict) -> None:
+        if not current.get("title"):
+            return
+        title_list = extract_titles_from_cell(current["title"])
+        if not title_list:
+            return
+        combined = " / ".join(title_list)
+        primary = title_list[0]
+        req = current.get("requirements", "")
+        ales = extract_ales(req, primary)
+        if not ales["alesRequired"]:
+            ales = extract_ales(full_text, primary)
+        lang = extract_language(req, primary)
+        if not lang["foreignLanguageRequired"]:
+            lang = extract_language(full_text, primary)
+        count_str = re.sub(r"\D", "", current.get("count", "1")) or "1"
+        count = max(1, min(10, int(count_str)))
+        pos = {
+            "faculty":     current.get("faculty", ""),
+            "department":  current.get("dept", ""),
+            "title":       combined,
+            "count":       count,
+            "requirements": req,
+            "_all_titles": title_list,
+        }
+        pos.update(ales)
+        pos.update(lang)
+        positions.append(pos)
+
+    # Pre-process: merge adjacent lines where key and value are split.
+    # e.g. ["FAKÜLTE", ": İktisadi..."] → ["FAKÜLTE : İktisadi..."]
+    merged_lines = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        # If next line starts with ":" and current line has no ":", merge them
+        if (i + 1 < len(lines)
+                and lines[i + 1].startswith(":")
+                and ":" not in line):
+            merged_lines.append(line + " " + lines[i + 1])
+            i += 2
+        else:
+            merged_lines.append(line)
+            i += 1
+    lines = merged_lines
+
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        line_up = tr_upper(line)
+
+        if match_key(line_up, FACULTY_KEYS) and ":" in line:
+            # Starting a new block — flush previous
+            if current:
+                flush(current)
+                current = {}
+            current["faculty"] = extract_value(line)
+
+        elif match_key(line_up, DEPT_KEYS) and ":" in line:
+            current["dept"] = extract_value(line)
+
+        elif match_key(line_up, TITLE_KEYS) and ":" in line:
+            val = extract_value(line)
+            if val:
+                # If we already have a title, this is a new position
+                if current.get("title") and val != current["title"]:
+                    flush(current)
+                    fac = current.get("faculty", "")
+                    dept = current.get("dept", "")
+                    current = {"faculty": fac, "dept": dept}
+                current["title"] = val
+
+        elif match_key(line_up, COUNT_KEYS) and ":" in line:
+            val = extract_value(line)
+            digits = re.sub(r"\D", "", val)
+            if digits and int(digits) <= 10:
+                current["count"] = digits
+
+        elif match_key(line_up, REQ_KEYS) and ":" in line:
+            # Collect requirement text — may span multiple lines
+            req_parts = [extract_value(line)]
+            j = i + 1
+            while j < len(lines):
+                next_up = tr_upper(lines[j])
+                # Stop if we hit another key
+                if any(match_key(next_up, keys) and ":" in lines[j]
+                       for keys in [FACULTY_KEYS, DEPT_KEYS, TITLE_KEYS, COUNT_KEYS, REQ_KEYS]):
+                    break
+                req_parts.append(lines[j])
+                j += 1
+            current["requirements"] = " ".join(req_parts).strip()
+            i = j - 1  # skip consumed lines
+
+        i += 1
+
+    # Flush last block
+    if current:
+        flush(current)
+
+    return positions
+
 
 # ── API calls ─────────────────────────────────────────────────────────────────────────────
 def fetch_listing(skip_count: int) -> dict | None:
@@ -517,7 +664,14 @@ def build_ad(item: dict, detail: dict, ulist: list) -> dict | None:
     if not publish_date: publish_date = datetime.now(timezone.utc)
 
     deadline  = extract_deadline(full_text, publish_date)
+
+    # Primary: HTML table parser
     positions = parse_positions(content_html, full_text)
+
+    # Fallback: key-value text parser (for ads like Bilkent that don't use tables)
+    if not positions:
+        positions = parse_positions_from_text(content_html, full_text)
+
     positions = [p for p in positions if is_academic(p.get("title", ""))]
 
     if not positions:
