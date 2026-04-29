@@ -10,6 +10,12 @@ from datetime import datetime, timezone, timedelta
 import requests
 from bs4 import BeautifulSoup
 
+# ilan.gov.tr has SSL cert issues on some runners (missing intermediate CA).
+# Disable verification and suppress the warning.
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+VERIFY_SSL = False
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger("scraper")
 
@@ -268,7 +274,7 @@ FALLBACK_UNIVERSITY_LIST = [
 def load_university_list() -> list:
     for attempt in range(1, 4):
         try:
-            r = _session.get(UNIVERSITY_LIST_URL, timeout=TIMEOUT)
+            r = _session.get(UNIVERSITY_LIST_URL, timeout=TIMEOUT, verify=VERIFY_SSL)
             r.raise_for_status()
             data = r.json()
             if data:
@@ -386,7 +392,7 @@ def parse_positions(content_html: str, full_text: str) -> list:
 def fetch_listing(skip_count: int) -> dict | None:
     body = {"keys": {"txv": [TAX_ID]}, "skipCount": skip_count, "maxResultCount": PAGE_SIZE}
     try:
-        r = _session.post(LISTING_URL, json=body, timeout=TIMEOUT)
+        r = _session.post(LISTING_URL, json=body, timeout=TIMEOUT, verify=VERIFY_SSL)
         r.raise_for_status()
         return r.json().get("result")
     except Exception as e:
@@ -395,7 +401,7 @@ def fetch_listing(skip_count: int) -> dict | None:
 
 def fetch_detail(ad_id: str) -> dict | None:
     try:
-        r = _session.get(DETAIL_URL, params={"id": ad_id}, timeout=TIMEOUT)
+        r = _session.get(DETAIL_URL, params={"id": ad_id}, timeout=TIMEOUT, verify=VERIFY_SSL)
         r.raise_for_status()
         return r.json().get("result")
     except Exception as e:
