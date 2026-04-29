@@ -46,31 +46,95 @@ _session.headers.update(HEADERS)
 _start_time = time.time()
 
 # ── Academic title constants ───────────────────────────────────────────────────
+# ── Academic title groups ─────────────────────────────────────────────────────
+# Öğretim Üyesi subgroup — the three faculty ranks
+OGRETIM_UYESI_TITLES = ["PROFESÖR", "DOÇENT", "DR. ÖĞR. ÜYESİ"]
+
+# All individual academic titles
 ACADEMIC_TITLES = [
-    "PROFÉSÖR", "DOÇENT", "DR. ÖĞR. ÜYESİ",
-    "ÖĞRETİM GÖREVLİSİ", "ARAŞTIRMA GÖREVLİSİ",
+    # Öğretim Üyesi (faculty)
+    "PROFESÖR",
+    "DOÇENT",
+    "DR. ÖĞR. ÜYESİ",
+    # Öğretim Görevlisi
+    "ÖĞRETİM GÖREVLİSİ",
+    # Araştırma Görevlisi
+    "ARAŞTIRMA GÖREVLİSİ",
+    # Diğer
+    "UZMAN",
+    "OKUTMAN",
+    "ÇEVİRİCİ",
+    "EĞİTİM-ÖĞRETİM PLANLAMACISI",
 ]
 
+# Comprehensive alias map.
+# "__OGRETIM_UYESI__" is a sentinel meaning the position is open to all three
+# faculty ranks → stored as "PROFESÖR / DOÇENT / DR. ÖĞR. ÜYESİ"
 TITLE_ALIASES = {
-    "PROF.":                 "PROFÉSÖR",
-    "PROF. DR.":             "PROFÉSÖR",
-    "DOÇ.":              "DOÇENT",
-    "DOÇ. DR.":          "DOÇENT",
-    "DOÇENT DR.":        "DOÇENT",
-    "YARDIMCI DOÇENT":   "DR. ÖĞR. ÜYESİ",
-    "DR. ÖĞR.":     "DR. ÖĞR. ÜYESİ",
-    "DR.ÖĞR.ÜYESİ": "DR. ÖĞR. ÜYESİ",
-    "DOKTOR ÖĞRETİM ÜYESİ": "DR. ÖĞR. ÜYESİ",
-    "DR. ÖĞRETİM ÜYESİ": "DR. ÖĞR. ÜYESİ",
-    "DR.ÖĞRETİM ÜYESİ": "DR. ÖĞR. ÜYESİ",
-    "DR ÖĞRETİM ÜYESİ": "DR. ÖĞR. ÜYESİ",
-    "ÖĞR. GÖR.": "ÖĞRETİM GÖREVLİSİ",
-    "ÖĞRETİM GÖR.": "ÖĞRETİM GÖREVLİSİ",
-    "ARŞ. GÖR.": "ARAŞTIRMA GÖREVLİSİ",
-    "ARAŞTIRMA GÖR.": "ARAŞTIRMA GÖREVLİSİ",
+    # ── Öğretim Üyesi (generic — all three ranks) ─────────────────────────
+    "ÖĞRETİM ÜYELERİ":                    "__OGRETIM_UYESI__",
+    "ÖĞRETİM ÜYESİ ALIMI":              "__OGRETIM_UYESI__",
+    "ÖĞRETİM ÜYESİ":                    "__OGRETIM_UYESI__",
+    "ÖĞRETİM ÜYESİ (PROF./ DOÇ./ DR.)":  "__OGRETIM_UYESI__",
+
+    # ── PROFESÖR ──────────────────────────────────────────────────────────
+    "PROFESÖR DR.":                        "PROFESÖR",
+    "PROFESÖR":                            "PROFESÖR",
+    "PROF. DR.":                          "PROFESÖR",
+    "PROF.DR.":                           "PROFESÖR",
+    "PROF.":                              "PROFESÖR",
+
+    # ── DOÇENT ────────────────────────────────────────────────────────────
+    "DOÇENT DR.":                       "DOÇENT",
+    "DOÇ. DR.":                         "DOÇENT",
+    "DOÇ.DR.":                          "DOÇENT",
+    "DOÇ.":                             "DOÇENT",
+
+    # ── DR. ÖĞR. ÜYESİ ───────────────────────────────────────────────────
+    "YARDIMCI DOÇENT DR.":              "DR. ÖĞR. ÜYESİ",
+    "YARDIMCI DOÇENT":                 "DR. ÖĞR. ÜYESİ",
+    "YRD. DOÇ. DR.":                   "DR. ÖĞR. ÜYESİ",
+    "YRD.DOÇ.DR.":                     "DR. ÖĞR. ÜYESİ",
+    "YRD. DOÇ.":                       "DR. ÖĞR. ÜYESİ",
+    "DOKTOR ÖĞRETİM ÜYESİ":          "DR. ÖĞR. ÜYESİ",
+    "DR. ÖĞRETİM ÜYESİ":             "DR. ÖĞR. ÜYESİ",
+    "DR.ÖĞRETİM ÜYESİ":              "DR. ÖĞR. ÜYESİ",
+    "DR ÖĞRETİM ÜYESİ":              "DR. ÖĞR. ÜYESİ",
+    "DR. ÖĞR. ÜYESİ":                    "DR. ÖĞR. ÜYESİ",
+    "DR.ÖĞR.ÜYESİ":                      "DR. ÖĞR. ÜYESİ",
+    "DR.ÖĞR. ÜYESİ":                     "DR. ÖĞR. ÜYESİ",
+    "DR. ÖĞR.ÜYESİ":                     "DR. ÖĞR. ÜYESİ",
+    "DR. ÖĞR.":                        "DR. ÖĞR. ÜYESİ",
+
+    # ── ÖĞRETİM GÖREVLİSİ ────────────────────────────────────────────────
+    "ÖĞRETİM GÖREVLİSİ DR.":       "ÖĞRETİM GÖREVLİSİ",
+    "ÖĞR. GÖR. DR.":                  "ÖĞRETİM GÖREVLİSİ",
+    "ÖĞR. GÖR.":                       "ÖĞRETİM GÖREVLİSİ",
+    "ÖĞR.GÖR.":                        "ÖĞRETİM GÖREVLİSİ",
+    "ÖĞRETİM GÖR.":               "ÖĞRETİM GÖREVLİSİ",
+
+    # ── ARAŞTIRMA GÖREVLİSİ ───────────────────────────────────────────────
+    "ARAŞTIRMA GÖREVLİSİ DR.":    "ARAŞTIRMA GÖREVLİSİ",
+    "ARŞ. GÖR. DR.":                  "ARAŞTIRMA GÖREVLİSİ",
+    "ARŞ. GÖR.":                       "ARAŞTIRMA GÖREVLİSİ",
+    "ARŞ.GÖR.":                        "ARAŞTIRMA GÖREVLİSİ",
+    "ARAŞTIRMA GÖR.":                 "ARAŞTIRMA GÖREVLİSİ",
+
+    # ── UZMAN ─────────────────────────────────────────────────────────────
+    "UZMAN DR.":                          "UZMAN",
+
+    # ── OKUTMAN ───────────────────────────────────────────────────────────
+    "BAŞ OKUTMAN":                       "OKUTMAN",
+    "BAŞOKUTMAN":                        "OKUTMAN",
+
+    # ── ÇEVİRİCİ ──────────────────────────────────────────────────────────
+    "BAŞ ÇEVİRİCİ":                     "ÇEVİRİCİ",
+
+    # ── EĞİTİM-ÖĞRETİM PLANLAMACISI ──────────────────────────────────────
+    "EĞİTİM ÖĞRETİM PLANLAMACISI":  "EĞİTİM-ÖĞRETİM PLANLAMACISI",
 }
 
-ALES_EXEMPT_TITLES = {"PROFÉSÖR", "DOÇENT"}
+ALES_EXEMPT_TITLES = {"PROFESÖR", "DOÇENT"}
 
 # ── Turkish helpers ───────────────────────────────────────────────────────────────
 def tr_upper(s: str) -> str:
@@ -94,18 +158,34 @@ def budget_ok() -> bool:
 
 # ── Title helpers ───────────────────────────────────────────────────────────────
 def extract_titles_from_cell(raw: str) -> list:
+    """
+    Extract all academic titles from a cell value.
+    Handles:
+    - Combined cells: "Profesör / Doçent / Dr. Öğr. Üyesi" → 3 titles
+    - Generic "Öğretim Üyesi" → expands to all three faculty ranks
+    - Abbreviations: "Doç. Dr.", "Arş. Gör." etc.
+    """
     found = []
     parts = re.split(r"[/,;]|\bve\b|\bveya\b", raw, flags=re.IGNORECASE)
     for part in parts:
         part = part.strip()
-        if not part: continue
+        if not part:
+            continue
         part_up = tr_upper(part)
         matched = None
+        # Check aliases first — longer aliases checked before shorter ones
         for alias in sorted(TITLE_ALIASES, key=len, reverse=True):
             if tr_upper(alias) in part_up:
                 matched = TITLE_ALIASES[alias]
                 break
+        # Sentinel: "Öğretim Üyesi" expands to all three faculty ranks
+        if matched == "__OGRETIM_UYESI__":
+            for t in OGRETIM_UYESI_TITLES:
+                if t not in found:
+                    found.append(t)
+            continue
         if not matched:
+            # Direct match against known titles
             for t in ACADEMIC_TITLES:
                 if tr_upper(t) in part_up:
                     matched = t
