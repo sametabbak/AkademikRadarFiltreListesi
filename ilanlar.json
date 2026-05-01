@@ -1,7 +1,121 @@
 {
-  "lastUpdated": "2026-04-30T06:33:50.740043+00:00",
+  "lastUpdated": "2026-05-01T06:42:09.011868+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "KAPADOKYA ÜNİVERSİTESİ",
+      "city": "Nevşehi̇r",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2097323/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-kapadokya-universitesi-ogretim-gorevlisi-alim-ilani-",
+      "ilanNo": "YOK852546",
+      "publishDate": "2026-04-30T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Uygulamalı Bilimler Yüksekokulu",
+          "department": "Havacılık Yönetimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Havacılık Yönetimi lisans mezunu olup; Havacılık, İşletme veya İktisat alanlarından birinde doktora yapmış olmak veya İşletme ya da İktisat lisans mezunu olup; yüksek lisans ve/veya doktorasını Havacılık Yönetimi alanında tamamlamış olmak veya İşletme ana bilim dalında doktora yapmış olmak kaydıyla havacılık alanında bilimsel çalışmaları bulunmak ve yükseköğretim kurumlarında ders verme tecrübesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Kapadokya Meslek Yüksekokulu",
+          "department": "Sivil Hava Ulaştırma İşletmeciliği",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sivil Hava Ulaştırma İşletmeciliği veya Havacılık Yönetimi lisans mezunu olmak. Sivil Hava Ulaştırma İşletmeciliği, Havacılık Yönetimi, Sivil Havacılık, İşletme, İktisat alanlarından birinden yüksek lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Kapadokya Meslek Yüksekokulu",
+          "department": "Odyometri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Odyoloji alanında lisans mezunu olmak. Aynı alanda yüksek lisans yapmış olmak. Biryükseköğretim kurumunda en az 2 dönem ders vermiş olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Kapadokya Üniversitesi Rektörlüğünden DÜZELTME İLANI 20.04.2026 tarihli ve 33230 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan; Üniversitemiz Öğretim Elemanı Alımı İlanının Uygulamalı Bilimler Yüksekokulu Havacılık Yönetimi doktor öğretim üyesi ilanı özel şartında ve Kapadokya Meslek Yükseko",
+      "applicationDocuments": []
+    },
+    {
+      "university": "DİCLE ÜNİVERSİTESİ",
+      "city": "Di̇yarbakir",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2097309/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-dicle-universitesi-ogretim-uyesi-alim-ilani-",
+      "ilanNo": "YOK852544",
+      "publishDate": "2026-04-30T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Beden Eğitimi ve Spor Yüksekokulu",
+          "department": "Antrenörlük Eğitimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Dicle Üniversitesi Rektörlüğünden DÜZELTME İLANI 17.04.2026 tarihli ve 33227 sayılı Resmi Gazete’de aslına uygun olarak yayımlanan öğretim üyesi alım ilanımızdaki tabloda belirtilen kadro düzeltilmiş olup kadro başvurular halen devam etmektedir. ÖĞRETİM ÜYESİ İLANI BİRİM BÖLÜM ANABİLİM DALI/ PROG. K",
+      "applicationDocuments": []
+    },
+    {
+      "university": "DİCLE ÜNİVERSİTESİ",
+      "city": "Di̇yarbakir",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2097245/kamu-akademik-personel-akademik-personel-alimlari-iptal-ilani-dicle-universitesi-ogretim-uyesi-alim-ilani-",
+      "ilanNo": "YOK852543",
+      "publishDate": "2026-04-30T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Dicle Üniversitesi Rektörlüğünden İPTAL İLANI 17.04.2026 tarihli ve 33227 sayılı Resmî Gazete’de yayımlanan öğretim üyesi alım ilanımızdaki aşağıda belirtilen kadro iptal edilmiştir. BİRİM BÖLÜM ANABİLİM DALI/ PROG. KADRO ÜNVANI DERECE ADET AÇIKLAMA Doçentliğini Periodontoloji bilim alanında almış o",
+      "applicationDocuments": []
+    },
     {
       "university": "UFUK ÜNİVERSİTESİ",
       "city": "Ankara",
