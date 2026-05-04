@@ -1,7 +1,350 @@
 {
-  "lastUpdated": "2026-05-03T06:32:47.784103+00:00",
+  "lastUpdated": "2026-05-04T06:46:56.745238+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "YAŞAR ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2099063/kamu-akademik-personel-akademik-personel-alimlari-yasar universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852549",
+      "publishDate": "2026-05-04T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Kamu Hukuku Bölümü/Ceza ve Ceza Muhakemesi Hukuku Anabilim Dalı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Yaşar Üniversitesi Rektörlüğünden ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemiz ilgili Birimlerine 2547 sayılı Kanun ile bu Kanuna dayanılarak Yükseköğretim Kurulu Başkanlığı’nca 12.06.2018 tarih ve 30449 sayılı Resmî Gazete’de yayımlanan “Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği”, Üniversitemiz",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2099053/kamu-akademik-personel-akademik-personel-alimlari-istanbul saglik ve teknoloji universitesi rektorlugunden-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK852548",
+      "publishDate": "2026-05-04T00:00:01+00:00",
+      "deadline": "2026-05-18T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Diş Hekimliği Fakültesi mezunu olmak, Ağız, Diş ve Çene Cerrahisi Anabilim dalında doktora veya uzmanlık yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 10,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 3,
+          "requirements": "Diş Hekimliği Fakültesi mezunu olmak, Protetik Diş Tedavisi Anabilim dalında doktora veya uzmanlık yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 10,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Psikoloji Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 2,
+          "requirements": "Üniversitelerin Psikoloji Bölümü’nden lisans mezunu olmak. Klinik Psikoloji alanında Tezli Yüksek Lisans veya Doktora öğrencisi olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 10,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul Sağlık ve Teknoloji Üniversitesi Rektörlüğünden Üniversitemizin aşağıda isimleri belirtilen birimlerine, 2547 sayılı Yükseköğretim Kanunu’nun 33. Maddesi ve “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2099051/kamu-akademik-personel-akademik-personel-alimlari-istanbul saglik ve teknoloji universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852547",
+      "publishDate": "2026-05-04T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Hemşirelik Esasları alanında Yüksek Lisans yapmış olmak. İç Hastalıkları Hemşireliği alanında doçentliğini almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İç Hastalıkları Hemşireliği alanında doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Cerrahi Hastalıklar Hemşireliği alanında doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon Bölümü lisans mezunu olmak. Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans ve doktora yapmış olmak. En az 5 yıl Fizyoterapi ve Rehabilitasyon alanında yükseköğretim kurumlarında çalışmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon bölümü lisans mezunu olmak. Kayropraktik alanında tezli yüksek lisans yapmış olmak. Fizyoterapi ve Rehabilitasyon alanında doktora yapmış olmak. En az 5 yıl Fizyoterapi ve Rehabilitasyon alanında yükseköğretim kurumlarında çalışmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Diş Hekimliği Fakültesi mezunu olmak. Doktorasını/Uzmanlığını Protetik Diş Tedavisi alanında yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Diş Hekimliği Fakültesi mezunu olmak. Doktorasını/Uzmanlığını Protetik Diş Tedavisi alanında yapmış olmak. Yükseköğretim kurumlarında yabancı dil öğretimi ve yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin yönetmelikte belirtilen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Diş Hekimliği Fakültesi mezunu olmak. Restoratif Diş Tedavisi alanında doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Endüstri Mühendisliği Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Endüstri Mühendisliği lisans, yüksek lisans ve doktora derecelerine sahip olmak ve Doçentlik unvanını aynı alanda almış olmak. Bulanık mantık alanında çalışmalar yapmış olmak ve bu alanlardan herhangi birinde ders vermiş olmak. Yükseköğretim kurumlarında yabancı dil öğretimi ve yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin yönetmelikte belirtilen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Kimya Mühendisliği Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kimya Mühendisliği lisans, yüksek lisans ve doktora derecelerine sahip olmak. Doçentlik unvanını Kimya alanında almış olmak. Yükseköğretim kurumlarında yabancı dil öğretimi ve yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin yönetmelikte belirtilen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Makine Mühendisliği Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Fizik Mühendisliği lisans, yüksek lisans ve doktora derecelerine sahip olmak. Doçentlik unvanın Fizik alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Psikoloji Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Klinik Psikoloji alanında Yüksek Lisans ve Doktora mezunu olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul Sağlık ve Teknoloji Üniversitesi Rektörlüğünden Üniversitemiz 2547 sayılı Yüksek Öğretim Kanunu Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği hükümlerinde aranan koşulları yerine getirmiş olmak kaydı ile aylık ve özlük hakları yönünden 4857 sayılı İş Kanunu hükümlerine tabi olarak, Ün",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KAPADOKYA ÜNİVERSİTESİ",
+      "city": "Nevşehi̇r",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2099065/kamu-akademik-personel-akademik-personel-alimlari-kapadokya-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852551",
+      "publishDate": "2026-05-03T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Psikoloji",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Klinik Psikoloji veya Uygulamalı Psikoloji alanında almış olmak veya Tıp Fakültesi mezunu olup Psikiyatri alanında uzmanlık veya doktora yapmış, klinik psikoloji alanlarında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Psikoloji",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora derecesini Klinik Psikoloji alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "İngilizce Mütercim ve Tercümanlık",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora derecesini İngilizce Mütercim ve Tercümanlık alanında almış olmak veya İngilizce Dil Bilimi, İngilizce Öğretmenliği alanlarının birinde doktora yapmış olmak ve çeviribilim alanında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Kapadokya Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin çeşitli bölümlerinde görev yapmak üzere 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ile Vakıf Yüksek Öğretim Kurumları Yönetmeliği’nin ilgili maddeleri uyarınca aşağıda nitelikle",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ÜSKÜDAR ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2099064/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-uskudar-universitesi-rektorlugu-",
+      "ilanNo": "YOK852550",
+      "publishDate": "2026-05-02T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Reklamcılık",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Üsküdar Üniversitesi Rektörlüğünden: DÜZELTME İLANI 30.04.2026 tarihli ve 33239 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Öğretim Üyesi ilanımızın aşağıdaki tabloda belirtilen kadrosunun “Ünvanı” başlığı altındaki kısmı aşağıdaki şekliyle düzeltilmiştir. FAKÜLTE BÖLÜM/ PROG./ ANABİLİM DA",
+      "applicationDocuments": []
+    },
     {
       "university": "KAPADOKYA ÜNİVERSİTESİ",
       "city": "Nevşehi̇r",
