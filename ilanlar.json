@@ -1,7 +1,338 @@
 {
-  "lastUpdated": "2026-05-04T06:46:56.745238+00:00",
+  "lastUpdated": "2026-05-05T06:24:40.896128+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "TÜRKİYE ULUSLARARASI İSLAM, BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2100485/kamu-akademik-personel-akademik-personel-alimlari-turkiye uluslararasi islam- bilim ve teknoloji universitesi rektorlugunden-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK852557",
+      "publishDate": "2026-05-05T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Rektörlük Kurumsal İletişim Birimi",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "-İletişim Bilimleri, Gazetecilik, Medya ve İletişim, Yeni Medya, Yeni Medya ve Gazetecilik, Yeni Medya ve İletişim veya İletişim Bölümü lisans mezunu olup ilgili alanların birinde tezli yüksek lisans yapmış olmak ve belgelendirmek kaydıyla lisans mezuniyetinden sonra kamu veya özel kurumların kurumsal iletişim birimlerinde en az 2 (iki) yıl deneyim sahibi olmak ya da herhangi bir alanda lisans mezunu olup tezli yüksek lisans yapmış olmak ve belgelendirmek kaydıyla lisans mezuniyetinden sonra kamu veya özel kurumların kurumsal iletişim birimlerinde en az 3 (üç) yıl deneyim sahibi olmak. *Yükseköğretim Kurulu tarafından geçerliği kabul edilen İngilizce veya Arapça dil sınavının birinden en az 85 puana sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 202,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 202,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Rektörlük Uluslararası İlişkiler Birimi",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "-Uluslararası İlişkiler, Siyaset Bilimi ve Uluslararası İlişkiler, Kamu Yönetimi, Siyaset Bilimi ve Kamu Yönetimi, Sosyoloji veya Tarih lisans mezunu olmak. -İlgili alanların birinde tezli yüksek lisans yapmış olmak. -Belgelendirmek kaydıyla lisans mezuniyetinden sonra uluslararası düzeyde faaliyetlerde bulunan kurumlarda en az 5 (beş) yıl süre ile tecrübesi bulunmak. *Yükseköğretim Kurulu tarafından geçerliği kabul edilen İngilizce veya Arapça dil sınavının birinden en az 85 puana sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 202,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 202,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Rektörlük Bilgi İşlem Daire Başkanlığı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "-Bilgisayar Mühendisliği, Yazılım Mühendisliği, Bilişim Sistemleri Mühendisliği veya Bilgisayar Teknolojisi ve Bilişim Sistemleri lisans mezunu olmak. İlgili alanların birinde tezli yüksek lisans yapmış olmak. Belgelendirmek kaydıyla lisans mezuniyetinden sonra kamu kurumlarının bilgi işlem birimlerinde en az 2 (iki)yıl deneyim sahibi olmak ya da herhangi bir alanda lisans mezunu olup tezli yüksek lisans yapmış olmak ve belgelendirmek kaydıyla lisans mezuniyetinden sonra kamu kurumlarının bilgi işlem birimlerinde en az 3 (üç) yıl deneyim sahibi olmak.",
+          "alesRequired": true,
+          "alesScore": 202,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 202,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Türkiye Uluslararası İslam, Bilim ve Teknoloji Üniversitesi Rektörlüğünden Üniversitemizin aşağıda yazılı birimlerine; Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik, 2547 sayılı Yük",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2100484/kamu-akademik-personel-akademik-personel-alimlari-istanbul-rumeli-universitesi-rektorlugunden-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK852556",
+      "publishDate": "2026-05-05T00:00:01+00:00",
+      "deadline": "2026-05-19T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "SAĞLIK BİLİMLERİ FAKÜLTESİ",
+          "department": "EBELİK",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Ebelik veya Hemşirelik Bölümü lisans mezunu olmak. (2547-50/d Maddesi Uyarınca)",
+          "alesRequired": true,
+          "alesScore": 22,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul Rumeli Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen Fakülte Bölümleri için 2547 Sayılı Yükseköğretim Kanunu ve “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetme",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2100482/kamu-akademik-personel-akademik-personel-alimlari-istanbul-rumeli-universitesi-rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852555",
+      "publishDate": "2026-05-05T00:00:01+00:00",
+      "deadline": "2026-05-19T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "MÜHENDİSLİK ve DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "BİLGİSAYAR MÜHENDİSLİĞİ",
+          "title": "PROFESÖR",
+          "count": 2,
+          "requirements": "Doçentliğini Bilgisayar Mühendisliği-Bilgisayar Yazılımı, Yazılım Mühendisliği veya Yazılını Geliştirme Mühendisliği alanlarının birinden almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "PROFESÖR",
+          "department": "2",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "DOÇENT",
+          "department": "2",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "DOÇENT",
+          "department": "2",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "DOÇENT",
+          "department": "2",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "SAĞLIK BİLİMLERİ FAKÜLTESİ",
+          "department": "EBELİK",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Ebelik veya Doğum ve Kadın Hastalıkları Hemşireliği alanında doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul Rumeli Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen Fakülte ve Yüksekokul Bölümlerine 2547 Sayılı Yükseköğretim Kanunu \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği”nin ilgili maddelerine göre Öğretim Üyeleri alınacaktır. İstenilen Belgeler Dilekçe (Başvuru dilekçel",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR EKONOMİ ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2099546/kamu-akademik-personel-akademik-personel-alimlari-izmir-ekonomi-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852553",
+      "publishDate": "2026-05-04T00:00:01+00:00",
+      "deadline": "2026-05-18T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "İnşaat Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "85",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Güzel Sanatlar ve Tasarım Fakültesi",
+          "department": "Endüstriyel Tasarım",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "85",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "İdare Hukuku",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Muaf",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Anatomi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "85",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Tıbbi Patoloji",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "85",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Fizik Tedavi ve Rehabilitasyon",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "85",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Çocuk Sağlığı ve Hastalıkları",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "85",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İzmir Ekonomi Üniversitesi Rektörlüğünden İlan Tarihi : 04.05.2026 Son Başvuru Tarihi : 18.05.2026 1.2547 sayılı Yüksek Öğretim Kanunu Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği hükümlerinde ve İzmir Ekonomi Üniversitesi Öğretim Üyesi ve Görevlisi Atama ve Yükseltme Kriterleri’nde belirtile",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL 29 MAYIS ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2099505/kamu-akademik-personel-akademik-personel-alimlari-istanbul-29-mayis-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852552",
+      "publishDate": "2026-05-04T00:00:01+00:00",
+      "deadline": "2026-05-19T23:59:01+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Bilgisayar Mühendisliği Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektronik Haberleşme Mühendisliği veya Fizik Mühendisliği alanlarında doktora derecesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Bilgisayar Mühendisliği Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Yapay Zekâ Mühendisliği, Matematik Mühendisliği veya Siber Güvenlik Mühendisliği alanlarında doktora derecesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul 29 Mayıs Üniversitesi Rektörlüğünden 2547 sayılı Kanun ve “Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği” ile “İstanbul 29 Mayıs Üniversitesi Öğretim Üyeliğine Atama ve Yükseltme Kriterleri”nin ilgili maddeleri uyarınca Üniversitemizin aşağıda belirtilen anabilim dalına devamlı statüd",
+      "applicationDocuments": []
+    },
     {
       "university": "YAŞAR ÜNİVERSİTESİ",
       "city": "İzmi̇r",
