@@ -30,7 +30,7 @@ UNIVERSITY_CACHE_FILE = "university_list_cache.json"
 _output_dir = os.environ.get("OUTPUT_DIR", "").strip()
 OUTPUT_FILE = os.path.join(_output_dir, "ilanlar.json") if _output_dir else "ilanlar.json"
 
-PAGE_SIZE           = 50
+PAGE_SIZE           = 20  # API returns max 20 items per page
 TIMEOUT             = 20
 MAX_RUNTIME_SECONDS = 20 * 60
 REQUEST_DELAY       = 0.5
@@ -881,7 +881,7 @@ def main():
         if all_known:
             log.info(f"  All ads on skip={skip_count} already known — continuing to next page.")
 
-        skip_count += PAGE_SIZE
+        skip_count += len(items)  # use actual count, API may return fewer than PAGE_SIZE
         if skip_count >= total: break
 
     all_ads = new_ads + existing
