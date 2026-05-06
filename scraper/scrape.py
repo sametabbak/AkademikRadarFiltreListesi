@@ -564,7 +564,7 @@ def parse_positions(content_html: str, full_text: str) -> list:
                         col_map["ales_type"] = ci
                     elif any(tr_upper(k) in cu for k in ["YABANCI DİL PUANI", "YABANCI DİL"]) and "lang_score" not in col_map:
                         col_map["lang_score"] = ci
-                    elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "ALIM ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK", "GENEL KOŞUL", "MUAFİYET"]) and "req" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["UZMANLIK ALANI", "ARANILAN ŞARTLAR", "UZMANLIK ALANI/ARANILAN ŞARTLAR", "ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "ALIM ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK", "GENEL KOŞUL", "MUAFİYET"]) and "req" not in col_map:
                         col_map["req"] = ci
                 break
 
