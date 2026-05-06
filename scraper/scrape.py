@@ -564,7 +564,7 @@ def parse_positions(content_html: str, full_text: str) -> list:
                         col_map["ales_type"] = ci
                     elif any(tr_upper(k) in cu for k in ["YABANCI DİL PUANI", "YABANCI DİL"]) and "lang_score" not in col_map:
                         col_map["lang_score"] = ci
-                    elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK"]) and "req" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "ALIM ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK", "GENEL KOŞUL", "MUAFİYET"]) and "req" not in col_map:
                         col_map["req"] = ci
                 break
 
@@ -612,6 +612,19 @@ def parse_positions(content_html: str, full_text: str) -> list:
             ales_type_val  = cells[col_map["ales_type"]]  if "ales_type"  in col_map and col_map["ales_type"]  < len(cells) else ""
             lang_score_val = cells[col_map["lang_score"]] if "lang_score" in col_map and col_map["lang_score"] < len(cells) else ""
 
+            # If req cell is empty, try to extract requirements from full page text
+            # by searching for text near the position title
+            if not req.strip():
+                title_search = tr_upper(title_list[0])[:12]
+                idx_t = full_text.upper().find(title_search)
+                if idx_t != -1:
+                    snippet = full_text[idx_t: idx_t + 600]
+                    for req_kw in ["Şart", "Koşul", "Nitelik", "Açıklama", "Özellik"]:
+                        ki = snippet.lower().find(req_kw.lower())
+                        if ki != -1:
+                            req = re.sub(r"[ \t\n]+", " ", snippet[ki: ki + 400]).strip()
+                            break
+
             if ales_score_val.strip() and re.sub(r"[^0-9]", "", ales_score_val) and primary_title not in ALES_EXEMPT_TITLES:
                 digits = re.sub(r"[^0-9]", "", ales_score_val)
                 ales = {"alesRequired": True, "alesScore": int(digits) if digits else None, "alesType": ales_type_val.strip() or None}
@@ -653,7 +666,7 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
     DEPT_KEYS    = ["BÖLÜM", "ANABİLİM", "PROGRAM", "ABD"]
     TITLE_KEYS   = ["ÜNVAN", "UNVAN", "KADRO", "AKADEMİK ÜNVAN", "AKADEMIK UNVAN"]
     COUNT_KEYS   = ["ADET", "SAYI", "ALINACAK", "KONTENJAN"]
-    REQ_KEYS     = ["ÖZEL KOŞUL", "ARANAN NİTELİK", "AÇIKLAMA", "KOŞUL", "ŞART", "GENEL ŞART"]
+    REQ_KEYS     = ["ÖZEL KOŞUL", "ARANAN NİTELİK", "AÇIKLAMA", "KOŞUL", "ALIM ŞART", "ŞART", "GENEL ŞART", "GENEL KOŞUL", "MUAFİYET", "ÖZELLİK"]
 
     def match_key(line_up: str, keys: list) -> bool:
         return any(tr_upper(k) in line_up for k in keys)
