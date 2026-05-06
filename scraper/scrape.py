@@ -507,7 +507,7 @@ def parse_positions(content_html: str, full_text: str) -> list:
             cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
             if not cells: continue
             cell_up = tr_upper(" ".join(cells))
-            has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN"])
+            has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM"])
             has_count = any(tr_upper(k) in cell_up for k in ["ADET", "ADEDİ", "SAYI", "KONTENJAN"])
             if has_title and has_count:
                 header_idx = ri
@@ -519,11 +519,26 @@ def parse_positions(content_html: str, full_text: str) -> list:
                         col_map["dept"] = ci
                     elif any(tr_upper(k) in cu for k in ["ADET", "ADEDİ", "KADRO SAYISI", "SAYI", "KONTENJAN"]) and "count" not in col_map:
                         col_map["count"] = ci
-                    elif any(tr_upper(k) in cu for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN"]) and "title" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM"]) and "title" not in col_map:
                         col_map["title"] = ci
-                    elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK"]) and "req" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK"]) and "req" not in col_map:
                         col_map["req"] = ci
                 break
+
+        # Smart fallback: if title column not found by header name,
+        # detect it by scanning data cell values for academic title keywords
+        if header_idx is not None and "title" not in col_map:
+            all_title_kws = {tr_upper(t) for t in ACADEMIC_TITLES} | {tr_upper(k) for k in TITLE_ALIASES}
+            col_hits = {}
+            for row in rows[header_idx + 1: header_idx + 6]:
+                sample = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
+                for ci, cell in enumerate(sample):
+                    cu = tr_upper(cell)
+                    if any(kw in cu for kw in all_title_kws):
+                        col_hits[ci] = col_hits.get(ci, 0) + 1
+            if col_hits:
+                col_map["title"] = max(col_hits, key=col_hits.get)
+                log.debug(f"  Title column auto-detected at index {col_map['title']}")
 
         if header_idx is None or "title" not in col_map: continue
 
