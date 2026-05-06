@@ -492,124 +492,52 @@ def match_university(name: str, ulist: list) -> tuple:
     return cleaned, "Bilinmiyor", "Devlet"
 
 # ── Position table parser ───────────────────────────────────────────────────────────────
-def expand_table(table) -> list[list[str]]:
-    """
-    Convert a BeautifulSoup <table> into a 2D list of cell text values,
-    properly handling rowspan and colspan attributes.
-
-    Without this, a faculty cell with rowspan=3 only appears in row 0.
-    Rows 1 and 2 then have fewer cells, shifting all column indices and
-    causing wrong data to be mapped to the wrong columns.
-    """
-    # First pass: build raw grid filling rowspan/colspan slots with None
-    grid: list[list] = []
-    # Track cells that span into future rows: {row_idx: [(col_idx, value, remaining_rows)]}
-    pending: dict[int, list] = {}
-
-    def get_row(r):
-        while len(grid) <= r:
-            grid.append([])
-        return grid[r]
-
-    for ri, row in enumerate(table.find_all("tr")):
-        # Fill in any pending rowspan cells for this row
-        carry = pending.pop(ri, [])
-        col_cursor = 0
-        row_grid = get_row(ri)
-
-        def place(col, val):
-            while len(row_grid) <= col:
-                row_grid.append(None)
-            row_grid[col] = val
-
-        # Place carried-over rowspan cells first
-        for (ci, val, rows_left) in carry:
-            place(ci, val)
-            if rows_left > 1:
-                pending.setdefault(ri + 1, []).append((ci, val, rows_left - 1))
-
-        # Now process actual cells in this row
-        cell_idx = 0
-        for td in row.find_all(["th", "td"]):
-            val = clean(td.get_text())
-            rs = int(td.get("rowspan", 1))
-            cs = int(td.get("colspan", 1))
-
-            # Skip over columns already filled by rowspan carry-overs
-            while col_cursor < len(row_grid) and row_grid[col_cursor] is not None:
-                col_cursor += 1
-
-            for c in range(cs):
-                actual_col = col_cursor + c
-                place(actual_col, val)
-                if rs > 1:
-                    pending.setdefault(ri + 1, []).append((actual_col, val, rs - 1))
-
-            col_cursor += cs
-            cell_idx += 1
-
-    # Normalize: convert None to "" and return as list of string lists
-    max_cols = max((len(r) for r in grid), default=0)
-    result = []
-    for row in grid:
-        padded = [(row[i] if i < len(row) and row[i] is not None else "")
-                  for i in range(max_cols)]
-        result.append(padded)
-    return result
-
-
 def parse_positions(content_html: str, full_text: str) -> list:
     soup = BeautifulSoup(content_html, "html.parser")
     positions = []
 
     for table in soup.find_all("table"):
-        raw_rows = table.find_all("tr")
-        if len(raw_rows) < 2: continue
-        # Expand rowspan/colspan into a proper 2D grid
-        expanded = expand_table(table)
-        if len(expanded) < 2: continue
+        rows = table.find_all("tr")
+        if len(rows) < 2: continue
 
         header_idx = None
         col_map: dict = {}
 
-        for ri, row_cells in enumerate(expanded):
-            cells = row_cells
+        for ri, row in enumerate(rows):
+            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
             if not cells: continue
             cell_up = tr_upper(" ".join(cells))
-            has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM"])
-            has_count = any(tr_upper(k) in cell_up for k in ["ADET", "ADEDİ", "SAYI", "KONTENJAN"])
-            if has_title and has_count:
+            has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM", "KADRO CİNSİ", "KADRO ADI"])
+            has_count = any(tr_upper(k) in cell_up for k in ["ADET", "ADEDİ", "KADRO SAYISI", "SAYI", "KONTENJAN"])
+            has_ales  = any(tr_upper(k) in cell_up for k in ["ALES", "PUAN"])
+            # Accept table if it has title + count, OR title + ALES (KTÜ-style: 1 position per row)
+            if has_title and (has_count or has_ales):
                 header_idx = ri
                 for ci, cell in enumerate(cells):
                     cu = tr_upper(cell)
                     if any(tr_upper(k) in cu for k in ["FAKÜLTE", "BİRİM"]) and "faculty" not in col_map:
                         col_map["faculty"] = ci
-                    elif any(tr_upper(k) in cu for k in ["BÖLÜM", "PROGRAM", "ANABİLİM"]) and "dept" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["BÖLÜM", "PROGRAM", "ANABİLİM", "BİRİMİ"]) and "dept" not in col_map:
                         col_map["dept"] = ci
                     elif any(tr_upper(k) in cu for k in ["ADET", "ADEDİ", "KADRO SAYISI", "SAYI", "KONTENJAN"]) and "count" not in col_map:
                         col_map["count"] = ci
-                    elif any(tr_upper(k) in cu for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM"]) and "title" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM", "KADRO CİNSİ", "KADRO ADI"]) and "title" not in col_map:
                         col_map["title"] = ci
+                    elif any(tr_upper(k) in cu for k in ["ALES PUANI", "ALES PUAN"]) and "ales_score" not in col_map:
+                        col_map["ales_score"] = ci
+                    elif any(tr_upper(k) in cu for k in ["ALES PUAN TÜR", "PUAN TÜRÜ"]) and "ales_type" not in col_map:
+                        col_map["ales_type"] = ci
+                    elif any(tr_upper(k) in cu for k in ["YABANCI DİL PUANI", "YABANCI DİL"]) and "lang_score" not in col_map:
+                        col_map["lang_score"] = ci
                     elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK"]) and "req" not in col_map:
                         col_map["req"] = ci
                 break
 
-        # Smart fallback: detect title column from data cell values
-        if header_idx is not None and "title" not in col_map:
-            all_title_kws = {tr_upper(t) for t in ACADEMIC_TITLES} | {tr_upper(k) for k in TITLE_ALIASES}
-            col_hits = {}
-            for sample in expanded[header_idx + 1: header_idx + 6]:
-                for ci, cell in enumerate(sample):
-                    if any(kw in tr_upper(cell) for kw in all_title_kws):
-                        col_hits[ci] = col_hits.get(ci, 0) + 1
-            if col_hits:
-                col_map["title"] = max(col_hits, key=col_hits.get)
-
         if header_idx is None or "title" not in col_map: continue
 
         last_faculty = ""
-        for row_cells in expanded[header_idx + 1:]:
-            cells = row_cells
+        for row in rows[header_idx + 1:]:
+            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
             if not cells or not any(cells): continue
 
             def cell(key):
@@ -634,10 +562,24 @@ def parse_positions(content_html: str, full_text: str) -> list:
             combined_title = " / ".join(title_list)
             primary_title  = title_list[0]
 
-            ales = extract_ales(req, primary_title)
-            if not ales["alesRequired"]: ales = extract_ales(full_text, primary_title)
-            lang = extract_language(req, primary_title)
-            if not lang["foreignLanguageRequired"]: lang = extract_language(full_text, primary_title)
+            # Dedicated ALES/language columns take priority (Karadeniz-style tables)
+            ales_score_val = cells[col_map["ales_score"]] if "ales_score" in col_map and col_map["ales_score"] < len(cells) else ""
+            ales_type_val  = cells[col_map["ales_type"]]  if "ales_type"  in col_map and col_map["ales_type"]  < len(cells) else ""
+            lang_score_val = cells[col_map["lang_score"]] if "lang_score" in col_map and col_map["lang_score"] < len(cells) else ""
+
+            if ales_score_val.strip() and re.sub(r"[^0-9]", "", ales_score_val) and primary_title not in ALES_EXEMPT_TITLES:
+                digits = re.sub(r"[^0-9]", "", ales_score_val)
+                ales = {"alesRequired": True, "alesScore": int(digits) if digits else None, "alesType": ales_type_val.strip() or None}
+            else:
+                ales = extract_ales(req, primary_title)
+                if not ales["alesRequired"]: ales = extract_ales(full_text, primary_title)
+
+            if lang_score_val.strip() and re.sub(r"[^0-9]", "", lang_score_val):
+                digits = re.sub(r"[^0-9]", "", lang_score_val)
+                lang = {"foreignLanguageRequired": True, "foreignLanguageScore": int(digits) if digits else None, "foreignLanguageExam": None}
+            else:
+                lang = extract_language(req, primary_title)
+                if not lang["foreignLanguageRequired"]: lang = extract_language(full_text, primary_title)
 
             pos = {"faculty": faculty, "department": dept, "title": combined_title,
                    "count": count, "requirements": req, "_all_titles": title_list}
@@ -678,11 +620,9 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
         return ""
 
     # Try to find key-value structured content
-    # Trigger if ANY title header key OR any academic title appears in the text
+    # First check if ANY title key exists in the text
     text_up = tr_upper(text)
-    has_title_keyword = any(tr_upper(k) in text_up for k in TITLE_KEYS)
-    has_academic_title = any(tr_upper(t) in text_up for t in ACADEMIC_TITLES)
-    if not has_title_keyword and not has_academic_title:
+    if not any(tr_upper(k) in text_up for k in TITLE_KEYS):
         return []
 
     positions = []
@@ -777,51 +717,20 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
             j = i + 1
             while j < len(lines):
                 next_up = tr_upper(lines[j])
+                # Stop if we hit another key
                 if any(match_key(next_up, keys) and ":" in lines[j]
                        for keys in [FACULTY_KEYS, DEPT_KEYS, TITLE_KEYS, COUNT_KEYS, REQ_KEYS]):
                     break
                 req_parts.append(lines[j])
                 j += 1
             current["requirements"] = " ".join(req_parts).strip()
-            i = j - 1
+            i = j - 1  # skip consumed lines
 
         i += 1
 
     # Flush last block
     if current:
         flush(current)
-
-    # Plain-text fallback: if structured parsing found nothing but academic titles
-    # appear in the text, extract them with basic count detection
-    if not positions and has_academic_title:
-        found_in_text = []
-        for title in ACADEMIC_TITLES:
-            if tr_upper(title) not in text_up:
-                continue
-            # Also check aliases
-            for alias, canonical in TITLE_ALIASES.items():
-                if canonical == title and tr_upper(alias) in text_up:
-                    break
-            # Count: look for patterns like "X kişi", "X adet", "X kadro" near title
-            count = 1
-            count_pattern = tr_upper(title) + r".{0,60}?(\d{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ)"
-            m = re.search(count_pattern, text_up)
-            if not m:
-                m = re.search(r"(\d{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ).{0,60}?" + tr_upper(title), text_up)
-            if m:
-                count = max(1, min(10, int(m.group(1))))
-
-            if title not in found_in_text:
-                found_in_text.append(title)
-                ales = extract_ales(text, title)
-                lang = extract_language(text, title)
-                pos = {
-                    "faculty": "", "department": "",
-                    "title": title, "count": count, "requirements": "",
-                    "_all_titles": [title],
-                }
-                pos.update(ales); pos.update(lang)
-                positions.append(pos)
 
     return positions
 
@@ -970,7 +879,7 @@ def main():
             time.sleep(REQUEST_DELAY)
 
         if all_known:
-            log.info("All ads on this page already known — stopping."); break
+            log.info(f"  All ads on skip={skip_count} already known — continuing to next page.")
 
         skip_count += PAGE_SIZE
         if skip_count >= total: break
