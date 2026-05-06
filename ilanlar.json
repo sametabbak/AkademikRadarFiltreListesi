@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-06T08:46:31.886432+00:00",
+  "lastUpdated": "2026-05-06T08:53:22.027999+00:00",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -2504,6 +2504,314 @@
       "applicationDocuments": []
     },
     {
+      "university": "KARADENİZ TEKNİK ÜNİVERSİTESİ",
+      "city": "Trabzon",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2089436/kamu-akademik-personel-akademik-personel-alimlari-karadeniz teknik universitesi rektorlugunden-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK852518",
+      "publishDate": "2026-04-22T00:00:01+00:00",
+      "deadline": "2026-05-06T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Trabzon Meslek Yüksekokulu Bilgisayar Teknolojileri Bölümü Bilgisayar Programcılığı Programı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği veya Bilgisayar Bilimleri Bölümü lisans mezunu olup, bu alanlardan birinde tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "Sayısal",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü Bilgisayar Donanımı Anabilim Dalı",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği Anabilim Dalında tezli yüksek lisans yapıyor olmak. (2547 Sayılı Kanunun 50/d maddesi uyarınca atama yapılacaktır).",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "Sayısal",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi Metalurji ve Malzeme Mühendisliği Bölümü Polimer Bilim ve Teknolojisi Anabilim Dalı",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mühendislik Fakültelerinin Metalurji ve Malzeme Mühendisliği Bölümü lisans mezunu olup, ilgili alanda tezli yüksek lisans yapıyor olmak. (2547 Sayılı Kanunun 50/d maddesi uyarınca atama yapılacaktır).",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "Sayısal",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi İnşaat Mühendisliği Bölümü Yapı Anabilim Dalı",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mühendislik Fakültelerinin İnşaat Mühendisliği Bölümü lisans mezunu olup, ilgili alanda doktora yapıyor olmak ve ilan tarihi itibarıyla doktora yeterlilik sınavına girmemiş (ders aşamasında) olmak. (2547 Sayılı Kanunun 50/d maddesi uyarınca atama yapılacaktır).",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "Sayısal",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Orman Fakültesi Orman Endüstrisi Mühendisliği Bölümü Orman Endüstrisi Makineleri ve İşletme Anabilim Dalı",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Orman Endüstrisi Mühendisliği veya Endüstri Mühendisliği Bölümü lisans mezunu olup, Orman Endüstri Mühendisliği veya Endüstri Mühendisliği anabilim dallarından birinde tezli yüksek lisans yapıyor olmak (2547 Sayılı Kanunun 50/d maddesi uyarınca atama yapılacaktır).",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "Sayısal",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sürmene Deniz Bilimleri Fakültesi Gemi İnşaatı ve Gemi Makineleri Mühendisliği Bölümü Gemi İnşaatı Anabilim Dalı",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Gemi İnşaatı ve Gemi Makineleri Mühendisliği Bölümü lisans mezunu olup, Gemi İnşaatı ve Gemi Makineleri Mühendisliği Anabilim Dalında tezli yüksek lisans yapıyor olmak (2547 Sayılı Kanunun 50/d maddesi uyarınca atama yapılacaktır).",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "Sayısal",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Karadeniz Teknik Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine; Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik, 2547 sayılı Yükseköğretim Kanunu ve 657 s",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL GALATA ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2089414/kamu-akademik-personel-akademik-personel-alimlari-istanbul-galata-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852517",
+      "publishDate": "2026-04-22T00:00:01+00:00",
+      "deadline": "2026-05-07T23:59:01+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler (İngilizce)",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Ağız, Diş ve Çene Radyolojisi alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler (İngilizce)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Ağız, Diş ve Çene Radyolojisi alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını-Uzmanlığını Ağız, Diş ve Çene Radyolojisi alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Ağız, Diş ve Çene Radyolojisi alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Ağız, Diş ve Çene Radyolojisi alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını-Uzmanlığını Ağız, Diş ve Çene Radyolojisi alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını-Uzmanlığını Restoratif Diş Tedavisi alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Uzmanlığını Restoratif Diş Tedavisi alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Doktorasını-Uzmanlığını Çocuk Diş Hekimliği alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Temel Bilimler (İngilizce)",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Tıbbi Mikrobiyolji alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Temel Bilimler (İngilizce)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Tıbbi Mikrobiyolji alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Temel Bilimler (ingilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını-Uzmanlığını Tıbbi Mikrobiyolji alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Temel Bilimler (İngilizce)",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Patoloji alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Temel Bilimler (İngilizce)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Patoloji alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Temel Bilimler (ingilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını-Uzmanlığını Patoloj alanında almış olmak. YDS veya eşdeğerliliği YÖK tarafından kabul edilen dil sınavlarından 85 ve üzeri İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "İstanbul Galata Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin çeşitli bölüm ve programlarında görev yapmak üzere 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği, İstanbul Galata Üniversitesi Akademik Atama ve Yükseltme Yönergesi ( https:/",
+      "applicationDocuments": []
+    },
+    {
       "university": "KAPADOKYA ÜNİVERSİTESİ",
       "city": "Nevşehi̇r",
       "uniType": "Vakıf",
@@ -2530,6 +2838,35 @@
         }
       ],
       "contentSnippet": "Kapadokya Üniversitesi Rektörlüğünden DÜZELTME İLANI 20.04.2026 tarih ve 33230 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan; Üniversitemiz Öğretim Üyesi Alımı İlanının Kapadokya Meslek Yüksekokulu Sivil Havacılık Kabin Hizmetleri programı Dr. Öğr. Üyesi ilanı özel şartı aşağıdaki şekilde de",
+      "applicationDocuments": []
+    },
+    {
+      "university": "DOĞUŞ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2086675/kamu-akademik-personel-akademik-personel-alimlari-dogus-universitesi-rektorlugunden-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK852503",
+      "publishDate": "2026-04-20T00:00:01+00:00",
+      "deadline": "2026-05-06T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Sanat ve Tasarım Fakültesi",
+          "department": "Oyunculuk",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lisans eğitimini Tiyatro, Oyunculuk, Sahne Sanatları, Tiyatro Eleştirmenliği ve Dramaturji, Drama yazarlığı ve dramaturji, Drama ve Oyunculuk bölümlerinden birinde tamamlamış olmak; Tiyatro, Oyunculuk, Sahne Sanatları, Tiyatro Eleştirmenliği ve Dramaturji, Drama ve Oyunculuk, Film ve Drama, Müzik ve Sahne Sanatları, İleri Oyunculuk, Dramatik Sanatlar bölümlerinden birinde tezli yüksek lisans ya da doktora/sanatta yeterlik yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "Doğuş Üniversitesi Rektörlüğünden Duyuru Öğretim Elemanı İlanı 2547 Sayılı Yükseköğretim Kanununda belirtilen koşullar ile 09.11.2018 Tarihli 30590 Sayılı Resmi Gazete’de yayımlanan “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlar",
       "applicationDocuments": []
     },
     {
