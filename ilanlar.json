@@ -1,7 +1,131 @@
 {
-  "lastUpdated": "2026-05-06T08:01:38.579138+00:00",
+  "lastUpdated": "2026-05-06T08:17:01.028072+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "MALTEPE ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2101924/kamu-akademik-personel-akademik-personel-alimlari-maltepe-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852560",
+      "publishDate": "2026-05-06T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İşletme ve Yönetim Bilimleri Fakültesi",
+          "department": "Uluslararası Ticaret ve Lojistik Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisansüstü eğitimlerini Lojistik ve Tedarik Zinciri Yönetimi alanında tamamlamış ve tercihen e- ticaret lojistiği konusunda çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Bilgisayar Mühendisliği (İngilizce) Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Doktora eğitimini Bilgisayar Mühendisliği veya Yazılım Mühendisliği alanında tamamlamış olmak ve Fen alanında en az 85 İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Sağlık Bilimleri Yüksekokulu",
+          "department": "Ebelik Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "Doktora eğitimini Doğum ve Kadın Hastalıkları Hemşireliği alanında tamamlamış ve yükseköğretim kurumlarında en az beş yıl ders verme deneyimine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "İnşaat Bölümü Yapı Yalıtım Teknolojisi Programı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora ve lisans eğitimini İnşaat Mühendisliği alanında tamamlamış olmak. Lisans mezuniyeti sonrası belgelendirmek koşuluyla alanda sektör deneyimine sahip olmak ve yükseköğretim kurumlarda ders verme deneyimine sahip olmak. Tercihen İngilizce yeterliliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "Maltepe Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin aşağıda gösterilen akademik birimlerine 2547 sayılı Kanun ve T.C. Maltepe Üniversitesi Akademik Yükseltilme ve Atanma Yönergesi hükümleri uyarınca tam zamanlı statüde öğretim üyeleri alınacaktır. İLAN BAŞLAMA TARİHİ : 06.0",
+      "applicationDocuments": []
+    },
+    {
+      "university": "MALTEPE ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2101919/kamu-akademik-personel-akademik-personel-alimlari-maltepe-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK852559",
+      "publishDate": "2026-05-06T00:00:01+00:00",
+      "deadline": "2026-05-20T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İşletme ve Yönetim Bilimleri Fakültesi",
+          "department": "Uluslararası Ticaret ve Lojistik Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lisans eğitimini Lojistik, Uluslararası Ticaret alanlarında tamamlamış olmak ve yüksek lisans eğitimine bu alanlarda devam ediyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Yüksekokulu",
+          "department": "Ebelik Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Yüksek Lisans eğitimini Doğum ve Kadın Hastalıkları Hemşireliği veya Ebelik alanlarının birinde yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Bilgisayar Teknolojileri Bölümü Bilgisayar Programcılığı Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lisans ve tezli yüksek lisans eğitimini Bilgisayar Mühendisliği alanında yapmış olmak, Kuantum yapay zeka alanında çalışmalar yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Maltepe Üniversitesi Rektörlüğünden: ÖĞRETİM GÖREVLİSİ VE ARAŞTIRMA GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda belirtilen akademik birimlerine, 2547 sayılı Yükseköğretim Kanununun 31. ve 33. Maddesiyle “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sı",
+      "applicationDocuments": []
+    },
     {
       "university": "MUDANYA ÜNİVERSİTESİ",
       "city": "Bursa",
