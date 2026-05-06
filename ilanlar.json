@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-06T08:28:30.239351+00:00",
+  "lastUpdated": "2026-05-06T08:32:38.674119+00:00",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -1306,6 +1306,35 @@
         }
       ],
       "contentSnippet": "Üsküdar Üniversitesi Rektörlüğünden: DÜZELTME İLANI 30.04.2026 tarihli ve 33239 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Öğretim Üyesi ilanımızın aşağıdaki tabloda belirtilen kadrosunun “Ünvanı” başlığı altındaki kısmı aşağıdaki şekliyle düzeltilmiştir. FAKÜLTE BÖLÜM/ PROG./ ANABİLİM DA",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İHSAN DOĞRAMACI BİLKENT ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2097317/kamu-akademik-personel-akademik-personel-alimlari-ihsan-dogramaci-bilkent-universitesi-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK852545",
+      "publishDate": "2026-04-30T00:00:01+00:00",
+      "deadline": "2026-05-14T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 90,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "İhsan Doğramacı Bilkent Üniversitesi Rektörlüğünden ÖĞRETİM GÖREVLİSİ ALIM İLANI 2547sayılı Yüksek Öğretim Kanununun 31. maddesine, 09 Kasım 2018 tarih ve 30590 sayılı Resmî Gazete’de yayımlanmış olan “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav",
       "applicationDocuments": []
     },
     {
