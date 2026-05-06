@@ -678,9 +678,11 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
         return ""
 
     # Try to find key-value structured content
-    # First check if ANY title key exists in the text
+    # Trigger if ANY title header key OR any academic title appears in the text
     text_up = tr_upper(text)
-    if not any(tr_upper(k) in text_up for k in TITLE_KEYS):
+    has_title_keyword = any(tr_upper(k) in text_up for k in TITLE_KEYS)
+    has_academic_title = any(tr_upper(t) in text_up for t in ACADEMIC_TITLES)
+    if not has_title_keyword and not has_academic_title:
         return []
 
     positions = []
@@ -775,20 +777,51 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
             j = i + 1
             while j < len(lines):
                 next_up = tr_upper(lines[j])
-                # Stop if we hit another key
                 if any(match_key(next_up, keys) and ":" in lines[j]
                        for keys in [FACULTY_KEYS, DEPT_KEYS, TITLE_KEYS, COUNT_KEYS, REQ_KEYS]):
                     break
                 req_parts.append(lines[j])
                 j += 1
             current["requirements"] = " ".join(req_parts).strip()
-            i = j - 1  # skip consumed lines
+            i = j - 1
 
         i += 1
 
     # Flush last block
     if current:
         flush(current)
+
+    # Plain-text fallback: if structured parsing found nothing but academic titles
+    # appear in the text, extract them with basic count detection
+    if not positions and has_academic_title:
+        found_in_text = []
+        for title in ACADEMIC_TITLES:
+            if tr_upper(title) not in text_up:
+                continue
+            # Also check aliases
+            for alias, canonical in TITLE_ALIASES.items():
+                if canonical == title and tr_upper(alias) in text_up:
+                    break
+            # Count: look for patterns like "X kişi", "X adet", "X kadro" near title
+            count = 1
+            count_pattern = tr_upper(title) + r".{0,60}?(\d{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ)"
+            m = re.search(count_pattern, text_up)
+            if not m:
+                m = re.search(r"(\d{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ).{0,60}?" + tr_upper(title), text_up)
+            if m:
+                count = max(1, min(10, int(m.group(1))))
+
+            if title not in found_in_text:
+                found_in_text.append(title)
+                ales = extract_ales(text, title)
+                lang = extract_language(text, title)
+                pos = {
+                    "faculty": "", "department": "",
+                    "title": title, "count": count, "requirements": "",
+                    "_all_titles": [title],
+                }
+                pos.update(ales); pos.update(lang)
+                positions.append(pos)
 
     return positions
 
