@@ -492,19 +492,54 @@ def match_university(name: str, ulist: list) -> tuple:
     return cleaned, "Bilinmiyor", "Devlet"
 
 # ── Position table parser ───────────────────────────────────────────────────────────────
+def expand_table(table) -> list:
+    """Expand rowspan/colspan into a 2D grid so column indices are always correct."""
+    grid, pending = [], {}
+
+    def get_row(r):
+        while len(grid) <= r: grid.append([])
+        return grid[r]
+
+    def place(row_grid, col, val):
+        while len(row_grid) <= col: row_grid.append(None)
+        row_grid[col] = val
+
+    for ri, row in enumerate(table.find_all("tr")):
+        carry = pending.pop(ri, [])
+        col_cursor = 0
+        row_grid = get_row(ri)
+        for ci, val, rows_left in carry:
+            place(row_grid, ci, val)
+            if rows_left > 1: pending.setdefault(ri + 1, []).append((ci, val, rows_left - 1))
+        for td in row.find_all(["th", "td"]):
+            val = clean(td.get_text())
+            rs, cs = int(td.get("rowspan", 1)), int(td.get("colspan", 1))
+            while col_cursor < len(row_grid) and row_grid[col_cursor] is not None:
+                col_cursor += 1
+            for c in range(cs):
+                place(row_grid, col_cursor + c, val)
+                if rs > 1: pending.setdefault(ri + 1, []).append((col_cursor + c, val, rs - 1))
+            col_cursor += cs
+
+    max_cols = max((len(r) for r in grid), default=0)
+    return [[(r[i] if i < len(r) and r[i] is not None else "") for i in range(max_cols)] for r in grid]
+
+
 def parse_positions(content_html: str, full_text: str) -> list:
     soup = BeautifulSoup(content_html, "html.parser")
     positions = []
 
     for table in soup.find_all("table"):
-        rows = table.find_all("tr")
-        if len(rows) < 2: continue
+        raw_rows = table.find_all("tr")
+        if len(raw_rows) < 2: continue
+        expanded = expand_table(table)
+        if len(expanded) < 2: continue
 
         header_idx = None
         col_map: dict = {}
 
-        for ri, row in enumerate(rows):
-            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
+        for ri, row_cells in enumerate(expanded):
+            cells = row_cells
             if not cells: continue
             cell_up = tr_upper(" ".join(cells))
             has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM", "KADRO CİNSİ", "KADRO ADI"])
@@ -533,11 +568,21 @@ def parse_positions(content_html: str, full_text: str) -> list:
                         col_map["req"] = ci
                 break
 
+        if header_idx is not None and "title" not in col_map:
+            all_title_kws = {tr_upper(t) for t in ACADEMIC_TITLES} | {tr_upper(k) for k in TITLE_ALIASES}
+            col_hits = {}
+            for sample in expanded[header_idx + 1: header_idx + 6]:
+                for ci, cell in enumerate(sample):
+                    if any(kw in tr_upper(cell) for kw in all_title_kws):
+                        col_hits[ci] = col_hits.get(ci, 0) + 1
+            if col_hits:
+                col_map["title"] = max(col_hits, key=col_hits.get)
+
         if header_idx is None or "title" not in col_map: continue
 
         last_faculty = ""
-        for row in rows[header_idx + 1:]:
-            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
+        for row_cells in expanded[header_idx + 1:]:
+            cells = row_cells
             if not cells or not any(cells): continue
 
             def cell(key):
@@ -622,7 +667,9 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
     # Try to find key-value structured content
     # First check if ANY title key exists in the text
     text_up = tr_upper(text)
-    if not any(tr_upper(k) in text_up for k in TITLE_KEYS):
+    has_title_keyword  = any(tr_upper(k) in text_up for k in TITLE_KEYS)
+    has_academic_title = any(tr_upper(t) in text_up for t in ACADEMIC_TITLES)
+    if not has_title_keyword and not has_academic_title:
         return []
 
     positions = []
@@ -731,6 +778,25 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
     # Flush last block
     if current:
         flush(current)
+
+    # Plain-text fallback: if structured parsing found nothing but academic titles exist
+    if not positions and has_academic_title:
+        for title in ACADEMIC_TITLES:
+            if tr_upper(title) not in text_up:
+                continue
+            count = 1
+            count_pattern = tr_upper(title) + r".{0,60}?([0-9]{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ)"
+            m = re.search(count_pattern, text_up)
+            if not m:
+                m = re.search(r"(\d{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ).{0,60}?" + tr_upper(title), text_up)
+            if m:
+                count = max(1, min(10, int(m.group(1))))
+            ales = extract_ales(text, title)
+            lang = extract_language(text, title)
+            pos = {"faculty": "", "department": "", "title": title,
+                   "count": count, "requirements": "", "_all_titles": [title]}
+            pos.update(ales); pos.update(lang)
+            positions.append(pos)
 
     return positions
 
@@ -881,7 +947,7 @@ def main():
         if all_known:
             log.info(f"  All ads on skip={skip_count} already known — continuing to next page.")
 
-        skip_count += len(items)  # use actual count, API may return fewer than PAGE_SIZE
+        skip_count += len(items)
         if skip_count >= total: break
 
     all_ads = new_ads + existing
