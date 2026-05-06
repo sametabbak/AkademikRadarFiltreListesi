@@ -492,19 +492,88 @@ def match_university(name: str, ulist: list) -> tuple:
     return cleaned, "Bilinmiyor", "Devlet"
 
 # ── Position table parser ───────────────────────────────────────────────────────────────
+def expand_table(table) -> list[list[str]]:
+    """
+    Convert a BeautifulSoup <table> into a 2D list of cell text values,
+    properly handling rowspan and colspan attributes.
+
+    Without this, a faculty cell with rowspan=3 only appears in row 0.
+    Rows 1 and 2 then have fewer cells, shifting all column indices and
+    causing wrong data to be mapped to the wrong columns.
+    """
+    # First pass: build raw grid filling rowspan/colspan slots with None
+    grid: list[list] = []
+    # Track cells that span into future rows: {row_idx: [(col_idx, value, remaining_rows)]}
+    pending: dict[int, list] = {}
+
+    def get_row(r):
+        while len(grid) <= r:
+            grid.append([])
+        return grid[r]
+
+    for ri, row in enumerate(table.find_all("tr")):
+        # Fill in any pending rowspan cells for this row
+        carry = pending.pop(ri, [])
+        col_cursor = 0
+        row_grid = get_row(ri)
+
+        def place(col, val):
+            while len(row_grid) <= col:
+                row_grid.append(None)
+            row_grid[col] = val
+
+        # Place carried-over rowspan cells first
+        for (ci, val, rows_left) in carry:
+            place(ci, val)
+            if rows_left > 1:
+                pending.setdefault(ri + 1, []).append((ci, val, rows_left - 1))
+
+        # Now process actual cells in this row
+        cell_idx = 0
+        for td in row.find_all(["th", "td"]):
+            val = clean(td.get_text())
+            rs = int(td.get("rowspan", 1))
+            cs = int(td.get("colspan", 1))
+
+            # Skip over columns already filled by rowspan carry-overs
+            while col_cursor < len(row_grid) and row_grid[col_cursor] is not None:
+                col_cursor += 1
+
+            for c in range(cs):
+                actual_col = col_cursor + c
+                place(actual_col, val)
+                if rs > 1:
+                    pending.setdefault(ri + 1, []).append((actual_col, val, rs - 1))
+
+            col_cursor += cs
+            cell_idx += 1
+
+    # Normalize: convert None to "" and return as list of string lists
+    max_cols = max((len(r) for r in grid), default=0)
+    result = []
+    for row in grid:
+        padded = [(row[i] if i < len(row) and row[i] is not None else "")
+                  for i in range(max_cols)]
+        result.append(padded)
+    return result
+
+
 def parse_positions(content_html: str, full_text: str) -> list:
     soup = BeautifulSoup(content_html, "html.parser")
     positions = []
 
     for table in soup.find_all("table"):
-        rows = table.find_all("tr")
-        if len(rows) < 2: continue
+        raw_rows = table.find_all("tr")
+        if len(raw_rows) < 2: continue
+        # Expand rowspan/colspan into a proper 2D grid
+        expanded = expand_table(table)
+        if len(expanded) < 2: continue
 
         header_idx = None
         col_map: dict = {}
 
-        for ri, row in enumerate(rows):
-            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
+        for ri, row_cells in enumerate(expanded):
+            cells = row_cells
             if not cells: continue
             cell_up = tr_upper(" ".join(cells))
             has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM"])
@@ -525,26 +594,22 @@ def parse_positions(content_html: str, full_text: str) -> list:
                         col_map["req"] = ci
                 break
 
-        # Smart fallback: if title column not found by header name,
-        # detect it by scanning data cell values for academic title keywords
+        # Smart fallback: detect title column from data cell values
         if header_idx is not None and "title" not in col_map:
             all_title_kws = {tr_upper(t) for t in ACADEMIC_TITLES} | {tr_upper(k) for k in TITLE_ALIASES}
             col_hits = {}
-            for row in rows[header_idx + 1: header_idx + 6]:
-                sample = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
+            for sample in expanded[header_idx + 1: header_idx + 6]:
                 for ci, cell in enumerate(sample):
-                    cu = tr_upper(cell)
-                    if any(kw in cu for kw in all_title_kws):
+                    if any(kw in tr_upper(cell) for kw in all_title_kws):
                         col_hits[ci] = col_hits.get(ci, 0) + 1
             if col_hits:
                 col_map["title"] = max(col_hits, key=col_hits.get)
-                log.debug(f"  Title column auto-detected at index {col_map['title']}")
 
         if header_idx is None or "title" not in col_map: continue
 
         last_faculty = ""
-        for row in rows[header_idx + 1:]:
-            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
+        for row_cells in expanded[header_idx + 1:]:
+            cells = row_cells
             if not cells or not any(cells): continue
 
             def cell(key):
