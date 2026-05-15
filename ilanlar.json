@@ -1,7 +1,444 @@
 {
-  "lastUpdated": "2026-05-14T06:50:32.702398+00:00",
+  "lastUpdated": "2026-05-15T07:29:45.293372+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ",
+      "city": "Isparta",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2113111/kamu-akademik-personel-akademik-personel-alimlari-suleyman-demirel-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852610",
+      "publishDate": "2026-05-15T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Süleyman Demirel Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI 2 Kasım 2018 tarihli ve 30583 sayılı Resmî Gazete’de yayımlanan “Devlet Yükseköğretim Kurumlarında Öğretim Elemanı Norm Kadrolarının Belirlenmesine ve Kullanılmasına İlişkin Yönetmelik” kapsamında Üniversitemizin çeşitli birimler",
+      "applicationDocuments": []
+    },
+    {
+      "university": "SÜLEYMAN DEMİREL ÜNİVERSİTESİ",
+      "city": "Isparta",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2113097/kamu-akademik-personel-akademik-personel-alimlari-suleyman-demirel-universitesi-rektorlugu-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK852609",
+      "publishDate": "2026-05-15T00:00:01+00:00",
+      "deadline": "2026-06-01T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Eğirdir Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sağlık Yönetimi veya İktisat Bölümü lisans mezunu olmak. Ekonomi alanında tezli yüksek lisans yapmış olmak. Tezli yüksek lisans sonrası tıbbi dokümantasyon ve sekreterlik alanında akademik çalışmalar yapmış olmak ve tezli yüksek lisans sonrası alanında yükseköğretim kurumlarından en az 1 (bir) yıl ders verme deneyimine sahip olmak. Lisans sonrası belgelendirmek şartıyla alanında en az 2 (iki) yıl deneyim sahibi olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "EA SÖZ",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Süleyman Demirel Üniversitesi Rektörlüğünden Üniversitemizin çeşitli birimlerine 2547 sayılı Yükseköğretim Kanunu'nun, Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik ve 657 sayılı De",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL GELİŞİM ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2113087/kamu-akademik-personel-akademik-personel-alimlari-istanbul-gelisim-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852608",
+      "publishDate": "2026-05-15T00:00:01+00:00",
+      "deadline": "2026-06-01T23:59:00+00:00",
+      "detectedTitles": [
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "SAĞLIK BİLİMLERİ FAKÜLTESİ",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "ARANAN NİTELİK",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK VE MİMARLIK FAKÜLTESİ",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "ARANAN NİTELİK",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "UYGULAMALI BİLİMLER FAKÜLTESİ",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "ARANAN NİTELİK",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul Gelişim Üniversitesi Rektörlüğünden: AKADEMİK PERSONEL ALIM İLANI (PROFESÖR, DOÇENT, DOKTOR ÖĞRETİM ÜYESİ) Üniversitemize; 2547 Sayılı Yükseköğretim Kanunu \"\"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği” ve “İstanbul Gelişim Üniversitesi Öğretim Üyeliğine Atama ve Yükseltilme Ölçütle",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL AYDIN ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2113082/kamu-akademik-personel-akademik-personel-alimlari-istanbul-aydin-universitesi-rektorlugu-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK852607",
+      "publishDate": "2026-05-15T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Anadolu Bil Meslek Yüksekokulu",
+          "department": "Yat Kaptanlığı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 3,
+          "requirements": "Deniz Ulaştırma İşletme Mühendisliği, Denizcilik İşletmeleri Yönetimi, Güverte, Gemi Makineleri İşletme Mühendisliği lisans bölümlerinden birinden mezun olmak. Alanında belgelendirmek kaydıyla mesleki deneyime sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 11,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Anadolu Bil Meslek Yüksekokulu",
+          "department": "Hibrit ve Elektrikli Taşıtlar Teknolojisi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 3,
+          "requirements": "Elektronik Mühendisliği, Elektrik Mühendisliği, Elektrik- Elektronik Mühendisliği veya Elektronik ve Haberleşme Mühendisliği, Elektrik Öğretmenliği, Otomotiv Mühendisliği, Uçak Mühendisliği ve Yazılım Mühendisliği alanlarından birinden lisans mezunu olmak. Bu alanlardan birinde tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 11,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul Aydın Üniversitesi Rektörlüğünden: Üniversitemize 2547 sayılı Yükseköğretim Kanunun 31. maddesi uyarınca “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmeliği”nin ilgili hükümler",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL AYDIN ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2113065/kamu-akademik-personel-akademik-personel-alimlari-istanbul-aydin-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852605",
+      "publishDate": "2026-05-15T00:00:01+00:00",
+      "deadline": "2026-06-05T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Anadolu Bil Meslek Yüksekokulu",
+          "department": "Yat Kaptanlığı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "Deniz Ulaştırma İşletme Mühendisliği, Denizcilik İşletmeleri Yönetimi, Güverte, Gemi Makineleri İşletme Mühendisliği alanlarından birinden doktora veya doçentlik belgesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "Uygulamalı Bilimler Fakültesi",
+          "department": "Uçak Bakım ve Onarım",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "Uçak Bakım ve Onarım, Uçak Mühendisliği, Elektrik Mühendisliği ve Elektrik-Elektronik Mühendisliği alanlarından birinden doktora veya doçentlik belgesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "İstanbul Aydın Üniversitesi Rektörlüğünden: Üniversitemize 2547 sayılı Yükseköğretim Kanunu ile Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmelik’in ilgili maddeleri ve 4857 sayılı İş Kanunu hükümlerine göre tam zamanlı Öğretim Üyesi alınacaktır. Profesör, Doçent ve Dr. Öğr. Üyesi kadrosuna başvura",
+      "applicationDocuments": []
+    },
+    {
+      "university": "HALİÇ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2113060/kamu-akademik-personel-akademik-personel-alimlari-halic-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852604",
+      "publishDate": "2026-05-15T00:00:01+00:00",
+      "deadline": "2026-06-05T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "UZMAN"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 6,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 4,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "UZMAN",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "Haliç Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen akademik birimlerine 2547 sayılı Yükseköğretim Kanunu ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği’nin ilgili maddeleri uyarınca, Üniversitemizin Akademik Birimlerine tam zamanlı öğretim üyeleri alınacaktır. Başvuru için",
+      "applicationDocuments": []
+    },
+    {
+      "university": "HACETTEPE ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2113054/kamu-akademik-personel-akademik-personel-alimlari-hacettepe-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852603",
+      "publishDate": "2026-05-15T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "UZMAN"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 4,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "UZMAN",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null
+        }
+      ],
+      "contentSnippet": "Hacettepe Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemiz birimlerinde açık bulunan aşağıda program ve anabilim dalı ile ünvan ve koşulları belirtilen kadrolara 2547 Sayılı Yükseköğretim Kanununun ilgili maddelerine göre öğretim üyesi alınacaktır. Adayların başvurularını, 15 Mayı",
+      "applicationDocuments": []
+    },
+    {
+      "university": "SABANCI ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2112120/kamu-akademik-personel-akademik-personel-alimlari-sabanci-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852602",
+      "publishDate": "2026-05-14T00:00:01+00:00",
+      "deadline": "2026-05-28T23:59:00+00:00",
+      "detectedTitles": [
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Endüstri Mühendisliği",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Mekatronik Mühendisliği",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Matematik",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik Mühendisliği",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "Sabancı Üniversitesi Rektörlüğünden 2547sayılı Yükseköğretim Kanunu ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği doğrultusunda, Üniversitemize tam zamanlı öğretim üyeleri alınacaktır. Öğretim Üyeleri kadrolarına başvuracakların; bölümü belirtir dilekçe, nüfus cüzdanı fotokopisi, 2 fotoğraf",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BİNGÖL ÜNİVERSİTESİ",
+      "city": "Bi̇ngöl",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2111724/kamu-akademik-personel-akademik-personel-alimlari-bingol-universitesi-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK852601",
+      "publishDate": "2026-05-14T00:00:01+00:00",
+      "deadline": "2026-06-05T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Rektörlük (Uygulamalı Birim) (Kurumsal İletişim Koordinatörlüğü)",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Doktora mezunu olup Kurumsal İletişim Uzmanlığı Eğitimi Sertifikasına sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "Bingöl Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine; Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik, 2547 sayılı Yükseköğretim Kanunu ve 657 sayılı Devl",
+      "applicationDocuments": []
+    },
     {
       "university": "MEF ÜNİVERSİTESİ",
       "city": "İstanbul",
@@ -4656,6 +5093,35 @@
         }
       ],
       "contentSnippet": "Kocaeli Üniversitesi Rektörlüğünden: DÜZELTME İLANI 06.05.2026 tarihli ve 33245 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan aşağıdaki tabloda bilgileri yer alan 13 nolu öğretim üyesi alımı ilanımızın açıklamalar kısmında 9’uncu sıra nolu maddesinde yer alan açıklama (“*”13 nolu ilanımız Ün",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL BEYKENT ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2113068/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-istanbul-beykent-universitesi-rektorlugunden-",
+      "ilanNo": "YOK852606",
+      "publishDate": "2026-05-08T00:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Saç Bakımı ve Güzellik Hizmetleri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Kimya Mühendisliği lisans, Temel İşlemler ve Termodinamik alanında en az tezli yüksek lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "İstanbul Beykent Üniversitesi Rektörlüğünden DÜZELTME İLANI 12.05.2026 tarih ve 33251 sayılı Resmi Gazete’de aslına uygun olarak yayımlanan Öğretim Elemanı Alım İlanımızda yer alan Meslek Yüksekokulu Saç Bakımı ve Güzellik Hizmetleri Programı Öğretim Görevlisi alım ilanımızda yer alan özel koşullar ",
       "applicationDocuments": []
     },
     {
