@@ -1,1 +1,981 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AkademikRadar Panel</title>
+<style>
+/* ── Reset & Base ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --bg:         #0f1117;
+  --bg2:        #161a24;
+  --bg3:        #1e2333;
+  --border:     #2a2f42;
+  --accent:     #4f7ef8;
+  --accent-dim: #2a4aad;
+  --green:      #22c55e;
+  --red:        #ef4444;
+  --yellow:     #f59e0b;
+  --text:       #e2e8f0;
+  --text2:      #94a3b8;
+  --text3:      #64748b;
+  --radius:     8px;
+  --font:       'DM Sans', system-ui, sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+h1 { font-size: 1.25rem; font-weight: 600; }
+h2 { font-size: 1rem;    font-weight: 600; }
+h3 { font-size: 0.875rem; font-weight: 600; }
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+#app { display: flex; flex-direction: column; height: 100vh; }
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  height: 52px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.logo-dot {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#status-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  background: var(--bg3);
+  color: var(--text2);
+  border: 1px solid var(--border);
+}
+
+#status-badge.connected {
+  color: var(--green);
+  border-color: rgba(34,197,94,0.3);
+  background: rgba(34,197,94,0.08);
+}
+
+/* ── Tabs ────────────────────────────────────────────────────────────────── */
+#tabs {
+  display: flex;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.25rem;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.tab {
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  user-select: none;
+}
+
+.tab:hover { color: var(--text2); }
+
+.tab.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.tab .badge {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  min-width: 18px;
+  text-align: center;
+}
+
+.tab .badge.yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
+.tab .badge.green  { background: rgba(34,197,94,0.15);  color: var(--green); }
+
+/* ── Content ─────────────────────────────────────────────────────────────── */
+#content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.tab-panel {
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tab-panel.active { display: flex; flex-direction: column; }
+
+/* ── Empty State ─────────────────────────────────────────────────────────── */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text3);
+  gap: 0.75rem;
+}
+
+.empty-state .icon { font-size: 2.5rem; }
+.empty-state p { font-size: 0.875rem; }
+
+/* ── Lock Screen ─────────────────────────────────────────────────────────── */
+#lock-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lock-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lock-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lock-header h1 { font-size: 1.1rem; }
+.lock-header p  { font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
+
+/* ── Settings Modal ──────────────────────────────────────────────────────── */
+#settings-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 900;
+  align-items: center;
+  justify-content: center;
+}
+
+#settings-overlay.open { display: flex; }
+
+.settings-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.settings-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.settings-close:hover { color: var(--text); }
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.settings-section h3 {
+  color: var(--text2);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Form Elements ───────────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.78rem;
+  color: var(--text2);
+  font-weight: 500;
+}
+
+.field input, .field select, .field textarea {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font);
+  transition: border-color 0.15s;
+  outline: none;
+  width: 100%;
+}
+
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--accent);
+}
+
+.field input.mono { font-family: var(--font-mono); font-size: 0.8rem; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.field-hint {
+  font-size: 0.72rem;
+  color: var(--text3);
+  line-height: 1.4;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn:not(:disabled):hover { opacity: 0.85; }
+
+.btn-primary  { background: var(--accent);  color: #fff; }
+.btn-ghost    { background: var(--bg3);     color: var(--text2); border: 1px solid var(--border); }
+.btn-danger   { background: var(--red);     color: #fff; }
+.btn-success  { background: var(--green);   color: #fff; }
+.btn-sm       { padding: 0.3rem 0.65rem; font-size: 0.78rem; }
+
+/* ── Toast ───────────────────────────────────────────────────────────────── */
+#toast-container {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+  min-width: 240px;
+  max-width: 360px;
+  animation: slideIn 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.toast.success { border-left: 3px solid var(--green); }
+.toast.error   { border-left: 3px solid var(--red); }
+.toast.info    { border-left: 3px solid var(--accent); }
+
+@keyframes slideIn {
+  from { transform: translateX(20px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* ── Loading Spinner ─────────────────────────────────────────────────────── */
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Connection Status ───────────────────────────────────────────────────── */
+.conn-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.75rem;
+  background: var(--bg3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.conn-info { display: flex; flex-direction: column; gap: 0.2rem; }
+.conn-label { font-size: 0.8rem; font-weight: 500; }
+.conn-sub   { font-size: 0.72rem; color: var(--text3); }
+
+.conn-indicator {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--text3);
+}
+.conn-indicator.ok  { background: var(--green); }
+.conn-indicator.err { background: var(--red); }
+
+/* ── Coming Soon Placeholder ────────────────────────────────────────────── */
+.coming-soon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text3);
+}
+
+.coming-soon .phase-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+
+.coming-soon h2 { font-size: 1rem; color: var(--text2); }
+.coming-soon p  { font-size: 0.82rem; max-width: 280px; text-align: center; line-height: 1.6; }
+
+/* ── Settings Gear Button ────────────────────────────────────────────────── */
+#settings-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  width: 30px; height: 30px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+#settings-btn:hover { color: var(--text); border-color: var(--text3); }
+
+/* ── Divider ─────────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.25rem 0;
+}
+</style>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Header -->
+  <div id="header">
+    <div class="logo">
+      <div class="logo-dot"></div>
+      AkademikRadar Panel
+    </div>
+    <div class="header-right">
+      <div id="status-badge">Bağlı değil</div>
+      <button id="settings-btn" onclick="openSettings()" title="Ayarlar">⚙</button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div id="tabs">
+    <div class="tab active" data-tab="pending" onclick="switchTab('pending')">
+      Bekleyenler
+      <span class="badge yellow" id="badge-pending">0</span>
+    </div>
+    <div class="tab" data-tab="approved" onclick="switchTab('approved')">
+      Onaylananlar
+      <span class="badge green" id="badge-approved">0</span>
+    </div>
+    <div class="tab" data-tab="rejected" onclick="switchTab('rejected')">
+      Reddedilenler
+      <span class="badge" id="badge-rejected">0</span>
+    </div>
+    <div class="tab" data-tab="add" onclick="switchTab('add')">
+      + Yeni Ekle
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!-- Pending Tab -->
+    <div id="tab-pending" class="tab-panel active">
+      <div class="coming-soon">
+        <div class="phase-badge">PHASE 2.2</div>
+        <h2>Bekleyen İlanlar</h2>
+        <p>Scraper'ın bulduğu yeni ilanları buradan inceleyip onaylayabileceksiniz.</p>
+      </div>
+    </div>
+
+    <!-- Approved Tab -->
+    <div id="tab-approved" class="tab-panel">
+      <div class="coming-soon">
+        <div class="phase-badge">PHASE 2.4</div>
+        <h2>Onaylanan İlanlar</h2>
+        <p>ilanlar.json'daki aktif ilanlar burada listelenecek ve düzenlenebilecek.</p>
+      </div>
+    </div>
+
+    <!-- Rejected Tab -->
+    <div id="tab-rejected" class="tab-panel">
+      <div class="coming-soon">
+        <div class="phase-badge">PHASE 2.5</div>
+        <h2>Reddedilen İlanlar</h2>
+        <p>Reddedilen ilanları görüntüleyip geri yükleyebileceksiniz.</p>
+      </div>
+    </div>
+
+    <!-- Add Tab -->
+    <div id="tab-add" class="tab-panel">
+      <div class="coming-soon">
+        <div class="phase-badge">PHASE 3</div>
+        <h2>Yeni İlan Ekle</h2>
+        <p>ilan.gov.tr URL'si, ilan numarası veya sıfırdan ilan girişi yapabileceksiniz.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Lock Screen -->
+<div id="lock-screen">
+  <div class="lock-card">
+    <div class="lock-header">
+      <div class="logo" style="margin-bottom:0.25rem">
+        <div class="logo-dot"></div>
+        AkademikRadar Panel
+      </div>
+      <h1>Giriş</h1>
+      <p>GitHub hesabınıza erişim için kişisel erişim token'ı girin. Token yalnızca tarayıcınızda saklanır, hiçbir sunucuya gönderilmez.</p>
+    </div>
+
+    <div class="field">
+      <label>GitHub Personal Access Token</label>
+      <input type="password" id="lock-token" class="mono"
+             placeholder="github_pat_..."
+             onkeydown="if(event.key==='Enter') lockConnect()">
+      <span class="field-hint">
+        Settings → Developer Settings → Personal access tokens → Fine-grained tokens<br>
+        Gerekli izin: <strong>Contents</strong> (Read & Write) — yalnızca AkademikRadarFiltreListesi reposu
+      </span>
+    </div>
+
+    <div style="display:flex; gap:0.5rem; align-items:center;">
+      <button class="btn btn-primary" onclick="lockConnect()" id="lock-btn">
+        Bağlan
+      </button>
+      <span id="lock-error" style="font-size:0.78rem; color:var(--red); display:none;"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Settings Modal -->
+<div id="settings-overlay" onclick="if(event.target===this) closeSettings()">
+  <div class="settings-card">
+    <button class="settings-close" onclick="closeSettings()">✕</button>
+    <h2>Ayarlar</h2>
+
+    <div class="settings-section">
+      <h3>GitHub Bağlantısı</h3>
+
+      <div class="field">
+        <label>Personal Access Token</label>
+        <input type="password" id="s-token" class="mono" placeholder="github_pat_...">
+        <span class="field-hint">Fine-grained token — Contents Read &amp; Write</span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Repo Sahibi</label>
+          <input type="text" id="s-owner" placeholder="sametabbak">
+        </div>
+        <div class="field">
+          <label>Repo Adı</label>
+          <input type="text" id="s-repo" placeholder="AkademikRadarFiltreListesi">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Branch</label>
+        <input type="text" id="s-branch" placeholder="main">
+      </div>
+
+      <div class="conn-row" id="conn-status-row">
+        <div class="conn-info">
+          <div class="conn-label" id="conn-label">Bağlantı durumu</div>
+          <div class="conn-sub"  id="conn-sub">—</div>
+        </div>
+        <div class="conn-indicator" id="conn-indicator"></div>
+      </div>
+
+      <div style="display:flex; gap:0.5rem;">
+        <button class="btn btn-ghost btn-sm" onclick="testConnection()" id="test-btn">
+          Bağlantıyı Test Et
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="saveSettings()">
+          Kaydet
+        </button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="settings-section">
+      <h3>Dosya Yolları</h3>
+      <div class="field">
+        <label>Onaylanan İlanlar</label>
+        <input type="text" id="s-approved-file" value="ilanlar.json" readonly style="opacity:0.6">
+      </div>
+      <div class="field">
+        <label>Bekleyen İlanlar</label>
+        <input type="text" id="s-pending-file" value="pending.json" readonly style="opacity:0.6">
+      </div>
+      <div class="field">
+        <label>Reddedilen İlanlar</label>
+        <input type="text" id="s-rejected-file" value="rejected.json" readonly style="opacity:0.6">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="settings-section">
+      <h3>Tehlike Bölgesi</h3>
+      <button class="btn btn-ghost btn-sm" onclick="clearToken()"
+              style="color:var(--red); border-color:rgba(239,68,68,0.3);">
+        Token'ı Sil ve Çıkış Yap
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════════════════════════════════════════
+const STORAGE_KEYS = {
+  token:  'ar_token',
+  owner:  'ar_owner',
+  repo:   'ar_repo',
+  branch: 'ar_branch',
+};
+
+const DEFAULTS = {
+  owner:  'sametabbak',
+  repo:   'AkademikRadarFiltreListesi',
+  branch: 'main',
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// GITHUB API CLASS
+// ═══════════════════════════════════════════════════════════════════════════
+class GitHubAPI {
+  constructor(token, owner, repo, branch) {
+    this.token  = token;
+    this.owner  = owner;
+    this.repo   = repo;
+    this.branch = branch;
+    this.base   = `https://api.github.com/repos/${owner}/${repo}`;
+  }
+
+  get headers() {
+    return {
+      'Authorization': `Bearer ${this.token}`,
+      'Accept':        'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'Content-Type':  'application/json',
+    };
+  }
+
+  async getFile(path) {
+    const res = await fetch(`${this.base}/contents/${path}?ref=${this.branch}`, {
+      headers: this.headers,
+    });
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
+    const data = await res.json();
+    const content = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    return { content, sha: data.sha };
+  }
+
+  async putFile(path, content, sha, message) {
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
+    const body = { message, content: encoded, branch: this.branch };
+    if (sha) body.sha = sha;
+    const res = await fetch(`${this.base}/contents/${path}`, {
+      method:  'PUT',
+      headers: this.headers,
+      body:    JSON.stringify(body),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `GitHub API error: ${res.status}`);
+    }
+    return res.json();
+  }
+
+  async testAccess() {
+    // Check repo access and write permission
+    const res = await fetch(`${this.base}`, { headers: this.headers });
+    if (!res.ok) throw new Error(`Repo bulunamadı veya erişim reddedildi (${res.status})`);
+    const repo = await res.json();
+    if (!repo.permissions?.push) throw new Error('Write izni yok — token\'ı kontrol edin');
+    return repo.full_name;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DATA STORE
+// ═══════════════════════════════════════════════════════════════════════════
+const Store = {
+  api: null,
+
+  // Raw data + SHAs from GitHub
+  pending:  { content: { ads: [] }, sha: null },
+  approved: { content: { ads: [], examCalendar: [] }, sha: null },
+  rejected: { content: { ads: [] }, sha: null },
+
+  async init(api) {
+    this.api = api;
+    await this.loadAll();
+  },
+
+  async loadAll() {
+    const [p, a, r] = await Promise.all([
+      this.api.getFile('pending.json'),
+      this.api.getFile('ilanlar.json'),
+      this.api.getFile('rejected.json'),
+    ]);
+    if (p) this.pending  = p;
+    if (a) this.approved = a;
+    if (r) this.rejected = r;
+    this.updateBadges();
+  },
+
+  updateBadges() {
+    const today = new Date().toISOString().slice(0, 10);
+    const activeApproved = (this.approved.content.ads || [])
+      .filter(ad => !ad.deadline || ad.deadline.slice(0, 10) >= today);
+
+    document.getElementById('badge-pending').textContent  =
+      (this.pending.content.ads  || []).length;
+    document.getElementById('badge-approved').textContent =
+      activeApproved.length;
+    document.getElementById('badge-rejected').textContent =
+      (this.rejected.content.ads || []).length;
+  },
+
+  async saveApproved(message = 'chore: update ilanlar.json via panel') {
+    const result = await this.api.putFile(
+      'ilanlar.json',
+      { ...this.approved.content, lastUpdated: new Date().toISOString() },
+      this.approved.sha,
+      message
+    );
+    this.approved.sha = result.content.sha;
+    this.updateBadges();
+  },
+
+  async savePending(message = 'chore: update pending.json via panel') {
+    const result = await this.api.putFile(
+      'pending.json',
+      { ...this.pending.content, lastUpdated: new Date().toISOString() },
+      this.pending.sha,
+      message
+    );
+    this.pending.sha = result.content.sha;
+    this.updateBadges();
+  },
+
+  async saveRejected(message = 'chore: update rejected.json via panel') {
+    const result = await this.api.putFile(
+      'rejected.json',
+      { ...this.rejected.content, lastUpdated: new Date().toISOString() },
+      this.rejected.sha,
+      message
+    );
+    this.rejected.sha = result.content.sha;
+    this.updateBadges();
+  },
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TAB NAVIGATION
+// ═══════════════════════════════════════════════════════════════════════════
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t =>
+    t.classList.toggle('active', t.dataset.tab === name));
+  document.querySelectorAll('.tab-panel').forEach(p =>
+    p.classList.toggle('active', p.id === `tab-${name}`));
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SETTINGS
+// ═══════════════════════════════════════════════════════════════════════════
+function openSettings() {
+  document.getElementById('s-token').value  = localStorage.getItem(STORAGE_KEYS.token)  || '';
+  document.getElementById('s-owner').value  = localStorage.getItem(STORAGE_KEYS.owner)  || DEFAULTS.owner;
+  document.getElementById('s-repo').value   = localStorage.getItem(STORAGE_KEYS.repo)   || DEFAULTS.repo;
+  document.getElementById('s-branch').value = localStorage.getItem(STORAGE_KEYS.branch) || DEFAULTS.branch;
+  document.getElementById('settings-overlay').classList.add('open');
+}
+
+function closeSettings() {
+  document.getElementById('settings-overlay').classList.remove('open');
+}
+
+function saveSettings() {
+  const token  = document.getElementById('s-token').value.trim();
+  const owner  = document.getElementById('s-owner').value.trim()  || DEFAULTS.owner;
+  const repo   = document.getElementById('s-repo').value.trim()   || DEFAULTS.repo;
+  const branch = document.getElementById('s-branch').value.trim() || DEFAULTS.branch;
+
+  if (!token) { showToast('Token boş olamaz', 'error'); return; }
+
+  localStorage.setItem(STORAGE_KEYS.token,  token);
+  localStorage.setItem(STORAGE_KEYS.owner,  owner);
+  localStorage.setItem(STORAGE_KEYS.repo,   repo);
+  localStorage.setItem(STORAGE_KEYS.branch, branch);
+
+  showToast('Ayarlar kaydedildi', 'success');
+  closeSettings();
+  initApp();
+}
+
+async function testConnection() {
+  const token  = document.getElementById('s-token').value.trim();
+  const owner  = document.getElementById('s-owner').value.trim()  || DEFAULTS.owner;
+  const repo   = document.getElementById('s-repo').value.trim()   || DEFAULTS.repo;
+  const branch = document.getElementById('s-branch').value.trim() || DEFAULTS.branch;
+
+  if (!token) { showToast('Önce token girin', 'error'); return; }
+
+  const btn = document.getElementById('test-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> Test ediliyor...';
+
+  const ind   = document.getElementById('conn-indicator');
+  const label = document.getElementById('conn-label');
+  const sub   = document.getElementById('conn-sub');
+
+  try {
+    const api  = new GitHubAPI(token, owner, repo, branch);
+    const name = await api.testAccess();
+    ind.className   = 'conn-indicator ok';
+    label.textContent = '✓ Bağlantı başarılı';
+    sub.textContent   = name;
+    showToast('GitHub bağlantısı başarılı', 'success');
+  } catch (e) {
+    ind.className   = 'conn-indicator err';
+    label.textContent = '✗ Bağlantı başarısız';
+    sub.textContent   = e.message;
+    showToast(e.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Bağlantıyı Test Et';
+  }
+}
+
+function clearToken() {
+  if (!confirm('Token silinecek ve çıkış yapılacak. Emin misiniz?')) return;
+  Object.values(STORAGE_KEYS).forEach(k => localStorage.removeItem(k));
+  location.reload();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// LOCK SCREEN
+// ═══════════════════════════════════════════════════════════════════════════
+async function lockConnect() {
+  const token = document.getElementById('lock-token').value.trim();
+  const errEl = document.getElementById('lock-error');
+  const btn   = document.getElementById('lock-btn');
+
+  if (!token) { errEl.textContent = 'Token gerekli'; errEl.style.display = 'inline'; return; }
+
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div>';
+  errEl.style.display = 'none';
+
+  try {
+    const api = new GitHubAPI(
+      token,
+      DEFAULTS.owner,
+      DEFAULTS.repo,
+      DEFAULTS.branch
+    );
+    await api.testAccess();
+
+    // Save and proceed
+    localStorage.setItem(STORAGE_KEYS.token,  token);
+    localStorage.setItem(STORAGE_KEYS.owner,  DEFAULTS.owner);
+    localStorage.setItem(STORAGE_KEYS.repo,   DEFAULTS.repo);
+    localStorage.setItem(STORAGE_KEYS.branch, DEFAULTS.branch);
+
+    document.getElementById('lock-screen').style.display = 'none';
+    await initApp();
+  } catch (e) {
+    errEl.textContent = e.message;
+    errEl.style.display = 'inline';
+    btn.disabled = false;
+    btn.textContent = 'Bağlan';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// APP INIT
+// ═══════════════════════════════════════════════════════════════════════════
+async function initApp() {
+  const token  = localStorage.getItem(STORAGE_KEYS.token);
+  const owner  = localStorage.getItem(STORAGE_KEYS.owner)  || DEFAULTS.owner;
+  const repo   = localStorage.getItem(STORAGE_KEYS.repo)   || DEFAULTS.repo;
+  const branch = localStorage.getItem(STORAGE_KEYS.branch) || DEFAULTS.branch;
+
+  if (!token) return; // lock screen handles this
+
+  const badge  = document.getElementById('status-badge');
+  badge.textContent = 'Yükleniyor...';
+  badge.className   = 'connected';
+
+  try {
+    const api = new GitHubAPI(token, owner, repo, branch);
+    await Store.init(api);
+
+    badge.textContent = `${owner}/${repo}`;
+    badge.className   = 'connected';
+
+    // If lock screen is still visible, hide it
+    const lock = document.getElementById('lock-screen');
+    if (lock) lock.style.display = 'none';
+
+    showToast('Veriler yüklendi', 'success');
+  } catch (e) {
+    badge.textContent = 'Bağlantı hatası';
+    badge.className   = '';
+    showToast(`Yüklenemedi: ${e.message}`, 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════════════════════════════════════
+function showToast(message, type = 'info', duration = 3500) {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+
+  const icon = { success: '✓', error: '✗', info: 'ℹ' }[type] || 'ℹ';
+  toast.innerHTML = `<span style="font-weight:600">${icon}</span> <span>${message}</span>`;
+
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.transition = 'opacity 0.3s, transform 0.3s';
+    toast.style.opacity    = '0';
+    toast.style.transform  = 'translateX(10px)';
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════════════════════════════════════════
+(function boot() {
+  const token = localStorage.getItem(STORAGE_KEYS.token);
+  if (token) {
+    // Token exists — hide lock screen and load
+    document.getElementById('lock-screen').style.display = 'none';
+    initApp();
+  }
+  // Otherwise lock screen stays visible
+})();
+</script>
+</body>
+</html>
