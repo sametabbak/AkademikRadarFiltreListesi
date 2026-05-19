@@ -24,6 +24,8 @@ jobs:
         run: pip install requests beautifulsoup4
 
       - name: Run scraper
+        env:
+          PANEL_MODE: "1"
         run: python scraper/scrape.py
 
       - name: Commit and push ilanlar.json
