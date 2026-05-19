@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-18T08:11:39.797993+00:00",
+  "lastUpdated": "2026-05-19T07:53:14.177413+00:00",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -677,6 +677,154 @@
         }
       ],
       "contentSnippet": "Ankara Bilim Üniversitesi Rektörlüğünden: Üniversitemize; 2547 sayılı Yüksek Öğretim Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ve Ankara Bilim Üniversitesi Akademik Yükseltilme ve Atama Kriterleri Yönergesinde aranan koşulları yerine getirmiş olmak kaydı ile aylık ve özlük hakları ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL TOPKAPI ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2115144/kamu-akademik-personel-akademik-personel-alimlari-istanbul-topkapi-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK852622",
+      "publishDate": "2026-05-16T00:00:01+00:00",
+      "deadline": "2026-06-01T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "Gastronomi ve Mutfak Sanatları",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini “Turizm” alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "Tekstil ve Moda Tasarımı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Tekstil ve Moda Tasarımı” alanında doktorasını yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "Dijital Oyun Tasarımı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Dijital Oyun Tasarımı”, “Çizgi Film ve Animasyon”, “Yazılım Mühendisliği” veya “Bilgisayar Mühendisliği” alanlarından birinde doktorasını yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri (Türkçe)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini “Yönetim ve Strateji” alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri (Türkçe)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Bilgisayar ve Öğretim Teknolojileri Eğitimi”, “Bilgisayar Mühendisliği”, “Yazılım Mühendisliği”, “Yönetim Bilişim Sistemleri”, “Bilişim”, “Bilgisayar Bilimleri”, “İşletme Yönetimi”, “Yapay Zekâ ve Veri Mühendisliği” veya “Bilişim Sistemleri” alanlarından birinde doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Bilgisayar Mühendisliği (Türçe)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini “Matematik” alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Bilgi Güvenliği ve Teknolojisi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "“Bilgisayar Mühendisliği”, “Yazılım Mühendisliği”, “Elektrik- Elektronik Mühendisliği” veya “Bilgi Güvenliği Teknolojileri” alanlarından birinde doktorasını yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Moleküler Biyoloji ve Genetik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "“Moleküler Biyoloji ve Genetik”, “Moleküler Biyoloji”, “Genetik”, “Biyoteknoloji”, “Biyomühendislik”, “Genetik ve Biyomühendislik”, “Biyoinformatik veya Genetik” alanlarının birinde doktorasını yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Yapay Zeka ve Makine Öğrenmesi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "“Bilgisayar Mühendisliği”, “Yazılım Mühendisliği”, “Yapay Zeka”, “Yapay Zeka ve Makine Öğrenmesi”, “Yapay Zeka Mühendisliği”, “Yapay Zeka Teknolojileri”, “Yapay Zeka ve Akıllı Sistemler”, “Yapay Zeka ve Robotik”, “Matematik”, “Yazılım Geliştirme Mühendisliği”, veya “Veri Bilimi” alanlarından birinde doktorasını yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Dil ve Konuşma Terapisi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "“Dil ve Konuşma Terapisi”, “Dil ve Konuşma Bozuklukları”, “Odyoloji ve Konuşma Bozuklukları” veya “Odyoloji” alanlarından birinde doktorasını yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS"
+        }
+      ],
+      "contentSnippet": "İstanbul Topkapı Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanununun ilgili maddeleri ile \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği\" ve “İstanbul Topkapı Üniversitesi Akademik Atama ve Yükseltme Yönergesi” aylık ve özlük hakları y",
       "applicationDocuments": []
     },
     {
