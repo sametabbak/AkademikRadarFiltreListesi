@@ -27,10 +27,16 @@ TAX_ID      = 73
 UNIVERSITY_LIST_URL   = "https://raw.githubusercontent.com/sametabbak/AkademikRadarFiltreListesi/refs/heads/main/TurkishUniversityList"
 UNIVERSITY_CACHE_FILE = "university_list_cache.json"
 
-_output_dir = os.environ.get("OUTPUT_DIR", "").strip()
-OUTPUT_FILE = os.path.join(_output_dir, "ilanlar.json") if _output_dir else "ilanlar.json"
+_output_dir  = os.environ.get("OUTPUT_DIR", "").strip()
+OUTPUT_FILE  = os.path.join(_output_dir, "ilanlar.json")  if _output_dir else "ilanlar.json"
+PENDING_FILE = os.path.join(_output_dir, "pending.json")  if _output_dir else "pending.json"
+REJECTED_FILE= os.path.join(_output_dir, "rejected.json") if _output_dir else "rejected.json"
 
-PAGE_SIZE           = 20  # API returns max 20 items per page
+# When PANEL_MODE=1 scraper writes new ads to pending.json for human review.
+# When PANEL_MODE=0 (default) it writes directly to ilanlar.json as before.
+PANEL_MODE = os.environ.get("PANEL_MODE", "1").strip() == "1"
+
+PAGE_SIZE           = 50
 TIMEOUT             = 20
 MAX_RUNTIME_SECONDS = 20 * 60
 REQUEST_DELAY       = 0.5
@@ -492,54 +498,19 @@ def match_university(name: str, ulist: list) -> tuple:
     return cleaned, "Bilinmiyor", "Devlet"
 
 # ── Position table parser ───────────────────────────────────────────────────────────────
-def expand_table(table) -> list:
-    """Expand rowspan/colspan into a 2D grid so column indices are always correct."""
-    grid, pending = [], {}
-
-    def get_row(r):
-        while len(grid) <= r: grid.append([])
-        return grid[r]
-
-    def place(row_grid, col, val):
-        while len(row_grid) <= col: row_grid.append(None)
-        row_grid[col] = val
-
-    for ri, row in enumerate(table.find_all("tr")):
-        carry = pending.pop(ri, [])
-        col_cursor = 0
-        row_grid = get_row(ri)
-        for ci, val, rows_left in carry:
-            place(row_grid, ci, val)
-            if rows_left > 1: pending.setdefault(ri + 1, []).append((ci, val, rows_left - 1))
-        for td in row.find_all(["th", "td"]):
-            val = clean(td.get_text())
-            rs, cs = int(td.get("rowspan", 1)), int(td.get("colspan", 1))
-            while col_cursor < len(row_grid) and row_grid[col_cursor] is not None:
-                col_cursor += 1
-            for c in range(cs):
-                place(row_grid, col_cursor + c, val)
-                if rs > 1: pending.setdefault(ri + 1, []).append((col_cursor + c, val, rs - 1))
-            col_cursor += cs
-
-    max_cols = max((len(r) for r in grid), default=0)
-    return [[(r[i] if i < len(r) and r[i] is not None else "") for i in range(max_cols)] for r in grid]
-
-
 def parse_positions(content_html: str, full_text: str) -> list:
     soup = BeautifulSoup(content_html, "html.parser")
     positions = []
 
     for table in soup.find_all("table"):
-        raw_rows = table.find_all("tr")
-        if len(raw_rows) < 2: continue
-        expanded = expand_table(table)
-        if len(expanded) < 2: continue
+        rows = table.find_all("tr")
+        if len(rows) < 2: continue
 
         header_idx = None
         col_map: dict = {}
 
-        for ri, row_cells in enumerate(expanded):
-            cells = row_cells
+        for ri, row in enumerate(rows):
+            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
             if not cells: continue
             cell_up = tr_upper(" ".join(cells))
             has_title = any(tr_upper(k) in cell_up for k in ["UNVAN", "ÜNVAN", "KADRO ÜNVAN", "AKADEMİK ÜNVAN", "AKADEMİK PERSONEL", "İSTİHDAM", "KADRO CİNSİ", "KADRO ADI"])
@@ -564,25 +535,15 @@ def parse_positions(content_html: str, full_text: str) -> list:
                         col_map["ales_type"] = ci
                     elif any(tr_upper(k) in cu for k in ["YABANCI DİL PUANI", "YABANCI DİL"]) and "lang_score" not in col_map:
                         col_map["lang_score"] = ci
-                    elif any(tr_upper(k) in cu for k in ["UZMANLIK ALANI", "ARANILAN ŞARTLAR", "UZMANLIK ALANI/ARANILAN ŞARTLAR", "ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "ALIM ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK", "GENEL KOŞUL", "MUAFİYET"]) and "req" not in col_map:
+                    elif any(tr_upper(k) in cu for k in ["ARANAN", "NİTELİK", "AÇIKLAMA", "ŞART", "KOŞUL", "BAŞVURU", "UZMANLIK", "ÖZELLİK"]) and "req" not in col_map:
                         col_map["req"] = ci
                 break
-
-        if header_idx is not None and "title" not in col_map:
-            all_title_kws = {tr_upper(t) for t in ACADEMIC_TITLES} | {tr_upper(k) for k in TITLE_ALIASES}
-            col_hits = {}
-            for sample in expanded[header_idx + 1: header_idx + 6]:
-                for ci, cell in enumerate(sample):
-                    if any(kw in tr_upper(cell) for kw in all_title_kws):
-                        col_hits[ci] = col_hits.get(ci, 0) + 1
-            if col_hits:
-                col_map["title"] = max(col_hits, key=col_hits.get)
 
         if header_idx is None or "title" not in col_map: continue
 
         last_faculty = ""
-        for row_cells in expanded[header_idx + 1:]:
-            cells = row_cells
+        for row in rows[header_idx + 1:]:
+            cells = [clean(td.get_text()) for td in row.find_all(["th", "td"])]
             if not cells or not any(cells): continue
 
             def cell(key):
@@ -611,19 +572,6 @@ def parse_positions(content_html: str, full_text: str) -> list:
             ales_score_val = cells[col_map["ales_score"]] if "ales_score" in col_map and col_map["ales_score"] < len(cells) else ""
             ales_type_val  = cells[col_map["ales_type"]]  if "ales_type"  in col_map and col_map["ales_type"]  < len(cells) else ""
             lang_score_val = cells[col_map["lang_score"]] if "lang_score" in col_map and col_map["lang_score"] < len(cells) else ""
-
-            # If req cell is empty, try to extract requirements from full page text
-            # by searching for text near the position title
-            if not req.strip():
-                title_search = tr_upper(title_list[0])[:12]
-                idx_t = full_text.upper().find(title_search)
-                if idx_t != -1:
-                    snippet = full_text[idx_t: idx_t + 600]
-                    for req_kw in ["Şart", "Koşul", "Nitelik", "Açıklama", "Özellik"]:
-                        ki = snippet.lower().find(req_kw.lower())
-                        if ki != -1:
-                            req = re.sub(r"[ \t\n]+", " ", snippet[ki: ki + 400]).strip()
-                            break
 
             if ales_score_val.strip() and re.sub(r"[^0-9]", "", ales_score_val) and primary_title not in ALES_EXEMPT_TITLES:
                 digits = re.sub(r"[^0-9]", "", ales_score_val)
@@ -666,7 +614,7 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
     DEPT_KEYS    = ["BÖLÜM", "ANABİLİM", "PROGRAM", "ABD"]
     TITLE_KEYS   = ["ÜNVAN", "UNVAN", "KADRO", "AKADEMİK ÜNVAN", "AKADEMIK UNVAN"]
     COUNT_KEYS   = ["ADET", "SAYI", "ALINACAK", "KONTENJAN"]
-    REQ_KEYS     = ["ÖZEL KOŞUL", "ARANAN NİTELİK", "AÇIKLAMA", "KOŞUL", "ALIM ŞART", "ŞART", "GENEL ŞART", "GENEL KOŞUL", "MUAFİYET", "ÖZELLİK"]
+    REQ_KEYS     = ["ÖZEL KOŞUL", "ARANAN NİTELİK", "AÇIKLAMA", "KOŞUL", "ŞART", "GENEL ŞART"]
 
     def match_key(line_up: str, keys: list) -> bool:
         return any(tr_upper(k) in line_up for k in keys)
@@ -680,9 +628,7 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
     # Try to find key-value structured content
     # First check if ANY title key exists in the text
     text_up = tr_upper(text)
-    has_title_keyword  = any(tr_upper(k) in text_up for k in TITLE_KEYS)
-    has_academic_title = any(tr_upper(t) in text_up for t in ACADEMIC_TITLES)
-    if not has_title_keyword and not has_academic_title:
+    if not any(tr_upper(k) in text_up for k in TITLE_KEYS):
         return []
 
     positions = []
@@ -792,25 +738,6 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
     if current:
         flush(current)
 
-    # Plain-text fallback: if structured parsing found nothing but academic titles exist
-    if not positions and has_academic_title:
-        for title in ACADEMIC_TITLES:
-            if tr_upper(title) not in text_up:
-                continue
-            count = 1
-            count_pattern = tr_upper(title) + r".{0,60}?([0-9]{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ)"
-            m = re.search(count_pattern, text_up)
-            if not m:
-                m = re.search(r"(\d{1,2})\s*(?:KIŞI|ADET|KADRO|KİŞİ).{0,60}?" + tr_upper(title), text_up)
-            if m:
-                count = max(1, min(10, int(m.group(1))))
-            ales = extract_ales(text, title)
-            lang = extract_language(text, title)
-            pos = {"faculty": "", "department": "", "title": title,
-                   "count": count, "requirements": "", "_all_titles": [title]}
-            pos.update(ales); pos.update(lang)
-            positions.append(pos)
-
     return positions
 
 
@@ -901,27 +828,50 @@ def build_ad(item: dict, detail: dict, ulist: list) -> dict | None:
     }
 
 # ── Main ───────────────────────────────────────────────────────────────────────────────────
+def load_json_file(path: str) -> dict:
+    """Load a JSON file safely, returning empty structure if missing."""
+    if not os.path.exists(path):
+        return {"ads": [], "lastUpdated": None}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        log.warning(f"Could not load {path}: {e}")
+        return {"ads": [], "lastUpdated": None}
+
+
+def save_json_file(path: str, data: dict) -> None:
+    if os.path.dirname(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
 def main():
-    log.info("=== AkademikRadar Scraper (ilan.gov.tr API) Starting ===")
-    log.info(f"Output: {OUTPUT_FILE}")
+    mode = "PANEL (pending.json)" if PANEL_MODE else "DIRECT (ilanlar.json)"
+    log.info(f"=== AkademikRadar Scraper — {mode} ===")
 
-    existing: list = []
-    existing_ids: set = set()
-    existing_exam_calendar: list = []
+    # ── Load all three files ──────────────────────────────────────────────────
+    approved_data  = load_json_file(OUTPUT_FILE)
+    pending_data   = load_json_file(PENDING_FILE)
+    rejected_data  = load_json_file(REJECTED_FILE)
 
-    if os.path.exists(OUTPUT_FILE):
-        try:
-            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-                old = json.load(f)
-            existing = old.get("ads", [])
-            existing_ids = {ad.get("ilanNo", ad.get("url", "")) for ad in existing}
-            existing_exam_calendar = old.get("examCalendar", [])
-            log.info(f"Loaded {len(existing)} existing ads.")
-        except Exception as e:
-            log.warning(f"Could not load existing data: {e}")
+    approved_ads   = approved_data.get("ads", [])
+    pending_ads    = pending_data.get("ads", [])
+    rejected_ids   = {ad.get("ilanNo", ad.get("url", ""))
+                      for ad in rejected_data.get("ads", [])}
+    exam_calendar  = approved_data.get("examCalendar", [])
 
-    ulist = load_university_list()
-    new_ads: list = []
+    # Skip anything already approved, pending, or rejected
+    known_ids: set = (
+        {ad.get("ilanNo", ad.get("url", "")) for ad in approved_ads} |
+        {ad.get("ilanNo", ad.get("url", "")) for ad in pending_ads}  |
+        rejected_ids
+    )
+    log.info(f"Known: {len(known_ids)} approved/pending/rejected")
+
+    ulist    = load_university_list()
+    new_ads  = []
     skip_count = 0
     stop = False
 
@@ -940,7 +890,7 @@ def main():
                 log.warning("Budget exhausted."); stop = True; break
 
             item_key = item.get("adNo") or item.get("urlStr", "")
-            if item_key in existing_ids: continue
+            if item_key in known_ids: continue
 
             all_known = False
             ad_id = item.get("id", "")
@@ -952,38 +902,57 @@ def main():
             ad = build_ad(item, detail, ulist)
             if ad:
                 new_ads.append(ad)
-                existing_ids.add(item_key)
-                log.info(f"    → {ad['university']} ({ad['city']}): {len(ad['positions'])} positions")
+                known_ids.add(item_key)
+                log.info(f"    → {ad['university']} ({ad['city']}): "
+                         f"{len(ad['positions'])} positions")
 
             time.sleep(REQUEST_DELAY)
 
         if all_known:
-            log.info(f"  All ads on skip={skip_count} already known — continuing to next page.")
+            log.info(f"  All ads on skip={skip_count} already known — continuing.")
 
         skip_count += len(items)
         if skip_count >= total: break
 
-    all_ads = new_ads + existing
-    all_ads.sort(
-        key=lambda a: datetime.fromisoformat(a.get("publishDate", "1970-01-01T00:00:00+00:00")),
-        reverse=True
-    )
+    if not new_ads:
+        log.info(f"=== No new ads found. Done in {int(time.time()-_start_time)}s ===")
+        return
 
-    output = {
-        "lastUpdated":  datetime.now(timezone.utc).isoformat(),
-        "source":       "ilan.gov.tr",
-        "ads":          all_ads,
-        "examCalendar": existing_exam_calendar,
-    }
+    now = datetime.now(timezone.utc).isoformat()
 
-    if os.path.dirname(OUTPUT_FILE):
-        os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-
-    log.info(f"=== Done in {int(time.time()-_start_time)}s. "
-             f"{len(new_ads)} new + {len(existing)} kept = {len(all_ads)} total ===")
+    if PANEL_MODE:
+        # ── Panel mode: write new ads to pending.json ─────────────────────────
+        updated_pending = new_ads + pending_ads
+        updated_pending.sort(
+            key=lambda a: datetime.fromisoformat(
+                a.get("publishDate", "1970-01-01T00:00:00+00:00")),
+            reverse=True
+        )
+        save_json_file(PENDING_FILE, {
+            "lastUpdated": now,
+            "source": "ilan.gov.tr",
+            "ads": updated_pending,
+        })
+        log.info(f"=== Done in {int(time.time()-_start_time)}s. "
+                 f"{len(new_ads)} new → pending.json "
+                 f"({len(updated_pending)} total pending) ===")
+    else:
+        # ── Direct mode: write approved ads straight to ilanlar.json ──────────
+        all_ads = new_ads + approved_ads
+        all_ads.sort(
+            key=lambda a: datetime.fromisoformat(
+                a.get("publishDate", "1970-01-01T00:00:00+00:00")),
+            reverse=True
+        )
+        save_json_file(OUTPUT_FILE, {
+            "lastUpdated": now,
+            "source": "ilan.gov.tr",
+            "ads": all_ads,
+            "examCalendar": exam_calendar,
+        })
+        log.info(f"=== Done in {int(time.time()-_start_time)}s. "
+                 f"{len(new_ads)} new + {len(approved_ads)} kept = "
+                 f"{len(all_ads)} total ===")
 
 if __name__ == "__main__":
     main()
