@@ -1,63 +1,7 @@
 {
-  "lastUpdated": "2026-09-10T20:13:08.360Z",
+  "lastUpdated": "2026-09-10T20:13:12.559Z",
   "source": "ilan.gov.tr",
   "ads": [
-    {
-      "university": "ERZURUM TEKNİK ÜNİVERSİTESİ",
-      "city": "Erzurum",
-      "uniType": "Devlet",
-      "url": "https://www.ilan.gov.tr/ilan/2214010/kamu-akademik-personel-akademik-personel-alimlari-erzurum teknik universitesi rektorlugunden-arastirma-gorevlisi-alim-ilani",
-      "ilanNo": "YOK853230",
-      "publishDate": "2026-09-04T00:00:00.000Z",
-      "deadline": "2026-09-18T00:00:00.000Z",
-      "detectedTitles": [
-        "ARAŞTIRMA GÖREVLİSİ"
-      ],
-      "positions": [
-        {
-          "faculty": "Mühendislik ve Mimarlık Fakültesi",
-          "department": "Bilgisayar Mühendisliği",
-          "title": "ARAŞTIRMA GÖREVLİSİ",
-          "count": 1,
-          "requirements": "Bilgisayar Mühendisliği Bölümü mezunu olup Bilgisayar Mühendisliği alanında yüksek lisans yapıyor olmak.",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "SAY",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": 50,
-          "foreignLanguageExam": null,
-          "derece": 6,
-          "temelAlan": "Mühendislik",
-          "sartlar": [
-            "Bilgisayar Mühendisliği Bölümü mezunu olup Bilgisayar Mühendisliği alanında yüksek lisans yapıyor olmak."
-          ],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "Sağlık Bilimleri Fakültesi",
-          "department": "Hemşirelik",
-          "title": "ARAŞTIRMA GÖREVLİSİ",
-          "count": 1,
-          "requirements": "Hemşirelik Bölümü mezunu olup Psikiyatri Hemşireliği alanında yüksek lisans yapıyor olmak.",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "SAY",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": 50,
-          "foreignLanguageExam": null,
-          "derece": 6,
-          "temelAlan": "Sağlık Bilimleri",
-          "sartlar": [
-            "Hemşirelik Bölümü mezunu olup Psikiyatri Hemşireliği alanında yüksek lisans yapıyor olmak."
-          ],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        }
-      ],
-      "contentSnippet": "Erzurum Teknik Üniversitesi Rektörlüğünden ARAŞTIRMA GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda yazılı birimlerine, 10.07.2018 tarihli Resmî Gazete’de yayımlanan Genel Kadro ve Usulü Hakkında 2 sayılı Cumhurbaşkanlığı Kararnamesi, 2547 sayılı Kanunun ilgili maddeleri ve 09 Kasım 2018 tarihli ve 30",
-      "applicationDocuments": []
-    },
     {
       "university": "ERZURUM TEKNİK ÜNİVERSİTESİ",
       "city": "Erzurum",
