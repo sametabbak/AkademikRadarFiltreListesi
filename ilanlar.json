@@ -1,7 +1,605 @@
 {
-  "lastUpdated": "2026-09-10T12:17:31.359Z",
+  "lastUpdated": "2026-09-10T12:43:15.406Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL MEDİPOL ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2218015/kamu-akademik-personel-akademik-personel-alimlari-istanbul-medipol-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853256",
+      "publishDate": "2026-09-09T00:00:00.000Z",
+      "deadline": "2026-09-24T00:00:00.000Z",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Tarih ve Yapay Zekâ Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tarih ve Sanat Tarihi Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Tarih ve Sanat Tarihi Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Siyaset Bilimi ve Kamu Yönetimi Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Siyaset Bilimi Alanında Doçent Ünvanına Sahip Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Siyaset Bilimi Alanında Doçent Ünvanına Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Psikoloji Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Sosyal Psikoloji Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Sosyal Psikoloji Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Psikoloji Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Sinirbilim Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Sinirbilim Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Uluslararası Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Klinik Anatomi Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Klinik Anatomi Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Endüstri Mühendisliği Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Malzeme Bilimi Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Malzeme Bilimi Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Yapay Zekâ Mühendisliği Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Bilgisayar Bilimleri ve Mühendisliği Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Bilimleri ve Mühendisliği Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Yapay Zekâ Mühendisliği Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Matematik Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Matematik Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "İnşaat Mühendisliği Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Hidrolik Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Hidrolik Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Yabancı Diller Eğitimi Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Yabancı Diller Eğitimi (İngilizce Eğitimi) Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Yabancı Diller Eğitimi (İngilizce Eğitimi) Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Eğitim Bilimleri Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Psikolojik Rehberlik ve Danışmanlık Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Psikolojik Rehberlik ve Danışmanlık Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eczacılık Fakültesi",
+          "department": "Eczacılık Meslek Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Farmasötik Botanik Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Farmasötik Botanik Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eczacılık Fakültesi",
+          "department": "Eczacılık Teknolojisi Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Farmasötik Botanik Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Farmasötik Botanik Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eczacılık Fakültesi",
+          "department": "Eczacılık Teknolojisi Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Biyoteknoloji Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Biyoteknoloji Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Özel Hukuk Bölünü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Özel Hukuk Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Özel Hukuk Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Kamu Hukuku Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kamu Hukuku Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Kamu Hukuku Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Endodonti Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Endodonti Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Periodontoloji Alanında Doçent Ünvanına Sahip Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Periodontoloji Alanında Doçent Ünvanına Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ağız, Diş ve Çene Radyolojisi Alanında Uzmanlık Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ağız, Diş ve Çene Radyolojisi Alanında Uzmanlık Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Protetik Diş Tedavisi Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Protetik Diş Tedavisi Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Beslenme ve Diyetetik Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Beslenme ve Diyetetik Alanında Doçent Ünvanına Sahip Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Beslenme ve Diyetetik Alanında Doçent Ünvanına Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon Alanında Doçent Ünvanına Sahip Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Çocuk Sağlığı ve Hastalıkları Hemşireliği Alanında Doçent Ünvanına Sahip Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Çocuk Sağlığı ve Hastalıkları Hemşireliği Alanında Doçent Ünvanına Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ortez ve Protez Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon Alanında Doçent Ünvanına Sahip Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon Alanında Doçent Ünvanına Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Çocuk Gelişimi Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Çocuk Gelişimi ve Eğitimi Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Çocuk Gelişimi ve Eğitimi Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Sağlık Yönetimi Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İşletme Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "İşletme Alanında Doktora Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Yönetim ve Organizasyon Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Yönetim ve Organizasyon Alanında Doçent Ünvanına Sahip Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Yönetim ve Organizasyon Alanında Doçent Ünvanına Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "İnşaat Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Malzeme ve Metalurji Mühendisliği Alanında Doçent Ünvanına Sahip Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Malzeme ve Metalurji Mühendisliği Alanında Doçent Ünvanına Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Eczane Hizmetleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Eczacılık Fakültesi Mezunu Olup Sinirbilim Alanında Doktora Yapmış Olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık Fakültesi Mezunu Olup Sinirbilim Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Medipol Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen akademik birimlerine; 2547 Sayılı Yükseköğretim Kanunu, aylık ve özlük hakları yönünden 4857 Sayılı İş Kanunu’nun ilgili maddeleri, Üniversitemiz Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği, Akademik Atama ve Yü",
+      "applicationDocuments": []
+    },
     {
       "university": "İSTANBUL MEDİPOL ÜNİVERSİTESİ",
       "city": "İstanbul",
