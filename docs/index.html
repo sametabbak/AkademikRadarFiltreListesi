@@ -229,6 +229,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .duz-tbl td.old{color:var(--red);text-decoration:line-through;opacity:.75}
 .duz-tbl td.new{color:var(--green)}
 .duz-flag{display:inline-flex;align-items:center;gap:.25rem;font-size:.65rem;padding:.06rem .35rem;border-radius:4px;background:rgba(168,85,247,.12);color:#c084fc;border:1px solid rgba(168,85,247,.3)}
+#dupe-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:960;align-items:center;justify-content:center}
+#dupe-overlay.open{display:flex}
 #fresh-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:960;align-items:center;justify-content:center}
 #fresh-overlay.open{display:flex}
 .fresh-bar{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
@@ -296,6 +298,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
         <input class="search-input" placeholder="Üniversite veya şehir..." oninput="filterApproved(this.value)">
         <button class="toolbar-btn" id="expired-toggle" onclick="toggleExpired()">Aktif</button>
           <button class="toolbar-btn" onclick="checkFreshness()" title="ilan.gov.tr ile karşılaştır">⟳ Kontrol</button>
+          <button class="toolbar-btn" onclick="openDupes()" title="Yinelenen kayıtları bul">⧉ Kopyalar</button>
       </div>
       <div class="list-scroll" id="approved-list"><div class="empty-state"><div class="icon">⏳</div><p>Yükleniyor...</p></div></div>
     </div>
@@ -458,6 +461,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 </div>
+
+<!-- Duplicate cleanup -->
+<div id="dupe-overlay" onclick="if(event.target===this)closeDupes()">
+  <div class="settings-card" style="width:600px;max-height:88vh">
+    <button class="settings-close" onclick="closeDupes()">✕</button>
+    <h2 style="font-size:.93rem">Yinelenen Kayıtlar</h2>
+    <div id="dupe-count" class="field-hint"></div>
+    <div id="dupe-body" style="overflow-y:auto;max-height:56vh;display:flex;flex-direction:column;gap:.4rem"></div>
+    <span class="field-hint">Tekilleştirme ilk kopyayı korur, diğerlerini siler.</span>
+  </div>
+</div>
 <div id="toast-container"></div>
 
 <script>
@@ -557,12 +571,21 @@ class GitHubAPI{
     const d=await res.json();
     return{content:JSON.parse(b64ToUtf8(d.content)),sha:d.sha};
   }
-  async putFile(p,content,sha,msg){
+  async putFile(p,content,sha,msg,_retry){
     const enc=utf8ToB64(JSON.stringify(content,null,2));
     const body={message:msg,content:enc,branch:this.branch};
     if(sha)body.sha=sha;
     const res=await fetch(`${this.base}/contents/${p}`,{method:'PUT',headers:this.h,body:JSON.stringify(body)});
-    if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.message||`GitHub ${res.status}`)}
+    if(!res.ok){
+      const e=await res.json().catch(()=>({}));
+      // 409/422 means our cached sha is stale — usually the scraper committed
+      // in between. Re-read the current sha and retry once.
+      if((res.status===409||res.status===422)&&!_retry){
+        const cur=await this.getFile(p);
+        if(cur) return this.putFile(p,content,cur.sha,msg,true);
+      }
+      throw new Error(e.message||`GitHub ${res.status}`);
+    }
     return res.json();
   }
   async testAccess(){
@@ -577,6 +600,34 @@ class GitHubAPI{
 // ── Store ──
 const Store={
   api:null,
+  _busy:false,
+
+  // Every mutating action goes through this: it snapshots all three lists,
+  // applies the change, and restores the snapshot if the write fails.
+  // Without it a failed save left the local array mutated, so a second click
+  // added a duplicate.
+  async mutate(fn,label){
+    if(this._busy){ showToast('Önceki işlem sürüyor, bekleyin…','info'); return false; }
+    this._busy=true;
+    const snap={
+      pending:  JSON.parse(JSON.stringify(this.pending.content)),
+      approved: JSON.parse(JSON.stringify(this.approved.content)),
+      rejected: JSON.parse(JSON.stringify(this.rejected.content)),
+    };
+    try{
+      await fn();
+      return true;
+    }catch(e){
+      this.pending.content =snap.pending;
+      this.approved.content=snap.approved;
+      this.rejected.content=snap.rejected;
+      this.refresh();
+      showToast(`${label||'İşlem'} başarısız — değişiklik geri alındı: ${e.message}`,'error',6000);
+      return false;
+    }finally{
+      this._busy=false;
+    }
+  },
   pending:{content:{ads:[]},sha:null},
   approved:{content:{ads:[],examCalendar:[]},sha:null},
   rejected:{content:{ads:[]},sha:null},
@@ -715,20 +766,22 @@ function updateBulkBar(){const bar=el('pending-bulk');if(selectedPending.size>0)
 async function bulkApprove(){
   if(!selectedPending.size)return;
   const ids=[...selectedPending];
-  try{
+  const ok=await Store.mutate(async()=>{
     for(const id of ids){const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===id);if(idx===-1)continue;const ad=Store.pending.content.ads.splice(idx,1)[0];Store.approved.content.ads.unshift(ad)}
-    await Promise.all([Store.savePending(),Store.saveApproved(`feat: bulk approve ${ids.length} ads`)]);
-    selectedPending.clear();updateBulkBar();Store.refresh();showToast(`${ids.length} ilan onaylandı`,'success');
-  }catch(e){showToast(e.message,'error')}
+    await Store.savePending();
+    await Store.saveApproved(`feat: bulk approve ${ids.length} ads`);
+  },'Toplu onaylama');
+  if(ok){ selectedPending.clear();updateBulkBar();Store.refresh();showToast(`${ids.length} ilan onaylandı`,'success'); }
 }
 async function bulkReject(){
   if(!selectedPending.size)return;
   const ids=[...selectedPending];
-  try{
+  const ok=await Store.mutate(async()=>{
     for(const id of ids){const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===id);if(idx===-1)continue;const ad=Store.pending.content.ads.splice(idx,1)[0];Store.rejected.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,rejectedAt:new Date().toISOString()})}
-    await Promise.all([Store.savePending(),Store.saveRejected(`chore: bulk reject ${ids.length} ads`)]);
-    selectedPending.clear();updateBulkBar();Store.refresh();showToast(`${ids.length} ilan reddedildi`,'info');
-  }catch(e){showToast(e.message,'error')}
+    await Store.savePending();
+    await Store.saveRejected(`chore: bulk reject ${ids.length} ads`);
+  },'Toplu reddetme');
+  if(ok){ selectedPending.clear();updateBulkBar();Store.refresh();showToast(`${ids.length} ilan reddedildi`,'info'); }
 }
 
 // ── Approved List ──
@@ -766,7 +819,7 @@ function renderRejectedList(){
   if(!ads.length){list.innerHTML=`<div class="empty-state"><div class="icon">🗑</div><p>Reddedilen ilan yok.</p></div>`;return}
   list.innerHTML=ads.map(a=>`<div class="rejected-item">
     <div><div class="rej-uni">${esc(a.university||a.ilanNo)}</div><div class="rej-meta">${a.ilanNo} · ${fmtDate(a.rejectedAt)}</div></div>
-    <button class="btn btn-ghost btn-xs" onclick="restoreAd('${a.ilanNo}')">Geri Al</button></div>`).join('');
+    <button class="btn btn-ghost btn-xs" onclick="restoreAd('${a.ilanNo}')">Geri Al</button><button class="btn btn-ghost btn-xs" style="color:var(--red)" onclick="deleteAd('rejected','${a.ilanNo}')" title="Kalıcı sil">🗑</button></div>`).join('');
 }
 async function restoreAd(ilanNo){try{await Store.restore(ilanNo);Store.refresh();showToast('İlan geri alındı','success')}catch(e){showToast(e.message,'error')}}
 
@@ -912,9 +965,9 @@ function renderEditor(containerId,ad,tab){
     ? `<button class="btn btn-ghost btn-sm" style="color:#c084fc;border-color:rgba(168,85,247,.35)" onclick="openDuzeltme('${containerId}')" title="Orijinal ilanla karşılaştır">⇄ Düzeltme</button>`
     : '';
   const actionBar=tab==='pending'
-    ?`${duzBtn}${reparseBtn}<button class="btn btn-success btn-sm" onclick="approveAd('${ad.ilanNo}')">✓ Onayla</button><button class="btn btn-danger btn-sm" onclick="rejectAd('${ad.ilanNo}')">✗ Reddet</button><button class="btn btn-primary btn-sm" onclick="saveEditToPending('${containerId}')">💾 Kaydet</button>`
+    ?`${duzBtn}${reparseBtn}<button class="btn btn-success btn-sm" onclick="approveAd('${ad.ilanNo}')">✓ Onayla</button><button class="btn btn-danger btn-sm" onclick="rejectAd('${ad.ilanNo}')">✗ Reddet</button><button class="btn btn-ghost btn-sm" style="color:var(--red);border-color:rgba(239,68,68,.3)" onclick="deleteAd('pending','${ad.ilanNo}')" title="Kalıcı olarak sil">🗑 Sil</button><button class="btn btn-primary btn-sm" onclick="saveEditToPending('${containerId}')">💾 Kaydet</button>`
     :tab==='approved'
-    ?`${duzBtn}${reparseBtn}<button class="btn btn-primary btn-sm" onclick="saveEditToApproved('${containerId}')">💾 Kaydet</button><button class="btn btn-danger btn-sm" onclick="moveToRejectedFromApproved('${ad.ilanNo}')">🗑 Reddet</button>`
+    ?`${duzBtn}${reparseBtn}<button class="btn btn-primary btn-sm" onclick="saveEditToApproved('${containerId}')">💾 Kaydet</button><button class="btn btn-danger btn-sm" onclick="moveToRejectedFromApproved('${ad.ilanNo}')">✗ Reddet</button><button class="btn btn-ghost btn-sm" style="color:var(--red);border-color:rgba(239,68,68,.3)" onclick="deleteAd('approved','${ad.ilanNo}')" title="Kalıcı olarak sil">🗑 Sil</button>`
     :`<button class="btn btn-success btn-sm" onclick="saveNewAd('${containerId}')">✓ Onaylıya Ekle</button>`;
   container.innerHTML=`
   <div class="editor-header">
@@ -1147,36 +1200,53 @@ function closeDrawer(){el('row-drawer').classList.remove('open');drawerRow=null}
 async function approveAd(ilanNo){
   const c=el('pending-editor');
   if(c._draft?.ilanNo===ilanNo){const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);if(idx!==-1)Store.pending.content.ads[idx]=c._draft}
-  try{await Store.approve(ilanNo);closeEditor('pending');Store.refresh();showToast('İlan onaylandı ve yayınlandı','success')}catch(e){showToast(e.message,'error')}
+  const ok=await Store.mutate(()=>Store.approve(ilanNo),'Onaylama');
+  if(ok){ closeEditor('pending'); Store.refresh(); showToast('İlan onaylandı ve yayınlandı','success'); }
 }
 async function rejectAd(ilanNo){
-  try{await Store.reject(ilanNo);closeEditor('pending');Store.refresh();showToast('İlan reddedildi','info')}catch(e){showToast(e.message,'error')}
+  const ok=await Store.mutate(()=>Store.reject(ilanNo),'Reddetme');
+  if(ok){ closeEditor('pending'); Store.refresh(); showToast('İlan reddedildi','info'); }
 }
 async function saveEditToPending(containerId){
   const c=el(containerId);const draft=c._draft;updateDetectedTitles(draft);
   const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===draft.ilanNo);
-  if(idx!==-1)Store.pending.content.ads[idx]=draft;
-  try{await Store.savePending(`chore: edit pending ${draft.ilanNo}`);showToast('Kaydedildi','success');Store.refresh()}catch(e){showToast(e.message,'error')}
+  if(idx===-1){ showToast('Kayıt listede bulunamadı — yenileyin','error'); return; }
+  Store.pending.content.ads[idx]=draft;
+  const ok=await Store.mutate(()=>Store.savePending(`chore: edit pending ${draft.ilanNo}`),'Kaydetme');
+  if(ok){ showToast('Kaydedildi','success'); Store.refresh(); }
 }
 async function saveEditToApproved(containerId){
   const c=el(containerId);const draft=c._draft;updateDetectedTitles(draft);
   const idx=(Store.approved.content.ads||[]).findIndex(a=>a.ilanNo===draft.ilanNo);
-  if(idx!==-1)Store.approved.content.ads[idx]=draft;
-  try{await Store.saveApproved(`chore: edit ${draft.ilanNo}`);showToast('Kaydedildi ve yayınlandı','success');Store.refresh()}catch(e){showToast(e.message,'error')}
+  if(idx===-1){ showToast('Kayıt listede bulunamadı — yenileyin','error'); return; }
+  Store.approved.content.ads[idx]=draft;
+  const ok=await Store.mutate(()=>Store.saveApproved(`chore: edit ${draft.ilanNo}`),'Kaydetme');
+  if(ok){ showToast('Kaydedildi ve yayınlandı','success'); Store.refresh(); }
 }
 async function moveToRejectedFromApproved(ilanNo){
   if(!confirm('Bu ilanı reddedilenlere taşımak istediğinize emin misiniz?'))return;
   const idx=(Store.approved.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);if(idx===-1)return;
-  const ad=Store.approved.content.ads.splice(idx,1)[0];
-  Store.rejected.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,rejectedAt:new Date().toISOString()});
-  try{await Promise.all([Store.saveApproved(),Store.saveRejected()]);closeEditor('approved');Store.refresh();showToast('Reddedilenlere taşındı','info')}catch(e){showToast(e.message,'error')}
+  const ok=await Store.mutate(async()=>{
+    const ad=Store.approved.content.ads.splice(idx,1)[0];
+    Store.rejected.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,rejectedAt:new Date().toISOString()});
+    await Store.saveApproved();
+    await Store.saveRejected();
+  },'Reddetme');
+  if(ok){ closeEditor('approved');Store.refresh();showToast('Reddedilenlere taşındı','info'); }
 }
 async function saveNewAd(containerId){
   const c=el(containerId);const draft=c._draft;updateDetectedTitles(draft);
   if(!draft.university){showToast('Üniversite adı boş olamaz','error');return}
   if(!draft.ilanNo)draft.ilanNo='MANUAL-'+Date.now();
-  Store.approved.content.ads.unshift(draft);
-  try{await Store.saveApproved(`feat: add manual ${draft.ilanNo}`);closeEditor('add');Store.refresh();switchTab('approved');showToast('Onaylılara eklendi','success')}catch(e){showToast(e.message,'error')}
+  // Guard against a second click adding another copy after a failed save
+  if((Store.approved.content.ads||[]).some(a=>a.ilanNo===draft.ilanNo)){
+    showToast('Bu ilan numarası zaten onaylananlarda var','error'); return;
+  }
+  const ok=await Store.mutate(async()=>{
+    Store.approved.content.ads.unshift(draft);
+    await Store.saveApproved(`feat: add manual ${draft.ilanNo}`);
+  },'Ekleme');
+  if(ok){ closeEditor('add'); Store.refresh(); switchTab('approved'); showToast('Onaylılara eklendi','success'); }
 }
 
 // ── Add by URL ──
@@ -2211,6 +2281,82 @@ function useProxy(tpl){
   localStorage.setItem(STORAGE.proxyUrl,tpl);
   localStorage.setItem(STORAGE.fetchMode,'proxy');
   showToast('Proxy seçildi ve kaydedildi','success');
+}
+
+
+// ── Permanent delete ────────────────────────────────────────────────────────
+// Unlike Reddet (which files the ad under rejected so the scraper skips it),
+// this removes the record outright. Use it for duplicates and bad entries.
+async function deleteAd(list,ilanNo,silent){
+  const store={pending:Store.pending,approved:Store.approved,rejected:Store.rejected}[list];
+  if(!store) return;
+  const ads=store.content.ads||[];
+  const count=ads.filter(a=>a.ilanNo===ilanNo).length;
+  if(!count){ showToast('Kayıt bulunamadı','error'); return; }
+
+  const names={pending:'Bekleyenler',approved:'Onaylananlar',rejected:'Reddedilenler'};
+  if(!silent && !confirm(
+      `"${ilanNo}" ${names[list]} listesinden kalıcı olarak silinecek` +
+      (count>1?` (${count} kopya)`:'') + '.\n\n' +
+      'Reddetme değil, tamamen silme. Scraper bu ilanı yeniden bulabilir.\n\nDevam?')) return;
+
+  const saver={pending:'savePending',approved:'saveApproved',rejected:'saveRejected'}[list];
+  const ok=await Store.mutate(async()=>{
+    store.content.ads=ads.filter(a=>a.ilanNo!==ilanNo);
+    await Store[saver](`chore: delete ${ilanNo} from ${list}`);
+  },'Silme');
+  if(ok){
+    if(activeEditor?.ilanNo===ilanNo) closeEditor(activeEditor.tab);
+    Store.refresh();
+    if(!silent) showToast(count>1?`${count} kopya silindi`:'İlan silindi','success');
+  }
+}
+
+// ── Duplicate cleanup ───────────────────────────────────────────────────────
+function findDuplicateGroups(){
+  const groups=[];
+  for(const [list,store] of [['pending',Store.pending],['approved',Store.approved],['rejected',Store.rejected]]){
+    const seen={};
+    (store.content.ads||[]).forEach(a=>{ (seen[a.ilanNo]=seen[a.ilanNo]||[]).push(a); });
+    Object.entries(seen).forEach(([no,arr])=>{
+      if(arr.length>1) groups.push({list,ilanNo:no,count:arr.length,university:arr[0].university});
+    });
+  }
+  return groups;
+}
+
+function openDupes(){
+  const g=findDuplicateGroups();
+  const body=el('dupe-body');
+  const names={pending:'Bekleyenler',approved:'Onaylananlar',rejected:'Reddedilenler'};
+  body.innerHTML = g.length ? g.map(x=>`
+    <div class="fresh-row changed">
+      <div style="flex:1;min-width:0">
+        <div class="fresh-uni">${esc(x.university||x.ilanNo)}</div>
+        <div class="fresh-det">${esc(x.ilanNo)} · ${names[x.list]} · ${x.count} kopya</div>
+      </div>
+      <button class="btn btn-primary btn-xs" onclick="dedupeOne('${x.list}','${x.ilanNo}')">Tekilleştir</button>
+    </div>`).join('')
+    : `<div class="vbanner ok">✓ Yinelenen kayıt yok.</div>`;
+  el('dupe-count').textContent = g.length ? `${g.length} yinelenen ilan numarası bulundu` : '';
+  el('dupe-overlay').classList.add('open');
+}
+function closeDupes(){ el('dupe-overlay').classList.remove('open'); }
+
+// Keep the first copy, drop the rest
+async function dedupeOne(list,ilanNo){
+  const store={pending:Store.pending,approved:Store.approved,rejected:Store.rejected}[list];
+  const saver={pending:'savePending',approved:'saveApproved',rejected:'saveRejected'}[list];
+  const ok=await Store.mutate(async()=>{
+    let kept=false;
+    store.content.ads=(store.content.ads||[]).filter(a=>{
+      if(a.ilanNo!==ilanNo) return true;
+      if(kept) return false;
+      kept=true; return true;
+    });
+    await Store[saver](`chore: dedupe ${ilanNo}`);
+  },'Tekilleştirme');
+  if(ok){ Store.refresh(); openDupes(); showToast('Kopyalar temizlendi','success'); }
 }
 
 // ── Settings ──
