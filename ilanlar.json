@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10T13:10:12.342Z",
+  "lastUpdated": "2026-09-10T13:19:43.874Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -20,7 +20,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Konsantre büyüme faktörü (CGF)’nün pulpa transplantasyonu ile periopikal iyileşmeye ve diş canlılığı üzerine etkileri hakkında çalışmaları\nolmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -29,7 +29,9 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Konsantre büyüme faktörü (CGF)’nün pulpa transplantasyonu ile periopikal iyileşmeye ve diş canlılığı üzerine etkileri hakkında çalışmaları\nolmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -38,7 +40,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Kök kanal morfolojisinin farklı görüntüleme yöntemleriyle değerlendirilmesi, farklı döner eğe sistemlerinin apikal debris ekstrüzyonuna etkisi ve MTA kullanılarak gerçekleştirilen vital pulpa tedavileri konularında çalışmaları olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -47,7 +49,9 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Kök kanal morfolojisinin farklı görüntüleme yöntemleriyle değerlendirilmesi, farklı döner eğe sistemlerinin apikal debris ekstrüzyonuna etkisi ve MTA kullanılarak gerçekleştirilen vital pulpa tedavileri konularında çalışmaları olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -56,7 +60,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "İskeletsel Sınıf III Vakalarda Facemask Apereyinin Etkilerini Değerlendirme konusunda çalışmaları olmak",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -65,7 +69,9 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "İskeletsel Sınıf III Vakalarda Facemask Apereyinin Etkilerini Değerlendirme konusunda çalışmaları olmak"
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -74,7 +80,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Polimerizasyon büzülmesi, derin marjin elevasyonu ve restoratif diş tedavisi alanındaki bilimsel yayın performansı konularında\nçalışmaları olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -83,7 +89,9 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Polimerizasyon büzülmesi, derin marjin elevasyonu ve restoratif diş tedavisi alanındaki bilimsel yayın performansı konularında\nçalışmaları olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
