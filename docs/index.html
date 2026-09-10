@@ -391,6 +391,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
       <div style="display:flex;gap:.4rem;flex-wrap:wrap">
         <button class="btn btn-ghost btn-sm" id="fetchtest-btn" onclick="testFetch()">Hızlı Test</button>
         <button class="btn btn-primary btn-sm" id="diag-btn" onclick="runDiagnostic()">Tam Tanılama</button>
+        <button class="btn btn-ghost btn-sm" id="proxyscan-btn" onclick="findWorkingProxy()">Çalışan Proxy Bul</button>
       </div>
       <div id="diag-out" style="display:none"></div>
     </div>
@@ -488,7 +489,7 @@ async function apiFetch(target, options){
 
   const isPost = !!(options && options.method==='POST');
   const attempts = mode==='direct' ? ['direct'] : ['proxy','direct'];
-  let lastErr=null;
+  const errs={};
 
   for(const how of attempts){
     try{
@@ -500,16 +501,26 @@ async function apiFetch(target, options){
       const txt=await res.text();
       let parsed;
       try{ parsed=JSON.parse(txt); }
-      catch(e){ throw new Error('Yanıt JSON değil (proxy engellenmiş olabilir)'); }
+      catch(e){ throw new Error('yanıt JSON değil (proxy hata sayfası döndürmüş olabilir)'); }
+      // Some proxies wrap the upstream body, e.g. {contents:"<json string>"}
+      if(parsed && parsed.contents && !parsed.result){
+        try{ parsed=JSON.parse(parsed.contents); }catch(e){}
+      }
       return parsed;
-    }catch(e){ lastErr=e; }
+    }catch(e){ errs[how]=e.message; }
   }
 
-  let msg=(lastErr&&lastErr.message)||'Bağlantı kurulamadı';
+  // Report each attempt separately — otherwise the direct call's CORS error
+  // masks whatever the proxy actually did.
+  const parts=[];
+  if(errs.proxy)  parts.push(`proxy: ${errs.proxy}`);
+  if(errs.direct) parts.push(`doğrudan: ${errs.direct}`);
+  let msg=parts.join(' | ')||'Bağlantı kurulamadı';
   if(isPost && mode!=='direct')
-    msg += ' — ilan numarası araması POST gerektirir; genel proxyler bunu iletmez. '
-         + 'URL veya sayısal ID kullanın ya da kendi Cloudflare Worker\'ınızı ayarlayın.';
-  throw new Error(msg);
+    msg += ' — ilan no araması POST gerektirir; çoğu genel proxy iletmez.';
+  const err=new Error(msg);
+  err.attempts=errs;
+  throw err;
 }
 const ACADEMIC_TITLES=['PROFESÖR','DOÇENT','DR. ÖĞR. ÜYESİ','ÖĞRETİM GÖREVLİSİ','ARAŞTIRMA GÖREVLİSİ','UZMAN','OKUTMAN','ÇEVİRİCİ','EĞİTİM-ÖĞRETİM PLANLAMACISI'];
 const TITLE_CLASS={'PROFESÖR':'prof','DOÇENT':'doc','DR. ÖĞR. ÜYESİ':'dr','ÖĞRETİM GÖREVLİSİ':'ogr','ARAŞTIRMA GÖREVLİSİ':'ars'};
@@ -2126,6 +2137,80 @@ async function runDiagnostic(){
     (active.length?` · tahmini süre ~${Math.round(active.length*0.9)} sn`:''));
 
   btn.disabled=false; btn.textContent=label;
+}
+
+
+// ── Proxy finder ────────────────────────────────────────────────────────────
+// Public CORS proxies come and go. Rather than guessing, try each and report
+// which one actually relays ilan.gov.tr right now.
+const PROXY_PRESETS=[
+  {name:'allorigins',      url:'https://api.allorigins.win/raw?url={url}'},
+  {name:'codetabs',        url:'https://api.codetabs.com/v1/proxy?quest={url}'},
+  {name:'corsproxy.io',    url:'https://corsproxy.io/?url={url}'},
+  {name:'isomorphic-git',  url:'https://cors.isomorphic-git.org/{url}'},
+  {name:'whateverorigin',  url:'https://www.whateverorigin.org/get?url={url}'},
+];
+
+async function findWorkingProxy(){
+  const btn=el('proxyscan-btn'); const label=btn.textContent;
+  btn.disabled=true; btn.innerHTML='<div class="spinner"></div>';
+  const out=el('diag-out'); out.style.display='block';
+
+  const target='https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289';
+  const lines=[{n:'Proxy taraması',s:'info',m:`${PROXY_PRESETS.length} servis deneniyor…`}];
+  const draw=()=>out.innerHTML=lines.map(l=>
+    `<div class="diag-row ${l.s}"><span class="diag-ico">${
+      l.s==='ok'?'✓':l.s==='fail'?'✕':l.s==='warn'?'!':'·'}</span>
+     <div style="flex:1;min-width:0"><div class="diag-name">${esc(l.n)}</div>
+     <div class="diag-msg">${esc(l.m||'')}</div></div>
+     ${l.use?`<button class="btn btn-primary btn-xs" onclick="useProxy('${l.use}')">Kullan</button>`:''}
+     </div>`).join('');
+  draw();
+
+  let anyOk=false;
+  for(const p of PROXY_PRESETS){
+    const url=p.url.includes('{url}')
+      ? p.url.replace('{url}',encodeURIComponent(target)) : p.url+encodeURIComponent(target);
+    const t0=Date.now();
+    try{
+      const ctl=new AbortController();
+      const to=setTimeout(()=>ctl.abort(),9000);
+      const res=await fetch(url,{headers:{Accept:'application/json'},signal:ctl.signal});
+      clearTimeout(to);
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const txt=await res.text();
+      let j; try{ j=JSON.parse(txt); }catch(e){ throw new Error('JSON değil'); }
+      // whateverorigin wraps the body in {contents:"..."}
+      const inner = j.result ? j : (j.contents ? JSON.parse(j.contents) : null);
+      if(inner&&inner.result&&inner.result.content){
+        anyOk=true;
+        lines.push({n:p.name,s:'ok',m:`Çalışıyor · ${Date.now()-t0} ms`,use:p.url});
+      } else throw new Error('beklenen içerik yok');
+    }catch(e){
+      lines.push({n:p.name,s:'fail',m:e.name==='AbortError'?'zaman aşımı (9 sn)':e.message.slice(0,70)});
+    }
+    draw();
+  }
+
+  if(!anyOk){
+    lines.push({n:'Sonuç',s:'warn',m:
+      'Hiçbir genel proxy çalışmadı. Tarayıcı eklentisi (adblock/privacy) isteği engelliyor olabilir — '+
+      'gizli sekmede deneyin. Kalıcı çözüm: cors-worker.js dosyasını Cloudflare Workers üzerinde '+
+      'yayımlayıp adresini yukarıya yazın.'});
+  } else {
+    lines.push({n:'Sonuç',s:'ok',m:'Çalışan bir proxy bulundu — "Kullan" ile seçin, sonra Kaydet.'});
+  }
+  draw();
+  btn.disabled=false; btn.textContent=label;
+}
+
+function useProxy(tpl){
+  el('s-proxyurl').value=tpl;
+  el('s-fetchmode').value='proxy';
+  onFetchModeChange();
+  localStorage.setItem(STORAGE.proxyUrl,tpl);
+  localStorage.setItem(STORAGE.fetchMode,'proxy');
+  showToast('Proxy seçildi ve kaydedildi','success');
 }
 
 // ── Settings ──
