@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10T19:59:08.118Z",
+  "lastUpdated": "2026-09-10T20:00:53.749Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -8,7 +8,7 @@
       "uniType": "Vakıf",
       "url": "https://www.ilan.gov.tr/ilan/2215572/kamu-akademik-personel-akademik-personel-alimlari-maltepe-universitesi-rektorlugu-arastirma-gorevlisi-alim-ilani",
       "ilanNo": "YOK853238",
-      "publishDate": "2026-09-06T21:00:01+00:00",
+      "publishDate": "2026-09-07T00:00:00.000Z",
       "deadline": "2026-09-21T23:59:00+00:00",
       "detectedTitles": [
         "ARAŞTIRMA GÖREVLİSİ"
@@ -21,10 +21,10 @@
           "count": 1,
           "requirements": "Lisans eğitimini Özel Eğitim alanında tamamlamış olmak. Lisansüstü eğitimine devam eden adaylar için Özel Eğitim alanlarından birinde yüksek lisans yapıyor olmak.",
           "alesRequired": true,
-          "alesScore": null,
+          "alesScore": 70,
           "alesType": "SAY",
           "foreignLanguageRequired": true,
-          "foreignLanguageScore": null,
+          "foreignLanguageScore": 50,
           "foreignLanguageExam": null,
           "derece": null,
           "temelAlan": "Eğitim Bilimleri",
@@ -32,7 +32,7 @@
             "Lisans eğitimini Özel Eğitim alanında tamamlamış olmak.",
             "Lisansüstü eğitimine devam eden adaylar için Özel Eğitim alanlarından birinde yüksek lisans yapıyor olmak."
           ],
-          "kanunMaddesi": null,
+          "kanunMaddesi": "33/a",
           "yasSiniri": null
         }
       ],
