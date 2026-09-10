@@ -1,7 +1,127 @@
 {
-  "lastUpdated": "2026-09-10T14:03:02.125Z",
+  "lastUpdated": "2026-09-10T14:06:49.404Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2216745/kamu-akademik-personel-akademik-personel-alimlari-istanbul-rumeli-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853251",
+      "publishDate": "2026-09-08T00:00:00.000Z",
+      "deadline": "2026-09-22T00:00:00.000Z",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "SPOR BİLİMLERİ FAKÜLTESİ",
+          "department": "SPOR YÖNETİCİLİĞİ",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Spor Bilimleri Fakültesi veya Beden Eğitimi ve Spor Yüksekokulu Lisans Programlarından birinden mezun olmak. Spor Bilimleri alanında Tezli Yüksek Lisans yapmış yada yapıyor olmak (50/d maddesi).",
+          "alesRequired": true,
+          "alesScore": 22,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Spor Bilimleri Fakültesi veya Beden Eğitimi ve Spor Yüksekokulu Lisans Programlarından birinden mezun olmak.",
+            "Spor Bilimleri alanında Tezli Yüksek Lisans yapmış yada yapıyor olmak (50/d maddesi)."
+          ],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "İNŞAAT MÜHENDİSLİĞİ",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İnşaat Mühendisliği Lisans mezunu olmak. İnşaat Mühendisliği Anabilim Dalında Tezli Yüksek Lisans yapmış yada yapıyor olmak. İngilizce dil puanına sahip olmak (85) (50/d maddesi).",
+          "alesRequired": true,
+          "alesScore": 22,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İnşaat Mühendisliği Lisans mezunu olmak. İnşaat Mühendisliği Anabilim Dalında Tezli Yüksek Lisans yapmış yada yapıyor olmak. İngilizce dil puanına sahip olmak (.",
+            "(50/d maddesi)."
+          ],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "ENDÜSTRİ MÜHENDİSLİĞİ",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Endüstri Mühendisliği Lisans mezunu olmak. Endüstri Mühendisliği alanında Tezli Yüksek Lisans yapmış yada yapıyor olmak. İngilizce dil puanına sahip olmak (85) (50/d maddesi).",
+          "alesRequired": true,
+          "alesScore": 22,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Endüstri Mühendisliği Lisans mezunu olmak. Endüstri Mühendisliği alanında Tezli Yüksek Lisans yapmış yada yapıyor olmak. İngilizce dil puanına sahip olmak (.",
+            "(50/d maddesi)."
+          ],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İKTİSADİ, İDARİ ve SOSYAL BİLİMLER FAKÜLTESİ",
+          "department": "ULUSLARARASI İLİŞKİLER",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Uluslararsı İlişkiler yada Siyaset Bilimi ve Uluslararası İlişkiler Bölümü Lisans mezunu olup, Uluslararsı İlişkiler veya Siyaset Bilimi ve Uluslararası İlişkiler Anabilim Dalında tezli yüksek lisans yada doktora yapıyor olmak (50/d maddesi).",
+          "alesRequired": true,
+          "alesScore": 22,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Uluslararsı İlişkiler yada Siyaset Bilimi ve Uluslararası İlişkiler Bölümü Lisans mezunu olup, Uluslararsı İlişkiler veya Siyaset Bilimi ve Uluslararası İlişkiler Anabilim Dalında tezli yüksek lisans yada doktora yapıyor olmak (50/d maddesi)."
+          ],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MESLEK YÜKSEKOKULU",
+          "department": "BİLGİSAYAR PROGRAMCILIĞI",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği, Bilişim Sistemleri Mühendisliği, Bilgisayar Bilimleri, Yapay Zeka ve Veri Bilimi, Yapay Zeka Teknolojileri ve Yapay Zeka Mühendisliği bölümlerinin birinden lisans mezunu olup, Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği, Bilişim Sistemleri Mühendisliği, Bilgisayar Bilimleri, Veri Bilimi ve Yapay Zeka, Yapay Zeka Teknolojileri ve Yapay Zeka Mühendisliği alanlarının birinde Tezli Yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 22,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği, Bilişim Sistemleri Mühendisliği, Bilgisayar Bilimleri, Yapay Zeka ve Veri Bilimi, Yapay Zeka Teknolojileri ve Yapay Zeka Mühendisliği bölümlerinin birinden lisans mezunu olup, Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği, Bilişim Sistemleri Mühendisliği, Bilgisayar Bilimleri, Veri Bilimi ve Yapay Zeka, Yapay Zeka Teknolojileri ve Yapay Zeka Mühendisliği alanlarının birinde Tezli Yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Rumeli Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen Fakülte Bölümleri için 2547 Sayılı Yükseköğretim Kanunu ve “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetm",
+      "applicationDocuments": []
+    },
     {
       "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
       "city": "İstanbul",
