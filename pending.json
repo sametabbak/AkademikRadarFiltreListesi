@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10T20:04:49.131Z",
+  "lastUpdated": "2026-09-10T20:07:54.913Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -8,8 +8,8 @@
       "uniType": "Vakıf",
       "url": "https://www.ilan.gov.tr/ilan/2215555/kamu-akademik-personel-akademik-personel-alimlari-kapadokya-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
       "ilanNo": "YOK853235",
-      "publishDate": "2026-09-06T21:00:01+00:00",
-      "deadline": null,
+      "publishDate": "2026-09-07T00:00:00.000Z",
+      "deadline": "2026-09-21T00:00:00.000Z",
       "detectedTitles": [
         "PROFESÖR",
         "DR. ÖĞR. ÜYESİ"
@@ -43,7 +43,7 @@
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
           "requirements": "Lisans, yüksek lisans ve doktora derecesini Tarih alanında almış olmak. Tıp tarihi, çevresel tarih ve kent tarihi üzerine çalışmaları bulunmak. ESCI ve Scopus kapsamındaki dergilerde araştırma makalesi yayınlamış olmak. Bir yükseköğretim kurumunda en az 1 yıl ders vermiş olmak.",
-          "alesRequired": true,
+          "alesRequired": false,
           "alesScore": null,
           "alesType": null,
           "foreignLanguageRequired": true,
@@ -66,7 +66,7 @@
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
           "requirements": "Türk Dili ve Edebiyatı alanında lisans ve yüksek lisans mezunu olmak. Doktora derecesini Türkçe Eğitimi alanında almış olmak. Metin dilbilim ve retorik yapı çözümlemesi alanlarında çalışmalar yapmış olmak. En az 5 yıl ders verme deneyimine sahip olmak.",
-          "alesRequired": true,
+          "alesRequired": false,
           "alesScore": null,
           "alesType": "SAY",
           "foreignLanguageRequired": true,
