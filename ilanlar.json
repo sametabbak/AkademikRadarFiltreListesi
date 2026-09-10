@@ -1,7 +1,272 @@
 {
-  "lastUpdated": "2026-09-10T13:31:09.331Z",
+  "lastUpdated": "2026-09-10T13:34:47.980Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "SAMSUN ÜNİVERSİTESİ",
+      "city": "Samsun",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2215656/kamu-akademik-personel-akademik-personel-alimlari-samsun-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853244",
+      "publishDate": "2026-09-07T00:00:00.000Z",
+      "deadline": "2026-09-21T00:00:00.000Z",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Temel İslam Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora derecesini Tasavvuf alanında almış olup Nakşibendilik ve Farsça tasavvuf şerh literatürü konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Doktora derecesini Tasavvuf alanında almış olup Nakşibendilik ve Farsça tasavvuf şerh literatürü konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mimarlık ve Tasarım Fakültesi",
+          "department": "Mimarlık",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Mimarlık bilim alanında almış olup 17. yüzyıl Osmanlı mimarlık tarihi, kent tarihi ve mimarlık kuramı-eleştirisi konularında çalışmalar yapmış olmak. Ayrıca bina tasarımları gerçekleştirmiş olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Mimarlık bilim alanında almış olup.",
+            "yüzyıl Osmanlı mimarlık tarihi, kent tarihi ve mimarlık kuramı-eleştirisi konularında çalışmalar yapmış olmak. Ayrıca bina tasarımları gerçekleştirmiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mimarlık ve Tasarım Fakültesi",
+          "department": "Mimarlık",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Mimarlık bölümü lisans mezunu olup yüksek lisans ve doktora derecelerini Mimarlık Anabilim Dalı'nda almış olmak. Mimar Sinan dönemi merkezi kubbeli camiler hakkında ve ahşap direkli camilerin fotogrametrik yöntemlerle belgelenmesi üzerine çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mimarlık bölümü lisans mezunu olup yüksek lisans ve doktora derecelerini Mimarlık Anabilim Dalı'nda almış olmak.",
+            "Mimar Sinan dönemi merkezi kubbeli camiler hakkında ve ahşap direkli camilerin fotogrametrik yöntemlerle belgelenmesi üzerine çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mimarlık ve Tasarım Fakültesi",
+          "department": "Mimarlık",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Mimarlık bölümü lisans mezunu olup yüksek lisans ve doktora derecelerini Mimarlık Anabilim Dalı'nda almış olmak. Betonarme yapılarda taşıyıcı sistem düzensizliği ve deprem yönetmeliği ilişkisi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mimarlık bölümü lisans mezunu olup yüksek lisans ve doktora derecelerini Mimarlık Anabilim Dalı'nda almış olmak.",
+            "Betonarme yapılarda taşıyıcı sistem düzensizliği ve deprem yönetmeliği ilişkisi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Makine Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Makine Mühendisliği almış olup elektrokimyasal işleme, robotik ve elektrolitik parlatma alanlarında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Makine Mühendisliği almış olup elektrokimyasal işleme, robotik ve elektrolitik parlatma alanlarında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Özdemir Bayraktar Havacılık ve Uzay Bilimleri Fakültesi",
+          "department": "Havacılık ve Uzay Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Dokumasız malzeme mekaniği, kompozit malzeme mekaniği, eklemeli imalat, hesaplamalı katı cisimler mekaniği ve malzeme hasarı konularında SCI kapsamlı dergilerde yayımlanmış çalışmaları olmak. Ayrıca Yurt dışında en az 5 yıl doktora sonrası akademisyenlik tecrübesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Dokumasız malzeme mekaniği, kompozit malzeme mekaniği, eklemeli imalat, hesaplamalı katı cisimler mekaniği ve malzeme hasarı konularında SCI kapsamlı dergilerde yayımlanmış çalışmaları olmak.",
+            "Ayrıca Yurt dışında en az 5 yıl doktora sonrası akademisyenlik tecrübesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Özdemir Bayraktar Havacılık ve Uzay Bilimleri Fakültesi",
+          "department": "İklim Bilimi ve Meteoroloji Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doktora derecesini Meteoroloji Mühendisliği veya İnşaat Mühendisliği (Hidrolik) alanında almış olup kuraklık izleme sistemleri ile atmosferik gazların izlenmesi/arıtılması alanlarında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktora derecesini Meteoroloji Mühendisliği veya İnşaat Mühendisliği (Hidrolik) alanında almış olup kuraklık izleme sistemleri ile atmosferik gazların izlenmesi/arıtılması alanlarında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Sol dal pacing ve yapısal kalp hastalıklarının girişimsel tedavilerinde deneyim ve sertifika sahibi olmak. Ailesel hiperkolesterolemi ve kardiyak amiloidoz konularında SCI veya SCI-E kapsamlı dergilerde yayımlanmış çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Sol dal pacing ve yapısal kalp hastalıklarının girişimsel tedavilerinde deneyim ve sertifika sahibi olmak.",
+            "Ailesel hiperkolesterolemi ve kardiyak amiloidoz konularında SCI veya SCI-E kapsamlı dergilerde yayımlanmış çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Koroner baypas ameliyatlarında transit-time akım ölçümleri konusunda çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Koroner baypas ameliyatlarında transit-time akım ölçümleri konusunda çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Kulak, Burun, Boğaz Hastalıkları alanında almış olup Vemp ile ilgili B12 ve migren konularında çalışmalar yapmış olmak. Ayrıca pediatrik endoskopik kulak çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Kulak, Burun, Boğaz Hastalıkları alanında almış olup Vemp ile ilgili B12 ve migren konularında çalışmalar yapmış olmak.",
+            "Ayrıca pediatrik endoskopik kulak çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Genel Cerrahi alanında almış olup metabolik ve bariatrik cerrahi tecrübesi bulunmak ve Sağlık Bakanlığı obezite cerrahisi uygulama belgesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Genel Cerrahi alanında almış olup metabolik ve bariatrik cerrahi tecrübesi bulunmak ve Sağlık Bakanlığı obezite cerrahisi uygulama belgesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup Tıp Tarihi ve Etik alanında doktora veya tıpta uzmanlık eğitimini tamamlamış olmak. Tıp etiği, klinik etik, araştırma etiği veya tıp tarihi alanlarından en az birinde ulusal veya uluslararası yayın yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup Tıp Tarihi ve Etik alanında doktora veya tıpta uzmanlık eğitimini tamamlamış olmak.",
+            "Tıp etiği, klinik etik, araştırma etiği veya tıp tarihi alanlarından en az birinde ulusal veya uluslararası yayın yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Samsun Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemiz akademik birimlerine 657 sayılı Devlet Memurları Kanunu'nun 48 inci maddesi, 2547 sayılı Yükseköğretim Kanunu ve bu kanuna dayalı olarak çıkartılan ilgili Yönetmelik ile Samsun Üniversitesi Akademik Yükseltme ve Atama Ölçütle",
+      "applicationDocuments": []
+    },
     {
       "university": "İSTANBUL KÜLTÜR ÜNİVERSİTESİ",
       "city": "İstanbul",
