@@ -1,7 +1,462 @@
 {
-  "lastUpdated": "2026-09-10T19:59:08.125Z",
+  "lastUpdated": "2026-09-10T20:02:54.579Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "KÜTAHYA SAĞLIK BİLİMLERİ ÜNİVERSİTESİ",
+      "city": "Kütahya",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2215567/kamu-akademik-personel-akademik-personel-alimlari-kutahya-saglik-bilimleri-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853237",
+      "publishDate": "2026-09-07T00:00:00.000Z",
+      "deadline": "2026-09-21T00:00:00.000Z",
+      "detectedTitles": [
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Göz Hastalıkları alanında doçentlik ünvanı almış olmak. -Eğitim becerileri ve probleme dayalı öğrenim eğitimlerine ilişkin sertifikalara sahip olmak. -Tıbbi retina alanında deneyim sahibi olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Göz Hastalıkları alanında doçentlik ünvanı almış olmak. -Eğitim becerileri ve probleme dayalı öğrenim eğitimlerine ilişkin sertifikalara sahip olmak. -Tıbbi retina alanında deneyim sahibi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Kulak Burun ve Boğaz Hastalıkları alanında doçentlik ünvanı almış olmak. -KBB okulları kapsamında laringoloji okulu sertifikasına sahip olmak. -Vokal kıvrım paralizilerine yönelik çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Kulak Burun ve Boğaz Hastalıkları alanında doçentlik ünvanı almış olmak. -KBB okulları kapsamında laringoloji okulu sertifikasına sahip olmak. -Vokal kıvrım paralizilerine yönelik çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Histoloji ve Embriyoloji alanında doçentlik ünvanı almış olmak. -Eğiticilerin eğitimi ve probleme dayalı öğrenme sertifikalarına sahip olmak. -Kanser ve deneysel terapötikler alanında deneyim sahip olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Histoloji ve Embriyoloji alanında doçentlik ünvanı almış olmak. -Eğiticilerin eğitimi ve probleme dayalı öğrenme sertifikalarına sahip olmak. -Kanser ve deneysel terapötikler alanında deneyim sahip olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Acil Tıp alanında tıpta uzmanlığını almış olmak. -Acil Tıp alanında doçentlik ünvanı almış olmak. -Kritik bakım ve gastrointestinal sistem kanaması konularında çalışmalar yapmış olmak. -Eğitici eğitimi sertifikasına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Acil Tıp alanında tıpta uzmanlığını almış olmak. -Acil Tıp alanında doçentlik ünvanı almış olmak. -Kritik bakım ve gastrointestinal sistem kanaması konularında çalışmalar yapmış olmak. -Eğitici eğitimi sertifikasına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "-Radyoloji alanında tıpta uzmanlığını almış olmak. -Girişimsel radyoloji alanında sertifika sahibi olmak. -Meme kanseri görüntülemesinde yapay zekâ uygulamaları ile hormon reseptör durumunun öngörülmesi konusunda çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Radyoloji alanında tıpta uzmanlığını almış olmak. -Girişimsel radyoloji alanında sertifika sahibi olmak. -Meme kanseri görüntülemesinde yapay zekâ uygulamaları ile hormon reseptör durumunun öngörülmesi konusunda çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "-İç Hastalıkları alanında tıpta uzmanlığını almış olmak. -Temel iyi klinik uygulamalar sertifikası sahibi olmak. -Covid 19 ilişkili sepsis tanılı hastalarla ilgili çalışmalar yapmış olmak. -Pankreatit ve yoğun bakımda sepsis ile takip edilen hastalarla ilgili çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "İç Hastalıkları alanında tıpta uzmanlığını almış olmak. -Temel iyi klinik uygulamalar sertifikası sahibi olmak. -Covid 19 ilişkili sepsis tanılı hastalarla ilgili çalışmalar yapmış olmak. -Pankreatit ve yoğun bakımda sepsis ile takip edilen hastalarla ilgili çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "-İstatistik lisans mezunu olup biyoistatistik alanında tezli yüksek lisans ve doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "İstatistik lisans mezunu olup biyoistatistik alanında tezli yüksek lisans ve doktora yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "-Patoloji alanında tıpta uzmanlığını almış olmak. -Yükseköğretim kurumlarında ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Meme kanseri ile ilgili çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Patoloji alanında tıpta uzmanlığını almış olmak. -Yükseköğretim kurumlarında ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Meme kanseri ile ilgili çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "-Patoloji alanında tıpta uzmanlığını almış olmak. -Mesane kanserlerinde prognostik parametrelerle ilgili çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Patoloji alanında tıpta uzmanlığını almış olmak. -Mesane kanserlerinde prognostik parametrelerle ilgili çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "-Çocuk Cerrahisi alanında tıpta uzmanlığın almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Çocuk Cerrahisi alanında tıpta uzmanlığın almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "-Ordodonti alanında doçentlik ünvanı almış olmak. -Farklı ortognatik cerrahi tedavileri hakkında çalışmalar yapmış olmak. -Ortodontik kök rezorbsiyonları hakkında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ordodonti alanında doçentlik ünvanı almış olmak. -Farklı ortognatik cerrahi tedavileri hakkında çalışmalar yapmış olmak. -Ortodontik kök rezorbsiyonları hakkında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Endodonti alanında doçentlik ünvanı almış olmak. -Temel iyi klinik uygulamalar sertifikasına sahip olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Endodontide kriyoterapi alanında çalışma yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Endodonti alanında doçentlik ünvanı almış olmak. -Temel iyi klinik uygulamalar sertifikasına sahip olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Endodontide kriyoterapi alanında çalışma yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Beslenme ve Diyetetik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Biyokimya lisans mezunu olmak. -Tıbbi Biyokimya alanında yüksek lisans ve doktora yapmış olmak. -Tıbbi Biyokimya alanında doçentlik ünvanı almış olmak. -Beslenme biyokimyası ve metabolik biyobelirteçler üzerine bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Biyokimya lisans mezunu olmak. -Tıbbi Biyokimya alanında yüksek lisans ve doktora yapmış olmak. -Tıbbi Biyokimya alanında doçentlik ünvanı almış olmak. -Beslenme biyokimyası ve metabolik biyobelirteçler üzerine bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ebelik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Ebelik alanında doçentlik ünvanı almış olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Doğum deneyimi, doğum ortamının değerlendirilmesi, emzirme ve emzirme ortamı konularında çalışmalar yapmış olmak. -Kadın sağlığı hakkında yenilikçi eğitim yöntemleri konusunda çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik alanında doçentlik ünvanı almış olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Doğum deneyimi, doğum ortamının değerlendirilmesi, emzirme ve emzirme ortamı konularında çalışmalar yapmış olmak. -Kadın sağlığı hakkında yenilikçi eğitim yöntemleri konusunda çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ebelik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Doğum ve Kadın Hastalıkları Hemşireliği alanında doçentlik ünvanı almış olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Obstetrik şiddet, travma, perinatal yas, doğuma hazırlık ve doğum desteği konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doğum ve Kadın Hastalıkları Hemşireliği alanında doçentlik ünvanı almış olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl ders verme tecrübesine sahip olmak ve bunu belgelendirmek. -Obstetrik şiddet, travma, perinatal yas, doğuma hazırlık ve doğum desteği konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Fizyoterapi ve Rehabilitasyon alanında doçentlik ünvanı almış olmak. -Nörolojik rehabilitasyon alanında SCI veya SCI-Expanded kapsamındaki dergilerde yayımlanmış yayınları bulunmak. -Multiple sklerozda nörojenik aşırı aktif mesane ile ilgili çalışmalar yapmış olmak. -İnmede motor imgeleme ve eylem gözleminin otonom sinir sistemi yanıtları üzerine çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon alanında doçentlik ünvanı almış olmak. -Nörolojik rehabilitasyon alanında SCI veya SCI-Expanded kapsamındaki dergilerde yayımlanmış yayınları bulunmak. -Multiple sklerozda nörojenik aşırı aktif mesane ile ilgili çalışmalar yapmış olmak. -İnmede motor imgeleme ve eylem gözleminin otonom sinir sistemi yanıtları üzerine çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "-Beden Eğitimi ve Spor alanında doktora yapmış olmak. -Egzersiz, fiziksel aktivite, kadınlarda egzersiz ve trambolin üzerine enerji tüketimi ve fizyolojik yanıtlar üzerine çalışmalar yapmış olmak. -Yükseköğretim kurumlarında en az 5 (beş) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Beden Eğitimi ve Spor alanında doktora yapmış olmak. -Egzersiz, fiziksel aktivite, kadınlarda egzersiz ve trambolin üzerine enerji tüketimi ve fizyolojik yanıtlar üzerine çalışmalar yapmış olmak. -Yükseköğretim kurumlarında en az 5 (beş) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Cerrahi Hastalıkları Hemşireliği alanında doktora yapmış olup, aynı alanda doçentlik ünvanı almış olmak. -Ameliyathane ve medikal cihaz kaynaklı basınç yaralanmaları ile ilgili bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Cerrahi Hastalıkları Hemşireliği alanında doktora yapmış olup, aynı alanda doçentlik ünvanı almış olmak. -Ameliyathane ve medikal cihaz kaynaklı basınç yaralanmaları ile ilgili bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Temel Bilimler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Matematik alanında doçentlik ünvanı almış olmak. -Esnek topoloji, bulanık mantık ve çok kriterli karar verme yöntemleri konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Matematik alanında doçentlik ünvanı almış olmak. -Esnek topoloji, bulanık mantık ve çok kriterli karar verme yöntemleri konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kütahya Meslek Yüksekokulu",
+          "department": "Sağlık Bakım Hizmetleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "-Hemşirelik lisans mezunu olmak. -Ruh Sağlığı ve Psikiyatri Hemşireliği alanında doktora yapmış olmak. -Psikiyatri Hemşireliği alanında doçentlik ünvanı almış olmak. -Şiddete maruz kalma korkusu ve teknoloji kaygısı konularında çalışmaları yapmış olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olmak. -Ruh Sağlığı ve Psikiyatri Hemşireliği alanında doktora yapmış olmak. -Psikiyatri Hemşireliği alanında doçentlik ünvanı almış olmak. -Şiddete maruz kalma korkusu ve teknoloji kaygısı konularında çalışmaları yapmış olmak. -Yükseköğretim kurumlarında en az 3 (üç) yıl süre ile ders verme tecrübesine sahip olmak ve bunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kütahya Sağlık Bilimleri Üniversitesi Rektörlüğünden: 02 Kasım 2018 tarihli ve 30583 sayılı Resmî Gazete'de yayımlanan “Devlet Yükseköğretim Kurumlarında Öğretim Elemanı Norm Kadrolarının Belirlenmesine ve Kullanılmasına İlişkin Yönetmelik” kapsamında Üniversitemizin aşağıda belirtilen birimlerine 2",
+      "applicationDocuments": []
+    },
+    {
+      "university": "MALTEPE ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2215572/kamu-akademik-personel-akademik-personel-alimlari-maltepe-universitesi-rektorlugu-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853238",
+      "publishDate": "2026-09-07T00:00:00.000Z",
+      "deadline": "2026-09-21T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Özel Eğitim Bölümü Özel Eğitim Öğretmenliği Programı",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lisans eğitimini Özel Eğitim alanında tamamlamış olmak. Lisansüstü eğitimine devam eden adaylar için Özel Eğitim alanlarından birinde yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Lisans eğitimini Özel Eğitim alanında tamamlamış olmak.",
+            "Lisansüstü eğitimine devam eden adaylar için Özel Eğitim alanlarından birinde yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": "33/a",
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Maltepe Üniversitesi Rektörlüğünden: ARAŞTIRMA GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda belirtilen akademik birimine, 2547 sayılı Yükseköğretim Kanununun 33. Maddesiyle “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişk",
+      "applicationDocuments": []
+    },
     {
       "university": "İSTANBUL KÜLTÜR ÜNİVERSİTESİ",
       "city": "İstanbul",
