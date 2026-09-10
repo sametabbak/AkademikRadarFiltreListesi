@@ -1,7 +1,64 @@
 {
-  "lastUpdated": "2026-09-10T12:00:41.767Z",
+  "lastUpdated": "2026-09-10T12:02:01.041Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "NEVŞEHİR HACI BEKTAŞ VELİ ÜNİVERSİTESİ",
+      "city": "Nevşehir",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2218223/kamu-akademik-personel-akademik-personel-alimlari-nevsehir-haci-bektas-veli-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853260",
+      "publishDate": "2026-09-08T21:00:00.000Z",
+      "deadline": "2026-09-23T20:59:00.000Z",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Kozaklı Meslek Yüksekokulu Veri Tabanı, Ağ Tasarımı ve Yönetimi Bölümü Dijital Sağlık Sistemleri Teknikerliği Programı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilişim Sistemleri Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak. Lisans mezuniyeti sonrası belgelendirmek kaydıyla Dijital Sağlık Sistemleri alanında en az 1 (bir) yıl sektör deneyimine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Bilişim Sistemleri Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak.",
+            "Lisans mezuniyeti sonrası belgelendirmek kaydıyla Dijital Sağlık Sistemleri alanında en az 1 (bir) yıl sektör deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi Temel İslam Bilimleri Bölümü Arap Dili ve Belagatı Anabilim Dalı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İlahiyat, İslami İlimler Fakültesi veya eşdeğeri olan fakültelerin birinden lisans mezunu olup, Arap Dili ve Belagatı alanında tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "İlahiyat, İslami İlimler Fakültesi veya eşdeğeri olan fakültelerin birinden lisans mezunu olup, Arap Dili ve Belagatı alanında tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Nevşehir Hacı Bektaş Veli Üniversitesi Rektörlüğünden Üniversitemizin birimlerine 2547 sayılı Kanun’un ve 09.11.2018 tarihli ve 30590 sayılı Resmî Gazete’de yayımlanarak yürürlüğe giren “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sına",
+      "applicationDocuments": []
+    },
     {
       "university": "TRABZON ÜNİVERSİTESİ",
       "city": "Trabzon",
