@@ -1,43 +1,7 @@
 {
-  "lastUpdated": "2026-09-10T20:11:15.595Z",
+  "lastUpdated": "2026-09-10T20:11:19.360Z",
   "source": "ilan.gov.tr",
   "ads": [
-    {
-      "university": "EGE ÜNİVERSİTESİ",
-      "city": "İzmi̇r",
-      "uniType": "Devlet",
-      "url": "https://www.ilan.gov.tr/ilan/2215470/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-ege-universitesi-rektorlugu-",
-      "ilanNo": "YOK853231",
-      "publishDate": "2026-09-04T21:00:01+00:00",
-      "deadline": "2026-09-15T00:00:00.000Z",
-      "detectedTitles": [
-        "ARAŞTIRMA GÖREVLİSİ"
-      ],
-      "positions": [
-        {
-          "faculty": "",
-          "department": "Sosyoloji Bölümü",
-          "title": "ARAŞTIRMA GÖREVLİSİ",
-          "count": 1,
-          "requirements": "Sosyoloji alanında tezli yüksek lisans yapıyor olmak.",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "EA",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": 50,
-          "foreignLanguageExam": null,
-          "derece": 5,
-          "temelAlan": "Sosyal Bilimler",
-          "sartlar": [
-            "Sosyoloji alanında tezli yüksek lisans yapıyor olmak."
-          ],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        }
-      ],
-      "contentSnippet": "Ege Üniversitesi Rektörlüğünden: DÜZELTME İLANI 01.09.2026 tarih ve 33357 sayılı Resmî Gazete'de aslına uygun olarak yayımlanan Edebiyat Fakültesi Uygulamalı Sosyoloji Anabilim Dalı Araştırma Görevlisi kadrosuna ait Ales Puan türü aşağıdaki şekilde düzeltilmiştir. İLAN NO KURULUŞ BÖLÜM ANABİLİM DALI",
-      "applicationDocuments": []
-    },
     {
       "university": "ERZURUM TEKNİK ÜNİVERSİTESİ",
       "city": "Erzurum",
