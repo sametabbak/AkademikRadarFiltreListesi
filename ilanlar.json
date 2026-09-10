@@ -1,7 +1,153 @@
 {
-  "lastUpdated": "2026-09-10T13:22:03.681Z",
+  "lastUpdated": "2026-09-10T13:31:09.331Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL KÜLTÜR ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2215629/kamu-akademik-personel-akademik-personel-alimlari-kultur-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853242",
+      "publishDate": "2026-09-06T21:00:00.000Z",
+      "deadline": "2026-09-21T20:59:00.000Z",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Eğitim Bilimleri Bölümü, Rehberlik ve Psikolojik Danışmanlık Programı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Eğitim Psikolojisi Alanında Doçentlik Unvanını Aldıktan Sonra En Az Beş Yıl Süreyle Açık Bulunan Profesörlük Kadrosu İle İlgili Bilim Alanında Çalışmış Olmak. Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Eğitim Psikolojisi Alanında Doçentlik Unvanını Aldıktan Sonra En Az Beş Yıl Süreyle Açık Bulunan Profesörlük Kadrosu İle İlgili Bilim Alanında Çalışmış Olmak.",
+            "Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Eğitim Bilimleri Bölümü, Rehberlik ve Psikolojik Danışmanlık Programı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Eğitim Programları ve Öğretim Alanında Doçentlik Unvanını Aldıktan Sonra En Az Beş Yıl Süreyle Açık Bulunan Profesörlük Kadrosu İle İlgili Bilim Alanında Çalışmış Olmak. Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Eğitim Programları ve Öğretim Alanında Doçentlik Unvanını Aldıktan Sonra En Az Beş Yıl Süreyle Açık Bulunan Profesörlük Kadrosu İle İlgili Bilim Alanında Çalışmış Olmak.",
+            "Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mimarlık Fakültesi",
+          "department": "İç Mimarlık ve Çevre Tasarımı Bölümü, İç Mimarlık ve Çevre Tasarımı Programı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İç Mimarlık veya İç Mimarlık ve Çevre Tasarımı Alanlarından Birinden Lisans Mezunu Olmak. Mimarlık Tarihi veya Mimarlık Tarihi ve Kuramı Alanlarından Birinden Tezli Yüksek Lisans Mezunu Olmak. Mimarlık Tarihi veya Mimarlık Tarihi ve Kuramı Alanlarından Birinde Doktora Öğrenimini Tamamlamış Olmak. Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İç Mimarlık veya İç Mimarlık ve Çevre Tasarımı Alanlarından Birinden Lisans Mezunu Olmak.",
+            "Mimarlık Tarihi veya Mimarlık Tarihi ve Kuramı Alanlarından Birinden Tezli Yüksek Lisans Mezunu Olmak.",
+            "Mimarlık Tarihi veya Mimarlık Tarihi ve Kuramı Alanlarından Birinde Doktora Öğrenimini Tamamlamış Olmak.",
+            "Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İşletme Bölümü, İşletme Programı (Eğitim Dili: İngilizce)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Muhasebe Alanında Almış Olmak. Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doçentliğini Muhasebe Alanında Almış Olmak.",
+            "Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Yabancı Diller Eğitimi Bölümü, İngilizce Öğretmenliği Programı (Eğitim Dili: İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İngilizce Eğitimi Alanında Doktora Öğrenimini Tamamlamış Olmak. Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Eğitimi Alanında Doktora Öğrenimini Tamamlamış Olmak.",
+            "Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Temel Eğitim Bölümü, Okul Öncesi Öğretmenliği Programı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Okul Öncesi Eğitimi Alanında Almış Olmak. Okul Öncesi Eğitimi Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Doçentliğini Okul Öncesi Eğitimi Alanında Almış Olmak.",
+            "Okul Öncesi Eğitimi Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Kültür Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda bilgileri belirtilen akademik birimlerine, ilgili unvanlar için 2547 Sayılı Yükseköğretim Kanunu, YÖK Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ile T.C. İstanbul Kültür Üniversitesi Öğretim Üyeliğine Yükseltilme ve Atanma",
+      "applicationDocuments": []
+    },
     {
       "university": "KAHRAMANMARAŞ SÜTÇÜ İMAM ÜNİVERSİTESİ",
       "city": "Kahramanmaraş",
