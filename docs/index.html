@@ -101,6 +101,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);height:100vh
 .pos-table tfoot td{padding:.45rem}
 .add-row-btn{background:none;border:1px dashed var(--border);color:var(--text3);border-radius:var(--radius);padding:.28rem .7rem;font-size:.74rem;cursor:pointer;font-family:var(--font);transition:all .15s}
 .add-row-btn:hover{border-color:var(--accent);color:var(--accent)}
+.sart-btn{background:none;border:1px solid var(--border);color:var(--text3);border-radius:var(--radius);
+  padding:.14rem .4rem;font-size:.68rem;cursor:pointer;font-family:var(--font);white-space:nowrap;transition:all .15s}
+.sart-btn:hover{border-color:var(--accent);color:var(--accent)}
+.sart-btn.has{color:var(--green);border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.07)}
+.pos-hint{padding:.4rem .7rem;font-size:.68rem;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg3)}
 .del-row-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;padding:.08rem .28rem;border-radius:3px;transition:color .15s}
 .del-row-btn:hover{color:var(--red)}
 /* Row Detail Drawer */
@@ -153,6 +158,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);height:100vh
 .btn-danger{background:var(--red);color:#fff}.btn-ghost{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
 .btn-sm{padding:.27rem .58rem;font-size:.77rem}.btn-xs{padding:.17rem .42rem;font-size:.7rem}
 /* Toast */
+#manual-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:950;align-items:center;justify-content:center}
+#manual-overlay.open{display:flex}
 #toast-container{position:fixed;bottom:1rem;right:1rem;z-index:9999;display:flex;flex-direction:column;gap:.4rem}
 .toast{display:flex;align-items:center;gap:.45rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:.5rem .85rem;font-size:.79rem;min-width:210px;max-width:330px;animation:toastIn .18s ease;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .toast.success{border-left:3px solid var(--green)}.toast.error{border-left:3px solid var(--red)}.toast.info{border-left:3px solid var(--accent)}
@@ -280,16 +287,106 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);height:100vh
     </div>
     <div class="divider"></div>
     <div class="settings-section">
+      <h3>İlan Getirme (CORS)</h3>
+      <div class="field">
+        <label>Yöntem</label>
+        <select id="s-fetchmode" onchange="onFetchModeChange()">
+          <option value="proxy">Proxy üzerinden (önerilen)</option>
+          <option value="direct">Doğrudan</option>
+          <option value="manual">Elle yapıştır</option>
+        </select>
+        <span class="field-hint">ilan.gov.tr tarayıcıdan doğrudan erişime CORS ile izin vermiyor. Proxy, isteği aktaran aracı bir servistir.</span>
+      </div>
+      <div class="field" id="s-proxy-wrap">
+        <label>Proxy adresi</label>
+        <input type="text" id="s-proxyurl" class="mono" style="font-size:.72rem" placeholder="https://api.allorigins.win/raw?url={url}">
+        <span class="field-hint"><code>{url}</code> hedef adresle değiştirilir. Kendi Cloudflare Worker'ınız en güvenilir yoldur.</span>
+      </div>
+      <button class="btn btn-ghost btn-sm" id="fetchtest-btn" onclick="testFetch()">Getirmeyi Test Et</button>
+    </div>
+
+    <div class="divider"></div>
+    <div class="settings-section">
       <h3>Tehlike</h3>
       <button class="btn btn-ghost btn-sm" onclick="clearToken()" style="color:var(--red);border-color:rgba(239,68,68,.3)">Token Sil &amp; Çıkış</button>
+    </div>
+  </div>
+</div>
+
+<!-- Manual JSON paste (CORS fallback) -->
+<div id="manual-overlay" onclick="if(event.target===this)closeManualPaste()">
+  <div class="settings-card" style="width:560px">
+    <button class="settings-close" onclick="closeManualPaste()">✕</button>
+    <h2 style="font-size:.93rem">İlanı Elle Getir</h2>
+    <div id="manual-reason" style="font-size:.75rem;color:var(--yellow);line-height:1.5;
+         background:rgba(245,158,11,.08);border-left:2px solid var(--yellow);padding:.5rem .6rem"></div>
+    <div class="settings-section">
+      <h3>1 · Bu adresi yeni sekmede aç</h3>
+      <div style="display:flex;gap:.4rem;align-items:center">
+        <input type="text" id="manual-url" readonly class="mono" style="flex:1;font-size:.72rem">
+        <button class="btn btn-ghost btn-sm" onclick="copyManualUrl()">Kopyala</button>
+        <button class="btn btn-primary btn-sm" onclick="openManualUrl()">Aç ↗</button>
+      </div>
+      <span class="field-hint">Tarayıcıda açtığınızda CORS kısıtlaması uygulanmaz; JSON doğrudan görünür.</span>
+    </div>
+    <div class="settings-section">
+      <h3>2 · Gördüğünüz JSON'un tamamını yapıştırın</h3>
+      <div class="field">
+        <textarea id="manual-json" rows="8" class="mono" style="font-size:.68rem"
+                  placeholder='{"result":{"id":"2094289", ...}}'></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="submitManualJson()">Ayrıştır ve Düzenle</button>
     </div>
   </div>
 </div>
 <div id="toast-container"></div>
 
 <script>
-const STORAGE={token:'ar_token',owner:'ar_owner',repo:'ar_repo',branch:'ar_branch'};
-const DEFAULTS={owner:'sametabbak',repo:'AkademikRadarFiltreListesi',branch:'main'};
+const STORAGE={token:'ar_token',owner:'ar_owner',repo:'ar_repo',branch:'ar_branch',fetchMode:'ar_fetchmode',proxyUrl:'ar_proxyurl'};
+const DEFAULTS={owner:'sametabbak',repo:'AkademikRadarFiltreListesi',branch:'main',
+  fetchMode:'proxy',
+  proxyUrl:'https://api.allorigins.win/raw?url={url}'};
+
+// ilan.gov.tr sends no Access-Control-Allow-Origin header, so a browser on
+// github.io cannot call it directly. Modes:
+//   direct — straight fetch (works when the panel runs from file:// or a
+//            browser with CORS disabled)
+//   proxy  — route through a CORS proxy; {url} is replaced with the encoded target
+//   manual — no network call; the user pastes the JSON by hand
+function getFetchMode(){ return localStorage.getItem(STORAGE.fetchMode)||DEFAULTS.fetchMode; }
+function getProxyUrl(){  return localStorage.getItem(STORAGE.proxyUrl) ||DEFAULTS.proxyUrl; }
+
+function proxied(target){
+  const tpl=getProxyUrl();
+  return tpl.includes('{url}')
+    ? tpl.replace('{url}',encodeURIComponent(target))
+    : tpl+encodeURIComponent(target);
+}
+
+// Fetch a JSON endpoint on ilan.gov.tr, honouring the configured mode.
+async function apiFetch(target, options){
+  const mode=getFetchMode();
+  if(mode==='manual') throw new Error('MANUAL_MODE');
+
+  const attempts = mode==='direct' ? ['direct'] : ['proxy','direct'];
+  let lastErr=null;
+
+  for(const how of attempts){
+    try{
+      const url = how==='proxy' ? proxied(target) : target;
+      // A proxy can only relay GET, so POST bodies fall back to direct.
+      if(how==='proxy' && options && options.method==='POST') continue;
+      const res=await fetch(url, options||{headers:{Accept:'application/json'}});
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const txt=await res.text();
+      try{ return JSON.parse(txt); }
+      catch(e){ throw new Error('Yanıt JSON değil (proxy engellenmiş olabilir)'); }
+    }catch(e){ lastErr=e; }
+  }
+  throw new Error(
+    (lastErr&&lastErr.message)||'Bağlantı kurulamadı'
+  );
+}
 const ACADEMIC_TITLES=['PROFESÖR','DOÇENT','DR. ÖĞR. ÜYESİ','ÖĞRETİM GÖREVLİSİ','ARAŞTIRMA GÖREVLİSİ','UZMAN','OKUTMAN','ÇEVİRİCİ','EĞİTİM-ÖĞRETİM PLANLAMACISI'];
 const TITLE_CLASS={'PROFESÖR':'prof','DOÇENT':'doc','DR. ÖĞR. ÜYESİ':'dr','ÖĞRETİM GÖREVLİSİ':'ogr','ARAŞTIRMA GÖREVLİSİ':'ars'};
 const ALES_TYPES=['SAY','SÖZ','EA'];
@@ -585,11 +682,12 @@ function renderEditor(containerId,ad,tab){
     </div>
     <div class="editor-section">
       <div class="section-header">Pozisyonlar <span style="color:var(--text3);font-size:.7rem;font-weight:400" id="pos-summary-${containerId}">${(draft.positions||[]).length} satır · ${(draft.positions||[]).reduce((s,p)=>s+(p.count||1),0)} kişi</span></div>
+      <div class="pos-hint">Satır numarasına veya <strong>Şartlar</strong> düğmesine tıklayarak ALES, yabancı dil, derece ve özel şartları düzenleyin.</div>
       <div class="pos-table-wrap">
         <table class="pos-table">
-          <thead><tr><th style="width:26px">#</th><th>Fakülte</th><th>Bölüm/Program</th><th>Unvan</th><th style="width:44px">Drc</th><th style="width:46px">Adet</th><th style="width:42px">ALES</th><th style="width:42px">Dil</th><th style="width:56px">Kanun</th><th style="width:22px"></th></tr></thead>
+          <thead><tr><th style="width:26px">#</th><th>Fakülte</th><th>Bölüm/Program</th><th>Unvan</th><th style="width:44px">Drc</th><th style="width:46px">Adet</th><th style="width:42px">ALES</th><th style="width:42px">Dil</th><th style="width:56px">Kanun</th><th style="width:64px">Şartlar</th><th style="width:22px"></th></tr></thead>
           <tbody id="pos-tbody-${containerId}"></tbody>
-          <tfoot><tr><td colspan="10"><button class="add-row-btn" onclick="addPositionRow('${containerId}')">+ Satır Ekle</button></td></tr></tfoot>
+          <tfoot><tr><td colspan="11"><button class="add-row-btn" onclick="addPositionRow('${containerId}')">+ Satır Ekle</button></td></tr></tfoot>
         </table>
       </div>
     </div>
@@ -602,7 +700,7 @@ function renderPositionRows(containerId,positions){
   const tbody=el(`pos-tbody-${containerId}`);if(!tbody)return;
   tbody.innerHTML=positions.map((p,i)=>`
     <tr>
-      <td class="row-num" onclick="openDrawer('${containerId}',${i})">${i+1}</td>
+      <td class="row-num" onclick="openDrawer('${containerId}',${i})" title="Detay ve şartlar için tıkla">${i+1}</td>
       <td><input class="cell-input" value="${esc(p.faculty||'')}" oninput="updatePos('${containerId}',${i},'faculty',this.value)" placeholder="Fakülte"></td>
       <td><input class="cell-input" value="${esc(p.department||'')}" oninput="updatePos('${containerId}',${i},'department',this.value)" placeholder="Bölüm"></td>
       <td><select class="cell-select" onchange="updatePos('${containerId}',${i},'title',this.value)">${ACADEMIC_TITLES.map(t=>`<option ${(p.title||'').includes(t)?'selected':''}>${t}</option>`).join('')}</select></td>
@@ -611,6 +709,7 @@ function renderPositionRows(containerId,positions){
       <td class="cell-bool"><input type="checkbox" ${p.alesRequired?'checked':''} onchange="updatePos('${containerId}',${i},'alesRequired',this.checked)" title="ALES zorunlu"></td>
       <td class="cell-bool"><input type="checkbox" ${p.foreignLanguageRequired?'checked':''} onchange="updatePos('${containerId}',${i},'foreignLanguageRequired',this.checked)" title="Yabancı dil zorunlu"></td>
       <td><select class="cell-select" style="max-width:54px" onchange="updatePos('${containerId}',${i},'kanunMaddesi',this.value||null)" title="2547 sayılı Kanun maddesi"><option value="">–</option>${KANUN_MADDELERI.map(k=>`<option ${p.kanunMaddesi===k?'selected':''}>${k}</option>`).join('')}</select></td>
+      <td><button class="sart-btn ${(p.sartlar||[]).length?'has':''}" onclick="openDrawer('${containerId}',${i})" title="Özel şartları düzenle">${(p.sartlar||[]).length?`Şart ${(p.sartlar||[]).length}`:'+ Şart'}</button></td>
       <td><button class="del-row-btn" onclick="deletePositionRow('${containerId}',${i})">✕</button></td>
     </tr>`).join('');
   const sum=el(`pos-summary-${containerId}`);
@@ -738,17 +837,27 @@ function updateSartLine(i,val){
   const p=currentPos(); if(!p) return;
   if(!p.sartlar) p.sartlar=[];
   p.sartlar[i]=val;
+  // Mirror into requirements so the raw text and the list stay consistent
+  p.requirements=p.sartlar.filter(Boolean).join(' ');
+}
+function syncSartCount(){
+  if(!drawerRow) return;
+  const c=el(drawerRow.containerId);
+  if(c&&c._draft) renderPositionRows(drawerRow.containerId,c._draft.positions);
 }
 function addSartLine(){
   const p=currentPos(); if(!p) return;
   if(!p.sartlar) p.sartlar=[];
   p.sartlar.push('');
-  renderSartlar();
+  renderSartlar(); syncSartCount();
+  // Focus the new line so typing can start immediately
+  const boxes=el('sartlar-list').querySelectorAll('textarea');
+  if(boxes.length) boxes[boxes.length-1].focus();
 }
 function removeSartLine(i){
   const p=currentPos(); if(!p) return;
   p.sartlar.splice(i,1);
-  renderSartlar();
+  renderSartlar(); syncSartCount();
 }
 function resplitSartlar(){
   const p=currentPos(); if(!p) return;
@@ -757,7 +866,7 @@ function resplitSartlar(){
   let parts=t.split(/(?:•|●|\d{1,2}\s*[-).]\s+|[a-h]\s*\)\s+)/).map(s=>s.trim()).filter(Boolean);
   if(parts.length<=1) parts=t.split(/(?<=[a-zçğıöşü)])\.\s+(?=[A-ZÇĞİÖŞÜ])/).map(s=>s.trim()).filter(Boolean);
   p.sartlar=parts.map(s=>s.replace(/^[\s.;•-]+|[\s.;•-]+$/g,'')).filter(s=>s.length>=8).map(s=>s.endsWith('.')?s:s+'.').slice(0,20);
-  renderSartlar();
+  renderSartlar(); syncSartCount();
   showToast(`${p.sartlar.length} şart ayrıştırıldı`,'success');
 }
 
@@ -810,13 +919,15 @@ async function resolveAdId(raw){
   const adNo=raw.toUpperCase().replace(/\s/g,'');
   const pageSize=20;
   for(let skip=0; skip<400; skip+=pageSize){
-    const res=await fetch('https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter',{
-      method:'POST',
-      headers:{'Content-Type':'application/json-patch+json',Accept:'application/json'},
-      body:JSON.stringify({keys:{txv:[73]},skipCount:skip,maxResultCount:pageSize}),
-    });
-    if(!res.ok) break;
-    const r=(await res.json()).result;
+    let r;
+    try{
+      const j=await apiFetch('https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter',{
+        method:'POST',
+        headers:{'Content-Type':'application/json-patch+json',Accept:'application/json'},
+        body:JSON.stringify({keys:{txv:[73]},skipCount:skip,maxResultCount:pageSize}),
+      });
+      r=j.result;
+    }catch(e){ break; }
     const items=r?.ads||[];
     if(!items.length) break;
     const hit=items.find(a=>String(a.adNo||'').toUpperCase()===adNo);
@@ -839,10 +950,8 @@ async function fetchAndAdd(){
     const adId=await resolveAdId(raw);
     if(!adId) throw new Error('İlan bulunamadı. URL veya ilan numarasını kontrol edin.');
 
-    const res=await fetch(`https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${adId}`,
-                          {headers:{Accept:'application/json'}});
-    if(!res.ok) throw new Error(`API hatası: ${res.status}`);
-    const detail=(await res.json()).result;
+    const detail=(await apiFetch(
+      `https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${adId}`)).result;
     if(!detail) throw new Error('Geçersiz yanıt');
 
     const ad=parseDetailToAd(detail);
@@ -862,9 +971,13 @@ async function fetchAndAdd(){
     else
       showToast(`${ad.positions.length} pozisyon ayrıştırıldı`,'success');
   }catch(e){
-    showToast(`Getirilemedi: ${e.message}`,'error',5000);
+    if(e.message==='MANUAL_MODE') openManualPaste(raw);
+    else{
+      showToast(`Getirilemedi: ${e.message}`,'error',6000);
+      openManualPaste(raw, e.message);
+    }
   }finally{
-    btn.disabled=false; btn.textContent='Getir ve Düzenle';
+    btn.disabled=false; btn.textContent='Getir ve Ayrıştır';
   }
 }
 
@@ -889,10 +1002,9 @@ async function reparseAd(containerId){
     await loadUniversityList();
     const adId=await resolveAdId(draft.url||draft.ilanNo);
     if(!adId) throw new Error('İlan bulunamadı');
-    const res=await fetch(`https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${adId}`,
-                          {headers:{Accept:'application/json'}});
-    if(!res.ok) throw new Error(`API hatası: ${res.status}`);
-    const detail=(await res.json()).result;
+    const detail=(await apiFetch(
+      `https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${adId}`)).result;
+    if(!detail) throw new Error('Geçersiz yanıt');
     const fresh=parseDetailToAd(detail);
 
     // Keep the identity of the existing record; refresh the parsed content.
@@ -1349,12 +1461,101 @@ function parseAdContent(html, fullText){
   });
 }
 
+
+// ── Manual JSON paste — guaranteed fallback when CORS blocks the fetch ─────
+let manualRaw='';
+function openManualPaste(raw, reason){
+  manualRaw=raw||'';
+  const reasonEl=el('manual-reason');
+  if(reason){
+    reasonEl.style.display='block';
+    reasonEl.textContent=`Otomatik getirme başarısız (${reason}). Tarayıcı, ilan.gov.tr'ye doğrudan `+
+      `istek atmanızı CORS nedeniyle engelliyor. Aşağıdaki yolla elle getirebilirsiniz.`;
+  } else {
+    reasonEl.style.display='none';
+  }
+  // Build the best URL we can from what the user typed
+  let url;
+  const m=String(raw||'').match(/\/ilan\/(\d+)/);
+  const id=m?m[1]:(/^\d+$/.test(raw)?raw:null);
+  url = id
+    ? `https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${id}`
+    : `https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari`;
+  el('manual-url').value=url;
+  el('manual-json').value='';
+  el('manual-overlay').classList.add('open');
+}
+function closeManualPaste(){ el('manual-overlay').classList.remove('open'); }
+function copyManualUrl(){
+  const i=el('manual-url'); i.select(); document.execCommand('copy');
+  showToast('Adres kopyalandı','success');
+}
+function openManualUrl(){ window.open(el('manual-url').value,'_blank','noopener'); }
+
+async function submitManualJson(){
+  const raw=el('manual-json').value.trim();
+  if(!raw){ showToast('JSON yapıştırın','error'); return; }
+  let data;
+  try{ data=JSON.parse(raw); }
+  catch(e){ showToast('Geçersiz JSON — tamamını kopyaladığınızdan emin olun','error'); return; }
+
+  const detail=data.result||data;
+  if(!detail||!detail.content){
+    showToast("JSON'da 'content' alanı yok — yanlış adres olabilir",'error',5000); return;
+  }
+  try{
+    await loadUniversityList();
+    const ad=parseDetailToAd(detail);
+    const dup=findDuplicate(ad.ilanNo);
+    if(dup && !confirm(`Bu ilan zaten "${dup}" listesinde. Yine de düzenlemek istiyor musunuz?`)) return;
+    activeEditor={tab:'add',ilanNo:ad.ilanNo||'manual',isNew:true};
+    renderEditor('add-editor',ad,'add');
+    el('add-editor').classList.remove('hidden');
+    closeManualPaste();
+    switchTab('add');
+    showToast(ad.positions.length
+      ? `${ad.positions.length} pozisyon ayrıştırıldı`
+      : 'İlan alındı ancak pozisyon ayrıştırılamadı — elle girin',
+      ad.positions.length?'success':'info',5000);
+  }catch(e){ showToast(`Ayrıştırılamadı: ${e.message}`,'error',5000); }
+}
+
 // ── Settings ──
-function openSettings(){el('s-token').value=localStorage.getItem(STORAGE.token)||'';el('s-owner').value=localStorage.getItem(STORAGE.owner)||DEFAULTS.owner;el('s-repo').value=localStorage.getItem(STORAGE.repo)||DEFAULTS.repo;el('s-branch').value=localStorage.getItem(STORAGE.branch)||DEFAULTS.branch;el('settings-overlay').classList.add('open')}
+function openSettings(){
+  el('s-token').value=localStorage.getItem(STORAGE.token)||'';
+  el('s-owner').value=localStorage.getItem(STORAGE.owner)||DEFAULTS.owner;
+  el('s-repo').value=localStorage.getItem(STORAGE.repo)||DEFAULTS.repo;
+  el('s-branch').value=localStorage.getItem(STORAGE.branch)||DEFAULTS.branch;
+  el('s-fetchmode').value=getFetchMode();
+  el('s-proxyurl').value=getProxyUrl();
+  onFetchModeChange();
+  el('settings-overlay').classList.add('open');
+}
+function onFetchModeChange(){
+  const m=el('s-fetchmode').value;
+  el('s-proxy-wrap').style.display = m==='proxy' ? 'flex' : 'none';
+}
+async function testFetch(){
+  const btn=el('fetchtest-btn'); const label=btn.textContent;
+  btn.disabled=true; btn.innerHTML='<div class="spinner"></div>';
+  localStorage.setItem(STORAGE.fetchMode, el('s-fetchmode').value);
+  localStorage.setItem(STORAGE.proxyUrl,  el('s-proxyurl').value.trim()||DEFAULTS.proxyUrl);
+  try{
+    const j=await apiFetch('https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289');
+    if(j&&j.result) showToast('Getirme başarılı — ilan.gov.tr erişilebilir','success');
+    else showToast('Yanıt alındı ancak beklenen biçimde değil','error');
+  }catch(e){
+    showToast(e.message==='MANUAL_MODE'
+      ? 'Elle yapıştırma modu seçili — otomatik getirme kapalı'
+      : `Getirme başarısız: ${e.message}`,'error',5000);
+  }finally{ btn.disabled=false; btn.textContent=label; }
+}
 function closeSettings(){el('settings-overlay').classList.remove('open')}
 function saveSettings(){
   const t=el('s-token').value.trim();if(!t){showToast('Token boş olamaz','error');return}
   localStorage.setItem(STORAGE.token,t);localStorage.setItem(STORAGE.owner,el('s-owner').value.trim()||DEFAULTS.owner);localStorage.setItem(STORAGE.repo,el('s-repo').value.trim()||DEFAULTS.repo);localStorage.setItem(STORAGE.branch,el('s-branch').value.trim()||DEFAULTS.branch);
+  localStorage.setItem(STORAGE.fetchMode,el('s-fetchmode').value);
+  localStorage.setItem(STORAGE.proxyUrl,el('s-proxyurl').value.trim()||DEFAULTS.proxyUrl);
   showToast('Ayarlar kaydedildi','success');closeSettings();initApp();
 }
 async function testConnection(){
