@@ -5,977 +5,1400 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AkademikRadar Panel</title>
 <style>
-/* ── Reset & Base ────────────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:         #0f1117;
-  --bg2:        #161a24;
-  --bg3:        #1e2333;
-  --border:     #2a2f42;
-  --accent:     #4f7ef8;
-  --accent-dim: #2a4aad;
-  --green:      #22c55e;
-  --red:        #ef4444;
-  --yellow:     #f59e0b;
-  --text:       #e2e8f0;
-  --text2:      #94a3b8;
-  --text3:      #64748b;
-  --radius:     8px;
-  --font:       'DM Sans', system-ui, sans-serif;
-  --font-mono:  'JetBrains Mono', monospace;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1117;--bg2:#161a24;--bg3:#1e2333;--bg4:#252b3b;
+  --border:#2a2f42;--accent:#4f7ef8;--accent-dim:#1e3a8a;
+  --green:#22c55e;--red:#ef4444;--yellow:#f59e0b;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --radius:6px;--font:'DM Sans',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
 }
-
-body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* ── Typography ──────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
-h1 { font-size: 1.25rem; font-weight: 600; }
-h2 { font-size: 1rem;    font-weight: 600; }
-h3 { font-size: 0.875rem; font-weight: 600; }
-
-/* ── Layout ──────────────────────────────────────────────────────────────── */
-#app { display: flex; flex-direction: column; height: 100vh; }
-
-/* ── Header ──────────────────────────────────────────────────────────────── */
-#header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.25rem;
-  height: 52px;
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.logo-dot {
-  width: 8px; height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-#status-badge {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 20px;
-  background: var(--bg3);
-  color: var(--text2);
-  border: 1px solid var(--border);
-}
-
-#status-badge.connected {
-  color: var(--green);
-  border-color: rgba(34,197,94,0.3);
-  background: rgba(34,197,94,0.08);
-}
-
-/* ── Tabs ────────────────────────────────────────────────────────────────── */
-#tabs {
-  display: flex;
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
-  padding: 0 1.25rem;
-  gap: 0;
-  flex-shrink: 0;
-}
-
-.tab {
-  padding: 0.65rem 1rem;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text3);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  user-select: none;
-}
-
-.tab:hover { color: var(--text2); }
-
-.tab.active {
-  color: var(--text);
-  border-bottom-color: var(--accent);
-}
-
-.tab .badge {
-  background: var(--accent-dim);
-  color: var(--accent);
-  font-size: 0.7rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 10px;
-  font-weight: 600;
-  min-width: 18px;
-  text-align: center;
-}
-
-.tab .badge.yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
-.tab .badge.green  { background: rgba(34,197,94,0.15);  color: var(--green); }
-
-/* ── Content ─────────────────────────────────────────────────────────────── */
-#content {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-}
-
-.tab-panel {
-  display: none;
-  height: 100%;
-  overflow-y: auto;
-}
-
-.tab-panel.active { display: flex; flex-direction: column; }
-
-/* ── Empty State ─────────────────────────────────────────────────────────── */
-.empty-state {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--text3);
-  gap: 0.75rem;
-}
-
-.empty-state .icon { font-size: 2.5rem; }
-.empty-state p { font-size: 0.875rem; }
-
-/* ── Lock Screen ─────────────────────────────────────────────────────────── */
-#lock-screen {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.lock-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem;
-  width: 420px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.lock-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.lock-header h1 { font-size: 1.1rem; }
-.lock-header p  { font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
-
-/* ── Settings Modal ──────────────────────────────────────────────────────── */
-#settings-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 900;
-  align-items: center;
-  justify-content: center;
-}
-
-#settings-overlay.open { display: flex; }
-
-.settings-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.75rem;
-  width: 460px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  position: relative;
-}
-
-.settings-close {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  background: none;
-  border: none;
-  color: var(--text3);
-  cursor: pointer;
-  font-size: 1.1rem;
-  padding: 0.25rem;
-  border-radius: 4px;
-  transition: color 0.15s;
-}
-.settings-close:hover { color: var(--text); }
-
-.settings-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.settings-section h3 {
-  color: var(--text2);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
-}
-
-/* ── Form Elements ───────────────────────────────────────────────────────── */
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.field label {
-  font-size: 0.78rem;
-  color: var(--text2);
-  font-weight: 500;
-}
-
-.field input, .field select, .field textarea {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text);
-  font-size: 0.85rem;
-  padding: 0.5rem 0.75rem;
-  font-family: var(--font);
-  transition: border-color 0.15s;
-  outline: none;
-  width: 100%;
-}
-
-.field input:focus, .field select:focus, .field textarea:focus {
-  border-color: var(--accent);
-}
-
-.field input.mono { font-family: var(--font-mono); font-size: 0.8rem; }
-
-.field-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
-
-.field-hint {
-  font-size: 0.72rem;
-  color: var(--text3);
-  line-height: 1.4;
-}
-
-/* ── Buttons ─────────────────────────────────────────────────────────────── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  border: none;
-  font-size: 0.82rem;
-  font-weight: 500;
-  font-family: var(--font);
-  cursor: pointer;
-  transition: opacity 0.15s, background 0.15s;
-  white-space: nowrap;
-}
-
-.btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.btn:not(:disabled):hover { opacity: 0.85; }
-
-.btn-primary  { background: var(--accent);  color: #fff; }
-.btn-ghost    { background: var(--bg3);     color: var(--text2); border: 1px solid var(--border); }
-.btn-danger   { background: var(--red);     color: #fff; }
-.btn-success  { background: var(--green);   color: #fff; }
-.btn-sm       { padding: 0.3rem 0.65rem; font-size: 0.78rem; }
-
-/* ── Toast ───────────────────────────────────────────────────────────────── */
-#toast-container {
-  position: fixed;
-  bottom: 1.25rem;
-  right: 1.25rem;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.toast {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.65rem 1rem;
-  font-size: 0.82rem;
-  min-width: 240px;
-  max-width: 360px;
-  animation: slideIn 0.2s ease;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
-
-.toast.success { border-left: 3px solid var(--green); }
-.toast.error   { border-left: 3px solid var(--red); }
-.toast.info    { border-left: 3px solid var(--accent); }
-
-@keyframes slideIn {
-  from { transform: translateX(20px); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
-}
-
-/* ── Loading Spinner ─────────────────────────────────────────────────────── */
-.spinner {
-  width: 16px; height: 16px;
-  border: 2px solid var(--border);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ── Connection Status ───────────────────────────────────────────────────── */
-.conn-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 0.75rem;
-  background: var(--bg3);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-.conn-info { display: flex; flex-direction: column; gap: 0.2rem; }
-.conn-label { font-size: 0.8rem; font-weight: 500; }
-.conn-sub   { font-size: 0.72rem; color: var(--text3); }
-
-.conn-indicator {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--text3);
-}
-.conn-indicator.ok  { background: var(--green); }
-.conn-indicator.err { background: var(--red); }
-
-/* ── Coming Soon Placeholder ────────────────────────────────────────────── */
-.coming-soon {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: var(--text3);
-}
-
-.coming-soon .phase-badge {
-  font-size: 0.72rem;
-  font-family: var(--font-mono);
-  padding: 0.25rem 0.6rem;
-  border-radius: 20px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  color: var(--accent);
-}
-
-.coming-soon h2 { font-size: 1rem; color: var(--text2); }
-.coming-soon p  { font-size: 0.82rem; max-width: 280px; text-align: center; line-height: 1.6; }
-
-/* ── Settings Gear Button ────────────────────────────────────────────────── */
-#settings-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text2);
-  width: 30px; height: 30px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  transition: color 0.15s, border-color 0.15s;
-}
-#settings-btn:hover { color: var(--text); border-color: var(--text3); }
-
-/* ── Divider ─────────────────────────────────────────────────────────────── */
-.divider {
-  height: 1px;
-  background: var(--border);
-  margin: 0.25rem 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+body{font-family:var(--font);background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;overflow:hidden}
+/* Header */
+#header{display:flex;align-items:center;justify-content:space-between;padding:0 1rem;height:48px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:600;font-size:.9rem}
+.logo-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.header-right{display:flex;align-items:center;gap:.6rem}
+#status-badge{font-size:.72rem;padding:.18rem .55rem;border-radius:20px;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+#status-badge.connected{color:var(--green);border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.08)}
+#settings-btn{background:none;border:1px solid var(--border);color:var(--text2);width:28px;height:28px;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+#settings-btn:hover{color:var(--text)}
+/* Tabs */
+#tabs{display:flex;background:var(--bg2);border-bottom:1px solid var(--border);padding:0 1rem;flex-shrink:0}
+.tab{padding:.55rem .9rem;font-size:.8rem;font-weight:500;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;display:flex;align-items:center;gap:.35rem;user-select:none}
+.tab:hover{color:var(--text2)}.tab.active{color:var(--text);border-bottom-color:var(--accent)}
+.badge{font-size:.68rem;padding:.08rem .38rem;border-radius:10px;background:var(--bg3);color:var(--text3);font-weight:600;min-width:16px;text-align:center}
+.badge.yellow{background:rgba(245,158,11,.15);color:var(--yellow)}.badge.green{background:rgba(34,197,94,.15);color:var(--green)}
+/* Content */
+#content{flex:1;overflow:hidden;display:flex}
+.tab-panel{display:none;flex:1;overflow:hidden;flex-direction:row}
+.tab-panel.active{display:flex}
+/* List Pane */
+.list-pane{display:flex;flex-direction:column;flex-shrink:0;width:100%;transition:width .2s;border-right:1px solid var(--border);overflow:hidden}
+.list-pane.narrow{width:340px}
+.list-toolbar{display:flex;align-items:center;gap:.5rem;padding:.55rem .7rem;border-bottom:1px solid var(--border);flex-shrink:0}
+.search-input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:.8rem;padding:.32rem .6rem;font-family:var(--font);outline:none}
+.search-input:focus{border-color:var(--accent)}
+.toolbar-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);border-radius:var(--radius);padding:.28rem .55rem;font-size:.74rem;cursor:pointer;font-family:var(--font);white-space:nowrap}
+.toolbar-btn:hover{color:var(--text)}.toolbar-btn.active{background:var(--accent-dim);color:var(--accent);border-color:rgba(79,126,248,.4)}
+.list-scroll{flex:1;overflow-y:auto}
+/* Ad Card */
+.ad-card{padding:.65rem .7rem;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;display:flex;gap:.55rem;align-items:flex-start}
+.ad-card:hover{background:var(--bg2)}.ad-card.selected{background:var(--bg3);border-left:2px solid var(--accent)}
+.ad-check{margin-top:2px;flex-shrink:0}.ad-check input[type=checkbox]{width:13px;height:13px;cursor:pointer;accent-color:var(--accent)}
+.ad-body{flex:1;min-width:0}
+.ad-uni{font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ad-meta{display:flex;align-items:center;gap:.35rem;margin-top:.2rem}
+.ad-city{font-size:.71rem;color:var(--text2)}
+.ad-titles{display:flex;gap:.22rem;flex-wrap:wrap;margin-top:.22rem}
+.title-tag{font-size:.64rem;padding:.07rem .32rem;border-radius:4px;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+.title-tag.prof{color:#f97316;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.08)}
+.title-tag.doc{color:#a855f7;border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.08)}
+.title-tag.dr{color:#06b6d4;border-color:rgba(6,182,212,.3);background:rgba(6,182,212,.08)}
+.title-tag.ogr{color:#22c55e;border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.08)}
+.title-tag.ars{color:#f59e0b;border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.08)}
+.title-tag.other{color:var(--text3)}
+.ad-deadline{font-size:.7rem;margin-top:.28rem}.ad-count{font-size:.7rem;color:var(--text3);margin-top:.12rem}
+.deadline-ok{color:var(--text3)}.deadline-soon{color:var(--yellow)}.deadline-passed{color:var(--red)}.deadline-none{color:var(--text3);font-style:italic}
+/* Bulk Bar */
+.bulk-bar{display:none;align-items:center;gap:.45rem;padding:.45rem .7rem;background:var(--accent-dim);border-bottom:1px solid rgba(79,126,248,.3);font-size:.77rem;color:var(--accent);flex-shrink:0}
+.bulk-bar.visible{display:flex}
+/* Editor Pane */
+.editor-pane{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
+.editor-pane.hidden{display:none}
+.editor-header{display:flex;align-items:center;justify-content:space-between;padding:.55rem .9rem;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg2)}
+.editor-title{font-size:.85rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.editor-actions{display:flex;gap:.35rem;flex-shrink:0}
+.editor-body{flex:1;overflow-y:auto;padding:.85rem;display:flex;flex-direction:column;gap:.85rem}
+/* Editor Sections */
+.editor-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.section-header{padding:.5rem .7rem;border-bottom:1px solid var(--border);font-size:.72rem;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;justify-content:space-between}
+.fields-grid{padding:.7rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.field{display:flex;flex-direction:column;gap:.25rem}
+.field label{font-size:.72rem;color:var(--text2);font-weight:500}
+.field input,.field select,.field textarea{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:.82rem;padding:.38rem .58rem;font-family:var(--font);outline:none;width:100%;transition:border-color .15s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:56px}
+.field select option{background:var(--bg3)}
+/* Position Table */
+.pos-table-wrap{overflow-x:auto}
+.pos-table{width:100%;border-collapse:collapse;font-size:.77rem;min-width:680px}
+.pos-table th{padding:.38rem .45rem;text-align:left;font-size:.67rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--border);white-space:nowrap;background:var(--bg3)}
+.pos-table td{padding:.28rem .38rem;border-bottom:1px solid rgba(42,47,66,.5);vertical-align:middle}
+.pos-table tr:hover td{background:rgba(255,255,255,.018)}
+.row-num{width:26px;text-align:center;color:var(--text3);font-size:.71rem;cursor:pointer;border-radius:3px;padding:.12rem}
+.row-num:hover{background:var(--accent);color:#fff}
+.cell-input{background:transparent;border:none;color:var(--text);font-size:.77rem;font-family:var(--font);outline:none;width:100%;padding:.08rem .18rem;border-radius:3px}
+.cell-input:focus{background:var(--bg3);border:1px solid var(--accent)}
+.cell-input.num{width:46px;text-align:center}
+.cell-select{background:transparent;border:none;color:var(--text);font-size:.77rem;font-family:var(--font);outline:none;cursor:pointer;max-width:160px}
+.cell-select:focus{background:var(--bg3)}
+.cell-bool{display:flex;align-items:center;justify-content:center}
+.cell-bool input{accent-color:var(--accent)}
+.pos-table tfoot td{padding:.45rem}
+.add-row-btn{background:none;border:1px dashed var(--border);color:var(--text3);border-radius:var(--radius);padding:.28rem .7rem;font-size:.74rem;cursor:pointer;font-family:var(--font);transition:all .15s}
+.add-row-btn:hover{border-color:var(--accent);color:var(--accent)}
+.del-row-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:.82rem;padding:.08rem .28rem;border-radius:3px;transition:color .15s}
+.del-row-btn:hover{color:var(--red)}
+/* Row Detail Drawer */
+#row-drawer{position:fixed;right:0;top:48px;bottom:0;width:330px;background:var(--bg2);border-left:1px solid var(--border);z-index:800;transform:translateX(100%);transition:transform .2s ease;display:flex;flex-direction:column}
+#row-drawer.open{transform:translateX(0)}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:.65rem .9rem;border-bottom:1px solid var(--border);flex-shrink:0}
+.drawer-header h3{font-size:.84rem}
+.drawer-close{background:none;border:none;color:var(--text3);cursor:pointer;font-size:.95rem;padding:.18rem}
+.drawer-close:hover{color:var(--text)}
+.drawer-body{flex:1;overflow-y:auto;padding:.8rem;display:flex;flex-direction:column;gap:.65rem}
+.drawer-section{display:flex;flex-direction:column;gap:.45rem}
+.drawer-section-title{font-size:.69rem;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;padding-bottom:.32rem;border-bottom:1px solid var(--border)}
+.toggle-row{display:flex;align-items:center;justify-content:space-between}
+.toggle-row label{font-size:.78rem;color:var(--text2)}
+.toggle{position:relative;width:33px;height:17px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--bg4);border-radius:10px;cursor:pointer;transition:background .15s}
+.toggle-slider::after{content:'';position:absolute;left:3px;top:3px;width:11px;height:11px;background:#fff;border-radius:50%;transition:transform .15s}
+.toggle input:checked+.toggle-slider{background:var(--accent)}
+.toggle input:checked+.toggle-slider::after{transform:translateX(16px)}
+.score-row{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+/* Empty State */
+.empty-state{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text3);gap:.6rem;padding:2rem;text-align:center}
+.empty-state .icon{font-size:1.8rem}
+.empty-state p{font-size:.8rem;line-height:1.6;max-width:240px}
+/* Rejected */
+.rejected-item{padding:.58rem .7rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem}
+.rejected-item:hover{background:var(--bg2)}
+.rej-uni{font-size:.8rem;font-weight:500}.rej-meta{font-size:.7rem;color:var(--text3);margin-top:.12rem}
+/* Lock Screen */
+#lock-screen{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lock-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.65rem;width:390px;display:flex;flex-direction:column;gap:.9rem}
+.lock-card h1{font-size:.98rem}.lock-card p{font-size:.77rem;color:var(--text2);line-height:1.55}
+/* Settings */
+#settings-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900;align-items:center;justify-content:center}
+#settings-overlay.open{display:flex}
+.settings-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.5rem;width:430px;display:flex;flex-direction:column;gap:.9rem;position:relative;max-height:90vh;overflow-y:auto}
+.settings-close{position:absolute;top:.8rem;right:.8rem;background:none;border:none;color:var(--text3);cursor:pointer;font-size:.95rem}
+.settings-section{display:flex;flex-direction:column;gap:.6rem}
+.settings-section h3{font-size:.69rem;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;padding-bottom:.35rem;border-bottom:1px solid var(--border)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.conn-row{display:flex;align-items:center;justify-content:space-between;padding:.5rem .65rem;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border)}
+.conn-label{font-size:.77rem;font-weight:500}.conn-sub{font-size:.69rem;color:var(--text3)}
+.conn-indicator{width:7px;height:7px;border-radius:50%;background:var(--text3)}
+.conn-indicator.ok{background:var(--green)}.conn-indicator.err{background:var(--red)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.32rem;padding:.4rem .8rem;border-radius:var(--radius);border:none;font-size:.79rem;font-weight:500;font-family:var(--font);cursor:pointer;transition:opacity .15s;white-space:nowrap}
+.btn:disabled{opacity:.4;cursor:not-allowed}.btn:not(:disabled):hover{opacity:.82}
+.btn-primary{background:var(--accent);color:#fff}.btn-success{background:var(--green);color:#fff}
+.btn-danger{background:var(--red);color:#fff}.btn-ghost{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+.btn-sm{padding:.27rem .58rem;font-size:.77rem}.btn-xs{padding:.17rem .42rem;font-size:.7rem}
+/* Toast */
+#toast-container{position:fixed;bottom:1rem;right:1rem;z-index:9999;display:flex;flex-direction:column;gap:.4rem}
+.toast{display:flex;align-items:center;gap:.45rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:.5rem .85rem;font-size:.79rem;min-width:210px;max-width:330px;animation:toastIn .18s ease;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.toast.success{border-left:3px solid var(--green)}.toast.error{border-left:3px solid var(--red)}.toast.info{border-left:3px solid var(--accent)}
+@keyframes toastIn{from{transform:translateX(14px);opacity:0}to{transform:translateX(0);opacity:1}}
+.spinner{width:13px;height:13px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.divider{height:1px;background:var(--border)}
+.field-hint{font-size:.69rem;color:var(--text3);line-height:1.45}
+.mono{font-family:var(--font-mono)}
 </style>
 </head>
 <body>
-
 <div id="app">
-
-  <!-- Header -->
-  <div id="header">
-    <div class="logo">
-      <div class="logo-dot"></div>
-      AkademikRadar Panel
+<div id="header">
+  <div class="logo"><div class="logo-dot"></div>AkademikRadar Panel</div>
+  <div class="header-right">
+    <div id="status-badge">Bağlı değil</div>
+    <button id="settings-btn" onclick="openSettings()">⚙</button>
+  </div>
+</div>
+<div id="tabs">
+  <div class="tab active" data-tab="pending"  onclick="switchTab('pending')">Bekleyenler <span class="badge yellow" id="badge-pending">0</span></div>
+  <div class="tab"        data-tab="approved" onclick="switchTab('approved')">Onaylananlar <span class="badge green"  id="badge-approved">0</span></div>
+  <div class="tab"        data-tab="rejected" onclick="switchTab('rejected')">Reddedilenler <span class="badge" id="badge-rejected">0</span></div>
+  <div class="tab"        data-tab="add"      onclick="switchTab('add')">+ Yeni Ekle</div>
+</div>
+<div id="content">
+  <!-- PENDING -->
+  <div id="tab-pending" class="tab-panel active">
+    <div class="list-pane" id="pending-list-pane">
+      <div class="list-toolbar">
+        <input class="search-input" placeholder="Üniversite veya ilan no..." oninput="filterPending(this.value)">
+        <button class="toolbar-btn" onclick="selectAllPending()" title="Tümünü seç">☐</button>
+      </div>
+      <div class="bulk-bar" id="pending-bulk">
+        <span id="bulk-count">0 seçili</span>
+        <button class="btn btn-success btn-xs" onclick="bulkApprove()">✓ Onayla</button>
+        <button class="btn btn-danger  btn-xs" onclick="bulkReject()">✗ Reddet</button>
+        <button class="btn btn-ghost   btn-xs" onclick="clearSelection()">İptal</button>
+      </div>
+      <div class="list-scroll" id="pending-list"><div class="empty-state"><div class="icon">⏳</div><p>Yükleniyor...</p></div></div>
     </div>
-    <div class="header-right">
-      <div id="status-badge">Bağlı değil</div>
-      <button id="settings-btn" onclick="openSettings()" title="Ayarlar">⚙</button>
+    <div class="editor-pane hidden" id="pending-editor"></div>
+  </div>
+  <!-- APPROVED -->
+  <div id="tab-approved" class="tab-panel">
+    <div class="list-pane" id="approved-list-pane">
+      <div class="list-toolbar">
+        <input class="search-input" placeholder="Üniversite veya şehir..." oninput="filterApproved(this.value)">
+        <button class="toolbar-btn" id="expired-toggle" onclick="toggleExpired()">Aktif</button>
+      </div>
+      <div class="list-scroll" id="approved-list"><div class="empty-state"><div class="icon">⏳</div><p>Yükleniyor...</p></div></div>
+    </div>
+    <div class="editor-pane hidden" id="approved-editor"></div>
+  </div>
+  <!-- REJECTED -->
+  <div id="tab-rejected" class="tab-panel">
+    <div class="list-pane">
+      <div class="list-toolbar"><input class="search-input" placeholder="Ara..." oninput="filterRejected(this.value)"></div>
+      <div class="list-scroll" id="rejected-list"><div class="empty-state"><div class="icon">⏳</div><p>Yükleniyor...</p></div></div>
     </div>
   </div>
-
-  <!-- Tabs -->
-  <div id="tabs">
-    <div class="tab active" data-tab="pending" onclick="switchTab('pending')">
-      Bekleyenler
-      <span class="badge yellow" id="badge-pending">0</span>
+  <!-- ADD -->
+  <div id="tab-add" class="tab-panel">
+    <div class="list-pane" style="width:360px;flex-shrink:0;">
+      <div class="list-toolbar"><span style="font-size:.8rem;font-weight:600">Yeni İlan Ekle</span></div>
+      <div style="padding:.8rem;display:flex;flex-direction:column;gap:.7rem;">
+        <div class="field"><label>ilan.gov.tr URL veya Sayısal ID</label>
+          <input type="text" id="add-url" placeholder="https://www.ilan.gov.tr/ilan/2094289/... veya 2094289"></div>
+        <button class="btn btn-primary" onclick="fetchAndAdd()">Getir ve Düzenle</button>
+        <div class="divider"></div>
+        <button class="btn btn-ghost" onclick="openBlankEditor()">Sıfırdan Ekle</button>
+      </div>
     </div>
-    <div class="tab" data-tab="approved" onclick="switchTab('approved')">
-      Onaylananlar
-      <span class="badge green" id="badge-approved">0</span>
-    </div>
-    <div class="tab" data-tab="rejected" onclick="switchTab('rejected')">
-      Reddedilenler
-      <span class="badge" id="badge-rejected">0</span>
-    </div>
-    <div class="tab" data-tab="add" onclick="switchTab('add')">
-      + Yeni Ekle
-    </div>
+    <div class="editor-pane hidden" id="add-editor"></div>
   </div>
+</div>
+</div>
 
-  <!-- Content -->
-  <div id="content">
-
-    <!-- Pending Tab -->
-    <div id="tab-pending" class="tab-panel active">
-      <div class="coming-soon">
-        <div class="phase-badge">PHASE 2.2</div>
-        <h2>Bekleyen İlanlar</h2>
-        <p>Scraper'ın bulduğu yeni ilanları buradan inceleyip onaylayabileceksiniz.</p>
-      </div>
-    </div>
-
-    <!-- Approved Tab -->
-    <div id="tab-approved" class="tab-panel">
-      <div class="coming-soon">
-        <div class="phase-badge">PHASE 2.4</div>
-        <h2>Onaylanan İlanlar</h2>
-        <p>ilanlar.json'daki aktif ilanlar burada listelenecek ve düzenlenebilecek.</p>
-      </div>
-    </div>
-
-    <!-- Rejected Tab -->
-    <div id="tab-rejected" class="tab-panel">
-      <div class="coming-soon">
-        <div class="phase-badge">PHASE 2.5</div>
-        <h2>Reddedilen İlanlar</h2>
-        <p>Reddedilen ilanları görüntüleyip geri yükleyebileceksiniz.</p>
-      </div>
-    </div>
-
-    <!-- Add Tab -->
-    <div id="tab-add" class="tab-panel">
-      <div class="coming-soon">
-        <div class="phase-badge">PHASE 3</div>
-        <h2>Yeni İlan Ekle</h2>
-        <p>ilan.gov.tr URL'si, ilan numarası veya sıfırdan ilan girişi yapabileceksiniz.</p>
-      </div>
-    </div>
-
-  </div>
+<!-- Row Drawer -->
+<div id="row-drawer">
+  <div class="drawer-header"><h3 id="drawer-title">Pozisyon Detayı</h3><button class="drawer-close" onclick="closeDrawer()">✕</button></div>
+  <div class="drawer-body" id="drawer-body"></div>
 </div>
 
 <!-- Lock Screen -->
 <div id="lock-screen">
   <div class="lock-card">
-    <div class="lock-header">
-      <div class="logo" style="margin-bottom:0.25rem">
-        <div class="logo-dot"></div>
-        AkademikRadar Panel
-      </div>
-      <h1>Giriş</h1>
-      <p>GitHub hesabınıza erişim için kişisel erişim token'ı girin. Token yalnızca tarayıcınızda saklanır, hiçbir sunucuya gönderilmez.</p>
-    </div>
-
+    <div class="logo"><div class="logo-dot"></div>AkademikRadar Panel</div>
+    <h1>Giriş</h1>
+    <p>GitHub personal access token'ınızı girin. Token yalnızca tarayıcınızda saklanır.</p>
     <div class="field">
-      <label>GitHub Personal Access Token</label>
-      <input type="password" id="lock-token" class="mono"
-             placeholder="github_pat_..."
-             onkeydown="if(event.key==='Enter') lockConnect()">
-      <span class="field-hint">
-        Settings → Developer Settings → Personal access tokens → Fine-grained tokens<br>
-        Gerekli izin: <strong>Contents</strong> (Read & Write) — yalnızca AkademikRadarFiltreListesi reposu
-      </span>
+      <label>GitHub Token</label>
+      <input type="password" id="lock-token" class="mono" placeholder="github_pat_..." onkeydown="if(event.key==='Enter')lockConnect()">
+      <span class="field-hint">Settings → Developer Settings → Fine-grained tokens → Contents Read &amp; Write (sadece AkademikRadarFiltreListesi)</span>
     </div>
-
-    <div style="display:flex; gap:0.5rem; align-items:center;">
-      <button class="btn btn-primary" onclick="lockConnect()" id="lock-btn">
-        Bağlan
-      </button>
-      <span id="lock-error" style="font-size:0.78rem; color:var(--red); display:none;"></span>
+    <div style="display:flex;gap:.5rem;align-items:center;">
+      <button class="btn btn-primary" onclick="lockConnect()" id="lock-btn">Bağlan</button>
+      <span id="lock-error" style="font-size:.75rem;color:var(--red);display:none"></span>
     </div>
   </div>
 </div>
 
-<!-- Settings Modal -->
-<div id="settings-overlay" onclick="if(event.target===this) closeSettings()">
+<!-- Settings -->
+<div id="settings-overlay" onclick="if(event.target===this)closeSettings()">
   <div class="settings-card">
     <button class="settings-close" onclick="closeSettings()">✕</button>
-    <h2>Ayarlar</h2>
-
+    <h2 style="font-size:.93rem">Ayarlar</h2>
     <div class="settings-section">
-      <h3>GitHub Bağlantısı</h3>
-
-      <div class="field">
-        <label>Personal Access Token</label>
-        <input type="password" id="s-token" class="mono" placeholder="github_pat_...">
-        <span class="field-hint">Fine-grained token — Contents Read &amp; Write</span>
-      </div>
-
+      <h3>GitHub</h3>
+      <div class="field"><label>Token</label><input type="password" id="s-token" class="mono" placeholder="github_pat_..."></div>
       <div class="field-row">
-        <div class="field">
-          <label>Repo Sahibi</label>
-          <input type="text" id="s-owner" placeholder="sametabbak">
-        </div>
-        <div class="field">
-          <label>Repo Adı</label>
-          <input type="text" id="s-repo" placeholder="AkademikRadarFiltreListesi">
-        </div>
+        <div class="field"><label>Sahip</label><input type="text" id="s-owner" placeholder="sametabbak"></div>
+        <div class="field"><label>Repo</label><input type="text" id="s-repo" placeholder="AkademikRadarFiltreListesi"></div>
       </div>
-
-      <div class="field">
-        <label>Branch</label>
-        <input type="text" id="s-branch" placeholder="main">
-      </div>
-
-      <div class="conn-row" id="conn-status-row">
-        <div class="conn-info">
-          <div class="conn-label" id="conn-label">Bağlantı durumu</div>
-          <div class="conn-sub"  id="conn-sub">—</div>
-        </div>
+      <div class="field"><label>Branch</label><input type="text" id="s-branch" placeholder="main"></div>
+      <div class="conn-row">
+        <div><div class="conn-label" id="conn-label">Durum</div><div class="conn-sub" id="conn-sub">—</div></div>
         <div class="conn-indicator" id="conn-indicator"></div>
       </div>
-
-      <div style="display:flex; gap:0.5rem;">
-        <button class="btn btn-ghost btn-sm" onclick="testConnection()" id="test-btn">
-          Bağlantıyı Test Et
-        </button>
-        <button class="btn btn-primary btn-sm" onclick="saveSettings()">
-          Kaydet
-        </button>
+      <div style="display:flex;gap:.4rem">
+        <button class="btn btn-ghost btn-sm" id="test-btn" onclick="testConnection()">Test Et</button>
+        <button class="btn btn-primary btn-sm" onclick="saveSettings()">Kaydet</button>
       </div>
     </div>
-
     <div class="divider"></div>
-
     <div class="settings-section">
-      <h3>Dosya Yolları</h3>
-      <div class="field">
-        <label>Onaylanan İlanlar</label>
-        <input type="text" id="s-approved-file" value="ilanlar.json" readonly style="opacity:0.6">
-      </div>
-      <div class="field">
-        <label>Bekleyen İlanlar</label>
-        <input type="text" id="s-pending-file" value="pending.json" readonly style="opacity:0.6">
-      </div>
-      <div class="field">
-        <label>Reddedilen İlanlar</label>
-        <input type="text" id="s-rejected-file" value="rejected.json" readonly style="opacity:0.6">
-      </div>
+      <h3>Tehlike</h3>
+      <button class="btn btn-ghost btn-sm" onclick="clearToken()" style="color:var(--red);border-color:rgba(239,68,68,.3)">Token Sil &amp; Çıkış</button>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="settings-section">
-      <h3>Tehlike Bölgesi</h3>
-      <button class="btn btn-ghost btn-sm" onclick="clearToken()"
-              style="color:var(--red); border-color:rgba(239,68,68,0.3);">
-        Token'ı Sil ve Çıkış Yap
-      </button>
-    </div>
-
   </div>
 </div>
-
-<!-- Toast Container -->
 <div id="toast-container"></div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════════════════
-// CONFIG
-// ═══════════════════════════════════════════════════════════════════════════
-const STORAGE_KEYS = {
-  token:  'ar_token',
-  owner:  'ar_owner',
-  repo:   'ar_repo',
-  branch: 'ar_branch',
+const STORAGE={token:'ar_token',owner:'ar_owner',repo:'ar_repo',branch:'ar_branch'};
+const DEFAULTS={owner:'sametabbak',repo:'AkademikRadarFiltreListesi',branch:'main'};
+const ACADEMIC_TITLES=['PROFESÖR','DOÇENT','DR. ÖĞR. ÜYESİ','ÖĞRETİM GÖREVLİSİ','ARAŞTIRMA GÖREVLİSİ','UZMAN','OKUTMAN','ÇEVİRİCİ','EĞİTİM-ÖĞRETİM PLANLAMACISI'];
+const TITLE_CLASS={'PROFESÖR':'prof','DOÇENT':'doc','DR. ÖĞR. ÜYESİ':'dr','ÖĞRETİM GÖREVLİSİ':'ogr','ARAŞTIRMA GÖREVLİSİ':'ars'};
+const ALES_TYPES=['SAY','SÖZ','EA'];
+const LANG_EXAMS=['YDS','YÖKDİL','TOEFL','IELTS'];
+const UNI_TYPES=['Devlet','Vakıf'];
+const TEMEL_ALANLAR=['Mühendislik','Fen Bilimleri','Sağlık Bilimleri','Sosyal Bilimler','Filoloji','Eğitim Bilimleri','Güzel Sanatlar','Hukuk','İlahiyat','Ziraat ve Orman','Spor Bilimleri'];
+const KANUN_MADDELERI=['50/d','33/a'];
+
+// ── GitHub API ──
+class GitHubAPI{
+  constructor(t,o,r,b){this.token=t;this.owner=o;this.repo=r;this.branch=b;this.base=`https://api.github.com/repos/${o}/${r}`}
+  get h(){return{'Authorization':`Bearer ${this.token}`,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'}}
+  async getFile(p){
+    const res=await fetch(`${this.base}/contents/${p}?ref=${this.branch}`,{headers:this.h});
+    if(res.status===404)return null;
+    if(!res.ok)throw new Error(`GitHub ${res.status}`);
+    const d=await res.json();
+    return{content:JSON.parse(atob(d.content.replace(/\n/g,''))),sha:d.sha};
+  }
+  async putFile(p,content,sha,msg){
+    const enc=btoa(unescape(encodeURIComponent(JSON.stringify(content,null,2))));
+    const body={message:msg,content:enc,branch:this.branch};
+    if(sha)body.sha=sha;
+    const res=await fetch(`${this.base}/contents/${p}`,{method:'PUT',headers:this.h,body:JSON.stringify(body)});
+    if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.message||`GitHub ${res.status}`)}
+    return res.json();
+  }
+  async testAccess(){
+    const res=await fetch(`${this.base}`,{headers:this.h});
+    if(!res.ok)throw new Error(`Repo bulunamadı (${res.status})`);
+    const d=await res.json();
+    if(!d.permissions?.push)throw new Error('Write izni yok');
+    return d.full_name;
+  }
+}
+
+// ── Store ──
+const Store={
+  api:null,
+  pending:{content:{ads:[]},sha:null},
+  approved:{content:{ads:[],examCalendar:[]},sha:null},
+  rejected:{content:{ads:[]},sha:null},
+  async init(api){this.api=api;await this.loadAll()},
+  async loadAll(){
+    const[p,a,r]=await Promise.all([this.api.getFile('pending.json'),this.api.getFile('ilanlar.json'),this.api.getFile('rejected.json')]);
+    if(p)this.pending=p;if(a)this.approved=a;if(r)this.rejected=r;
+    this.refresh();
+  },
+  refresh(){this.updateBadges();renderPendingList();renderApprovedList();renderRejectedList()},
+  updateBadges(){
+    const today=todayStr();
+    const active=(this.approved.content.ads||[]).filter(a=>!a.deadline||a.deadline.slice(0,10)>=today);
+    el('badge-pending').textContent=(this.pending.content.ads||[]).length;
+    el('badge-approved').textContent=active.length;
+    el('badge-rejected').textContent=(this.rejected.content.ads||[]).length;
+  },
+  async saveApproved(msg){
+    const r=await this.api.putFile('ilanlar.json',{...this.approved.content,lastUpdated:new Date().toISOString()},this.approved.sha,msg||'chore: update ilanlar.json via panel');
+    this.approved.sha=r.content.sha;this.updateBadges();
+  },
+  async savePending(msg){
+    const r=await this.api.putFile('pending.json',{...this.pending.content,lastUpdated:new Date().toISOString()},this.pending.sha,msg||'chore: update pending.json via panel');
+    this.pending.sha=r.content.sha;this.updateBadges();
+  },
+  async saveRejected(msg){
+    const r=await this.api.putFile('rejected.json',{...this.rejected.content,lastUpdated:new Date().toISOString()},this.rejected.sha,msg||'chore: update rejected.json via panel');
+    this.rejected.sha=r.content.sha;this.updateBadges();
+  },
+  async approve(ilanNo){
+    const idx=(this.pending.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);
+    if(idx===-1)return;
+    const ad=this.pending.content.ads.splice(idx,1)[0];
+    this.approved.content.ads.unshift(ad);
+    await Promise.all([this.savePending(`chore: approve ${ilanNo}`),this.saveApproved(`feat: approve ${ilanNo}`)]);
+  },
+  async reject(ilanNo){
+    const idx=(this.pending.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);
+    if(idx===-1)return;
+    const ad=this.pending.content.ads.splice(idx,1)[0];
+    if(!this.rejected.content.ads)this.rejected.content.ads=[];
+    this.rejected.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,rejectedAt:new Date().toISOString()});
+    await Promise.all([this.savePending(`chore: reject ${ilanNo}`),this.saveRejected(`chore: reject ${ilanNo}`)]);
+  },
+  async restore(ilanNo){
+    const idx=(this.rejected.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);
+    if(idx===-1)return;
+    const ad=this.rejected.content.ads.splice(idx,1)[0];
+    if(!this.pending.content.ads)this.pending.content.ads=[];
+    this.pending.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,city:'',positions:[],detectedTitles:[],contentSnippet:''});
+    await Promise.all([this.saveRejected(`chore: restore ${ilanNo}`),this.savePending(`chore: restore ${ilanNo}`)]);
+  }
 };
 
-const DEFAULTS = {
-  owner:  'sametabbak',
-  repo:   'AkademikRadarFiltreListesi',
-  branch: 'main',
-};
+// ── State ──
+let currentTab='pending',selectedPending=new Set(),showExpired=false;
+let pendingSearch='',approvedSearch='',rejectedSearch='';
+let activeEditor=null,drawerRow=null;
 
-// ═══════════════════════════════════════════════════════════════════════════
-// GITHUB API CLASS
-// ═══════════════════════════════════════════════════════════════════════════
-class GitHubAPI {
-  constructor(token, owner, repo, branch) {
-    this.token  = token;
-    this.owner  = owner;
-    this.repo   = repo;
-    this.branch = branch;
-    this.base   = `https://api.github.com/repos/${owner}/${repo}`;
+// ── Tab Nav ──
+function switchTab(name){
+  currentTab=name;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id===`tab-${name}`));
+  closeDrawer();
+}
+
+// ── Utils ──
+function el(id){return document.getElementById(id)}
+function todayStr(){return new Date().toISOString().slice(0,10)}
+function fmtDate(iso){if(!iso)return'';try{return new Date(iso).toLocaleDateString('tr-TR')}catch(e){return iso}}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function deadlineInfo(dl){
+  if(!dl)return{cls:'deadline-none',txt:'Son başvuru tarihi belirtilmemiş'};
+  const today=new Date();today.setHours(0,0,0,0);
+  const d=new Date(dl);d.setHours(0,0,0,0);
+  const diff=Math.ceil((d-today)/86400000);
+  if(diff<0)return{cls:'deadline-passed',txt:`Son başvuru geçti (${fmtDate(dl)})`};
+  if(diff<=3)return{cls:'deadline-soon',txt:`Son ${diff} gün (${fmtDate(dl)})`};
+  return{cls:'deadline-ok',txt:`Son başvuru: ${fmtDate(dl)}`};
+}
+function titleTag(t){
+  const cls=TITLE_CLASS[t]||'other';
+  const short={'PROFESÖR':'Prof.','DOÇENT':'Doç.','DR. ÖĞR. ÜYESİ':'Dr.Öğr.','ÖĞRETİM GÖREVLİSİ':'Öğr.Gör.','ARAŞTIRMA GÖREVLİSİ':'Arş.Gör.','UZMAN':'Uzman','OKUTMAN':'Okutman','ÇEVİRİCİ':'Çev.','EĞİTİM-ÖĞRETİM PLANLAMACISI':'Eğt.Plan.'}[t]||t;
+  return`<span class="title-tag ${cls}">${short}</span>`;
+}
+function posCount(ad){
+  const p=ad.positions||[];
+  const total=p.reduce((s,x)=>s+(x.count||1),0);
+  return`${p.length} kadro türü · ${total} kişi`;
+}
+
+// Flags fields the mobile app needs that this ad is still missing.
+function missingFields(ad){
+  const p=ad.positions||[];
+  if(!p.length) return ['pozisyon'];
+  const miss=[];
+  if(p.some(x=>!x.temelAlan))            miss.push('temel alan');
+  if(p.some(x=>!x.derece))               miss.push('derece');
+  if(p.some(x=>!(x.sartlar||[]).length)) miss.push('şart');
+  return miss;
+}
+function missingBadge(ad){
+  const m=missingFields(ad);
+  if(!m.length) return '<span class="title-tag ogr" title="Tüm alanlar dolu">✓ tam</span>';
+  return `<span class="title-tag" style="color:var(--yellow);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.08)" title="Eksik: ${m.join(', ')}">eksik: ${m.length}</span>`;
+}
+
+// ── Pending List ──
+function filterPending(q){pendingSearch=q;renderPendingList()}
+function renderPendingList(){
+  const list=el('pending-list');
+  const ads=Store.pending.content.ads||[];
+  const q=pendingSearch.toLowerCase();
+  const filtered=ads.filter(a=>!q||a.university?.toLowerCase().includes(q)||a.ilanNo?.toLowerCase().includes(q)||a.city?.toLowerCase().includes(q));
+  if(!filtered.length){list.innerHTML=`<div class="empty-state"><div class="icon">${ads.length?'🔍':'✨'}</div><p>${ads.length?'Sonuç bulunamadı.':'Bekleyen ilan yok.'}</p></div>`;return}
+  list.innerHTML=filtered.map(ad=>{
+    const dl=deadlineInfo(ad.deadline);
+    const sel=selectedPending.has(ad.ilanNo);
+    const isAct=activeEditor?.ilanNo===ad.ilanNo;
+    return`<div class="ad-card${isAct?' selected':''}" onclick="openPendingEditor('${ad.ilanNo}',event)">
+      <div class="ad-check"><input type="checkbox" ${sel?'checked':''} onclick="event.stopPropagation();toggleSelect('${ad.ilanNo}',this.checked)"></div>
+      <div class="ad-body">
+        <div class="ad-uni">${esc(ad.university||'Bilinmiyor')}</div>
+        <div class="ad-meta"><span class="ad-city">${esc(ad.city||'')}</span><span style="color:var(--border)">·</span><span class="ad-city">${ad.uniType||''}</span></div>
+        <div class="ad-titles">${(ad.detectedTitles||[]).map(titleTag).join('')}${missingBadge(ad)}</div>
+        <div class="ad-count">${posCount(ad)}</div>
+        <div class="ad-deadline ${dl.cls}">${dl.txt}</div>
+      </div></div>`;
+  }).join('');
+}
+function toggleSelect(ilanNo,checked){if(checked)selectedPending.add(ilanNo);else selectedPending.delete(ilanNo);updateBulkBar()}
+function selectAllPending(){const ads=Store.pending.content.ads||[];if(selectedPending.size===ads.length)selectedPending.clear();else ads.forEach(a=>selectedPending.add(a.ilanNo));renderPendingList();updateBulkBar()}
+function clearSelection(){selectedPending.clear();renderPendingList();updateBulkBar()}
+function updateBulkBar(){const bar=el('pending-bulk');if(selectedPending.size>0){bar.classList.add('visible');el('bulk-count').textContent=`${selectedPending.size} seçili`}else bar.classList.remove('visible')}
+async function bulkApprove(){
+  if(!selectedPending.size)return;
+  const ids=[...selectedPending];
+  try{
+    for(const id of ids){const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===id);if(idx===-1)continue;const ad=Store.pending.content.ads.splice(idx,1)[0];Store.approved.content.ads.unshift(ad)}
+    await Promise.all([Store.savePending(),Store.saveApproved(`feat: bulk approve ${ids.length} ads`)]);
+    selectedPending.clear();updateBulkBar();Store.refresh();showToast(`${ids.length} ilan onaylandı`,'success');
+  }catch(e){showToast(e.message,'error')}
+}
+async function bulkReject(){
+  if(!selectedPending.size)return;
+  const ids=[...selectedPending];
+  try{
+    for(const id of ids){const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===id);if(idx===-1)continue;const ad=Store.pending.content.ads.splice(idx,1)[0];Store.rejected.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,rejectedAt:new Date().toISOString()})}
+    await Promise.all([Store.savePending(),Store.saveRejected(`chore: bulk reject ${ids.length} ads`)]);
+    selectedPending.clear();updateBulkBar();Store.refresh();showToast(`${ids.length} ilan reddedildi`,'info');
+  }catch(e){showToast(e.message,'error')}
+}
+
+// ── Approved List ──
+function filterApproved(q){approvedSearch=q;renderApprovedList()}
+function toggleExpired(){showExpired=!showExpired;el('expired-toggle').textContent=showExpired?'Tümü':'Aktif';el('expired-toggle').classList.toggle('active',showExpired);renderApprovedList()}
+function renderApprovedList(){
+  const list=el('approved-list');
+  const today=todayStr();
+  let ads=Store.approved.content.ads||[];
+  if(!showExpired)ads=ads.filter(a=>!a.deadline||a.deadline.slice(0,10)>=today);
+  const q=approvedSearch.toLowerCase();
+  if(q)ads=ads.filter(a=>a.university?.toLowerCase().includes(q)||a.city?.toLowerCase().includes(q));
+  if(!ads.length){list.innerHTML=`<div class="empty-state"><div class="icon">✓</div><p>Onaylı ilan bulunamadı.</p></div>`;return}
+  list.innerHTML=ads.map(ad=>{
+    const dl=deadlineInfo(ad.deadline);
+    const isAct=activeEditor?.ilanNo===ad.ilanNo&&activeEditor?.tab==='approved';
+    return`<div class="ad-card${isAct?' selected':''}" onclick="openApprovedEditor('${ad.ilanNo}')">
+      <div class="ad-body">
+        <div class="ad-uni">${esc(ad.university||'Bilinmiyor')}</div>
+        <div class="ad-meta"><span class="ad-city">${esc(ad.city||'')}</span><span style="color:var(--border)">·</span><span class="ad-city">${ad.uniType||''}</span></div>
+        <div class="ad-titles">${(ad.detectedTitles||[]).map(titleTag).join('')}${missingBadge(ad)}</div>
+        <div class="ad-count">${posCount(ad)}</div>
+        <div class="ad-deadline ${dl.cls}">${dl.txt}</div>
+      </div></div>`;
+  }).join('');
+}
+
+// ── Rejected List ──
+function filterRejected(q){rejectedSearch=q;renderRejectedList()}
+function renderRejectedList(){
+  const list=el('rejected-list');
+  let ads=Store.rejected.content.ads||[];
+  const q=rejectedSearch.toLowerCase();
+  if(q)ads=ads.filter(a=>a.university?.toLowerCase().includes(q)||a.ilanNo?.toLowerCase().includes(q));
+  if(!ads.length){list.innerHTML=`<div class="empty-state"><div class="icon">🗑</div><p>Reddedilen ilan yok.</p></div>`;return}
+  list.innerHTML=ads.map(a=>`<div class="rejected-item">
+    <div><div class="rej-uni">${esc(a.university||a.ilanNo)}</div><div class="rej-meta">${a.ilanNo} · ${fmtDate(a.rejectedAt)}</div></div>
+    <button class="btn btn-ghost btn-xs" onclick="restoreAd('${a.ilanNo}')">Geri Al</button></div>`).join('');
+}
+async function restoreAd(ilanNo){try{await Store.restore(ilanNo);Store.refresh();showToast('İlan geri alındı','success')}catch(e){showToast(e.message,'error')}}
+
+// ── Editor Open ──
+function openPendingEditor(ilanNo,evt){
+  if(evt?.target?.type==='checkbox')return;
+  const ad=(Store.pending.content.ads||[]).find(a=>a.ilanNo===ilanNo);
+  if(!ad)return;
+  activeEditor={tab:'pending',ilanNo,isNew:false};
+  el('pending-list-pane').classList.add('narrow');
+  renderEditor('pending-editor',ad,'pending');
+  renderPendingList();
+}
+function openApprovedEditor(ilanNo){
+  const ad=(Store.approved.content.ads||[]).find(a=>a.ilanNo===ilanNo);
+  if(!ad)return;
+  activeEditor={tab:'approved',ilanNo,isNew:false};
+  el('approved-list-pane').classList.add('narrow');
+  renderEditor('approved-editor',ad,'approved');
+  renderApprovedList();
+}
+function openBlankEditor(){
+  const blank={university:'',city:'',uniType:'Devlet',url:'',ilanNo:'',publishDate:'',deadline:'',detectedTitles:[],positions:[],contentSnippet:''};
+  activeEditor={tab:'add',ilanNo:'__new__',isNew:true};
+  renderEditor('add-editor',blank,'add');
+}
+function closeEditor(tab){
+  activeEditor=null;
+  const map={pending:'pending-list-pane',approved:'approved-list-pane'};
+  if(map[tab])el(map[tab]).classList.remove('narrow');
+  el(`${tab}-editor`).classList.add('hidden');
+  renderPendingList();renderApprovedList();closeDrawer();
+}
+
+// ── Editor Render ──
+function renderEditor(containerId,ad,tab){
+  const container=el(containerId);
+  container.classList.remove('hidden');
+  const draft=JSON.parse(JSON.stringify(ad));
+  container._draft=draft;container._tab=tab;
+  const actionBar=tab==='pending'
+    ?`<button class="btn btn-success btn-sm" onclick="approveAd('${ad.ilanNo}')">✓ Onayla</button><button class="btn btn-danger btn-sm" onclick="rejectAd('${ad.ilanNo}')">✗ Reddet</button><button class="btn btn-primary btn-sm" onclick="saveEditToPending('${containerId}')">💾 Kaydet</button>`
+    :tab==='approved'
+    ?`<button class="btn btn-primary btn-sm" onclick="saveEditToApproved('${containerId}')">💾 Kaydet</button><button class="btn btn-danger btn-sm" onclick="moveToRejectedFromApproved('${ad.ilanNo}')">🗑 Reddet</button>`
+    :`<button class="btn btn-success btn-sm" onclick="saveNewAd('${containerId}')">✓ Onaylıya Ekle</button>`;
+  container.innerHTML=`
+  <div class="editor-header">
+    <div class="editor-title">${esc(ad.university||'Yeni İlan')}</div>
+    <div class="editor-actions">${actionBar}<button class="btn btn-ghost btn-sm" onclick="closeEditor('${tab}')">✕</button></div>
+  </div>
+  <div class="editor-body">
+    <div class="editor-section">
+      <div class="section-header">İlan Bilgileri</div>
+      <div class="fields-grid">
+        <div class="field" style="grid-column:span 2"><label>Üniversite</label><input type="text" data-field="university" value="${esc(draft.university)}" oninput="updateDraft(this,'${containerId}')"></div>
+        <div class="field"><label>Şehir</label><input type="text" data-field="city" value="${esc(draft.city)}" oninput="updateDraft(this,'${containerId}')"></div>
+        <div class="field"><label>Tür</label><select data-field="uniType" onchange="updateDraft(this,'${containerId}')">${UNI_TYPES.map(t=>`<option ${draft.uniType===t?'selected':''}>${t}</option>`).join('')}</select></div>
+        <div class="field"><label>Yayım Tarihi</label><input type="date" data-field="publishDate" value="${(draft.publishDate||'').slice(0,10)}" oninput="updateDraft(this,'${containerId}')"></div>
+        <div class="field"><label>Son Başvuru</label><input type="date" data-field="deadline" value="${(draft.deadline||'').slice(0,10)}" oninput="updateDraft(this,'${containerId}')"></div>
+        <div class="field" style="grid-column:span 2"><label>İlan URL</label><input type="text" data-field="url" value="${esc(draft.url)}" oninput="updateDraft(this,'${containerId}')"></div>
+        <div class="field"><label>İlan Numarası</label><input type="text" data-field="ilanNo" value="${esc(draft.ilanNo)}" oninput="updateDraft(this,'${containerId}')"></div>
+        <div class="field"><label>İçerik Özeti</label><textarea data-field="contentSnippet" rows="2" oninput="updateDraft(this,'${containerId}')">${esc(draft.contentSnippet)}</textarea></div>
+      </div>
+    </div>
+    <div class="editor-section">
+      <div class="section-header">Pozisyonlar <span style="color:var(--text3);font-size:.7rem;font-weight:400" id="pos-summary-${containerId}">${(draft.positions||[]).length} satır · ${(draft.positions||[]).reduce((s,p)=>s+(p.count||1),0)} kişi</span></div>
+      <div class="pos-table-wrap">
+        <table class="pos-table">
+          <thead><tr><th style="width:26px">#</th><th>Fakülte</th><th>Bölüm/Program</th><th>Unvan</th><th style="width:44px">Drc</th><th style="width:46px">Adet</th><th style="width:42px">ALES</th><th style="width:42px">Dil</th><th style="width:56px">Kanun</th><th style="width:22px"></th></tr></thead>
+          <tbody id="pos-tbody-${containerId}"></tbody>
+          <tfoot><tr><td colspan="10"><button class="add-row-btn" onclick="addPositionRow('${containerId}')">+ Satır Ekle</button></td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </div>`;
+  renderPositionRows(containerId,draft.positions||[]);
+}
+
+// ── Position Table ──
+function renderPositionRows(containerId,positions){
+  const tbody=el(`pos-tbody-${containerId}`);if(!tbody)return;
+  tbody.innerHTML=positions.map((p,i)=>`
+    <tr>
+      <td class="row-num" onclick="openDrawer('${containerId}',${i})">${i+1}</td>
+      <td><input class="cell-input" value="${esc(p.faculty||'')}" oninput="updatePos('${containerId}',${i},'faculty',this.value)" placeholder="Fakülte"></td>
+      <td><input class="cell-input" value="${esc(p.department||'')}" oninput="updatePos('${containerId}',${i},'department',this.value)" placeholder="Bölüm"></td>
+      <td><select class="cell-select" onchange="updatePos('${containerId}',${i},'title',this.value)">${ACADEMIC_TITLES.map(t=>`<option ${(p.title||'').includes(t)?'selected':''}>${t}</option>`).join('')}</select></td>
+      <td><input class="cell-input num" type="number" min="1" max="7" value="${p.derece||''}" placeholder="–" oninput="updatePos('${containerId}',${i},'derece',+this.value||null)" title="Kadro derecesi 1-7"></td>
+      <td><input class="cell-input num" type="number" min="1" max="100" value="${p.count||1}" oninput="updatePos('${containerId}',${i},'count',+this.value)"></td>
+      <td class="cell-bool"><input type="checkbox" ${p.alesRequired?'checked':''} onchange="updatePos('${containerId}',${i},'alesRequired',this.checked)" title="ALES zorunlu"></td>
+      <td class="cell-bool"><input type="checkbox" ${p.foreignLanguageRequired?'checked':''} onchange="updatePos('${containerId}',${i},'foreignLanguageRequired',this.checked)" title="Yabancı dil zorunlu"></td>
+      <td><select class="cell-select" style="max-width:54px" onchange="updatePos('${containerId}',${i},'kanunMaddesi',this.value||null)" title="2547 sayılı Kanun maddesi"><option value="">–</option>${KANUN_MADDELERI.map(k=>`<option ${p.kanunMaddesi===k?'selected':''}>${k}</option>`).join('')}</select></td>
+      <td><button class="del-row-btn" onclick="deletePositionRow('${containerId}',${i})">✕</button></td>
+    </tr>`).join('');
+  const sum=el(`pos-summary-${containerId}`);
+  if(sum)sum.textContent=`${positions.length} satır · ${positions.reduce((s,p)=>s+(p.count||1),0)} kişi`;
+}
+function updatePos(containerId,idx,field,value){
+  const c=el(containerId);const p=c._draft.positions;if(!p[idx])return;
+  p[idx][field]=value;updateDetectedTitles(c._draft);
+  const sum=el(`pos-summary-${containerId}`);
+  if(sum)sum.textContent=`${p.length} satır · ${p.reduce((s,x)=>s+(x.count||1),0)} kişi`;
+}
+function updateDraft(input,containerId){
+  const c=document.getElementById(containerId);
+  const field=input.dataset.field;let val=input.value;
+  if(field==='deadline'||field==='publishDate')val=val?new Date(val).toISOString():'';
+  c._draft[field]=val;
+}
+function updateDetectedTitles(draft){
+  const titles=[...new Set((draft.positions||[]).flatMap(p=>(p.title||'').split('/').map(s=>s.trim()).filter(t=>ACADEMIC_TITLES.includes(t))))];
+  draft.detectedTitles=titles;
+}
+function addPositionRow(containerId){
+  const c=el(containerId);const p=c._draft.positions;
+  p.push({faculty:'',department:'',title:'ARAŞTIRMA GÖREVLİSİ',count:1,requirements:'',alesRequired:false,alesScore:null,alesType:null,foreignLanguageRequired:false,foreignLanguageScore:null,foreignLanguageExam:null,derece:null,temelAlan:null,sartlar:[],kanunMaddesi:null,yasSiniri:null});
+  renderPositionRows(containerId,p);
+}
+function deletePositionRow(containerId,idx){
+  const c=el(containerId);c._draft.positions.splice(idx,1);
+  renderPositionRows(containerId,c._draft.positions);
+  updateDetectedTitles(c._draft);
+  if(drawerRow?.containerId===containerId)closeDrawer();
+}
+
+// ── Row Drawer ──
+function openDrawer(containerId,idx){
+  const c=el(containerId);const positions=c._draft.positions;const p=positions[idx];if(!p)return;
+  drawerRow={containerId,idx};
+  el('drawer-title').textContent=`Pozisyon ${idx+1}`;
+  el('drawer-body').innerHTML=`
+    <div class="drawer-section">
+      <div class="drawer-section-title">Temel Bilgiler</div>
+      <div class="field"><label>Fakülte / Birim</label><input type="text" value="${esc(p.faculty||'')}" oninput="drawerUpdate('faculty',this.value)"></div>
+      <div class="field"><label>Bölüm / Program</label><input type="text" value="${esc(p.department||'')}" oninput="drawerUpdate('department',this.value)"></div>
+      <div class="field"><label>Akademik Unvan</label><select onchange="drawerUpdate('title',this.value)">${ACADEMIC_TITLES.map(t=>`<option ${p.title===t?'selected':''}>${t}</option>`).join('')}</select></div>
+      <div class="score-row">
+        <div class="field"><label>Derece (1-7)</label><input type="number" min="1" max="7" value="${p.derece||''}" placeholder="–" oninput="drawerUpdate('derece',+this.value||null)"></div>
+        <div class="field"><label>Kadro Sayısı</label><input type="number" min="1" max="100" value="${p.count||1}" oninput="drawerUpdate('count',+this.value)"></div>
+      </div>
+      <div class="field"><label>Temel Alan (ÜAK)</label><select onchange="drawerUpdate('temelAlan',this.value||null)"><option value="">– seçilmedi –</option>${TEMEL_ALANLAR.map(a=>`<option ${p.temelAlan===a?'selected':''}>${a}</option>`).join('')}</select></div>
+    </div>
+
+    <div class="drawer-section">
+      <div class="drawer-section-title">İstihdam</div>
+      <div class="score-row">
+        <div class="field"><label>2547 Kanun Maddesi</label><select onchange="drawerUpdate('kanunMaddesi',this.value||null)"><option value="">–</option>${KANUN_MADDELERI.map(k=>`<option ${p.kanunMaddesi===k?'selected':''}>${k}</option>`).join('')}</select></div>
+        <div class="field"><label>Yaş Sınırı</label><input type="number" min="20" max="70" value="${p.yasSiniri||''}" placeholder="yok" oninput="drawerUpdate('yasSiniri',+this.value||null)"></div>
+      </div>
+      ${p.kanunMaddesi==='50/d'?`<div style="font-size:.69rem;color:var(--yellow);line-height:1.45;padding:.4rem .5rem;background:rgba(245,158,11,.08);border-left:2px solid var(--yellow)">50/d kadrosu — görev süresi adayın kendi doktorası bittiğinde sona erer.</div>`:''}
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">ALES</div>
+      <div class="toggle-row"><label>ALES Zorunlu</label><label class="toggle"><input type="checkbox" ${p.alesRequired?'checked':''} onchange="drawerUpdate('alesRequired',this.checked);toggleSubFields('ales-fields',this.checked)"><span class="toggle-slider"></span></label></div>
+      <div class="score-row" id="ales-fields" style="${p.alesRequired?'':'opacity:.4;pointer-events:none'}">
+        <div class="field"><label>Min. Puan</label><input type="number" value="${p.alesScore||''}" placeholder="70" oninput="drawerUpdate('alesScore',+this.value||null)"></div>
+        <div class="field"><label>Puan Türü</label><select onchange="drawerUpdate('alesType',this.value||null)"><option value="">—</option>${ALES_TYPES.map(t=>`<option ${p.alesType===t?'selected':''}>${t}</option>`).join('')}</select></div>
+      </div>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Yabancı Dil</div>
+      <div class="toggle-row"><label>Yabancı Dil Zorunlu</label><label class="toggle"><input type="checkbox" ${p.foreignLanguageRequired?'checked':''} onchange="drawerUpdate('foreignLanguageRequired',this.checked);toggleSubFields('lang-fields',this.checked)"><span class="toggle-slider"></span></label></div>
+      <div class="score-row" id="lang-fields" style="${p.foreignLanguageRequired?'':'opacity:.4;pointer-events:none'}">
+        <div class="field"><label>Min. Puan</label><input type="number" value="${p.foreignLanguageScore||''}" placeholder="65" oninput="drawerUpdate('foreignLanguageScore',+this.value||null)"></div>
+        <div class="field"><label>Sınav</label><select onchange="drawerUpdate('foreignLanguageExam',this.value||null)"><option value="">—</option>${LANG_EXAMS.map(e=>`<option ${p.foreignLanguageExam===e?'selected':''}>${e}</option>`).join('')}</select></div>
+      </div>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Alım Şartları (madde madde)</div>
+      <div id="sartlar-list"></div>
+      <button class="add-row-btn" style="width:100%" onclick="addSartLine()">+ Şart Ekle</button>
+      <div style="font-size:.68rem;color:var(--text3);line-height:1.4">Mobil uygulamada madde madde gösterilir. Ham metin aşağıda korunur.</div>
+    </div>
+
+    <div class="drawer-section">
+      <div class="drawer-section-title">Ham Metin</div>
+      <div class="field"><textarea rows="4" oninput="drawerUpdate('requirements',this.value)">${esc(p.requirements||'')}</textarea></div>
+      <button class="add-row-btn" style="width:100%" onclick="resplitSartlar()">Ham metinden yeniden böl</button>
+    </div>`;
+  renderSartlar();
+  el('row-drawer').classList.add('open');
+}
+function toggleSubFields(id,on){const f=el(id);if(f)f.style.cssText=on?'':'opacity:.4;pointer-events:none'}
+function drawerUpdate(field,value){
+  if(!drawerRow)return;
+  const{containerId,idx}=drawerRow;
+  const c=el(containerId);const p=c._draft.positions[idx];if(!p)return;
+  p[field]=value;
+  renderPositionRows(containerId,c._draft.positions);
+  // The 50/d advisory is conditional on this field, so redraw the drawer.
+  if(field==='kanunMaddesi') openDrawer(containerId,idx);
+}
+
+// ── Şartlar list editor ─────────────────────────────────────────────────────
+function currentPos(){
+  if(!drawerRow) return null;
+  const c=el(drawerRow.containerId);
+  return c?._draft?.positions?.[drawerRow.idx]||null;
+}
+function renderSartlar(){
+  const box=el('sartlar-list'); if(!box) return;
+  const p=currentPos(); if(!p) return;
+  const list=p.sartlar||[];
+  if(!list.length){
+    box.innerHTML='<div style="font-size:.72rem;color:var(--text3);padding:.3rem 0">Henüz şart yok.</div>';
+    return;
+  }
+  box.innerHTML=list.map((s,i)=>`
+    <div style="display:flex;gap:.3rem;align-items:flex-start;margin-bottom:.3rem">
+      <span style="color:var(--accent);font-size:.7rem;line-height:1.9;flex-shrink:0">${i+1}.</span>
+      <textarea rows="2" style="flex:1;font-size:.75rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);padding:.3rem .45rem;font-family:var(--font);resize:vertical;outline:none"
+        oninput="updateSartLine(${i},this.value)">${esc(s)}</textarea>
+      <button class="del-row-btn" style="line-height:1.6" onclick="removeSartLine(${i})" title="Sil">✕</button>
+    </div>`).join('');
+}
+function updateSartLine(i,val){
+  const p=currentPos(); if(!p) return;
+  if(!p.sartlar) p.sartlar=[];
+  p.sartlar[i]=val;
+}
+function addSartLine(){
+  const p=currentPos(); if(!p) return;
+  if(!p.sartlar) p.sartlar=[];
+  p.sartlar.push('');
+  renderSartlar();
+}
+function removeSartLine(i){
+  const p=currentPos(); if(!p) return;
+  p.sartlar.splice(i,1);
+  renderSartlar();
+}
+function resplitSartlar(){
+  const p=currentPos(); if(!p) return;
+  const t=(p.requirements||'').replace(/[ \t\n]+/g,' ').trim();
+  if(!t){ showToast('Ham metin boş','error'); return; }
+  let parts=t.split(/(?:•|●|\d{1,2}\s*[-).]\s+|[a-h]\s*\)\s+)/).map(s=>s.trim()).filter(Boolean);
+  if(parts.length<=1) parts=t.split(/(?<=[a-zçğıöşü)])\.\s+(?=[A-ZÇĞİÖŞÜ])/).map(s=>s.trim()).filter(Boolean);
+  p.sartlar=parts.map(s=>s.replace(/^[\s.;•-]+|[\s.;•-]+$/g,'')).filter(s=>s.length>=8).map(s=>s.endsWith('.')?s:s+'.').slice(0,20);
+  renderSartlar();
+  showToast(`${p.sartlar.length} şart ayrıştırıldı`,'success');
+}
+
+function closeDrawer(){el('row-drawer').classList.remove('open');drawerRow=null}
+
+// ── Save Actions ──
+async function approveAd(ilanNo){
+  const c=el('pending-editor');
+  if(c._draft?.ilanNo===ilanNo){const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);if(idx!==-1)Store.pending.content.ads[idx]=c._draft}
+  try{await Store.approve(ilanNo);closeEditor('pending');Store.refresh();showToast('İlan onaylandı ve yayınlandı','success')}catch(e){showToast(e.message,'error')}
+}
+async function rejectAd(ilanNo){
+  try{await Store.reject(ilanNo);closeEditor('pending');Store.refresh();showToast('İlan reddedildi','info')}catch(e){showToast(e.message,'error')}
+}
+async function saveEditToPending(containerId){
+  const c=el(containerId);const draft=c._draft;updateDetectedTitles(draft);
+  const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===draft.ilanNo);
+  if(idx!==-1)Store.pending.content.ads[idx]=draft;
+  try{await Store.savePending(`chore: edit pending ${draft.ilanNo}`);showToast('Kaydedildi','success');Store.refresh()}catch(e){showToast(e.message,'error')}
+}
+async function saveEditToApproved(containerId){
+  const c=el(containerId);const draft=c._draft;updateDetectedTitles(draft);
+  const idx=(Store.approved.content.ads||[]).findIndex(a=>a.ilanNo===draft.ilanNo);
+  if(idx!==-1)Store.approved.content.ads[idx]=draft;
+  try{await Store.saveApproved(`chore: edit ${draft.ilanNo}`);showToast('Kaydedildi ve yayınlandı','success');Store.refresh()}catch(e){showToast(e.message,'error')}
+}
+async function moveToRejectedFromApproved(ilanNo){
+  if(!confirm('Bu ilanı reddedilenlere taşımak istediğinize emin misiniz?'))return;
+  const idx=(Store.approved.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);if(idx===-1)return;
+  const ad=Store.approved.content.ads.splice(idx,1)[0];
+  Store.rejected.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,rejectedAt:new Date().toISOString()});
+  try{await Promise.all([Store.saveApproved(),Store.saveRejected()]);closeEditor('approved');Store.refresh();showToast('Reddedilenlere taşındı','info')}catch(e){showToast(e.message,'error')}
+}
+async function saveNewAd(containerId){
+  const c=el(containerId);const draft=c._draft;updateDetectedTitles(draft);
+  if(!draft.university){showToast('Üniversite adı boş olamaz','error');return}
+  if(!draft.ilanNo)draft.ilanNo='MANUAL-'+Date.now();
+  Store.approved.content.ads.unshift(draft);
+  try{await Store.saveApproved(`feat: add manual ${draft.ilanNo}`);closeEditor('add');Store.refresh();switchTab('approved');showToast('Onaylılara eklendi','success')}catch(e){showToast(e.message,'error')}
+}
+
+// ── Add by URL ──
+// Resolve a user-typed URL / numeric id / ilan no into the numeric ad id.
+async function resolveAdId(raw){
+  const urlMatch=raw.match(/\/ilan\/(\d+)/);
+  if(urlMatch) return urlMatch[1];
+  if(/^\d+$/.test(raw)) return raw;
+
+  // Looks like an ilan no (YOK852533, ILN02456044) — search the listing API.
+  const adNo=raw.toUpperCase().replace(/\s/g,'');
+  const pageSize=20;
+  for(let skip=0; skip<400; skip+=pageSize){
+    const res=await fetch('https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter',{
+      method:'POST',
+      headers:{'Content-Type':'application/json-patch+json',Accept:'application/json'},
+      body:JSON.stringify({keys:{txv:[73]},skipCount:skip,maxResultCount:pageSize}),
+    });
+    if(!res.ok) break;
+    const r=(await res.json()).result;
+    const items=r?.ads||[];
+    if(!items.length) break;
+    const hit=items.find(a=>String(a.adNo||'').toUpperCase()===adNo);
+    if(hit) return hit.id;
+    if(skip+items.length>=(r.numFound||0)) break;
+  }
+  return null;
+}
+
+async function fetchAndAdd(){
+  const raw=el('add-url').value.trim();
+  if(!raw){ showToast('URL, ilan no veya ID girin','error'); return; }
+
+  const btn=event.target;
+  btn.disabled=true; btn.innerHTML='<div class="spinner"></div> Getiriliyor...';
+
+  try{
+    await loadUniversityList();
+
+    const adId=await resolveAdId(raw);
+    if(!adId) throw new Error('İlan bulunamadı. URL veya ilan numarasını kontrol edin.');
+
+    const res=await fetch(`https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${adId}`,
+                          {headers:{Accept:'application/json'}});
+    if(!res.ok) throw new Error(`API hatası: ${res.status}`);
+    const detail=(await res.json()).result;
+    if(!detail) throw new Error('Geçersiz yanıt');
+
+    const ad=parseDetailToAd(detail);
+
+    // Warn if this ad is already known
+    const dupIn=findDuplicate(ad.ilanNo);
+    if(dupIn){
+      if(!confirm(`Bu ilan zaten "${dupIn}" listesinde. Yine de düzenlemek istiyor musunuz?`)) return;
+    }
+
+    activeEditor={tab:'add',ilanNo:ad.ilanNo||adId,isNew:true};
+    renderEditor('add-editor',ad,'add');
+    el('add-editor').classList.remove('hidden');
+
+    if(!ad.positions.length)
+      showToast('İlan getirildi ancak pozisyon ayrıştırılamadı — elle girin','info',5000);
+    else
+      showToast(`${ad.positions.length} pozisyon ayrıştırıldı`,'success');
+  }catch(e){
+    showToast(`Getirilemedi: ${e.message}`,'error',5000);
+  }finally{
+    btn.disabled=false; btn.textContent='Getir ve Düzenle';
+  }
+}
+
+function findDuplicate(ilanNo){
+  if(!ilanNo) return null;
+  if((Store.approved.content.ads||[]).some(a=>a.ilanNo===ilanNo)) return 'Onaylananlar';
+  if((Store.pending.content.ads ||[]).some(a=>a.ilanNo===ilanNo)) return 'Bekleyenler';
+  if((Store.rejected.content.ads||[]).some(a=>a.ilanNo===ilanNo)) return 'Reddedilenler';
+  return null;
+}
+
+// ── Re-parse an existing ad from ilan.gov.tr ────────────────────────────────
+async function reparseAd(containerId){
+  const c=el(containerId); const draft=c._draft;
+  const src=draft.url||draft.ilanNo;
+  if(!src){ showToast('Bu ilanda URL veya ilan no yok','error'); return; }
+  if(!confirm('İlan ilan.gov.tr üzerinden yeniden ayrıştırılacak. Mevcut pozisyon düzenlemeleri kaybolur. Devam?')) return;
+
+  const btn=event.target; btn.disabled=true; const old=btn.innerHTML;
+  btn.innerHTML='<div class="spinner"></div>';
+  try{
+    await loadUniversityList();
+    const adId=await resolveAdId(draft.url||draft.ilanNo);
+    if(!adId) throw new Error('İlan bulunamadı');
+    const res=await fetch(`https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${adId}`,
+                          {headers:{Accept:'application/json'}});
+    if(!res.ok) throw new Error(`API hatası: ${res.status}`);
+    const detail=(await res.json()).result;
+    const fresh=parseDetailToAd(detail);
+
+    // Keep the identity of the existing record; refresh the parsed content.
+    fresh.ilanNo=draft.ilanNo||fresh.ilanNo;
+    renderEditor(containerId,fresh,c._tab);
+    showToast(`Yeniden ayrıştırıldı — ${fresh.positions.length} pozisyon`,'success');
+  }catch(e){
+    showToast(`Ayrıştırılamadı: ${e.message}`,'error',5000);
+  }finally{
+    btn.disabled=false; btn.innerHTML=old;
+  }
+}
+
+function parseDetailToAd(detail){
+  const html=detail.content||'';
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const fullText=doc.body.textContent||'';
+
+  // Publish date: prefer the Resmî Gazete date from adTypeFilters
+  let publishDate=detail.publishStartDate||'';
+  const gf=(detail.adTypeFilters||[]).find(f=>f.key&&f.key.includes('Gazete'));
+  if(gf&&gf.value){
+    const pm=gf.value.match(/(\d{1,2})[./](\d{1,2})[./](\d{4})/);
+    if(pm){ try{ publishDate=new Date(+pm[3],+pm[2]-1,+pm[1]).toISOString(); }catch(e){} }
   }
 
-  get headers() {
+  const deadline=P.parseDeadline(fullText,publishDate);
+  const positions=parseAdContent(html,fullText);
+
+  // detectedTitles from the parsed positions
+  const detectedTitles=[...new Set(positions.flatMap(p=>
+    String(p.title||'').split('/').map(s=>s.trim()).filter(t=>ACADEMIC_TITLES.includes(t))))];
+
+  const advertiser=detail.advertiserName||'';
+  const matched=matchUniversity(advertiser);
+
+  return {
+    university: matched.name||advertiser,
+    city: matched.city||titleCaseTr(detail.addressCityName||''),
+    uniType: matched.type||'Devlet',
+    url:'https://www.ilan.gov.tr'+(detail.urlStr||''),
+    ilanNo: detail.adNo||String(detail.idInt||detail.id||''),
+    publishDate, deadline, detectedTitles, positions,
+    contentSnippet:P.clean(fullText).slice(0,300),
+    applicationDocuments:[],
+  };
+}
+
+function titleCaseTr(s){
+  if(!s) return '';
+  return s.split(' ').map(w=>w?w[0]+w.slice(1).toLocaleLowerCase('tr'):w).join(' ');
+}
+
+// ── University list matching (mirrors the scraper) ──────────────────────────
+let UNI_LIST=[];
+async function loadUniversityList(){
+  if(UNI_LIST.length) return UNI_LIST;
+  try{
+    const res=await fetch('https://raw.githubusercontent.com/sametabbak/AkademikRadarFiltreListesi/refs/heads/main/TurkishUniversityList');
+    if(res.ok){ UNI_LIST=await res.json(); }
+  }catch(e){ console.warn('University list unavailable',e); }
+  return UNI_LIST;
+}
+function matchUniversity(raw){
+  if(!raw||!UNI_LIST.length) return {};
+  const norm=s=>String(s||'').replace(/İ/g,'I').replace(/ı/g,'I').replace(/i/g,'I')
+    .replace(/ğ/g,'G').replace(/Ğ/g,'G').replace(/ş/g,'S').replace(/Ş/g,'S')
+    .replace(/ç/g,'C').replace(/Ç/g,'C').replace(/ö/g,'O').replace(/Ö/g,'O')
+    .replace(/ü/g,'U').replace(/Ü/g,'U').toUpperCase();
+  const n=norm(raw), nsp=n.replace(/[\s-]/g,'');
+  let best=null,bestLen=0;
+  for(const u of UNI_LIST){
+    const un=norm(u.Name), usp=un.replace(/[\s-]/g,'');
+    if((un&&(n.includes(un)||un.includes(n)))||(usp&&(nsp.includes(usp)||usp.includes(nsp)))){
+      if(un.length>bestLen){ best=u; bestLen=un.length; }
+    }
+  }
+  return best?{name:best.Name,city:best.City,type:best.Type}:{};
+}
+
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PARSER — JS port of scraper/scrape.py so the panel can parse ads itself.
+// Used by "Yeni Ekle" and by the "Yeniden Ayrıştır" button in the editor.
+// ═══════════════════════════════════════════════════════════════════════════
+const P = (() => {
+
+  const trUpper = s => String(s||'').replace(/i/g,'İ').replace(/ı/g,'I').toUpperCase();
+
+  const normalize = s => String(s||'')
+    .replace(/İ/g,'I').replace(/ı/g,'I').replace(/i/g,'I')
+    .replace(/ğ/g,'G').replace(/Ğ/g,'G').replace(/ş/g,'S').replace(/Ş/g,'S')
+    .replace(/ç/g,'C').replace(/Ç/g,'C').replace(/ö/g,'O').replace(/Ö/g,'O')
+    .replace(/ü/g,'U').replace(/Ü/g,'U').replace(/â/g,'A').replace(/Â/g,'A')
+    .toUpperCase();
+
+  const clean = s => String(s||'').replace(/[\s\u00a0]+/g,' ').trim();
+
+  const OGRETIM_UYESI = ['PROFESÖR','DOÇENT','DR. ÖĞR. ÜYESİ'];
+  const ALES_EXEMPT   = new Set(['PROFESÖR','DOÇENT']);
+
+  const ALIASES = {
+    'ÖĞRETİM ÜYELERİ':'__OU__', 'ÖĞRETİM ÜYESİ ALIMI':'__OU__', 'ÖĞRETİM ÜYESİ':'__OU__',
+    'PROFESÖR DR.':'PROFESÖR','PROF. DR.':'PROFESÖR','PROF.DR.':'PROFESÖR',
+    'PROFESÖR':'PROFESÖR','PROF.':'PROFESÖR',
+    'DOÇENT DR.':'DOÇENT','DOÇ. DR.':'DOÇENT','DOÇ.DR.':'DOÇENT','DOÇ.':'DOÇENT',
+    'YARDIMCI DOÇENT DR.':'DR. ÖĞR. ÜYESİ','YARDIMCI DOÇENT':'DR. ÖĞR. ÜYESİ',
+    'YRD. DOÇ. DR.':'DR. ÖĞR. ÜYESİ','YRD.DOÇ.DR.':'DR. ÖĞR. ÜYESİ','YRD. DOÇ.':'DR. ÖĞR. ÜYESİ',
+    'DOKTOR ÖĞRETİM ÜYESİ':'DR. ÖĞR. ÜYESİ','DR. ÖĞRETİM ÜYESİ':'DR. ÖĞR. ÜYESİ',
+    'DR.ÖĞRETİM ÜYESİ':'DR. ÖĞR. ÜYESİ','DR ÖĞRETİM ÜYESİ':'DR. ÖĞR. ÜYESİ',
+    'DR. ÖĞR. ÜYESİ':'DR. ÖĞR. ÜYESİ','DR.ÖĞR.ÜYESİ':'DR. ÖĞR. ÜYESİ',
+    'DR.ÖĞR. ÜYESİ':'DR. ÖĞR. ÜYESİ','DR. ÖĞR.ÜYESİ':'DR. ÖĞR. ÜYESİ','DR. ÖĞR.':'DR. ÖĞR. ÜYESİ',
+    'ÖĞRETİM GÖREVLİSİ DR.':'ÖĞRETİM GÖREVLİSİ','ÖĞR. GÖR. DR.':'ÖĞRETİM GÖREVLİSİ',
+    'ÖĞRETİM GÖREVLİSİ':'ÖĞRETİM GÖREVLİSİ','ÖĞR. GÖR.':'ÖĞRETİM GÖREVLİSİ',
+    'ÖĞR.GÖR.':'ÖĞRETİM GÖREVLİSİ','ÖĞRETİM GÖR.':'ÖĞRETİM GÖREVLİSİ',
+    'ARAŞTIRMA GÖREVLİSİ DR.':'ARAŞTIRMA GÖREVLİSİ','ARŞ. GÖR. DR.':'ARAŞTIRMA GÖREVLİSİ',
+    'ARAŞTIRMA GÖREVLİSİ':'ARAŞTIRMA GÖREVLİSİ','ARŞ. GÖR.':'ARAŞTIRMA GÖREVLİSİ',
+    'ARŞ.GÖR.':'ARAŞTIRMA GÖREVLİSİ','ARAŞTIRMA GÖR.':'ARAŞTIRMA GÖREVLİSİ',
+    'UZMAN DR.':'UZMAN','UZMAN':'UZMAN',
+    'BAŞ OKUTMAN':'OKUTMAN','BAŞOKUTMAN':'OKUTMAN','OKUTMAN':'OKUTMAN',
+    'BAŞ ÇEVİRİCİ':'ÇEVİRİCİ','ÇEVİRİCİ':'ÇEVİRİCİ',
+    'EĞİTİM ÖĞRETİM PLANLAMACISI':'EĞİTİM-ÖĞRETİM PLANLAMACISI',
+    'EĞİTİM-ÖĞRETİM PLANLAMACISI':'EĞİTİM-ÖĞRETİM PLANLAMACISI',
+  };
+  const ALIAS_KEYS = Object.keys(ALIASES).sort((a,b)=>b.length-a.length);
+
+  // Strip periods/spaces so "Doç Dr", "Doç. Dr." and "Doç.Dr." compare equal
+  const squash = s => trUpper(s).replace(/[.\s\u00a0]/g,'');
+
+  function extractTitles(raw){
+    const found=[];
+    for(const part of String(raw||'').split(/[\/,;]|\bve\b|\bveya\b/i)){
+      const t=part.trim(); if(!t) continue;
+      const up=trUpper(t), sq=squash(t);
+      let matched=null;
+      for(const a of ALIAS_KEYS){
+        if(up.includes(trUpper(a))||sq.includes(squash(a))){ matched=ALIASES[a]; break; }
+      }
+      if(matched==='__OU__'){ OGRETIM_UYESI.forEach(x=>{ if(!found.includes(x)) found.push(x); }); continue; }
+      if(!matched){ for(const x of ACADEMIC_TITLES){ if(up.includes(trUpper(x))){ matched=x; break; } } }
+      if(matched && !found.includes(matched)) found.push(matched);
+    }
+    return found;
+  }
+
+  // Expand rowspan/colspan into a rectangular grid
+  function expandTable(table){
+    const grid=[], pending={};
+    const rows=[...table.querySelectorAll('tr')];
+    rows.forEach((row,ri)=>{
+      if(!grid[ri]) grid[ri]=[];
+      const g=grid[ri];
+      const place=(col,val)=>{ while(g.length<=col) g.push(null); g[col]=val; };
+      (pending[ri]||[]).forEach(([ci,val,left])=>{
+        place(ci,val);
+        if(left>1){ (pending[ri+1]=pending[ri+1]||[]).push([ci,val,left-1]); }
+      });
+      let cursor=0;
+      for(const td of row.querySelectorAll('th,td')){
+        const val=clean(td.textContent);
+        const rs=parseInt(td.getAttribute('rowspan')||'1',10);
+        const cs=parseInt(td.getAttribute('colspan')||'1',10);
+        while(cursor<g.length && g[cursor]!==null && g[cursor]!==undefined) cursor++;
+        for(let k=0;k<cs;k++){
+          place(cursor+k,val);
+          if(rs>1){ (pending[ri+1]=pending[ri+1]||[]).push([cursor+k,val,rs-1]); }
+        }
+        cursor+=cs;
+      }
+    });
+    const w=Math.max(0,...grid.map(r=>r?r.length:0));
+    return grid.map(r=>Array.from({length:w},(_,i)=>(r&&r[i]!=null)?r[i]:''));
+  }
+
+  const has=(hay,keys)=>keys.some(k=>hay.includes(trUpper(k)));
+
+  function extractAles(text,title){
+    const r={alesRequired:false,alesScore:null,alesType:null};
+    if(ALES_EXEMPT.has(title)) return r;
+    const up=trUpper(text);
+    if(!up.includes('ALES')) return r;
+    r.alesRequired=true;
+    const m=up.match(/ALES[^0-9]{0,30}(\d{2,3})/); if(m) r.alesScore=+m[1];
+    for(const t of ['SAYISAL','SÖZEL','EŞİT AĞIRLIK','SAY','SÖZ','EA'])
+      if(up.includes(t)){ r.alesType={'SAYISAL':'SAY','SÖZEL':'SÖZ','EŞİT AĞIRLIK':'EA'}[t]||t; break; }
+    return r;
+  }
+
+  function extractLang(text){
+    const r={foreignLanguageRequired:false,foreignLanguageScore:null,foreignLanguageExam:null};
+    const up=trUpper(text);
+    if(!['YDS','YÖKDİL','YABANCI DİL'].some(k=>up.includes(trUpper(k)))) return r;
+    r.foreignLanguageRequired=true;
+    const m=up.match(/(?:YDS|YÖKDİL|YABANCI\s+DİL)[^0-9]{0,30}(\d{2,3})/); if(m) r.foreignLanguageScore=+m[1];
+    for(const e of ['YÖKDİL','YDS','TOEFL','IELTS']) if(up.includes(trUpper(e))){ r.foreignLanguageExam=e; break; }
+    return r;
+  }
+
+  // ── New design fields ────────────────────────────────────────────────────
+  const TEMEL_ALAN_MAP=[
+    ['Sağlık Bilimleri',['TIP FAK','DIS HEK','ECZACILIK','HEMSIRELIK','SAGLIK','VETERINER','FIZYOTERAPI','EBELIK','BESLENME','ODYOLOJI']],
+    ['Mühendislik',     ['MUHENDISLIK','TEKNOLOJI FAK','MIMARLIK','INSAAT','MAKINE','ELEKTRIK','ENDUSTRI','YAZILIM']],
+    ['Fen Bilimleri',   ['FEN FAK','FEN BILIM','MATEMATIK','FIZIK','KIMYA','BIYOLOJI','ISTATISTIK','MOLEKULER']],
+    ['Filoloji',        ['FILOLOJI','YABANCI DIL','INGILIZ DIL','MUTERCIM','TERCUMANLIK','TURK DILI','EDEBIYAT','DILBILIM']],
+    ['Eğitim Bilimleri',['EGITIM FAK','OGRETMENLIGI','EGITIM BILIM']],
+    ['Güzel Sanatlar',  ['GUZEL SANAT','TASARIM','MUZIK','KONSERVATUVAR','SINEMA','RESIM','HEYKEL']],
+    ['Hukuk',           ['HUKUK']],
+    ['İlahiyat',        ['ILAHIYAT','ISLAMI ILIM']],
+    ['Ziraat ve Orman', ['ZIRAAT','ORMAN','SU URUN','TARIM']],
+    ['Spor Bilimleri',  ['SPOR BILIM','BEDEN EGITIM']],
+    ['Sosyal Bilimler', ['IKTISAT','ISLETME','SIYASAL','IIBF','IKTISADI','SOSYAL BILIM','PSIKOLOJI','SOSYOLOJI','TARIH','COGRAFYA','ILETISIM','TURIZM','MALIYE']],
+  ];
+  function inferTemelAlan(fac,dept){
+    const hay=normalize(`${fac} ${dept}`);
+    for(const [alan,kws] of TEMEL_ALAN_MAP) for(const k of kws) if(hay.includes(k)) return alan;
+    return null;
+  }
+  function extractDerece(raw){
+    const d=String(raw||'').replace(/[^0-9]/g,''); if(!d) return null;
+    const v=d.length>1?+d[0]:+d; return (v>=1&&v<=7)?v:null;
+  }
+  function extractKanun(text){
+    if(!text) return null;
+    const flat=normalize(text).replace(/[\s]/g,'');
+    if(/50[\/\-]?D/.test(flat)) return '50/d';
+    if(/33[\/\-]?A/.test(flat)) return '33/a';
+    return null;
+  }
+  function extractYas(text){
+    if(!text) return null;
+    const up=normalize(text); if(!up.includes('YAS')) return null;
+    for(const p of [/(\d{2})\s*YASINDAN\s+GUN\s+ALMAMIS/,/(\d{2})\s*YASINI\s+DOLDURMAMIS/,
+                    /(\d{2})\s*YASINDAN\s+BUYUK\s+OLMAMAK/,/YASI\s*(\d{2})[^0-9]{0,12}ASMAMAK/]){
+      const m=up.match(p); if(m){ const v=+m[1]; if(v>=20&&v<=70) return v; }
+    }
+    return null;
+  }
+  function splitSartlar(text){
+    if(!text||!text.trim()) return [];
+    const t=text.replace(/[\s\u00a0]+/g,' ').trim();
+    let parts=t.split(/(?:•|●|\d{1,2}\s*[-).]\s+|[a-h]\s*\)\s+)/).map(s=>s.trim()).filter(Boolean);
+    if(parts.length<=1)
+      parts=t.split(/(?<=[a-zçğıöşü)])\.\s+(?=[A-ZÇĞİÖŞÜ])/).map(s=>s.trim()).filter(Boolean);
+    const out=[];
+    for(let p of parts){
+      p=p.replace(/^[\s.;•\-]+|[\s.;•\-]+$/g,'');
+      if(p.length<8) continue;
+      if(!p.endsWith('.')) p+='.';
+      if(!out.includes(p)) out.push(p);
+    }
+    return out.slice(0,20);
+  }
+
+  function enrich(pos, dereceRaw, fullText){
+    const req=pos.requirements||'';
+    const scope=req.trim()?req:fullText;
     return {
-      'Authorization': `Bearer ${this.token}`,
-      'Accept':        'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'Content-Type':  'application/json',
+      derece:       extractDerece(dereceRaw),
+      temelAlan:    inferTemelAlan(pos.faculty,pos.department),
+      sartlar:      splitSartlar(req),
+      kanunMaddesi: extractKanun(scope),
+      yasSiniri:    extractYas(scope),
     };
   }
 
-  async getFile(path) {
-    const res = await fetch(`${this.base}/contents/${path}?ref=${this.branch}`, {
-      headers: this.headers,
-    });
-    if (res.status === 404) return null;
-    if (!res.ok) throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
-    const data = await res.json();
-    const content = JSON.parse(atob(data.content.replace(/\n/g, '')));
-    return { content, sha: data.sha };
-  }
+  // ── Table parser ─────────────────────────────────────────────────────────
+  function parseTables(html, fullText){
+    const doc=new DOMParser().parseFromString(html,'text/html');
+    const out=[];
+    for(const table of doc.querySelectorAll('table')){
+      const grid=expandTable(table);
+      if(grid.length<2) continue;
 
-  async putFile(path, content, sha, message) {
-    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
-    const body = { message, content: encoded, branch: this.branch };
-    if (sha) body.sha = sha;
-    const res = await fetch(`${this.base}/contents/${path}`, {
-      method:  'PUT',
-      headers: this.headers,
-      body:    JSON.stringify(body),
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.message || `GitHub API error: ${res.status}`);
+      let headerIdx=null, col={};
+      for(let ri=0;ri<grid.length;ri++){
+        const cells=grid[ri];
+        const up=trUpper(cells.join(' '));
+        const hasTitle=has(up,['UNVAN','ÜNVAN','KADRO ÜNVAN','AKADEMİK ÜNVAN','AKADEMİK PERSONEL','İSTİHDAM','KADRO CİNSİ','KADRO ADI']);
+        const hasCount=has(up,['ADET','ADEDİ','KADRO SAYISI','SAYI','KONTENJAN']);
+        const hasAles =has(up,['ALES','PUAN']);
+        if(hasTitle&&(hasCount||hasAles)){
+          headerIdx=ri;
+          cells.forEach((cell,ci)=>{
+            const cu=trUpper(cell);
+            if(has(cu,['FAKÜLTE','BİRİM'])&&col.faculty===undefined) col.faculty=ci;
+            else if(has(cu,['BÖLÜM','PROGRAM','ANABİLİM','BİRİMİ'])&&col.dept===undefined) col.dept=ci;
+            else if(has(cu,['ADET','ADEDİ','KADRO SAYISI','SAYI','KONTENJAN'])&&col.count===undefined) col.count=ci;
+            else if(has(cu,['UNVAN','ÜNVAN','KADRO ÜNVAN','AKADEMİK ÜNVAN','AKADEMİK PERSONEL','İSTİHDAM','KADRO CİNSİ','KADRO ADI'])&&col.title===undefined) col.title=ci;
+            else if(has(cu,['KADRO DERECE','DERECE','DRC'])&&col.derece===undefined) col.derece=ci;
+            else if(has(cu,['ALES PUANI','ALES PUAN'])&&col.alesScore===undefined) col.alesScore=ci;
+            else if(has(cu,['ALES PUAN TÜR','PUAN TÜRÜ'])&&col.alesType===undefined) col.alesType=ci;
+            else if(has(cu,['YABANCI DİL PUANI','YABANCI DİL'])&&col.langScore===undefined) col.langScore=ci;
+            else if(has(cu,['ARANAN','NİTELİK','AÇIKLAMA','ŞART','ALIM ŞART','KOŞUL','BAŞVURU','UZMANLIK','ÖZELLİK','GENEL KOŞUL','MUAFİYET'])&&col.req===undefined) col.req=ci;
+          });
+          break;
+        }
+      }
+
+      // Fallback: find the title column by scanning data cells
+      if(headerIdx!==null && col.title===undefined){
+        const hits={};
+        for(let r=headerIdx+1;r<Math.min(headerIdx+6,grid.length);r++)
+          grid[r].forEach((cell,ci)=>{ if(extractTitles(cell).length) hits[ci]=(hits[ci]||0)+1; });
+        const best=Object.keys(hits).sort((a,b)=>hits[b]-hits[a])[0];
+        if(best!==undefined) col.title=+best;
+      }
+      if(headerIdx===null||col.title===undefined) continue;
+
+      let lastFaculty='';
+      for(let r=headerIdx+1;r<grid.length;r++){
+        const cells=grid[r];
+        if(!cells.some(x=>x&&x.trim())) continue;
+        const get=k=>col[k]!==undefined&&col[k]<cells.length?cells[col[k]]:'';
+
+        let faculty=get('faculty');
+        if(faculty) lastFaculty=faculty; else faculty=lastFaculty;
+        const dept=get('dept'), titleRaw=get('title'), req=get('req');
+        const count=Math.max(1,Math.min(10,+(String(get('count')).replace(/[^0-9]/g,'')||1)));
+
+        const titles=extractTitles(titleRaw);
+        if(!titles.length) continue;
+        if(faculty.length>120||dept.length>120) continue;
+
+        const combined=titles.join(' / '), primary=titles[0];
+        const asv=get('alesScore'), atv=get('alesType'), lsv=get('langScore');
+
+        let ales;
+        if(String(asv).replace(/[^0-9]/g,'')&&!ALES_EXEMPT.has(primary))
+          ales={alesRequired:true,alesScore:+String(asv).replace(/[^0-9]/g,''),alesType:atv.trim()||null};
+        else { ales=extractAles(req,primary); if(!ales.alesRequired) ales=extractAles(fullText,primary); }
+
+        let lang;
+        if(String(lsv).replace(/[^0-9]/g,''))
+          lang={foreignLanguageRequired:true,foreignLanguageScore:+String(lsv).replace(/[^0-9]/g,''),foreignLanguageExam:null};
+        else { lang=extractLang(req); if(!lang.foreignLanguageRequired) lang=extractLang(fullText); }
+
+        const pos={faculty,department:dept,title:combined,count,requirements:req,...ales,...lang};
+        Object.assign(pos,enrich(pos,get('derece'),fullText));
+        out.push(pos);
+      }
     }
-    return res.json();
+    return out;
   }
 
-  async testAccess() {
-    // Check repo access and write permission
-    const res = await fetch(`${this.base}`, { headers: this.headers });
-    if (!res.ok) throw new Error(`Repo bulunamadı veya erişim reddedildi (${res.status})`);
-    const repo = await res.json();
-    if (!repo.permissions?.push) throw new Error('Write izni yok — token\'ı kontrol edin');
-    return repo.full_name;
+  // ── Key-value / free-text parser ─────────────────────────────────────────
+  function parseText(html, fullText){
+    const doc=new DOMParser().parseFromString(html,'text/html');
+    let lines=(doc.body.textContent||'').split('\n').map(s=>s.trim()).filter(Boolean);
+
+    // Merge "<b>KEY</b>" + ": value" split across lines
+    const merged=[];
+    for(let i=0;i<lines.length;i++){
+      if(i+1<lines.length&&lines[i+1].startsWith(':')&&!lines[i].includes(':')){
+        merged.push(lines[i]+' '+lines[i+1]); i++;
+      } else merged.push(lines[i]);
+    }
+    lines=merged;
+
+    const FAC=['FAKÜLTE','BİRİM','OKUL','YÜKSEKOKUL','ENSTİTÜ'],
+          DEP=['BÖLÜM','ANABİLİM','PROGRAM','ABD'],
+          TIT=['ÜNVAN','UNVAN','KADRO','AKADEMİK ÜNVAN'],
+          CNT=['ADET','SAYI','ALINACAK','KONTENJAN'],
+          REQ=['ÖZEL KOŞUL','ARANAN NİTELİK','AÇIKLAMA','KOŞUL','ALIM ŞART','ŞART','GENEL ŞART','MUAFİYET','ÖZELLİK'];
+    const mk=(u,keys)=>keys.some(k=>u.includes(trUpper(k)));
+    const val=l=>l.includes(':')?l.split(':').slice(1).join(':').trim():'';
+
+    const textUp=trUpper(doc.body.textContent||'');
+    const hasKey=mk(textUp,TIT), hasTitle=ACADEMIC_TITLES.some(t=>textUp.includes(trUpper(t)));
+    if(!hasKey&&!hasTitle) return [];
+
+    const out=[]; let cur={};
+    const flush=()=>{
+      if(!cur.title) return;
+      const titles=extractTitles(cur.title); if(!titles.length) return;
+      const primary=titles[0], req=cur.requirements||'';
+      let ales=extractAles(req,primary); if(!ales.alesRequired) ales=extractAles(fullText,primary);
+      let lang=extractLang(req);         if(!lang.foreignLanguageRequired) lang=extractLang(fullText);
+      const count=Math.max(1,Math.min(10,+(String(cur.count||'1').replace(/[^0-9]/g,'')||1)));
+      const pos={faculty:cur.faculty||'',department:cur.dept||'',title:titles.join(' / '),
+                 count,requirements:req,...ales,...lang};
+      Object.assign(pos,enrich(pos,'',fullText));
+      out.push(pos);
+    };
+
+    for(let i=0;i<lines.length;i++){
+      const l=lines[i], u=trUpper(l);
+      if(mk(u,FAC)&&l.includes(':')){ if(Object.keys(cur).length) flush(); cur={faculty:val(l)}; }
+      else if(mk(u,DEP)&&l.includes(':')) cur.dept=val(l);
+      else if(mk(u,TIT)&&l.includes(':')){
+        const v=val(l);
+        if(v){ if(cur.title&&v!==cur.title){ flush(); cur={faculty:cur.faculty,dept:cur.dept}; } cur.title=v; }
+      }
+      else if(mk(u,CNT)&&l.includes(':')){ const d=val(l).replace(/[^0-9]/g,''); if(d&&+d<=10) cur.count=d; }
+      else if(mk(u,REQ)&&l.includes(':')){
+        const parts=[val(l)];
+        let j=i+1;
+        while(j<lines.length){
+          const nu=trUpper(lines[j]);
+          if([FAC,DEP,TIT,CNT,REQ].some(g=>mk(nu,g)&&lines[j].includes(':'))) break;
+          parts.push(lines[j]); j++;
+        }
+        cur.requirements=parts.join(' ').trim(); i=j-1;
+      }
+    }
+    if(Object.keys(cur).length) flush();
+
+    // Free-text fallback: titles mentioned in prose with no structure at all
+    if(!out.length&&hasTitle){
+      for(const title of ACADEMIC_TITLES){
+        if(!textUp.includes(trUpper(title))) continue;
+        let count=1;
+        const m=textUp.match(new RegExp(trUpper(title).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'.{0,60}?(\\d{1,2})\\s*(?:KİŞİ|ADET|KADRO)'));
+        if(m) count=Math.max(1,Math.min(10,+m[1]));
+        const pos={faculty:'',department:'',title,count,requirements:'',
+                   ...extractAles(fullText,title),...extractLang(fullText)};
+        Object.assign(pos,enrich(pos,'',fullText));
+        out.push(pos);
+      }
+    }
+    return out;
   }
-}
 
-// ═══════════════════════════════════════════════════════════════════════════
-// DATA STORE
-// ═══════════════════════════════════════════════════════════════════════════
-const Store = {
-  api: null,
-
-  // Raw data + SHAs from GitHub
-  pending:  { content: { ads: [] }, sha: null },
-  approved: { content: { ads: [], examCalendar: [] }, sha: null },
-  rejected: { content: { ads: [] }, sha: null },
-
-  async init(api) {
-    this.api = api;
-    await this.loadAll();
-  },
-
-  async loadAll() {
-    const [p, a, r] = await Promise.all([
-      this.api.getFile('pending.json'),
-      this.api.getFile('ilanlar.json'),
-      this.api.getFile('rejected.json'),
-    ]);
-    if (p) this.pending  = p;
-    if (a) this.approved = a;
-    if (r) this.rejected = r;
-    this.updateBadges();
-  },
-
-  updateBadges() {
-    const today = new Date().toISOString().slice(0, 10);
-    const activeApproved = (this.approved.content.ads || [])
-      .filter(ad => !ad.deadline || ad.deadline.slice(0, 10) >= today);
-
-    document.getElementById('badge-pending').textContent  =
-      (this.pending.content.ads  || []).length;
-    document.getElementById('badge-approved').textContent =
-      activeApproved.length;
-    document.getElementById('badge-rejected').textContent =
-      (this.rejected.content.ads || []).length;
-  },
-
-  async saveApproved(message = 'chore: update ilanlar.json via panel') {
-    const result = await this.api.putFile(
-      'ilanlar.json',
-      { ...this.approved.content, lastUpdated: new Date().toISOString() },
-      this.approved.sha,
-      message
-    );
-    this.approved.sha = result.content.sha;
-    this.updateBadges();
-  },
-
-  async savePending(message = 'chore: update pending.json via panel') {
-    const result = await this.api.putFile(
-      'pending.json',
-      { ...this.pending.content, lastUpdated: new Date().toISOString() },
-      this.pending.sha,
-      message
-    );
-    this.pending.sha = result.content.sha;
-    this.updateBadges();
-  },
-
-  async saveRejected(message = 'chore: update rejected.json via panel') {
-    const result = await this.api.putFile(
-      'rejected.json',
-      { ...this.rejected.content, lastUpdated: new Date().toISOString() },
-      this.rejected.sha,
-      message
-    );
-    this.rejected.sha = result.content.sha;
-    this.updateBadges();
-  },
-};
-
-// ═══════════════════════════════════════════════════════════════════════════
-// TAB NAVIGATION
-// ═══════════════════════════════════════════════════════════════════════════
-function switchTab(name) {
-  document.querySelectorAll('.tab').forEach(t =>
-    t.classList.toggle('active', t.dataset.tab === name));
-  document.querySelectorAll('.tab-panel').forEach(p =>
-    p.classList.toggle('active', p.id === `tab-${name}`));
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// SETTINGS
-// ═══════════════════════════════════════════════════════════════════════════
-function openSettings() {
-  document.getElementById('s-token').value  = localStorage.getItem(STORAGE_KEYS.token)  || '';
-  document.getElementById('s-owner').value  = localStorage.getItem(STORAGE_KEYS.owner)  || DEFAULTS.owner;
-  document.getElementById('s-repo').value   = localStorage.getItem(STORAGE_KEYS.repo)   || DEFAULTS.repo;
-  document.getElementById('s-branch').value = localStorage.getItem(STORAGE_KEYS.branch) || DEFAULTS.branch;
-  document.getElementById('settings-overlay').classList.add('open');
-}
-
-function closeSettings() {
-  document.getElementById('settings-overlay').classList.remove('open');
-}
-
-function saveSettings() {
-  const token  = document.getElementById('s-token').value.trim();
-  const owner  = document.getElementById('s-owner').value.trim()  || DEFAULTS.owner;
-  const repo   = document.getElementById('s-repo').value.trim()   || DEFAULTS.repo;
-  const branch = document.getElementById('s-branch').value.trim() || DEFAULTS.branch;
-
-  if (!token) { showToast('Token boş olamaz', 'error'); return; }
-
-  localStorage.setItem(STORAGE_KEYS.token,  token);
-  localStorage.setItem(STORAGE_KEYS.owner,  owner);
-  localStorage.setItem(STORAGE_KEYS.repo,   repo);
-  localStorage.setItem(STORAGE_KEYS.branch, branch);
-
-  showToast('Ayarlar kaydedildi', 'success');
-  closeSettings();
-  initApp();
-}
-
-async function testConnection() {
-  const token  = document.getElementById('s-token').value.trim();
-  const owner  = document.getElementById('s-owner').value.trim()  || DEFAULTS.owner;
-  const repo   = document.getElementById('s-repo').value.trim()   || DEFAULTS.repo;
-  const branch = document.getElementById('s-branch').value.trim() || DEFAULTS.branch;
-
-  if (!token) { showToast('Önce token girin', 'error'); return; }
-
-  const btn = document.getElementById('test-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spinner"></div> Test ediliyor...';
-
-  const ind   = document.getElementById('conn-indicator');
-  const label = document.getElementById('conn-label');
-  const sub   = document.getElementById('conn-sub');
-
-  try {
-    const api  = new GitHubAPI(token, owner, repo, branch);
-    const name = await api.testAccess();
-    ind.className   = 'conn-indicator ok';
-    label.textContent = '✓ Bağlantı başarılı';
-    sub.textContent   = name;
-    showToast('GitHub bağlantısı başarılı', 'success');
-  } catch (e) {
-    ind.className   = 'conn-indicator err';
-    label.textContent = '✗ Bağlantı başarısız';
-    sub.textContent   = e.message;
-    showToast(e.message, 'error');
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Bağlantıyı Test Et';
+  function parseDeadline(text, publishDate){
+    let m=text.match(/son\s+ba[şs]vuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{1,2})[./](\d{4})/i);
+    if(m) return mkDate(m[3],m[2],m[1]);
+    const re=/ba[şs]vuru\s+tarih\w*[:\s]*(\d{1,2})[./](\d{1,2})[./](\d{4})/ig;
+    let c;
+    while((c=re.exec(text))!==null){
+      const d=mkDate(c[3],c[2],c[1]);
+      if(d&&(!publishDate||new Date(d)>new Date(publishDate))) return d;
+    }
+    m=text.match(/tarihinden\s+itibaren\s+(\d{1,2})\s+g[üu]n/i);
+    if(m&&publishDate){
+      const d=new Date(publishDate); d.setDate(d.getDate()+ +m[1]); d.setHours(23,59,0,0);
+      return d.toISOString();
+    }
+    return null;
   }
-}
-
-function clearToken() {
-  if (!confirm('Token silinecek ve çıkış yapılacak. Emin misiniz?')) return;
-  Object.values(STORAGE_KEYS).forEach(k => localStorage.removeItem(k));
-  location.reload();
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// LOCK SCREEN
-// ═══════════════════════════════════════════════════════════════════════════
-async function lockConnect() {
-  const token = document.getElementById('lock-token').value.trim();
-  const errEl = document.getElementById('lock-error');
-  const btn   = document.getElementById('lock-btn');
-
-  if (!token) { errEl.textContent = 'Token gerekli'; errEl.style.display = 'inline'; return; }
-
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spinner"></div>';
-  errEl.style.display = 'none';
-
-  try {
-    const api = new GitHubAPI(
-      token,
-      DEFAULTS.owner,
-      DEFAULTS.repo,
-      DEFAULTS.branch
-    );
-    await api.testAccess();
-
-    // Save and proceed
-    localStorage.setItem(STORAGE_KEYS.token,  token);
-    localStorage.setItem(STORAGE_KEYS.owner,  DEFAULTS.owner);
-    localStorage.setItem(STORAGE_KEYS.repo,   DEFAULTS.repo);
-    localStorage.setItem(STORAGE_KEYS.branch, DEFAULTS.branch);
-
-    document.getElementById('lock-screen').style.display = 'none';
-    await initApp();
-  } catch (e) {
-    errEl.textContent = e.message;
-    errEl.style.display = 'inline';
-    btn.disabled = false;
-    btn.textContent = 'Bağlan';
+  function mkDate(y,mo,d){
+    try{ const dt=new Date(+y,+mo-1,+d,23,59); return isNaN(dt)?null:dt.toISOString(); }catch(e){ return null; }
   }
-}
 
-// ═══════════════════════════════════════════════════════════════════════════
-// APP INIT
-// ═══════════════════════════════════════════════════════════════════════════
-async function initApp() {
-  const token  = localStorage.getItem(STORAGE_KEYS.token);
-  const owner  = localStorage.getItem(STORAGE_KEYS.owner)  || DEFAULTS.owner;
-  const repo   = localStorage.getItem(STORAGE_KEYS.repo)   || DEFAULTS.repo;
-  const branch = localStorage.getItem(STORAGE_KEYS.branch) || DEFAULTS.branch;
-
-  if (!token) return; // lock screen handles this
-
-  const badge  = document.getElementById('status-badge');
-  badge.textContent = 'Yükleniyor...';
-  badge.className   = 'connected';
-
-  try {
-    const api = new GitHubAPI(token, owner, repo, branch);
-    await Store.init(api);
-
-    badge.textContent = `${owner}/${repo}`;
-    badge.className   = 'connected';
-
-    // If lock screen is still visible, hide it
-    const lock = document.getElementById('lock-screen');
-    if (lock) lock.style.display = 'none';
-
-    showToast('Veriler yüklendi', 'success');
-  } catch (e) {
-    badge.textContent = 'Bağlantı hatası';
-    badge.className   = '';
-    showToast(`Yüklenemedi: ${e.message}`, 'error');
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// TOAST
-// ═══════════════════════════════════════════════════════════════════════════
-function showToast(message, type = 'info', duration = 3500) {
-  const container = document.getElementById('toast-container');
-  const toast = document.createElement('div');
-  toast.className = `toast ${type}`;
-
-  const icon = { success: '✓', error: '✗', info: 'ℹ' }[type] || 'ℹ';
-  toast.innerHTML = `<span style="font-weight:600">${icon}</span> <span>${message}</span>`;
-
-  container.appendChild(toast);
-  setTimeout(() => {
-    toast.style.transition = 'opacity 0.3s, transform 0.3s';
-    toast.style.opacity    = '0';
-    toast.style.transform  = 'translateX(10px)';
-    setTimeout(() => toast.remove(), 300);
-  }, duration);
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// BOOT
-// ═══════════════════════════════════════════════════════════════════════════
-(function boot() {
-  const token = localStorage.getItem(STORAGE_KEYS.token);
-  if (token) {
-    // Token exists — hide lock screen and load
-    document.getElementById('lock-screen').style.display = 'none';
-    initApp();
-  }
-  // Otherwise lock screen stays visible
+  return { parseTables, parseText, parseDeadline, extractTitles, enrich, clean, trUpper };
 })();
+
+// Run every parser and pick the first that yields positions
+function parseAdContent(html, fullText){
+  let pos = P.parseTables(html, fullText);
+  if(!pos.length) pos = P.parseText(html, fullText);
+  return pos.filter(p=>{
+    const parts=String(p.title||'').split('/').map(s=>s.trim());
+    return parts.some(t=>ACADEMIC_TITLES.includes(t));
+  });
+}
+
+// ── Settings ──
+function openSettings(){el('s-token').value=localStorage.getItem(STORAGE.token)||'';el('s-owner').value=localStorage.getItem(STORAGE.owner)||DEFAULTS.owner;el('s-repo').value=localStorage.getItem(STORAGE.repo)||DEFAULTS.repo;el('s-branch').value=localStorage.getItem(STORAGE.branch)||DEFAULTS.branch;el('settings-overlay').classList.add('open')}
+function closeSettings(){el('settings-overlay').classList.remove('open')}
+function saveSettings(){
+  const t=el('s-token').value.trim();if(!t){showToast('Token boş olamaz','error');return}
+  localStorage.setItem(STORAGE.token,t);localStorage.setItem(STORAGE.owner,el('s-owner').value.trim()||DEFAULTS.owner);localStorage.setItem(STORAGE.repo,el('s-repo').value.trim()||DEFAULTS.repo);localStorage.setItem(STORAGE.branch,el('s-branch').value.trim()||DEFAULTS.branch);
+  showToast('Ayarlar kaydedildi','success');closeSettings();initApp();
+}
+async function testConnection(){
+  const t=el('s-token').value.trim(),o=el('s-owner').value.trim()||DEFAULTS.owner,r=el('s-repo').value.trim()||DEFAULTS.repo,b=el('s-branch').value.trim()||DEFAULTS.branch;
+  if(!t){showToast('Önce token girin','error');return}
+  const btn=el('test-btn');btn.disabled=true;btn.innerHTML='<div class="spinner"></div>';
+  const ind=el('conn-indicator'),lbl=el('conn-label'),sub=el('conn-sub');
+  try{const name=await new GitHubAPI(t,o,r,b).testAccess();ind.className='conn-indicator ok';lbl.textContent='✓ Bağlı';sub.textContent=name;showToast('Bağlantı başarılı','success')}
+  catch(e){ind.className='conn-indicator err';lbl.textContent='✗ Hata';sub.textContent=e.message;showToast(e.message,'error')}
+  finally{btn.disabled=false;btn.textContent='Test Et'}
+}
+function clearToken(){if(!confirm('Çıkış yapılacak. Emin misiniz?'))return;Object.values(STORAGE).forEach(k=>localStorage.removeItem(k));location.reload()}
+
+// ── Lock Screen ──
+async function lockConnect(){
+  const token=el('lock-token').value.trim(),errEl=el('lock-error'),btn=el('lock-btn');
+  if(!token){errEl.textContent='Token gerekli';errEl.style.display='inline';return}
+  btn.disabled=true;btn.innerHTML='<div class="spinner"></div>';errEl.style.display='none';
+  try{
+    await new GitHubAPI(token,DEFAULTS.owner,DEFAULTS.repo,DEFAULTS.branch).testAccess();
+    localStorage.setItem(STORAGE.token,token);localStorage.setItem(STORAGE.owner,DEFAULTS.owner);localStorage.setItem(STORAGE.repo,DEFAULTS.repo);localStorage.setItem(STORAGE.branch,DEFAULTS.branch);
+    el('lock-screen').style.display='none';await initApp();
+  }catch(e){errEl.textContent=e.message;errEl.style.display='inline';btn.disabled=false;btn.textContent='Bağlan'}
+}
+
+// ── Init ──
+async function initApp(){
+  const token=localStorage.getItem(STORAGE.token),owner=localStorage.getItem(STORAGE.owner)||DEFAULTS.owner,repo=localStorage.getItem(STORAGE.repo)||DEFAULTS.repo,branch=localStorage.getItem(STORAGE.branch)||DEFAULTS.branch;
+  if(!token)return;
+  const badge=el('status-badge');badge.textContent='Yükleniyor...';badge.className='connected';
+  try{const api=new GitHubAPI(token,owner,repo,branch);await Store.init(api);loadUniversityList();badge.textContent=`${owner}/${repo}`;badge.className='connected';el('lock-screen').style.display='none';showToast('Veriler yüklendi','success')}
+  catch(e){badge.textContent='Hata';badge.className='';showToast(`Yüklenemedi: ${e.message}`,'error')}
+}
+
+// ── Toast ──
+function showToast(msg,type='info',dur=3500){
+  const c=el('toast-container');const t=document.createElement('div');t.className=`toast ${type}`;
+  const icon={success:'✓',error:'✗',info:'ℹ'}[type]||'ℹ';
+  t.innerHTML=`<span style="font-weight:700">${icon}</span><span>${msg}</span>`;
+  c.appendChild(t);setTimeout(()=>{t.style.transition='opacity .22s,transform .22s';t.style.opacity='0';t.style.transform='translateX(10px)';setTimeout(()=>t.remove(),220)},dur);
+}
+
+// ── Boot ──
+(function(){if(localStorage.getItem(STORAGE.token)){el('lock-screen').style.display='none';initApp()}})();
 </script>
 </body>
 </html>
