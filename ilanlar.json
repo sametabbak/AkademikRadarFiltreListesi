@@ -1,7 +1,63 @@
 {
-  "lastUpdated": "2026-09-10T11:58:36.366Z",
+  "lastUpdated": "2026-09-10T12:00:00.516Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "TRABZON ÜNİVERSİTESİ",
+      "city": "Trabzon",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2218608/kamu-akademik-personel-akademik-personel-alimlari-trabzon-universitesi-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853262",
+      "publishDate": "2026-09-08T21:00:00.000Z",
+      "deadline": "2026-09-23T00:00:00.000Z",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Rektörlük Bilgi İşlem Daire Başkanlığı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Personel Daire Başkanlığı",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "Personel Daire Başkanlığı."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Çarşıbaşı Mueeslek Yüksekokulu Yazılım, Uygulama Geliştirme ve Çözümleme Oyun Geliştirme ve Programlama",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Çarşıbaşı Meslek Yüksekokulu",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Çarşıbaşı Meslek Yüksekokulu."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Trabzon Üniversitesi Rektörlüğünden Üniversitemizin birimlerine; 2547 sayılı Yükseköğretim Kanunu’nun ilgili maddeleri ile Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik hükümleri uy",
+      "applicationDocuments": []
+    },
     {
       "university": "HACETTEPE ÜNİVERSİTESİ",
       "city": "Ankara",
