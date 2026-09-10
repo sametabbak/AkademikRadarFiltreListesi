@@ -1,7 +1,99 @@
 {
-  "lastUpdated": "2026-09-10T14:06:49.404Z",
+  "lastUpdated": "2026-09-10T19:55:33.799Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "SİİRT ÜNİVERSİTESİ",
+      "city": "Si̇i̇rt",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2216743/kamu-akademik-personel-akademik-personel-alimlari-iptal-ilani-siirt-universitesi-rektorlugu-",
+      "ilanNo": "YOK853249",
+      "publishDate": "2026-09-07T21:00:01+00:00",
+      "deadline": "",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Y.O",
+          "department": "Yabancı Diller",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Siirt Üniversitesi Rektörlüğünden: İPTAL İLANI 31.08.2026 tarihli ve 33356 sayılı Resmî Gazete’de yayımlanan Akademik Personel Alımı ilanımızda aşağıda yer alan 2026/11 ve 2026/42 sıra nolu kadrolar iptal edilmiştir. İptal Edilen Kadro Bilgileri; İLAN SIRA NO BİRİMİ BÖLÜMÜ ABD/ ASD/ PRG KADRO ÜNVANI",
+      "applicationDocuments": []
+    },
+    {
+      "university": "LOKMAN HEKİM ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2219918/kamu-akademik-personel-akademik-personel-alimlari-lokman-hekim-universitesi-duzeltme-ilani-",
+      "ilanNo": "YOK853264",
+      "publishDate": "2026-09-05T00:00:00.000Z",
+      "deadline": "2026-09-19T00:00:00.000Z",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Protetik Diş Tedavisi",
+          "title": "PROFESÖR / DOÇENT / DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Diş Hekimliği Fakültesi mezunu olmak ve Protetik Diş Tedavisi alanında uzmanlık eğitimini tamamlamış olmak. Yabancı dil sınavından en az 75 puan almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 75,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Diş Hekimliği Fakültesi mezunu olmak ve Protetik Diş Tedavisi alanında uzmanlık eğitimini tamamlamış olmak.",
+            "Yabancı dil sınavından en az 75 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Lokman Hekim Üniversitesi Rektörlüğünden DÜZELTME İLANI 05.09.2026 tarihli ve 33361 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Öğretim Üyeleri ve Öğretim Elemanları alım ilanı “A. Öğretim Üyesi Kadroları” başlıklı tablosunda, 16 sıra numarasıyla yer alan Diş Hekimliği Fakültesi Protetik D",
+      "applicationDocuments": []
+    },
     {
       "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
       "city": "İstanbul",
