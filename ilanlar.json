@@ -1,7 +1,250 @@
 {
-  "lastUpdated": "2026-09-10T12:52:43.208Z",
+  "lastUpdated": "2026-09-10T12:55:56.478Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "SAĞLIK BİLİMLERİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2216760/kamu-akademik-personel-akademik-personel-alimlari-saglik-bilimleri-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853252",
+      "publishDate": "2026-09-07T21:00:00.000Z",
+      "deadline": "2026-09-22T20:59:00.000Z",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Arnavutköy Darülaceze Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Sağlık Bakım Hizmetleri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon lisans mezunu olup Anatomi programında tezli yüksek lisans yapmış olmak. Yükseköğretim kurumlarında ders vermiş olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon lisans mezunu olup Anatomi programında tezli yüksek lisans yapmış olmak.",
+            "Yükseköğretim kurumlarında ders vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Eczacılık Fakültesi",
+          "department": "Eczacılık Teknolojisi",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Eczacılık Fakültesi mezunu olup Farmasötik Toksikoloji alanında doktora yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık Fakültesi mezunu olup Farmasötik Toksikoloji alanında doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Sağlık Meslek Yüksekokulu",
+          "department": "Eczane Hizmetleri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Eczacılık Fakültesi mezunu olup Farmasötik Teknoloji programında tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık Fakültesi mezunu olup Farmasötik Teknoloji programında tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Sağlık Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Acil Yardım ve Afet Yönetimi lisans mezunu olup Sağlık Yönetimi programında tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Acil Yardım ve Afet Yönetimi lisans mezunu olup Sağlık Yönetimi programında tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Sağlık Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sağlık Yönetimi lisans mezunu olup Histoloji ve Embriyoloji veya Tıbbi Histoloji ve Embriyoloji programında doktora yapmış olmak. Yükseköğretim kurumlarında ders vermiş olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Sağlık Yönetimi lisans mezunu olup Histoloji ve Embriyoloji veya Tıbbi Histoloji ve Embriyoloji programında doktora yapmış olmak.",
+            "Yükseköğretim kurumlarında ders vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Eczacılık Fakültesi",
+          "department": "Eczacılık Teknolojisi",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Eczacılık Fakültesi mezunu olup Farmasötik Teknoloji programında doktora yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık Fakültesi mezunu olup Farmasötik Teknoloji programında doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Eczacılık Fakültesi",
+          "department": "Eczacılık Teknolojisi",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Eczacılık Fakültesi mezunu olup Farmasötik Toksikoloji programında doktora yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık Fakültesi mezunu olup Farmasötik Toksikoloji programında doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Hemşirelik Fakültesi",
+          "department": "Hemşirelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olup Cerrahi Hastalıklar Hemşireliği programında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olup Cerrahi Hastalıklar Hemşireliği programında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Bitkisel ve Hayvansal Üretim",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Biyoloji lisans mezunu olup Botanik alanında doktora yapmış olmak. Yükseköğretim kurumlarında ders vermiş olmak. Alanında en az 5 yıl süreyle çalışmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Biyoloji lisans mezunu olup Botanik alanında doktora yapmış olmak.",
+            "Yükseköğretim kurumlarında ders vermiş olmak.",
+            "Alanında en az 5 yıl süreyle çalışmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizik lisans mezunu olup Medikal Fizik programında doktora yapmış olmak. Yükseköğretim kurumlarında ders vermiş olmak. Alanında en az 5 yıl süreyle çalışmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizik lisans mezunu olup Medikal Fizik programında doktora yapmış olmak.",
+            "Yükseköğretim kurumlarında ders vermiş olmak.",
+            "Alanında en az 5 yıl süreyle çalışmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Yaşam Bilimleri Fakültesi",
+          "department": "Egzersiz ve Spor Bilimleri",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon lisans mezunu olup Spor Bilimleri programında doktora yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 7,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon lisans mezunu olup Spor Bilimleri programında doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Sağlık Bilimleri Üniversitesi Rektörlüğünden: ÖĞRETİM ELEMANI ALIM İLANI Üniversitemizin aşağıdaki tabloda bilgileri bulunan birimlerine 09 Kasım 2018 tarihli ve 30590 sayılı Resmi Gazete'de yayımlanan \"Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav İle Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik\" hükümleri uyarınca Öğretim Görevlisi ve Araştırma görevlisi alınacaktır.\n\nGENEL VE ÖZEL ŞARTLAR\n1- 657 sayılı Devlet Memurları Kanunu'nun 48. maddesinde belirtilen şartları taşımak.\n2- ALES'ten en az 70, Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından en az 50 puan veya eşdeğerliği kabul edilen bir sınavdan bu puan muadili bir puan almış olmak gerekir. Merkezi sınav muafiyetinden yararlanmayı talep edenlerin ön değerlendirme ve nihai değerlendirme aşamalarında ALES puanı 70 olarak kabul edilir.\n3- Ön değerlendirme ve nihai değerlendirme aşamalarında lisans mezuniyeti notunun hesaplanmasında kullanılacak 4'lük ve 5'lik not sistemlerinin 100'lük not sistemine eşdeğerliliğinin belirlenmesinde Yükseköğretim Kurulunun eşdeğerlik tablosu esas alınır.\n4- Öğretim görevlisi kadrosuna başvuracak adaylarda en az tezli yüksek lisans derecesine sahip olmak veya lisans ve yüksek lisans derecesini birlikte veren programlardan mezun olmak şartı aranır.\n5- Araştırma görevlisi kadrolarına yapılacak tezli yükksek lisans, doktora veya sanatta yeterlilik eğitimi öğrencini olmak şartı aranır. Adayların lisansüstü azami eğitim sürecini aşmamış olması gerekmektedir.\n6- Araştırma görevlisi kadrolarına 2547 sayılı Kanun'un 50. maddesinin (d) fıkrası uyarınca atama yapılacaktır.\n7- Meslek yüksekokullarında ilan edilen kadrolar yabancı dil şartından muaftır.\n8- Doktora veya tıpta, diş hekimliğinde, eczacılıkta ve veteriner hekimlikte uzmanlık ya da sanatta yeterlik eğitimini tamamlamış olanlarda, meslek yüksekokullarının Yükseköğretim Kurulu tarafından belirlenen uzmanlık alanlarına atanacak olanlarda, yükseköğretim kurumlarında öğretim elemanı kadrolarında çalışmış veya çalışmakta olanlarda ALES şartı aranmaz.",
+      "applicationDocuments": []
+    },
     {
       "university": "ARTVİN ÇORUH ÜNİVERSİTESİ",
       "city": "Artvin",
