@@ -1,25 +1,223 @@
 {
-  "lastUpdated": "2026-09-10T11:43:25.667Z",
+  "lastUpdated": "2026-09-10T11:46:13.038Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
-      "university": "NEVŞEHİR HACI BEKTAŞ VELİ ÜNİVERSİTESİ",
-      "city": "Nevşehir",
+      "university": "İSTANBUL BEYKENT ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2218077/kamu-akademik-personel-akademik-personel-alimlari-beykent-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853259",
+      "publishDate": "2026-09-08T21:00:00.000Z",
+      "deadline": "2026-09-23T20:59:00.000Z",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Restoratif Diş Tedavisi ABD",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Restoratif Diş Tedavisi ABD",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Restoratif Diş Tedavisi ABD",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS)tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS)tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Protetik Diş Tedavisi ABD",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Protetik Diş Tedavisi ABD",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Protetik Diş Tedavisi ABD",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS)tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS)tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Bilgisayar Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Bilgisayar Bilimleri ve Mühendisliği alanında doktorayapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Bilimleri ve Mühendisliği alanında doktorayapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Bilgisayar Mühendisliği (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Yazılım Mühendisliği, BilişimSistemleri Mühendisliği, Bilgisayar Bilimleri, Bilgisayar Yazılımı, Bilgisayar Donanımıalanlarından birinde doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Yazılım Mühendisliği, BilişimSistemleri Mühendisliği, Bilgisayar Bilimleri, Bilgisayar Yazılımı, Bilgisayar Donanımıalanlarından birinde doktora yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Makine Mühendisliği (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Enerji veya Termodinamik alanlarından birinde doktorayapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Enerji veya Termodinamik alanlarından birinde doktorayapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Beykent Üniversitesi Rektörlüğünden Üniversitemize 2547 sayılı Yükseköğretim Kanunu ve \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği” ile “İstanbul Beykent Üniversitesi Öğretim Üyeliğine Yükseltme ve Atama Yönergesi” (https://www.beykent.edu.tr/yonetmelikler-yonergeler/yonergeler) hü",
+      "applicationDocuments": []
+    },
+    {
+      "university": "NEVÅEHÄ°R HACI BEKTAÅ VELÄ° ÃNÄ°VERSÄ°TESÄ°",
+      "city": "NevÅehir",
       "uniType": "Devlet",
       "url": "https://www.ilan.gov.tr/ilan/2218223/kamu-akademik-personel-akademik-personel-alimlari-nevsehir-haci-bektas-veli-universitesi-ogretim-elemani-alim-ilani",
       "ilanNo": "YOK853260",
       "publishDate": "2026-09-08T21:00:00.000Z",
       "deadline": "2026-09-23T20:59:00.000Z",
       "detectedTitles": [
-        "ÖĞRETİM GÖREVLİSİ"
+        "ÃÄRETÄ°M GÃREVLÄ°SÄ°"
       ],
       "positions": [
         {
-          "faculty": "Kozaklı Meslek Yüksekokulu Veri Tabanı, Ağ Tasarımı ve Yönetimi Bölümü Dijital Sağlık Sistemleri Teknikerliği Programı",
+          "faculty": "KozaklÄ± Meslek YÃ¼ksekokulu Veri TabanÄ±, AÄ TasarÄ±mÄ± ve YÃ¶netimi BÃ¶lÃ¼mÃ¼ Dijital SaÄlÄ±k Sistemleri TeknikerliÄi ProgramÄ±",
           "department": "",
-          "title": "ÖĞRETİM GÖREVLİSİ",
+          "title": "ÃÄRETÄ°M GÃREVLÄ°SÄ°",
           "count": 1,
-          "requirements": "Bilişim Sistemleri Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak. Lisans mezuniyeti sonrası belgelendirmek kaydıyla Dijital Sağlık Sistemleri alanında en az 1 (bir) yıl sektör deneyimine sahip olmak.",
+          "requirements": "BiliÅim Sistemleri MÃ¼hendisliÄi, Bilgisayar Teknolojisi ve BiliÅim Sistemleri, Bilgisayar Bilimleri, BiliÅim Sistemleri ve Teknolojileri, Bilgisayar ve ÃÄretim Teknolojileri ÃÄretmenliÄi bÃ¶lÃ¼mlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yÃ¼ksek lisans yapmÄ±Å olmak. Lisans mezuniyeti sonrasÄ± belgelendirmek kaydÄ±yla Dijital SaÄlÄ±k Sistemleri alanÄ±nda en az 1 (bir) yÄ±l sektÃ¶r deneyimine sahip olmak.",
           "alesRequired": true,
           "alesScore": 70,
           "alesType": "SAY",
@@ -27,20 +225,20 @@
           "foreignLanguageScore": 50,
           "foreignLanguageExam": null,
           "derece": 6,
-          "temelAlan": "Sağlık Bilimleri",
+          "temelAlan": "SaÄlÄ±k Bilimleri",
           "sartlar": [
-            "Bilişim Sistemleri Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak.",
-            "Lisans mezuniyeti sonrası belgelendirmek kaydıyla Dijital Sağlık Sistemleri alanında en az 1 (bir) yıl sektör deneyimine sahip olmak."
+            "BiliÅim Sistemleri MÃ¼hendisliÄi, Bilgisayar Teknolojisi ve BiliÅim Sistemleri, Bilgisayar Bilimleri, BiliÅim Sistemleri ve Teknolojileri, Bilgisayar ve ÃÄretim Teknolojileri ÃÄretmenliÄi bÃ¶lÃ¼mlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yÃ¼ksek lisans yapmÄ±Å olmak.",
+            "Lisans mezuniyeti sonrasÄ± belgelendirmek kaydÄ±yla Dijital SaÄlÄ±k Sistemleri alanÄ±nda en az 1 (bir) yÄ±l sektÃ¶r deneyimine sahip olmak."
           ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
         {
-          "faculty": "İlahiyat Fakültesi Temel İslam Bilimleri Bölümü Arap Dili ve Belagatı Anabilim Dalı",
+          "faculty": "Ä°lahiyat FakÃ¼ltesi Temel Ä°slam Bilimleri BÃ¶lÃ¼mÃ¼ Arap Dili ve BelagatÄ± Anabilim DalÄ±",
           "department": "",
-          "title": "ÖĞRETİM GÖREVLİSİ",
+          "title": "ÃÄRETÄ°M GÃREVLÄ°SÄ°",
           "count": 1,
-          "requirements": "İlahiyat, İslami İlimler Fakültesi veya eşdeğeri olan fakültelerin birinden lisans mezunu olup, Arap Dili ve Belagatı alanında tezli yüksek lisans yapmış olmak.",
+          "requirements": "Ä°lahiyat, Ä°slami Ä°limler FakÃ¼ltesi veya eÅdeÄeri olan fakÃ¼ltelerin birinden lisans mezunu olup, Arap Dili ve BelagatÄ± alanÄ±nda tezli yÃ¼ksek lisans yapmÄ±Å olmak.",
           "alesRequired": true,
           "alesScore": 70,
           "alesType": "SAY",
@@ -48,15 +246,15 @@
           "foreignLanguageScore": 85,
           "foreignLanguageExam": null,
           "derece": 3,
-          "temelAlan": "İlahiyat",
+          "temelAlan": "Ä°lahiyat",
           "sartlar": [
-            "İlahiyat, İslami İlimler Fakültesi veya eşdeğeri olan fakültelerin birinden lisans mezunu olup, Arap Dili ve Belagatı alanında tezli yüksek lisans yapmış olmak."
+            "Ä°lahiyat, Ä°slami Ä°limler FakÃ¼ltesi veya eÅdeÄeri olan fakÃ¼ltelerin birinden lisans mezunu olup, Arap Dili ve BelagatÄ± alanÄ±nda tezli yÃ¼ksek lisans yapmÄ±Å olmak."
           ],
           "kanunMaddesi": null,
           "yasSiniri": null
         }
       ],
-      "contentSnippet": "Nevşehir Hacı Bektaş Veli Üniversitesi Rektörlüğünden Üniversitemizin birimlerine 2547 sayılı Kanun’un ve 09.11.2018 tarihli ve 30590 sayılı Resmî Gazete’de yayımlanarak yürürlüğe giren “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sına",
+      "contentSnippet": "NevÅehir HacÄ± BektaÅ Veli Ãniversitesi RektÃ¶rlÃ¼ÄÃ¼nden Ãniversitemizin birimlerine 2547 sayÄ±lÄ± Kanunâun ve 09.11.2018 tarihli ve 30590 sayÄ±lÄ± ResmÃ® Gazeteâde yayÄ±mlanarak yÃ¼rÃ¼rlÃ¼Äe giren âÃÄretim Ãyesi DÄ±ÅÄ±ndaki ÃÄretim ElemanÄ± KadrolarÄ±na YapÄ±lacak Atamalarda Uygulanacak Merkezi SÄ±nav ile GiriÅ SÄ±na",
       "applicationDocuments": []
     }
   ],
