@@ -6,6 +6,10 @@ on:
     - cron: '0 4 * * *'
   workflow_dispatch:
 
+# Lets the built-in GITHUB_TOKEN push, so PUSH_TOKEN becomes optional.
+permissions:
+  contents: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -21,28 +25,29 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4
+        run: pip install -r scraper/requirements.txt
 
       - name: Run scraper
         env:
-          PANEL_MODE: "1"
+          PANEL_MODE: "1"          # new ads -> pending.json for panel review
         run: python scraper/scrape.py
 
-      - name: Commit and push ilanlar.json
+      - name: Commit and push data files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git config --global url."https://x-access-token:${{ secrets.PUSH_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
-          git add ilanlar.json
+          # In PANEL_MODE the scraper writes pending.json, so all three
+          # data files must be staged - staging only ilanlar.json silently
+          # discarded every scrape.
+          git add ilanlar.json pending.json rejected.json
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore: update ilanlar.json [$(date -u +%Y-%m-%dT%H:%M:%SZ)]"
+            git commit -m "chore: scrape update [$(date -u +%Y-%m-%dT%H:%M:%SZ)]"
             for i in 1 2 3; do
-              git push && echo "Push succeeded." && break
+              git pull --rebase --autostash && git push && echo "Push succeeded." && break
               echo "Push attempt $i failed, retrying in 5s..."
               sleep 5
             done
