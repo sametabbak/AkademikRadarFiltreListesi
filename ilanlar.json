@@ -1,7 +1,63 @@
 {
-  "lastUpdated": "2026-09-10T13:59:31.342Z",
+  "lastUpdated": "2026-09-10T14:00:48.157Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "BİRUNİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2216742/kamu-akademik-personel-akademik-personel-alimlari-biruni-universitesi-rektorlugu-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853248",
+      "publishDate": "2026-09-08T00:00:00.000Z",
+      "deadline": "2026-09-22T20:59:00.000Z",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "Elektrik-Elektronik Mühendisliği",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği alanında lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 60,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Elektrik-Elektronik Mühendisliği alanında lisans mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "Moleküler Biyoloji ve Genetik (İngilizce)",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Moleküler Biyoloji ve Genetik alanında lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 60,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Moleküler Biyoloji ve Genetik alanında lisans mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Biruni Üniversitesi Rektörlüğünden: Üniversitemize 2547 Sayılı Yükseköğretim Kanunu'nun Ve Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul Ve Esaslar hakkında Yönetmelik'in İlgili Maddeleri Uyarınca \"Öğretim Eleman",
+      "applicationDocuments": []
+    },
     {
       "university": "BİRUNİ ÜNİVERSİTESİ",
       "city": "İstanbul",
