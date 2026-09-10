@@ -1,23 +1,21 @@
 {
-  "lastUpdated": "2026-09-10T11:26:06.045Z",
+  "lastUpdated": "2026-09-10T11:32:20.469Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
       "university": "Nevşehir Hacı Bektaş Veli Üniversitesi",
-      "city": "Nevşehir",
+      "city": "NevÅehir",
       "uniType": "Devlet",
       "url": "https://www.ilan.gov.tr/ilan/2218223/kamu-akademik-personel-akademik-personel-alimlari-nevsehir-haci-bektas-veli-universitesi-ogretim-elemani-alim-ilani",
       "ilanNo": "YOK853260",
       "publishDate": "2026-09-09T00:00:00.000Z",
       "deadline": "2026-09-23T00:00:00.000Z",
-      "detectedTitles": [
-        "ÖĞRETİM GÖREVLİSİ"
-      ],
+      "detectedTitles": [],
       "positions": [
         {
-          "faculty": "Kozaklı Meslek Yüksekokulu",
-          "department": "Veri Tabanı, Ağ Tasarımı ve Yönetimi Bölümü, Dijital Sağlık Sistemleri Teknikerliği Programı",
-          "title": "ÖĞRETİM GÖREVLİSİ",
+          "faculty": "KozaklÄ± Meslek YÃ¼ksekokulu",
+          "department": "Veri TabanÄ±, AÄ TasarÄ±mÄ± ve YÃ¶netimi BÃ¶lÃ¼mÃ¼, Dijital SaÄlÄ±k Sistemleri TeknikerliÄi ProgramÄ±",
+          "title": "ÃÄRETÄ°M GÃREVLÄ°SÄ°",
           "count": 1,
           "requirements": "",
           "alesRequired": true,
@@ -33,7 +31,7 @@
           "yasSiniri": null
         }
       ],
-      "contentSnippet": "Üniversitemizin birimlerine 2547 sayılı Kanun’un ve 09.11.2018 tarihli ve 30590 sayılı Resmî Gazete’de yayımlanarak yürürlüğe giren “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik”in ilgili hükümlerine göre öğretim elemanı alınacaktır.\n\nBilişim Sistemleri Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak. Lisans mezuniyeti sonrası belgelendirmek kaydıyla Dijital Sağlık Sistemleri alanında en az 1 (bir) yıl sektör deneyimine sahip olmak"
+      "contentSnippet": "Ãniversitemizin birimlerine 2547 sayÄ±lÄ± Kanunâun ve 09.11.2018 tarihli ve 30590 sayÄ±lÄ± ResmÃ® Gazeteâde yayÄ±mlanarak yÃ¼rÃ¼rlÃ¼Äe giren âÃÄretim Ãyesi DÄ±ÅÄ±ndaki ÃÄretim ElemanÄ± KadrolarÄ±na YapÄ±lacak Atamalarda Uygulanacak Merkezi SÄ±nav ile GiriÅ SÄ±navlarÄ±na Ä°liÅkin Usul ve Esaslar HakkÄ±nda YÃ¶netmelikâin ilgili hÃ¼kÃ¼mlerine gÃ¶re Ã¶Äretim elemanÄ± alÄ±nacaktÄ±r.\n\nBiliÅim Sistemleri MÃ¼hendisliÄi, Bilgisayar Teknolojisi ve BiliÅim Sistemleri, Bilgisayar Bilimleri, BiliÅim Sistemleri ve Teknolojileri, Bilgisayar ve ÃÄretim Teknolojileri ÃÄretmenliÄi bÃ¶lÃ¼mlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yÃ¼ksek lisans yapmÄ±Å olmak. Lisans mezuniyeti sonrasÄ± belgelendirmek kaydÄ±yla Dijital SaÄlÄ±k Sistemleri alanÄ±nda en az 1 (bir) yÄ±l sektÃ¶r deneyimine sahip olmak"
     }
   ],
   "examCalendar": []
