@@ -1,6 +1,145 @@
 {
-  "lastUpdated": null,
+  "lastUpdated": "2026-09-10T11:57:04.332Z",
   "source": "ilan.gov.tr",
-  "ads": [],
+  "ads": [
+    {
+      "university": "TRABZON ÜNİVERSİTESİ",
+      "city": "Trabzon",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2218595/kamu-akademik-personel-akademik-personel-alimlari-trabzon-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853261",
+      "publishDate": "2026-09-08T21:00:00.000Z",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Fatih Eğitim Fakültesi Matematik ve Fen Bilimleri Eğitimi Fen Bilgisi Eğitimi",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Personel Daire Başkanlığı",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 55,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Personel Daire Başkanlığı."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi Rekreasyon Rekreasyon",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Personel Daire Başkanlığı",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 55,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Personel Daire Başkanlığı."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi Cerrahi Tıp Bilimleri Beyin ve Sinir Cerrahisi",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Personel Daire Başkanlığı",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 55,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Personel Daire Başkanlığı."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Güzel Sanatlar ve Tasarım Fakültesi Resim Resim",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Personel Daire Başkanlığı",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 55,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Personel Daire Başkanlığı."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi Beden Eğitimi ve Spor Beden Eğitimi ve Spor",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Spor Bilimleri Fakültesi",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 55,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Spor Bilimleri Fakültesi."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi Temel İslam Bilimleri Tefsir",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İlahiyat Fakültesi",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 55,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "İlahiyat Fakültesi."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Trabzon Üniversitesi Rektörlüğünden Üniversitemiz birimlerine 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ile Trabzon Üniversitesi Öğretim Üyeliğine Yükseltilme ve Atanma Yönergesi hükümlerine göre Öğretim Üyesi alınacaktır. GENEL ŞARTLAR: Başvuracak adaylar",
+      "applicationDocuments": []
+    }
+  ],
   "examCalendar": []
 }
