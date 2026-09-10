@@ -195,6 +195,62 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   .list-pane.narrow{width:100%;max-height:38vh;border-right:none;border-bottom:1px solid var(--border)}
   #row-drawer{width:100%}
 }
+.vbanner{display:flex;flex-direction:column;gap:.4rem;flex-shrink:0}
+.vbanner.ok{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.25);color:var(--green);border-radius:var(--radius);padding:.45rem .65rem;font-size:.75rem}
+.vgroup{border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;background:var(--bg2)}
+.vgroup.err{border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.06)}
+.vgroup.wrn{border-color:rgba(245,158,11,.32);background:rgba(245,158,11,.06)}
+.vhead{display:flex;align-items:center;gap:.4rem;padding:.4rem .6rem;font-size:.75rem;font-weight:600;cursor:pointer;user-select:none}
+.vgroup.err .vhead{color:var(--red)}
+.vgroup.wrn .vhead{color:var(--yellow)}
+.vgroup.inf .vhead{color:var(--text3)}
+.vcount{background:rgba(255,255,255,.08);border-radius:9px;padding:.02rem .35rem;font-size:.68rem}
+.vtoggle{margin-left:auto;font-size:.7rem;transition:transform .15s}
+.vgroup.collapsed .vtoggle{transform:rotate(-90deg)}
+.vgroup.collapsed .vlist{display:none}
+.vlist{list-style:none;margin:0;padding:0 .6rem .45rem 1.5rem}
+.vlist li{font-size:.73rem;line-height:1.5;color:var(--text2);position:relative;padding:.1rem 0}
+.vlist li::before{content:'•';position:absolute;left:-.7rem;color:var(--text3)}
+#duz-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:960;align-items:center;justify-content:center}
+#duz-overlay.open{display:flex}
+.duz-meta{font-size:.75rem;line-height:1.7;color:var(--text2);background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:.5rem .65rem}
+.duz-lbl{display:inline-block;min-width:66px;color:var(--text3);font-size:.7rem;text-transform:uppercase;letter-spacing:.04em}
+.duz-rows{display:flex;flex-direction:column;gap:.45rem;margin-top:.5rem}
+.duz-row{border:1px solid var(--border);border-radius:var(--radius);padding:.45rem .6rem;background:var(--bg2)}
+.duz-row.add{border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.05)}
+.duz-row.del{border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.05)}
+.duz-row.chg{border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)}
+.duz-key{font-size:.75rem;font-weight:600;margin-bottom:.25rem}
+.duz-note{font-size:.7rem;color:var(--text3)}
+.duz-tbl{width:100%;border-collapse:collapse;font-size:.71rem;margin-top:.2rem}
+.duz-tbl th{text-align:left;color:var(--text3);font-weight:600;font-size:.66rem;padding:.15rem .3rem}
+.duz-tbl td{padding:.15rem .3rem;vertical-align:top;border-top:1px solid rgba(42,47,66,.6)}
+.duz-tbl td:first-child{color:var(--text3);white-space:nowrap;width:78px}
+.duz-tbl td.old{color:var(--red);text-decoration:line-through;opacity:.75}
+.duz-tbl td.new{color:var(--green)}
+.duz-flag{display:inline-flex;align-items:center;gap:.25rem;font-size:.65rem;padding:.06rem .35rem;border-radius:4px;background:rgba(168,85,247,.12);color:#c084fc;border:1px solid rgba(168,85,247,.3)}
+#fresh-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:960;align-items:center;justify-content:center}
+#fresh-overlay.open{display:flex}
+.fresh-bar{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.fresh-fill{height:100%;background:var(--accent);transition:width .2s}
+.fresh-stat{font-size:.72rem;color:var(--text2);margin-top:.35rem}
+.fresh-row{display:flex;align-items:center;gap:.5rem;border:1px solid var(--border);border-radius:var(--radius);padding:.45rem .6rem;background:var(--bg2)}
+.fresh-row.changed{border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)}
+.fresh-row.gone{border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.05)}
+.fresh-row.error{opacity:.7}
+.fresh-uni{font-size:.78rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fresh-det{font-size:.7rem;color:var(--text3);margin-top:.1rem}
+#diag-out{display:flex;flex-direction:column;gap:.3rem;margin-top:.2rem}
+.diag-row{display:flex;gap:.45rem;align-items:flex-start;padding:.4rem .55rem;border-radius:var(--radius);
+  border:1px solid var(--border);background:var(--bg3);font-size:.74rem}
+.diag-row.ok{border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.06)}
+.diag-row.fail{border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.06)}
+.diag-row.warn{border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.06)}
+.diag-ico{font-weight:700;flex-shrink:0;width:12px;text-align:center}
+.diag-row.ok .diag-ico{color:var(--green)} .diag-row.fail .diag-ico{color:var(--red)}
+.diag-row.warn .diag-ico{color:var(--yellow)} .diag-row.info .diag-ico{color:var(--text3)}
+.diag-name{font-weight:600}
+.diag-msg{color:var(--text3);font-size:.7rem;line-height:1.45;margin-top:.1rem}
 .divider{height:1px;background:var(--border)}
 .field-hint{font-size:.69rem;color:var(--text3);line-height:1.45}
 .mono{font-family:var(--font-mono)}
@@ -239,6 +295,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
       <div class="list-toolbar">
         <input class="search-input" placeholder="Üniversite veya şehir..." oninput="filterApproved(this.value)">
         <button class="toolbar-btn" id="expired-toggle" onclick="toggleExpired()">Aktif</button>
+          <button class="toolbar-btn" onclick="checkFreshness()" title="ilan.gov.tr ile karşılaştır">⟳ Kontrol</button>
       </div>
       <div class="list-scroll" id="approved-list"><div class="empty-state"><div class="icon">⏳</div><p>Yükleniyor...</p></div></div>
     </div>
@@ -331,7 +388,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
         <input type="text" id="s-proxyurl" class="mono" style="font-size:.72rem" placeholder="https://api.allorigins.win/raw?url={url}">
         <span class="field-hint"><code>{url}</code> hedef adresle değiştirilir. Kendi Cloudflare Worker'ınız en güvenilir yoldur.</span>
       </div>
-      <button class="btn btn-ghost btn-sm" id="fetchtest-btn" onclick="testFetch()">Getirmeyi Test Et</button>
+      <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+        <button class="btn btn-ghost btn-sm" id="fetchtest-btn" onclick="testFetch()">Hızlı Test</button>
+        <button class="btn btn-primary btn-sm" id="diag-btn" onclick="runDiagnostic()">Tam Tanılama</button>
+      </div>
+      <div id="diag-out" style="display:none"></div>
     </div>
 
     <div class="divider"></div>
@@ -368,6 +429,34 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 </div>
+
+<!-- Düzeltme İlanı comparison -->
+<div id="duz-overlay" onclick="if(event.target===this)closeDuzeltme()">
+  <div class="settings-card" style="width:760px;max-height:88vh">
+    <button class="settings-close" onclick="closeDuzeltme()">✕</button>
+    <h2 style="font-size:.93rem">Düzeltme Karşılaştırması</h2>
+    <div id="duz-body" style="overflow-y:auto;max-height:60vh"></div>
+    <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+      <button class="btn btn-primary btn-sm" id="duz-apply" onclick="applyDuzeltme()">Orijinale Uygula</button>
+      <button class="btn btn-ghost btn-sm" onclick="closeDuzeltme()">Kapat</button>
+    </div>
+    <span class="field-hint">Uygulandığında düzeltme kaydı reddedilenlere taşınır; uygulamada tek ilan görünür.</span>
+  </div>
+</div>
+
+<!-- Freshness check -->
+<div id="fresh-overlay" onclick="if(event.target===this)closeFreshness()">
+  <div class="settings-card" style="width:640px;max-height:88vh">
+    <button class="settings-close" onclick="closeFreshness()">✕</button>
+    <h2 style="font-size:.93rem">Aktiflik Kontrolü</h2>
+    <div id="fresh-progress"></div>
+    <div id="fresh-body" style="overflow-y:auto;max-height:52vh;display:flex;flex-direction:column;gap:.4rem"></div>
+    <div style="display:flex;gap:.4rem">
+      <button class="btn btn-ghost btn-sm" id="fresh-stop" onclick="stopFreshness()">Durdur</button>
+      <button class="btn btn-ghost btn-sm" id="fresh-close" onclick="closeFreshness()">Kapat</button>
+    </div>
+  </div>
+</div>
 <div id="toast-container"></div>
 
 <script>
@@ -397,24 +486,30 @@ async function apiFetch(target, options){
   const mode=getFetchMode();
   if(mode==='manual') throw new Error('MANUAL_MODE');
 
+  const isPost = !!(options && options.method==='POST');
   const attempts = mode==='direct' ? ['direct'] : ['proxy','direct'];
   let lastErr=null;
 
   for(const how of attempts){
     try{
       const url = how==='proxy' ? proxied(target) : target;
-      // A proxy can only relay GET, so POST bodies fall back to direct.
-      if(how==='proxy' && options && options.method==='POST') continue;
+      // POST is attempted through the proxy too: a self-hosted Worker relays it,
+      // while GET-only public proxies simply fail here and we fall through.
       const res=await fetch(url, options||{headers:{Accept:'application/json'}});
       if(!res.ok) throw new Error(`HTTP ${res.status}`);
       const txt=await res.text();
-      try{ return JSON.parse(txt); }
+      let parsed;
+      try{ parsed=JSON.parse(txt); }
       catch(e){ throw new Error('Yanıt JSON değil (proxy engellenmiş olabilir)'); }
+      return parsed;
     }catch(e){ lastErr=e; }
   }
-  throw new Error(
-    (lastErr&&lastErr.message)||'Bağlantı kurulamadı'
-  );
+
+  let msg=(lastErr&&lastErr.message)||'Bağlantı kurulamadı';
+  if(isPost && mode!=='direct')
+    msg += ' — ilan numarası araması POST gerektirir; genel proxyler bunu iletmez. '
+         + 'URL veya sayısal ID kullanın ya da kendi Cloudflare Worker\'ınızı ayarlayın.';
+  throw new Error(msg);
 }
 const ACADEMIC_TITLES=['PROFESÖR','DOÇENT','DR. ÖĞR. ÜYESİ','ÖĞRETİM GÖREVLİSİ','ARAŞTIRMA GÖREVLİSİ','UZMAN','OKUTMAN','ÇEVİRİCİ','EĞİTİM-ÖĞRETİM PLANLAMACISI'];
 const TITLE_CLASS={'PROFESÖR':'prof','DOÇENT':'doc','DR. ÖĞR. ÜYESİ':'dr','ÖĞRETİM GÖREVLİSİ':'ogr','ARAŞTIRMA GÖREVLİSİ':'ars'};
@@ -596,7 +691,7 @@ function renderPendingList(){
       <div class="ad-body">
         <div class="ad-uni">${esc(ad.university||'Bilinmiyor')}</div>
         <div class="ad-meta"><span class="ad-city">${esc(ad.city||'')}</span><span style="color:var(--border)">·</span><span class="ad-city">${ad.uniType||''}</span></div>
-        <div class="ad-titles">${(ad.detectedTitles||[]).map(titleTag).join('')}${missingBadge(ad)}</div>
+        <div class="ad-titles">${(ad.detectedTitles||[]).map(titleTag).join('')}${missingBadge(ad)}${isDuzeltme(ad)?'<span class="duz-flag">düzeltme</span>':''}</div>
         <div class="ad-count">${posCount(ad)}</div>
         <div class="ad-deadline ${dl.cls}">${dl.txt}</div>
       </div></div>`;
@@ -643,7 +738,7 @@ function renderApprovedList(){
       <div class="ad-body">
         <div class="ad-uni">${esc(ad.university||'Bilinmiyor')}</div>
         <div class="ad-meta"><span class="ad-city">${esc(ad.city||'')}</span><span style="color:var(--border)">·</span><span class="ad-city">${ad.uniType||''}</span></div>
-        <div class="ad-titles">${(ad.detectedTitles||[]).map(titleTag).join('')}${missingBadge(ad)}</div>
+        <div class="ad-titles">${(ad.detectedTitles||[]).map(titleTag).join('')}${missingBadge(ad)}${isDuzeltme(ad)?'<span class="duz-flag">düzeltme</span>':''}</div>
         <div class="ad-count">${posCount(ad)}</div>
         <div class="ad-deadline ${dl.cls}">${dl.txt}</div>
       </div></div>`;
@@ -696,15 +791,119 @@ function closeEditor(tab){
 }
 
 // ── Editor Render ──
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 4.1 — VALIDATION
+// Advisory only: warnings never block approval, they just flag what to check.
+// ═══════════════════════════════════════════════════════════════════════════
+function validateAd(ad, opts){
+  opts=opts||{};
+  const out=[];
+  const err =(m,f)=>out.push({level:'error',msg:m,field:f});
+  const warn=(m,f)=>out.push({level:'warn', msg:m,field:f});
+  const info=(m,f)=>out.push({level:'info', msg:m,field:f});
+
+  const pos=ad.positions||[];
+
+  // ── Ad level ────────────────────────────────────────────────────────────
+  if(!ad.university || !ad.university.trim()) err('Üniversite adı boş.','university');
+  else if(UNI_LIST.length && !matchUniversity(ad.university).name)
+    warn('Üniversite, TurkishUniversityList içinde bulunamadı — ad yanlış yazılmış olabilir.','university');
+
+  if(!ad.city || /bilinmiyor/i.test(ad.city)) warn('Şehir belirtilmemiş.','city');
+  if(!ad.ilanNo || !ad.ilanNo.trim()) warn('İlan numarası boş.','ilanNo');
+  if(!ad.url || !/^https?:\/\//.test(ad.url||'')) warn('Geçerli bir ilan bağlantısı yok.','url');
+
+  if(!ad.deadline){
+    warn('Son başvuru tarihi yok — uygulamada süresiz görünür.','deadline');
+  } else {
+    const dl=new Date(ad.deadline), today=new Date(); today.setHours(0,0,0,0);
+    if(isNaN(dl)) err('Son başvuru tarihi geçersiz.','deadline');
+    else{
+      if(dl<today) warn('Son başvuru tarihi geçmiş — onaylanırsa uygulamada görünmez.','deadline');
+      if(ad.publishDate){
+        const pd=new Date(ad.publishDate);
+        if(!isNaN(pd) && dl<pd) err('Son başvuru, yayım tarihinden önce.','deadline');
+      }
+      const days=Math.round((dl-new Date(ad.publishDate||ad.deadline))/86400000);
+      if(ad.publishDate && days>120)
+        info(`Başvuru penceresi ${days} gün — alışılmadık derecede uzun, tarihi doğrulayın.`,'deadline');
+    }
+  }
+
+  // Duplicate ilanNo elsewhere in the store
+  if(ad.ilanNo && !opts.skipDuplicate){
+    const dup=findDuplicate(ad.ilanNo);
+    if(dup && dup!==opts.currentList)
+      warn(`Bu ilan numarası "${dup}" listesinde de var.`,'ilanNo');
+  }
+
+  // ── Positions ───────────────────────────────────────────────────────────
+  if(!pos.length){
+    err('Hiç pozisyon yok — uygulamada boş kadro olarak görünür.','positions');
+  } else {
+    const totals=pos.reduce((s,p)=>s+(p.count||1),0);
+    if(totals>200) info(`Toplam ${totals} kadro — doğrulayın.`,'positions');
+
+    pos.forEach((p,i)=>{
+      const n=i+1;
+      if(!p.title) err(`${n}. satır: unvan yok.`,'positions');
+      if((p.count||0)>10) warn(`${n}. satır: kadro sayısı ${p.count} — ayrıştırma hatası olabilir.`,'positions');
+      if(!p.faculty || !p.faculty.trim()) warn(`${n}. satır: fakülte/birim boş.`,'positions');
+      if(!p.department || !p.department.trim()) info(`${n}. satır: bölüm boş.`,'positions');
+      if(!p.temelAlan) info(`${n}. satır: temel alan atanmamış.`,'positions');
+      if(!(p.sartlar||[]).length) info(`${n}. satır: özel şart girilmemiş.`,'positions');
+
+      const t=String(p.title||'');
+      // ALES is mandatory for these ranks under 2547; absence usually means a parse miss
+      if(/ARAŞTIRMA GÖREVLİSİ|ÖĞRETİM GÖREVLİSİ|UZMAN|OKUTMAN/.test(t) && !p.alesRequired)
+        warn(`${n}. satır: ${t} için ALES şartı görünmüyor — kontrol edin.`,'positions');
+      if(p.alesRequired && !p.alesScore)
+        info(`${n}. satır: ALES zorunlu ama taban puan yok.`,'positions');
+      if(p.foreignLanguageRequired && !p.foreignLanguageScore)
+        info(`${n}. satır: yabancı dil zorunlu ama taban puan yok.`,'positions');
+      // 50/d vs 33/a materially changes the job; flag when unknown
+      if(/ARAŞTIRMA GÖREVLİSİ/.test(t) && !p.kanunMaddesi)
+        info(`${n}. satır: 50/d mi 33/a mı belirlenmemiş.`,'positions');
+      if(/PROFESÖR|DOÇENT/.test(t) && p.alesRequired)
+        warn(`${n}. satır: ${t} için ALES şartı olmaz — kaldırın.`,'positions');
+    });
+  }
+  return out;
+}
+
+function validationBanner(list){
+  if(!list.length)
+    return `<div class="vbanner ok">✓ Belirgin bir sorun görünmüyor.</div>`;
+  const e=list.filter(x=>x.level==='error'), w=list.filter(x=>x.level==='warn'), i=list.filter(x=>x.level==='info');
+  const grp=(items,cls,icon,label)=>items.length?`
+    <div class="vgroup ${cls}">
+      <div class="vhead" onclick="this.parentNode.classList.toggle('collapsed')">
+        ${icon} ${label} <span class="vcount">${items.length}</span>
+        <span class="vtoggle">▾</span>
+      </div>
+      <ul class="vlist">${items.map(x=>`<li>${esc(x.msg)}</li>`).join('')}</ul>
+    </div>`:'';
+  return `<div class="vbanner">
+    ${grp(e,'err','✕','Hata')}
+    ${grp(w,'wrn','!','Uyarı')}
+    ${grp(i,'inf','i','Bilgi')}
+  </div>`;
+}
+
 function renderEditor(containerId,ad,tab){
   const container=el(containerId);
   container.classList.remove('hidden');
   const draft=JSON.parse(JSON.stringify(ad));
   container._draft=draft;container._tab=tab;
+  const reparseBtn=`<button class="btn btn-ghost btn-sm" onclick="reparseAd('${containerId}')" title="ilan.gov.tr'den yeniden ayrıştır">⟳ Yeniden Ayrıştır</button>`;
+  const duzBtn = isDuzeltme(ad)
+    ? `<button class="btn btn-ghost btn-sm" style="color:#c084fc;border-color:rgba(168,85,247,.35)" onclick="openDuzeltme('${containerId}')" title="Orijinal ilanla karşılaştır">⇄ Düzeltme</button>`
+    : '';
   const actionBar=tab==='pending'
-    ?`<button class="btn btn-success btn-sm" onclick="approveAd('${ad.ilanNo}')">✓ Onayla</button><button class="btn btn-danger btn-sm" onclick="rejectAd('${ad.ilanNo}')">✗ Reddet</button><button class="btn btn-primary btn-sm" onclick="saveEditToPending('${containerId}')">💾 Kaydet</button>`
+    ?`${duzBtn}${reparseBtn}<button class="btn btn-success btn-sm" onclick="approveAd('${ad.ilanNo}')">✓ Onayla</button><button class="btn btn-danger btn-sm" onclick="rejectAd('${ad.ilanNo}')">✗ Reddet</button><button class="btn btn-primary btn-sm" onclick="saveEditToPending('${containerId}')">💾 Kaydet</button>`
     :tab==='approved'
-    ?`<button class="btn btn-primary btn-sm" onclick="saveEditToApproved('${containerId}')">💾 Kaydet</button><button class="btn btn-danger btn-sm" onclick="moveToRejectedFromApproved('${ad.ilanNo}')">🗑 Reddet</button>`
+    ?`${duzBtn}${reparseBtn}<button class="btn btn-primary btn-sm" onclick="saveEditToApproved('${containerId}')">💾 Kaydet</button><button class="btn btn-danger btn-sm" onclick="moveToRejectedFromApproved('${ad.ilanNo}')">🗑 Reddet</button>`
     :`<button class="btn btn-success btn-sm" onclick="saveNewAd('${containerId}')">✓ Onaylıya Ekle</button>`;
   container.innerHTML=`
   <div class="editor-header">
@@ -712,6 +911,7 @@ function renderEditor(containerId,ad,tab){
     <div class="editor-actions">${actionBar}<button class="btn btn-ghost btn-sm" onclick="closeEditor('${tab}')">✕</button></div>
   </div>
   <div class="editor-body">
+    <div id="vbanner-${containerId}">${validationBanner(validateAd(draft,{currentList:tab==='pending'?'Bekleyenler':tab==='approved'?'Onaylananlar':null}))}</div>
     <div class="editor-section">
       <div class="section-header">İlan Bilgileri</div>
       <div class="fields-grid">
@@ -763,6 +963,7 @@ function renderPositionRows(containerId,positions){
 function updatePos(containerId,idx,field,value){
   const c=el(containerId);const p=c._draft.positions;if(!p[idx])return;
   p[idx][field]=value;updateDetectedTitles(c._draft);
+  refreshValidation(containerId);
   const sum=el(`pos-summary-${containerId}`);
   if(sum)sum.textContent=`${p.length} satır · ${p.reduce((s,x)=>s+(x.count||1),0)} kişi`;
 }
@@ -771,6 +972,20 @@ function updateDraft(input,containerId){
   const field=input.dataset.field;let val=input.value;
   if(field==='deadline'||field==='publishDate')val=val?new Date(val).toISOString():'';
   c._draft[field]=val;
+  refreshValidation(containerId);
+}
+
+// Re-run validation in place so typing keeps focus and caret position
+let _vtimer=null;
+function refreshValidation(containerId){
+  clearTimeout(_vtimer);
+  _vtimer=setTimeout(()=>{
+    const c=el(containerId); if(!c||!c._draft) return;
+    const box=el('vbanner-'+containerId); if(!box) return;
+    const tab=c._tab;
+    box.innerHTML=validationBanner(validateAd(c._draft,{
+      currentList:tab==='pending'?'Bekleyenler':tab==='approved'?'Onaylananlar':null}));
+  },250);
 }
 function updateDetectedTitles(draft){
   const titles=[...new Set((draft.positions||[]).flatMap(p=>(p.title||'').split('/').map(s=>s.trim()).filter(t=>ACADEMIC_TITLES.includes(t))))];
@@ -972,7 +1187,12 @@ async function resolveAdId(raw){
         body:JSON.stringify({keys:{txv:[73]},skipCount:skip,maxResultCount:pageSize}),
       });
       r=j.result;
-    }catch(e){ break; }
+    }catch(e){
+      // Surface why the lookup failed rather than reporting a bare "not found",
+      // since the usual cause is a GET-only proxy refusing the POST.
+      if(skip===0) throw e;
+      break;
+    }
     const items=r?.ads||[];
     if(!items.length) break;
     const hit=items.find(a=>String(a.adNo||'').toUpperCase()===adNo);
@@ -1563,6 +1783,349 @@ async function submitManualJson(){
       : 'İlan alındı ancak pozisyon ayrıştırılamadı — elle girin',
       ad.positions.length?'success':'info',5000);
   }catch(e){ showToast(`Ayrıştırılamadı: ${e.message}`,'error',5000); }
+}
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 4.2 — DÜZELTME İLANI
+// A düzeltme amends an earlier ad. Rather than sitting as a separate record,
+// it should usually be merged into the original.
+// ═══════════════════════════════════════════════════════════════════════════
+function isDuzeltme(ad){
+  const hay=`${ad.university||''} ${ad.contentSnippet||''}`;
+  return /d[üu]zeltme/i.test(hay) || /d[üu]zeltme/i.test(ad._title||'');
+}
+
+// Find the ad a düzeltme most likely corrects.
+function findOriginalAd(ad){
+  const cands=(Store.approved.content.ads||[]).filter(a=>a.ilanNo!==ad.ilanNo);
+  if(!cands.length) return null;
+
+  // 1. An explicit ilan no in the snippet wins
+  const m=(ad.contentSnippet||'').match(/\b(\d{6})\b/g)||[];
+  for(const num of m){
+    const hit=cands.find(a=>(a.positions||[]).some(p=>
+      String(p.requirements||'').includes(num))|| (a.contentSnippet||'').includes(num));
+    if(hit) return {ad:hit,reason:`Metinde geçen ${num} numarası ile eşleşti`};
+  }
+
+  // 2. Same university, published within 45 days before this one
+  const norm=s=>String(s||'').toLocaleUpperCase('tr').replace(/[^A-ZÇĞİÖŞÜ]/g,'');
+  const mine=norm(ad.university);
+  const myDate=ad.publishDate?new Date(ad.publishDate):null;
+  const sameUni=cands.filter(a=>norm(a.university)===mine && !isDuzeltme(a));
+  if(sameUni.length){
+    if(myDate){
+      const scored=sameUni
+        .map(a=>({a,d:a.publishDate?(myDate-new Date(a.publishDate))/86400000:999}))
+        .filter(x=>x.d>=-2 && x.d<=45)
+        .sort((x,y)=>x.d-y.d);
+      if(scored.length)
+        return {ad:scored[0].a,reason:`Aynı üniversite, ${Math.round(scored[0].d)} gün önce yayımlanmış`};
+    }
+    return {ad:sameUni[0],reason:'Aynı üniversitenin başka bir ilanı'};
+  }
+  return null;
+}
+
+// Compare positions between original and correction
+function diffPositions(orig, corr){
+  const key=p=>`${(p.faculty||'').trim()}|${(p.department||'').trim()}|${(p.title||'').trim()}`;
+  const om=new Map((orig.positions||[]).map(p=>[key(p),p]));
+  const cm=new Map((corr.positions||[]).map(p=>[key(p),p]));
+  const rows=[];
+  const FIELDS=['count','derece','alesRequired','alesScore','alesType',
+                'foreignLanguageRequired','foreignLanguageScore','kanunMaddesi','yasSiniri','requirements'];
+  for(const [k,p] of cm){
+    if(!om.has(k)){ rows.push({type:'added',key:k,corr:p}); continue; }
+    const o=om.get(k);
+    const changed=FIELDS.filter(f=>JSON.stringify(o[f]??null)!==JSON.stringify(p[f]??null));
+    if(changed.length) rows.push({type:'changed',key:k,orig:o,corr:p,fields:changed});
+  }
+  for(const [k,p] of om) if(!cm.has(k)) rows.push({type:'removed',key:k,orig:p});
+  return rows;
+}
+
+let duzCtx=null;
+function openDuzeltme(containerId){
+  const c=el(containerId); const draft=c._draft;
+  const found=findOriginalAd(draft);
+  duzCtx={containerId,corr:draft,orig:found?found.ad:null,reason:found?found.reason:null};
+  renderDuzeltme();
+  el('duz-overlay').classList.add('open');
+}
+function renderDuzeltme(){
+  const body=el('duz-body');
+  if(!duzCtx.orig){
+    body.innerHTML=`<div class="empty-state" style="padding:1.5rem">
+      <div class="icon">🔍</div>
+      <p>Düzeltilen orijinal ilan bulunamadı. Onaylananlar listesinde eşleşen bir kayıt yok.</p>
+      <p style="font-size:.72rem">Bu ilanı ayrı bir kayıt olarak onaylayabilirsiniz.</p></div>`;
+    el('duz-apply').style.display='none';
+    return;
+  }
+  el('duz-apply').style.display='inline-flex';
+  const rows=diffPositions(duzCtx.orig,duzCtx.corr);
+  const fmt=v=>v===null||v===undefined||v===''?'—':(v===true?'evet':v===false?'hayır':String(v));
+  const LBL={count:'Adet',derece:'Derece',alesRequired:'ALES',alesScore:'ALES puanı',alesType:'ALES türü',
+    foreignLanguageRequired:'Dil',foreignLanguageScore:'Dil puanı',kanunMaddesi:'Kanun',
+    yasSiniri:'Yaş',requirements:'Şartlar'};
+
+  const head=`<div class="duz-meta">
+    <div><span class="duz-lbl">Orijinal</span> ${esc(duzCtx.orig.university)} · ${esc(duzCtx.orig.ilanNo)}
+      · ${fmtDate(duzCtx.orig.publishDate)} · ${(duzCtx.orig.positions||[]).length} pozisyon</div>
+    <div><span class="duz-lbl">Düzeltme</span> ${esc(duzCtx.corr.university)} · ${esc(duzCtx.corr.ilanNo)}
+      · ${fmtDate(duzCtx.corr.publishDate)} · ${(duzCtx.corr.positions||[]).length} pozisyon</div>
+    <div class="field-hint">Eşleşme: ${esc(duzCtx.reason||'')}</div>
+  </div>`;
+
+  if(!rows.length){
+    body.innerHTML=head+`<div class="vbanner ok" style="margin-top:.5rem">
+      İki ilan arasında pozisyon farkı yok.</div>`;
+    return;
+  }
+  body.innerHTML=head+`<div class="duz-rows">`+rows.map(r=>{
+    if(r.type==='added')
+      return `<div class="duz-row add"><div class="duz-key">+ ${esc(r.key.replace(/\|/g,' · '))}</div>
+        <div class="duz-note">Düzeltmede yeni eklenmiş</div></div>`;
+    if(r.type==='removed')
+      return `<div class="duz-row del"><div class="duz-key">− ${esc(r.key.replace(/\|/g,' · '))}</div>
+        <div class="duz-note">Düzeltmede yok — kaldırılmış olabilir</div></div>`;
+    return `<div class="duz-row chg"><div class="duz-key">± ${esc(r.key.replace(/\|/g,' · '))}</div>
+      <table class="duz-tbl"><tr><th></th><th>Orijinal</th><th>Düzeltme</th></tr>
+      ${r.fields.map(f=>`<tr><td>${LBL[f]||f}</td>
+        <td class="old">${esc(String(fmt(r.orig[f])).slice(0,110))}</td>
+        <td class="new">${esc(String(fmt(r.corr[f])).slice(0,110))}</td></tr>`).join('')}
+      </table></div>`;
+  }).join('')+`</div>`;
+}
+function closeDuzeltme(){ el('duz-overlay').classList.remove('open'); duzCtx=null; }
+
+// Apply the correction's positions onto the original record
+async function applyDuzeltme(){
+  if(!duzCtx||!duzCtx.orig) return;
+  if(!confirm('Düzeltmedeki pozisyonlar orijinal ilana uygulanacak ve düzeltme reddedilenlere taşınacak. Devam?')) return;
+  const idx=(Store.approved.content.ads||[]).findIndex(a=>a.ilanNo===duzCtx.orig.ilanNo);
+  if(idx===-1){ showToast('Orijinal ilan bulunamadı','error'); return; }
+
+  const merged={...Store.approved.content.ads[idx]};
+  merged.positions=JSON.parse(JSON.stringify(duzCtx.corr.positions||[]));
+  merged.detectedTitles=duzCtx.corr.detectedTitles||merged.detectedTitles;
+  if(duzCtx.corr.deadline) merged.deadline=duzCtx.corr.deadline;
+  merged.correctedBy=duzCtx.corr.ilanNo;
+  merged.correctedAt=new Date().toISOString();
+  Store.approved.content.ads[idx]=merged;
+
+  // The düzeltme record itself goes to rejected so it never reaches the app
+  const pIdx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===duzCtx.corr.ilanNo);
+  if(pIdx!==-1){
+    const rec=Store.pending.content.ads.splice(pIdx,1)[0];
+    Store.rejected.content.ads.unshift({ilanNo:rec.ilanNo,url:rec.url,university:rec.university,
+      rejectedAt:new Date().toISOString(),reason:`Düzeltme, ${merged.ilanNo} ilanına uygulandı`});
+  }
+  try{
+    await Promise.all([
+      Store.saveApproved(`fix: apply düzeltme ${duzCtx.corr.ilanNo} to ${merged.ilanNo}`),
+      Store.savePending(), Store.saveRejected()]);
+    closeDuzeltme(); closeEditor('pending'); Store.refresh();
+    showToast('Düzeltme orijinal ilana uygulandı','success');
+  }catch(e){ showToast(e.message,'error'); }
+}
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 4.3 — CHANGE DETECTION
+// Re-checks approved ads against ilan.gov.tr: withdrawn ads and silently
+// changed deadlines are the two failures users would notice first.
+// ═══════════════════════════════════════════════════════════════════════════
+let freshResults=[]; let freshAbort=false;
+
+async function checkFreshness(){
+  const today=todayStr();
+  const ads=(Store.approved.content.ads||[])
+    .filter(a=>!a.deadline||a.deadline.slice(0,10)>=today);   // only live ads matter
+  if(!ads.length){ showToast('Kontrol edilecek aktif ilan yok','info'); return; }
+
+  freshResults=[]; freshAbort=false;
+  el('fresh-overlay').classList.add('open');
+  renderFreshness(0,ads.length);
+
+  for(let i=0;i<ads.length;i++){
+    if(freshAbort) break;
+    const ad=ads[i];
+    let status='ok', detail='';
+    try{
+      const adId=await resolveAdId(ad.url||ad.ilanNo);
+      if(!adId){ status='gone'; detail='ilan.gov.tr üzerinde bulunamadı'; }
+      else{
+        const d=(await apiFetch(
+          `https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${adId}`)).result;
+        if(!d||!d.content){ status='gone'; detail='İçerik boş — kaldırılmış olabilir'; }
+        else{
+          const doc=new DOMParser().parseFromString(d.content,'text/html');
+          const txt=doc.body.textContent||'';
+          const freshDl=P.parseDeadline(txt, ad.publishDate);
+          if(freshDl && ad.deadline &&
+             freshDl.slice(0,10)!==ad.deadline.slice(0,10)){
+            status='changed';
+            detail=`Son başvuru ${fmtDate(ad.deadline)} → ${fmtDate(freshDl)}`;
+          } else if(freshDl && !ad.deadline){
+            status='changed'; detail=`Son başvuru bulundu: ${fmtDate(freshDl)}`;
+          }
+          const freshPos=parseAdContent(d.content,txt).length;
+          const ourPos=(ad.positions||[]).length;
+          if(status==='ok' && freshPos && ourPos && freshPos!==ourPos){
+            status='changed';
+            detail=`Pozisyon sayısı ${ourPos} → ${freshPos}`;
+          }
+          if(status==='changed') freshResults._newDl=freshDl;
+        }
+      }
+    }catch(e){ status='error'; detail=e.message==='MANUAL_MODE'?'elle yapıştırma modu açık':e.message; }
+
+    freshResults.push({ad,status,detail,newDeadline:status==='changed'?freshResults._newDl:null});
+    renderFreshness(i+1,ads.length);
+    await new Promise(r=>setTimeout(r,350));   // be polite to ilan.gov.tr
+  }
+  renderFreshness(ads.length,ads.length,true);
+}
+
+function renderFreshness(done,total,finished){
+  const pct=total?Math.round(done/total*100):0;
+  const counts=freshResults.reduce((a,r)=>{a[r.status]=(a[r.status]||0)+1;return a;},{});
+  el('fresh-progress').innerHTML=`
+    <div class="fresh-bar"><div class="fresh-fill" style="width:${pct}%"></div></div>
+    <div class="fresh-stat">
+      ${done} / ${total} kontrol edildi
+      ${counts.ok?`· <span style="color:var(--green)">${counts.ok} güncel</span>`:''}
+      ${counts.changed?`· <span style="color:var(--yellow)">${counts.changed} değişmiş</span>`:''}
+      ${counts.gone?`· <span style="color:var(--red)">${counts.gone} kaldırılmış</span>`:''}
+      ${counts.error?`· <span style="color:var(--text3)">${counts.error} hata</span>`:''}
+    </div>`;
+  el('fresh-stop').style.display=finished?'none':'inline-flex';
+  el('fresh-close').textContent=finished?'Kapat':'Arka planda bırak';
+
+  const rows=freshResults.filter(r=>r.status!=='ok');
+  el('fresh-body').innerHTML = rows.length ? rows.map(r=>`
+    <div class="fresh-row ${r.status}">
+      <div style="flex:1;min-width:0">
+        <div class="fresh-uni">${esc(r.ad.university)}</div>
+        <div class="fresh-det">${esc(r.ad.ilanNo)} · ${esc(r.detail)}</div>
+      </div>
+      ${r.status==='changed'&&r.newDeadline
+        ? `<button class="btn btn-primary btn-xs" onclick="applyFreshDeadline('${r.ad.ilanNo}','${r.newDeadline}')">Tarihi güncelle</button>`
+        : ''}
+      ${r.status==='gone'
+        ? `<button class="btn btn-danger btn-xs" onclick="retireAd('${r.ad.ilanNo}')">Kaldır</button>`
+        : ''}
+    </div>`).join('')
+    : (finished
+        ? `<div class="vbanner ok">✓ Tüm aktif ilanlar güncel.</div>`
+        : `<div class="field-hint" style="padding:.5rem">Kontrol sürüyor…</div>`);
+}
+
+function stopFreshness(){ freshAbort=true; showToast('Kontrol durduruldu','info'); }
+function closeFreshness(){ el('fresh-overlay').classList.remove('open'); }
+
+async function applyFreshDeadline(ilanNo,newDl){
+  const idx=(Store.approved.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);
+  if(idx===-1) return;
+  Store.approved.content.ads[idx].deadline=newDl;
+  try{
+    await Store.saveApproved(`fix: deadline ${ilanNo}`);
+    freshResults=freshResults.filter(r=>r.ad.ilanNo!==ilanNo);
+    renderFreshness(freshResults.length,freshResults.length,true);
+    Store.refresh(); showToast('Son başvuru tarihi güncellendi','success');
+  }catch(e){ showToast(e.message,'error'); }
+}
+
+async function retireAd(ilanNo){
+  if(!confirm('Bu ilan kaldırılmış görünüyor. Reddedilenlere taşınsın mı?')) return;
+  const idx=(Store.approved.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);
+  if(idx===-1) return;
+  const ad=Store.approved.content.ads.splice(idx,1)[0];
+  Store.rejected.content.ads.unshift({ilanNo:ad.ilanNo,url:ad.url,university:ad.university,
+    rejectedAt:new Date().toISOString(),reason:'ilan.gov.tr üzerinde bulunamadı'});
+  try{
+    await Promise.all([Store.saveApproved(`chore: retire ${ilanNo}`),Store.saveRejected()]);
+    freshResults=freshResults.filter(r=>r.ad.ilanNo!==ilanNo);
+    renderFreshness(freshResults.length,freshResults.length,true);
+    Store.refresh(); showToast('İlan reddedilenlere taşındı','info');
+  }catch(e){ showToast(e.message,'error'); }
+}
+
+
+// ── Connection diagnostic ───────────────────────────────────────────────────
+// Exercises each path the panel actually uses, so problems surface here rather
+// than midway through a freshness run.
+async function runDiagnostic(){
+  const btn=el('diag-btn'); const label=btn.textContent;
+  btn.disabled=true; btn.innerHTML='<div class="spinner"></div>';
+  // Persist current selection so apiFetch honours it
+  localStorage.setItem(STORAGE.fetchMode, el('s-fetchmode').value);
+  localStorage.setItem(STORAGE.proxyUrl,  el('s-proxyurl').value.trim()||DEFAULTS.proxyUrl);
+
+  const out=el('diag-out');
+  out.style.display='block';
+  const lines=[];
+  const draw=()=>out.innerHTML=lines.map(l=>
+    `<div class="diag-row ${l.s}"><span class="diag-ico">${
+      l.s==='ok'?'✓':l.s==='fail'?'✕':l.s==='warn'?'!':'·'}</span>
+     <div><div class="diag-name">${esc(l.n)}</div>
+     <div class="diag-msg">${esc(l.m||'')}</div></div></div>`).join('');
+
+  const step=(n,s,m)=>{ lines.push({n,s,m}); draw(); };
+
+  step('Mod', 'info', {proxy:'Proxy üzerinden',direct:'Doğrudan',manual:'Elle yapıştır'}[getFetchMode()]);
+  if(getFetchMode()==='manual'){
+    step('Otomatik getirme','warn','Elle yapıştırma modunda otomatik getirme ve aktiflik kontrolü çalışmaz.');
+    btn.disabled=false; btn.textContent=label; return;
+  }
+
+  // 1. Detail GET — used by Add-by-URL, Yeniden Ayrıştır and Aktiflik Kontrolü
+  let sampleId=null;
+  const anyAd=(Store.approved.content.ads||[])[0];
+  if(anyAd&&anyAd.url){ const m=anyAd.url.match(/\/ilan\/(\d+)/); if(m) sampleId=m[1]; }
+  sampleId=sampleId||'2094289';
+  try{
+    const j=await apiFetch(`https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=${sampleId}`);
+    if(j&&j.result&&j.result.content){
+      step('İlan detayı (GET)','ok',`id=${sampleId} alındı, içerik ${j.result.content.length.toLocaleString('tr')} karakter`);
+      // 2. Parser on real content
+      const doc=new DOMParser().parseFromString(j.result.content,'text/html');
+      const txt=doc.body.textContent||'';
+      const pos=parseAdContent(j.result.content,txt);
+      step('Ayrıştırıcı', pos.length?'ok':'warn',
+        pos.length?`${pos.length} pozisyon çıkarıldı`:'Pozisyon çıkarılamadı (ilan resim tabanlı olabilir)');
+      const dl=P.parseDeadline(txt,j.result.publishStartDate);
+      step('Son başvuru tespiti', dl?'ok':'warn', dl?fmtDate(dl):'Tarih bulunamadı');
+    } else step('İlan detayı (GET)','fail','Yanıt beklenen biçimde değil');
+  }catch(e){ step('İlan detayı (GET)','fail',e.message); }
+
+  // 3. Listing POST — only needed for ilan-no lookup
+  try{
+    const j=await apiFetch('https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter',{
+      method:'POST',
+      headers:{'Content-Type':'application/json-patch+json',Accept:'application/json'},
+      body:JSON.stringify({keys:{txv:[73]},skipCount:0,maxResultCount:1}),
+    });
+    step('İlan no araması (POST)', j&&j.result?'ok':'warn',
+      j&&j.result?`Toplam ${j.result.numFound} ilan görünüyor`:'Yanıt boş');
+  }catch(e){
+    step('İlan no araması (POST)','warn',
+      'Çalışmıyor — URL veya sayısal ID ile ekleme yine de çalışır. '+e.message.split('—')[0]);
+  }
+
+  // 4. Freshness scope
+  const today=todayStr();
+  const active=(Store.approved.content.ads||[]).filter(a=>!a.deadline||a.deadline.slice(0,10)>=today);
+  const resolvable=active.filter(a=>/\/ilan\/\d+/.test(a.url||''));
+  step('Aktiflik kontrolü kapsamı',
+    resolvable.length===active.length?'ok':'warn',
+    `${active.length} aktif ilan, ${resolvable.length} tanesi doğrudan çözülebiliyor` +
+    (active.length?` · tahmini süre ~${Math.round(active.length*0.9)} sn`:''));
+
+  btn.disabled=false; btn.textContent=label;
 }
 
 // ── Settings ──
