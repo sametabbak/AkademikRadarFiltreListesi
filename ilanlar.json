@@ -1,6 +1,40 @@
 {
-  "lastUpdated": null,
+  "lastUpdated": "2026-09-10T11:23:27.666Z",
   "source": "ilan.gov.tr",
-  "ads": [],
+  "ads": [
+    {
+      "university": "Nevşehir Hacı Bektaş Veli Üniversitesi",
+      "city": "Nevşehir",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2218223/kamu-akademik-personel-akademik-personel-alimlari-nevsehir-haci-bektas-veli-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853260",
+      "publishDate": "2026-09-09T00:00:00.000Z",
+      "deadline": "2026-09-23T00:00:00.000Z",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Kozaklı Meslek Yüksekokulu",
+          "department": "Veri Tabanı, Ağ Tasarımı ve Yönetimi Bölümü, Dijital Sağlık Sistemleri Teknikerliği Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Üniversitemizin birimlerine 2547 sayılı Kanun’un ve 09.11.2018 tarihli ve 30590 sayılı Resmî Gazete’de yayımlanarak yürürlüğe giren “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik”in ilgili hükümlerine göre öğretim elemanı alınacaktır."
+    }
+  ],
   "examCalendar": []
 }
