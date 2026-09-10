@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10T13:19:43.874Z",
+  "lastUpdated": "2026-09-10T13:22:03.681Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -100,7 +100,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Yüksek Lisansını Elektrik Mühendisliği, Doktorasını Elektrik ve Bilgisayar Mühendisliğinde almış olmak. RF/Mikrodalga Yükselteçler, Güç Bölücüler ve Mikroşerit\nKuplörler konularında çalışmaları olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -109,7 +109,10 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": "Mühendislik",
-          "sartlar": [],
+          "sartlar": [
+            "Yüksek Lisansını Elektrik Mühendisliği, Doktorasını Elektrik ve Bilgisayar Mühendisliğinde almış olmak.",
+            "RF/Mikrodalga Yükselteçler, Güç Bölücüler ve Mikroşerit Kuplörler konularında çalışmaları olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -118,7 +121,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Tıp Fakültesi mezunu olup uzmanlığını Genel Cerrahi alanında almış olmak. Böbrek nakil merkezi olan bir klinikte en az 3 yıl çalışmış olmak, böbrek nakil hastalarının ameliyat öncesi hazırlık, ameliyat ve ameliyat sonrası tedavilerinde çalışmış olmak. Üst ve Alt GİS endoskopisi eğitimi almış olmak ve PEG (Perkutan Endoskopik Gastrostomi)\nyapıyor olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -127,7 +130,11 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup uzmanlığını Genel Cerrahi alanında almış olmak.",
+            "Böbrek nakil merkezi olan bir klinikte en az 3 yıl çalışmış olmak, böbrek nakil hastalarının ameliyat öncesi hazırlık, ameliyat ve ameliyat sonrası tedavilerinde çalışmış olmak.",
+            "Üst ve Alt GİS endoskopisi eğitimi almış olmak ve PEG (Perkutan Endoskopik Gastrostomi) yapıyor olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -136,7 +143,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Tıp Fakültesi mezunu olup uzmanlığını Beyin ve Sinir Cerrahisi alanında almış olmak, Spinal cerrahide endoskopik yaklaşımlar konusunda eğitim almış olmak, erken embriyonik dönemde nöroteratojenite ve orta hat gelişim defektleri ile pediatrik nöroşirürjide navigasyon yardımlı cerrahi\nteknikler konularında çalışmaları bulunmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -145,7 +152,9 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup uzmanlığını Beyin ve Sinir Cerrahisi alanında almış olmak, Spinal cerrahide endoskopik yaklaşımlar konusunda eğitim almış olmak, erken embriyonik dönemde nöroteratojenite ve orta hat gelişim defektleri ile pediatrik nöroşirürjide navigasyon yardımlı cerrahi teknikler konularında çalışmaları bulunmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -154,7 +163,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Tıp Fakültesi mezunu olup uzmanlığını Adli Tıp alanında almış olmak, madde kullanımı olan genç/ergen vakaların adli toksikolojik özelliklerinin\ndeğerlendirilmesi konularında çalışmaları olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -163,7 +172,9 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup uzmanlığını Adli Tıp alanında almış olmak, madde kullanımı olan genç/ergen vakaların adli toksikolojik özelliklerinin değerlendirilmesi konularında çalışmaları olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -172,7 +183,7 @@
           "department": "",
           "title": "DOÇENT",
           "count": 1,
-          "requirements": "",
+          "requirements": "Tıp Fakültesi mezunu olup Doçentliğini Enfeksiyon Hastalıkları alanında almış olmak. Miçetoma\nenfeksiyonları konusunda çalışmaları olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -181,7 +192,10 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup Doçentliğini Enfeksiyon Hastalıkları alanında almış olmak.",
+            "Miçetoma enfeksiyonları konusunda çalışmaları olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -190,7 +204,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Tıp Fakültesi mezunu olup uzmanlığını Halk\nSağlığı alanında almış olmak. Topuk kanı reddi ve görme taramaları ile ilgileri çalışmaları olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -199,7 +213,10 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup uzmanlığını Halk Sağlığı alanında almış olmak.",
+            "Topuk kanı reddi ve görme taramaları ile ilgileri çalışmaları olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
@@ -208,7 +225,7 @@
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Tıp Fakültesi mezunu olup uzmanlığını Halk Sağlığı alanında almış olmak. Yapay zeka modellerinin halk sağlığı alanlarında kullanımına\nyönelik çalışmaları olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -217,7 +234,10 @@
           "foreignLanguageExam": "YÖKDİL",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup uzmanlığını Halk Sağlığı alanında almış olmak.",
+            "Yapay zeka modellerinin halk sağlığı alanlarında kullanımına yönelik çalışmaları olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         }
