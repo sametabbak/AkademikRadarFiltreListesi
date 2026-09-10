@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10T20:09:47.511Z",
+  "lastUpdated": "2026-09-10T20:11:15.595Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -22,7 +22,7 @@
           "requirements": "Sosyoloji alanında tezli yüksek lisans yapıyor olmak.",
           "alesRequired": true,
           "alesScore": 70,
-          "alesType": "SAY",
+          "alesType": "EA",
           "foreignLanguageRequired": true,
           "foreignLanguageScore": 50,
           "foreignLanguageExam": null,
