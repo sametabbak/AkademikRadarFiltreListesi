@@ -1,7 +1,107 @@
 {
-  "lastUpdated": "2026-09-10T13:34:47.980Z",
+  "lastUpdated": "2026-09-10T13:40:37.143Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "GİRESUN ÜNİVERSİTESİ",
+      "city": "Giresun",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2215703/kamu-akademik-personel-akademik-personel-alimlari-giresun-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853245",
+      "publishDate": "2026-09-07T00:00:00.000Z",
+      "deadline": "2026-09-21T00:00:00.000Z",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Rektörlük",
+          "department": "Kariyer Yönlendirme ve Bilgilendirme Araştırma ve Uygulama Merkezinde görevlendirilmek üzere",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İşletme lisans, işletme tezli yüksek lisans ve işletme doktora mezunu olmak. Mülakat teknikleri ve kariyer planlama sertifikasına sahip olup; kariyer yönetimi, örgütsel yönetim, dijitalleşme konularında bilimsel çalışması olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "İşletme lisans, işletme tezli yüksek lisans ve işletme doktora mezunu olmak.",
+            "Mülakat teknikleri ve kariyer planlama sertifikasına sahip olup; kariyer yönetimi, örgütsel yönetim, dijitalleşme konularında bilimsel çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Giresun Meslek Yüksekokulu İnşaat Bölümü Yeşil ve Ekolojik Bina Teknikerliği Programı",
+          "department": "Yeşil ve Ekolojik Bina Teknikerliği Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İnşaat mühendisliği lisans, inşaat mühendisliği tezli yüksek lisans ve inşaat mühendisliği doktora mezunu olmak. Sürdürülebilir ve çevreye duyarlı yapı malzemeleri olarak geopolimerler konusunda bilimsel çalışmaları olup; belgelendirmek kaydıyla lisans mezuniyeti sonrasında yükseköğretim kurumlarında en az iki yıl deneyim sahibi olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İnşaat mühendisliği lisans, inşaat mühendisliği tezli yüksek lisans ve inşaat mühendisliği doktora mezunu olmak.",
+            "Sürdürülebilir ve çevreye duyarlı yapı malzemeleri olarak geopolimerler konusunda bilimsel çalışmaları olup; belgelendirmek kaydıyla lisans mezuniyeti sonrasında yükseköğretim kurumlarında en az iki yıl deneyim sahibi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Giresun Meslek Yüksekokulu İnşaat Bölümü Yeşil ve Ekolojik Bina Teknikerliği Programı",
+          "department": "Yeşil ve Ekolojik Bina Teknikerliği Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mimarlık doktora mezunu olup; ekolojik yapı malzemeleri, ekolojik yapı malzemelerinde koruma-onarım konularında bilimsel çalışmaları olmak. Belgelendirmek kaydıyla yüksek lisans mezuniyeti sonrasında yükseköğretim kurumlarında en az iki yıl deneyim sahibi olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mimarlık doktora mezunu olup; ekolojik yapı malzemeleri, ekolojik yapı malzemelerinde koruma-onarım konularında bilimsel çalışmaları olmak.",
+            "Belgelendirmek kaydıyla yüksek lisans mezuniyeti sonrasında yükseköğretim kurumlarında en az iki yıl deneyim sahibi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tirebolu Mehmet Bayrak Meslek Yüksekokulu Seyahat-Turizm ve Eğlence Hizmetleri Bölümü",
+          "department": "Turizm ve Seyahat Hizmetleri Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Seyahat İşletmeciliği bölümü lisans mezunu olup; turizm işletmeciliği ve otelcilik anabilim dalında tezli yüksek lisans yapmış olmak.\nBelgelendirmek kaydıyla yüksek lisans mezuniyeti sonrasında yükseköğretim kurumlarında ders verme deneyimine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "Seyahat İşletmeciliği bölümü lisans mezunu olup; turizm işletmeciliği ve otelcilik anabilim dalında tezli yüksek lisans yapmış olmak.",
+            "Belgelendirmek kaydıyla yüksek lisans mezuniyeti sonrasında yükseköğretim kurumlarında ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Giresun Üniversitesi Rektörlüğünden: Üniversitemize bağlı birimlerde istihdam edilmek üzere 2547 sayılı Yükseköğretim Kanunu, 657 sayılı Devlet Memurları Kanunu'nun 48. maddesi ve Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına",
+      "applicationDocuments": []
+    },
     {
       "university": "SAMSUN ÜNİVERSİTESİ",
       "city": "Samsun",
