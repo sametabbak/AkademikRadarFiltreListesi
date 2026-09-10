@@ -1,7 +1,264 @@
 {
-  "lastUpdated": "2026-09-10T13:40:37.143Z",
+  "lastUpdated": "2026-09-10T13:47:11.346Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "YOZGAT BOZOK ÜNİVERSİTESİ",
+      "city": "Yozgat",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2215888/kamu-akademik-personel-akademik-personel-alimlari-bozok-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853246",
+      "publishDate": "2026-09-06T21:00:00.000Z",
+      "deadline": "2026-09-21T20:59:00.000Z",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Boğazlıyan MYO",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Elektrik Mühendisliği, Elektronik Mühendisliği, Elektrik-Elektronik Mühendisliği, Elektronik ve Haberleşme Mühendisliği, Endüstri Mühendisliği, Bilişim Sistemleri Mühendisliği, Matematik Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Matematik ve Bilgisayar Bilimleri, İstatistik ve Bilgisayar Bilimleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Yönetim Bilişim Sistemleri, Yazılım Geliştirme, Bilgi Güvenliği Teknolojisi, Adli Bilişim Mühendisliği veya Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezun olup, bu alanlardan birinde tezli yüksek lisans yapmış ve ilgili alanda (Büyük Veri) lisans mezuniyeti sonrası en az 1 (bir) yıl tecrübeye sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Elektrik Mühendisliği, Elektronik Mühendisliği, Elektrik-Elektronik Mühendisliği, Elektronik ve Haberleşme Mühendisliği, Endüstri Mühendisliği, Bilişim Sistemleri Mühendisliği, Matematik Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Matematik ve Bilgisayar Bilimleri, İstatistik ve Bilgisayar Bilimleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Yönetim Bilişim Sistemleri, Yazılım Geliştirme, Bilgi Güvenliği Teknolojisi, Adli Bilişim Mühendisliği veya Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezun olup, bu alanlardan birinde tezli yüksek lisans yapmış ve ilgili alanda (Büyük Veri) lisans mezuniyeti sonrası en az 1 (bir) yıl tecrübeye sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Boğazlıyan MYO",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik mühendisliği bölümü lisans mezunu olup, alanında tezli yüksek lisans yapmış ve belgelendirmek kaydıyla Yükseköğretim Kurumlarında ders verme tecrübesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Elektrik-Elektronik mühendisliği bölümü lisans mezunu olup, alanında tezli yüksek lisans yapmış ve belgelendirmek kaydıyla Yükseköğretim Kurumlarında ders verme tecrübesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sanat tarihi bölümü lisans mezunu olup, sanat tarihi alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Sanat tarihi bölümü lisans mezunu olup, sanat tarihi alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sosyoloji bölümü lisans mezunu olup, sosyoloji alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Sosyoloji bölümü lisans mezunu olup, sosyoloji alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Maliye bölümü lisans mezunu olup, maliye veya mali iktisat alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Maliye bölümü lisans mezunu olup, maliye veya mali iktisat alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Maliye bölümü lisans mezunu olup, maliye veya mali iktisat alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Maliye bölümü lisans mezunu olup, maliye veya mali iktisat alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar mühendisliği bölümü lisans mezunu olup, bilgisayar mühendisliği alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar mühendisliği bölümü lisans mezunu olup, bilgisayar mühendisliği alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük (Kariyer ve Mezun Merkezi)",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Üniversitemiz Kariyer ve Mezun Merkezinde görevlendirilmek üzere; Görsel İletişim Tasarımı bölümü lisans mezunu olup, doktorasını medya ve iletişim çalışmaları alanında yapmış ve Yükseköğretim Kurumlarında en az 3 yıl akademik tecrübesi ile bilimsel çalışmaları olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Üniversitemiz Kariyer ve Mezun Merkezinde görevlendirilmek üzere; Görsel İletişim Tasarımı bölümü lisans mezunu olup, doktorasını medya ve iletişim çalışmaları alanında yapmış ve Yükseköğretim Kurumlarında en az 3 yıl akademik tecrübesi ile bilimsel çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük (Teknoloji Transfer Ofisi)",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Üniversitemiz Teknoloji Transfer Ofisi görevlendirilmek üzere; Bilgisayar mühendisliği bölümü lisans mezunu olup, tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Üniversitemiz Teknoloji Transfer Ofisi görevlendirilmek üzere; Bilgisayar mühendisliği bölümü lisans mezunu olup, tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Ebelik bölümü lisans mezunu olup, ebelik alanında tezli yüksek lisans veya doktora yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik bölümü lisans mezunu olup, ebelik alanında tezli yüksek lisans veya doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yozgat Meslek Yüksekokulu",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Baskı Sanatları bölümü lisans mezunu olup, sanatta yeterliliğini baskı sanatları ana sanat dalında almış ve Yükseköğretim Kurumlarında ders verme tecrübesi ile akademik çalışmaları olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Baskı Sanatları bölümü lisans mezunu olup, sanatta yeterliliğini baskı sanatları ana sanat dalında almış ve Yükseköğretim Kurumlarında ders verme tecrübesi ile akademik çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ziraat Fakültesi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bitki koruma bölümü lisans mezunu olup, entomoloji alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Ziraat ve Orman",
+          "sartlar": [
+            "Bitki koruma bölümü lisans mezunu olup, entomoloji alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Yozgat Bozok Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen birimlerine, 2547 sayılı Yükseköğretim Kanununun ilgili maddeleri, Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yö",
+      "applicationDocuments": []
+    },
     {
       "university": "GİRESUN ÜNİVERSİTESİ",
       "city": "Giresun",
