@@ -1,7 +1,228 @@
 {
-  "lastUpdated": "2026-09-10T14:00:48.157Z",
+  "lastUpdated": "2026-09-10T14:03:02.125Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2216744/kamu-akademik-personel-akademik-personel-alimlari-istanbul-rumeli-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853250",
+      "publishDate": "2026-09-08T00:00:00.000Z",
+      "deadline": "2026-09-22T00:00:00.000Z",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "SAĞLIK HİZMETLERİ MESLEK YÜKSEKOKULU",
+          "department": "ODYOMETRİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup, Kulak, Burun, Boğaz Hastalıkları alanında Doçent unvanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, Kulak, Burun, Boğaz Hastalıkları alanında Doçent unvanına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SAĞLIK HİZMETLERİ MESLEK YÜKSEKOKULU",
+          "department": "ANESTEZİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup, Anestezi ve Reanimasyon alanında Doçent unvanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, Anestezi ve Reanimasyon alanında Doçent unvanına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SAĞLIK HİZMETLERİ MESLEK YÜKSEKOKULU",
+          "department": "ELEKTRONÖROFİZYOLOJİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Hemşirelik alanında yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Hemşirelik alanında yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK ve DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "ENDÜSTRİ MÜHENDİSLİĞİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Endüstri Mühendisliği-Yöneylem Araştırması alanından almış olmak. İngilizce dil puanına sahip olmak (85).",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Endüstri Mühendisliği-Yöneylem Araştırması alanından almış olmak.",
+            "İngilizce dil puanına sahip olmak (85)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK ve DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "ENDÜSTRİ MÜHENDİSLİĞİ",
+          "title": "DOÇENT",
+          "count": 2,
+          "requirements": "Doçentliğini Endüstri Mühendisliği-Yöneylem Araştırması alanından almış olmak. İngilizce dil puanına sahip olmak (85).",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Endüstri Mühendisliği-Yöneylem Araştırması alanından almış olmak.",
+            "İngilizce dil puanına sahip olmak (85)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK ve DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "ENDÜSTRİ MÜHENDİSLİĞİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 3,
+          "requirements": "Dr. Öğr. Üyesi için; Endüstri Mühendisliği-Yöneylem Araştırması alanında Doktora yapmış olmak. İngilizce dil puanına sahip olmak (85).",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Üyesi için; Endüstri Mühendisliği-Yöneylem Araştırması alanında Doktora yapmış olmak.",
+            "İngilizce dil puanına sahip olmak (85)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK ve DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "İNŞAAT MÜHENDİSLİĞİ",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Yapı Anabilim Dalında almış olmak, İngilizce dil puanına sahip olmak (85).",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Yapı Anabilim Dalında almış olmak, İngilizce dil puanına sahip olmak (85)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK ve DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "İNŞAAT MÜHENDİSLİĞİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Yapı Anabilim Dalında Doktora yapmış olmak, İngilizce dil puanına sahip olmak (85).",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Yapı Anabilim Dalında Doktora yapmış olmak, İngilizce dil puanına sahip olmak (85)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK ve DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "İNŞAAT MÜHENDİSLİĞİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ulaştırma Anabilim Dalında Doktora yapmış olmak, İngilizce dil puanına sahip olmak (85).",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Ulaştırma Anabilim Dalında Doktora yapmış olmak, İngilizce dil puanına sahip olmak (85)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SPOR BİLİMLERİ FAKÜLTESİ",
+          "department": "ANTRENÖRLÜK EĞİTİMİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Spor Bilimleri ve Teknolojisi alanında Doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Spor Bilimleri ve Teknolojisi alanında Doktora yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Rumeli Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen Fakülte ve Yüksekokul Bölümlerine 2547 Sayılı Yükseköğretim Kanunu “Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği”nin ilgili maddelerine göre Öğretim Üyeleri alınacaktır. İstenilen Belgeler Dilekçe (Başvuru dilekçe",
+      "applicationDocuments": []
+    },
     {
       "university": "BİRUNİ ÜNİVERSİTESİ",
       "city": "İstanbul",
