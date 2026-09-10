@@ -1,285 +1,7 @@
 {
-  "lastUpdated": "2026-09-10T11:02:21.363Z",
+  "lastUpdated": "2026-09-10T11:02:34.398Z",
   "source": "ilan.gov.tr",
   "ads": [
-    {
-      "university": "KÃÂTAHYA SAÃÂLIK BÃÂ°LÃÂ°MLERÃÂ° ÃÂNÃÂ°VERSÃÂ°TESÃÂ°",
-      "city": "KÃÂ¼tahya",
-      "uniType": "Devlet",
-      "url": "https://www.ilan.gov.tr/ilan/2114900/kamu-akademik-personel-akademik-personel-alimlari-kutahya-saglik-bilimleri-universitesi-rektorlugundenÃÂ ogretim-uyesi-alim-ilani",
-      "ilanNo": "YOK852617",
-      "publishDate": "2026-05-18T00:00:01+00:00",
-      "deadline": null,
-      "detectedTitles": [
-        "PROFESÃÂR",
-        "DOÃÂENT",
-        "DR. ÃÂÃÂR. ÃÂYESÃÂ°"
-      ],
-      "positions": [
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Temel TÃÂ±p Bilimleri",
-          "title": "PROFESÃÂR",
-          "count": 1,
-          "requirements": "TÃÂ±p fakÃÂ¼ltesi mezunu olmak. TÃÂ±bbi mikrobiyoloji alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olup, aynÃÂ± alanda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 5 (beÃÂ) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek. Mikrobiyoloji laboratuvar pratiklerinde yapay zeka kullanÃÂ±mÃÂ± konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Dahili TÃÂ±p Bilimleri",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "Acil TÃÂ±p alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olup, aynÃÂ± alanda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. Kritik bakÃÂ±m ve mekanik ventilasyon ile hasta takibi konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. EÃÂitici eÃÂitimi sertifikasÃÂ±na sahip olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Dahil TÃÂ±p Bilimleri",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "Ruh SaÃÂlÃÂ±ÃÂÃÂ± ve HastalÃÂ±klarÃÂ± alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. MajÃÂ¶r depresif bozukluklar konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 5 (beÃÂ) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Temel TÃÂ±p Bilimleri",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "Fizyoloji alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. Depresyon ve yaygÃÂ±n anksiyete bozukluÃÂu olan hastalarda oksidatif stres ve kan beyin bariyeri ile ilgili ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 3 (ÃÂ¼ÃÂ§) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Temel TÃÂ±p Bilimleri",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "Histoloji ve Embriyoloji alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. EÃÂiticilerin eÃÂitimi ve probleme dayalÃÂ± ÃÂ¶ÃÂrenim (PDÃÂ) sertifikalarÃÂ±na sahip olmak. ÃÂ°nsan spermi ve plasentasÃÂ± ile ilgili ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 3 (ÃÂ¼ÃÂ§) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "GÃÂ¶z HastalÃÂ±klarÃÂ± alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olup, aynÃÂ± alanda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. TÃÂ±bbi retina ve vitreoretinal cerrahi alanÃÂ±nda deneyimli olup ilgili alanlarda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "Simav SaÃÂlÃÂ±k Hizmetleri MYO",
-          "department": "TÃÂ±bbi Hizmetler ve Teknikler",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "Biyoloji alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. 3 Boyutlu hÃÂ¼cre kÃÂ¼ltÃÂ¼rÃÂ¼ ve mikroarray konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 5 (beÃÂ) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "DiÃÂ HekimliÃÂi FakÃÂ¼ltesi",
-          "department": "Klinik Bilimler",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "AÃÂÃÂ±z, DiÃÂ ve ÃÂene Radyolojisi alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. Dental implant radyolojisi ve diÃÂ hekimliÃÂinde yapay zeka konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 5 (beÃÂ) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "MÃÂ¼hendislik ve DoÃÂa Bilimleri FakÃÂ¼ltesi",
-          "department": "Adli Bilimler",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "Adli Bilimler alanÃÂ±nda tezli yÃÂ¼ksek lisans ve doktora yapmÃÂ±ÃÂ olup, kimya alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. BakanlÃÂ±k onaylÃÂ± olay yeri inceleme ve kimlik tespiti sertifikalarÃÂ±na sahip olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 5 (beÃÂ) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "MÃÂ¼hendislik ve DoÃÂa Bilimleri FakÃÂ¼ltesi",
-          "department": "MolekÃÂ¼ler Biyoloji ve Genetik",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "MolekÃÂ¼ler Biyoloji ve Genetik alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. Rekombinant enzim ÃÂ¼retimi, enzim immobilizasyonu ve akrilamid giderimi konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda en az 2 (iki) yÃÂ±l sÃÂ¼re ile ders verme tecrÃÂ¼besine sahip olmak ve bunu belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "SaÃÂlÃÂ±k Bilimleri FakÃÂ¼ltesi",
-          "department": "HemÃÂirelik",
-          "title": "DOÃÂENT",
-          "count": 1,
-          "requirements": "HemÃÂirelik lisans mezunu olup, hemÃÂirelik esaslarÃÂ± alanÃÂ±nda yÃÂ¼ksek lisans ve doktora yapmÃÂ±ÃÂ olmak. HemÃÂirelik esaslarÃÂ± alanÃÂ±nda doÃÂ§ent ÃÂ¼nvanÃÂ± almÃÂ±ÃÂ olmak. HemÃÂirelik eÃÂitimi ve beceri ÃÂ¶ÃÂretimi, simÃÂ¼lasyon uygulamalarÃÂ±, hemÃÂirelik kavramlarÃÂ± alanlarÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. YÃÂ¼ksekÃÂ¶ÃÂretim kurumlarÃÂ±nda ders verme tecrÃÂ¼besine sahip olup, en az 5 (beÃÂ) yÃÂ±l sÃÂ¼re ile klinik ÃÂ§alÃÂ±ÃÂma deneyimine sahip olmak ve bunlarÃÂ± belgelendirmek.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Dahili TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "ÃÂocuk SaÃÂlÃÂ±ÃÂÃÂ± ve HastalÃÂ±klarÃÂ± alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak. ÃÂocuk NÃÂ¶roloji alanÃÂ±nda yandal uzmanÃÂ± olmak. ÃÂocuklarda status epilepticus prognozunda skorlama modelleri konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "Genel Cerrahi alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak. Akut batÃÂ±n, gastrointestinal cerrahi ve acil cerrahi sÃÂ¼reÃÂ§lerinde inflamatuvar belirteÃÂ§ler, biyobelirteÃÂ§ler ve klinik skorlama sistemleri ÃÂ¼zerine ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "KadÃÂ±n HastalÃÂ±klarÃÂ± ve DoÃÂum alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak. Polikistik over sendromlu hastalarda nÃÂ¶ropeptid varyasyonunun rolÃÂ¼ ile ilgili ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak. Deney hayvanlarÃÂ± kullanÃÂ±mÃÂ± ve eÃÂiticinin eÃÂitimi sertifikalarÃÂ±na sahip olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "KadÃÂ±n HastalÃÂ±klarÃÂ± ve DoÃÂum alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak. Jinekolojik onkoloji cerrahisi alanÃÂ±nda yandal uzmanÃÂ± olmak. Endometrium kanserinde molekÃÂ¼ler belirteÃÂ§ler ÃÂ¼zerine ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "NÃÂ¶roÃÂirÃÂ¼rji alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak. EÃÂiticinin eÃÂitimi sertifikasÃÂ±na sahip olmak. BiyoyazÃÂ±cÃÂ±lar konusunda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "Kalp ve Damar Cerrahisi alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak. AÃÂ§ÃÂ±k kalp cerrahisinde otolog perikard kullanÃÂ±mÃÂ± konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "Kalp ve Damar Cerrahisi alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak. AÃÂ§ÃÂ±k kalp cerrahisinde farklÃÂ± kardiyoplejilerin kullanÃÂ±mÃÂ± konularÃÂ±nda ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Cerrahi TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "ÃÂocuk Cerrahisi alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±nÃÂ± almÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        },
-        {
-          "faculty": "TÃÂ±p FakÃÂ¼ltesi",
-          "department": "Dahili TÃÂ±p Bilimleri",
-          "title": "DR. ÃÂÃÂR. ÃÂYESÃÂ°",
-          "count": 1,
-          "requirements": "Acil TÃÂ±p alanÃÂ±nda tÃÂ±pta uzmanlÃÂ±ÃÂÃÂ±n almÃÂ±ÃÂ olmak. EÃÂiticinin eÃÂitimi sertifikasÃÂ±na sahip olmak. KarÃÂ±n aÃÂrÃÂ±lÃÂ± hastalarda biyobelirteÃÂ§ler ÃÂ¼zerine ÃÂ§alÃÂ±ÃÂmalar yapmÃÂ±ÃÂ olmak.",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null
-        }
-      ],
-      "contentSnippet": "KÃÂ¼tahya SaÃÂlÃÂ±k Bilimleri ÃÂniversitesi RektÃÂ¶rlÃÂ¼ÃÂÃÂ¼nden 02 KasÃÂ±m 2018 tarihli ve 30583 sayÃÂ±lÃÂ± ResmÃÂ® GazeteÃ¢ÂÂde yayÃÂ±mlanan Ã¢ÂÂDevlet YÃÂ¼ksekÃÂ¶ÃÂretim KurumlarÃÂ±nda ÃÂÃÂretim ElemanÃÂ± Norm KadrolarÃÂ±nÃÂ±n Belirlenmesine ve KullanÃÂ±lmasÃÂ±na ÃÂ°liÃÂkin YÃÂ¶netmelikÃ¢ÂÂ kapsamÃÂ±nda ÃÂniversitemizin aÃÂaÃÂÃÂ±da belirtilen birimlerine 25",
-      "applicationDocuments": []
-    },
     {
       "university": "KÃÂTAHYA SAÃÂLIK BÃÂ°LÃÂ°MLERÃÂ° ÃÂNÃÂ°VERSÃÂ°TESÃÂ°",
       "city": "KÃÂ¼tahya",
