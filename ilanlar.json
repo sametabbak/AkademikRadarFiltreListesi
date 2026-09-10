@@ -1,7 +1,492 @@
 {
-  "lastUpdated": "2026-09-10T20:08:37.076Z",
+  "lastUpdated": "2026-09-10T20:17:10.484Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "DÜZCE ÜNİVERSİTESİ",
+      "city": "Düzce",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2213177/kamu-akademik-personel-akademik-personel-alimlari-duzce-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853226",
+      "publishDate": "2026-09-03T00:00:00.000Z",
+      "deadline": "2026-09-17T00:00:00.000Z",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Sanat Tasarım ve Mimarlık Fakültesi",
+          "department": "Müzik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Müzik veya Müzik Eğitimi alanında doktora ya da sanatta yeterlik yapmış, Türk Sanat Müziği Teorisi ve kanun üzerine çalışmış, en az 2 (iki) yıl yükseköğretim kurumlarında kanun dersi vermiş olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Müzik veya Müzik Eğitimi alanında doktora ya da sanatta yeterlik yapmış, Türk Sanat Müziği Teorisi ve kanun üzerine çalışmış, en az 2 (iki) yıl yükseköğretim kurumlarında kanun dersi vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Düzce Üniversitesi Rektörlüğünden ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemiz birimlerine; 2547 sayılı Kanunun, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliğinin ve Üniversitemiz Öğretim Üyeliğine Yükseltilme ve Atanma Ölçütleri Yönergesinin ilgili maddelerine göre öğretim üyesi alınacaktır. Müracaa",
+      "applicationDocuments": []
+    },
+    {
+      "university": "FENERBAHÇE ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2214003/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-fenerbahce universitesi rektorlugunden-",
+      "ilanNo": "YOK853228",
+      "publishDate": "2026-09-04T00:00:00.000Z",
+      "deadline": "2026-09-17T00:00:00.000Z",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Dil ve Konuşma Terapisi (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon alanında lisans, tezli yüksek lisans ve doktora derecelerine sahip olmak; nörolojik, geriatrik ve psikososyal rehabilitasyon alanlarında ders vermiş olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon alanında lisans, tezli yüksek lisans ve doktora derecelerine sahip olmak; nörolojik, geriatrik ve psikososyal rehabilitasyon alanlarında ders vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Fenerbahçe Üniversitesi Rektörlüğünden DÜZELTME İLANI 03.09.2026 tarih ve 33359 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan akademik ilanımızda SBF02 kodlu Dil ve Konuşma Terapisi Bölümü için ilan edilen Öğretim Üyesi kadrosunun bölüm bilgisi aşağıdaki şekilde Dil ve Konuşma Terapisi (İngi",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ERZURUM TEKNİK ÜNİVERSİTESİ",
+      "city": "Erzurum",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2214006/kamu-akademik-personel-akademik-personel-alimlari-erzurum teknik universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853229",
+      "publishDate": "2026-09-04T00:00:00.000Z",
+      "deadline": "2026-09-18T00:00:00.000Z",
+      "detectedTitles": [
+        "DOÇENT",
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Psikoloji",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Gelişim Psikolojisi veya Rehberlik ve Psikolojik Danışmanlık alanlarının birinden almış olup SCIE tarafından taranan Q1 kategorisindeki dergilerde ikincil travma alanında yayını olmak ve uluslararası iş birliği projelerinde yürütücü veya araştırmacı olarak görev almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentlik ünvanını Gelişim Psikolojisi veya Rehberlik ve Psikolojik Danışmanlık alanlarının birinden almış olup SCIE tarafından taranan Q1 kategorisindeki dergilerde ikincil travma alanında yayını olmak ve uluslararası iş birliği projelerinde yürütücü veya araştırmacı olarak görev almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Tarih",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Orta Çağ Tarihi alanından almış olup Orta Çağ Dönemi Hanedanlar Tarihi ve Moğollar üzerine çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentlik ünvanını Orta Çağ Tarihi alanından almış olup Orta Çağ Dönemi Hanedanlar Tarihi ve Moğollar üzerine çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Fakültesi",
+          "department": "Moleküler Biyoloji ve Genetik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora derecesini Moleküler Biyoloji ve Genetik alanından almış olup, baş ve boyun kanserlerinde tanı ve tedaviye yönelik mekanistik çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Doktora derecesini Moleküler Biyoloji ve Genetik alanından almış olup, baş ve boyun kanserlerinde tanı ve tedaviye yönelik mekanistik çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "Havacılık ve Uzay Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Havacılık ve Uzay Mühendisliği veya Elektrik-Elektronik Mühendisliği alanından almış olup modelleme ve otonom sistemler üzerine çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Havacılık ve Uzay Mühendisliği veya Elektrik-Elektronik Mühendisliği alanından almış olup modelleme ve otonom sistemler üzerine çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "Kimya Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Kimya Mühendisliği alanında almış olup Medikal Kimya ve Radyofarmasi alanında çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Kimya Mühendisliği alanında almış olup Medikal Kimya ve Radyofarmasi alanında çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "Makine Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Makine Mühendisliği alanında almış olup eklemeli imalat teknolojileri ve metalik biyomalzemelere uygulanan kaplamaların performansı konuları üzerine çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Makine Mühendisliği alanında almış olup eklemeli imalat teknolojileri ve metalik biyomalzemelere uygulanan kaplamaların performansı konuları üzerine çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "İnşaat Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını İnşaat Mühendisliği alanından almış olup, ince cidarlı silindirik yapılar ve hafif çelik sistemler üzerine bilimsel çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını İnşaat Mühendisliği alanından almış olup, ince cidarlı silindirik yapılar ve hafif çelik sistemler üzerine bilimsel çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "İnşaat Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını İnşaat Mühendisliği alanından almış olup taşkın risk değerlendirmesi ve iklim modelleri konularında çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını İnşaat Mühendisliği alanından almış olup taşkın risk değerlendirmesi ve iklim modelleri konularında çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "İnşaat Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını İnşaat Mühendisliği alanından almış olup ulaşım sistemlerinin risk analizi ve mikromobilite konularında çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını İnşaat Mühendisliği alanından almış olup ulaşım sistemlerinin risk analizi ve mikromobilite konularında çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "Havacılık ve Uzay Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisans ve lisansüstü derecelerini Uçak ve Uzay Bilimleri Mühendisliği alanından almış olup havacılık malzemeleri konularında çalışmalar yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Lisans ve lisansüstü derecelerini Uçak ve Uzay Bilimleri Mühendisliği alanından almış olup havacılık malzemeleri konularında çalışmalar yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "Bilgisayar Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisans ve lisansüstü derecelerini Bilgisayar Mühendisliği alanından almış olup insansız hava araçlarının hata toleransı kontrolü üzerine çalışma yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Lisans ve lisansüstü derecelerini Bilgisayar Mühendisliği alanından almış olup insansız hava araçlarının hata toleransı kontrolü üzerine çalışma yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisansüstü derecelerini cerrahi hastalıkları hemşireliği alanından almış olup tiroid cerrahisi ve cerrahi alanında çalışan hemşireler üzerine çalışma yapmış olmak. İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1/Q2 kategorisindeki dergilerde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Lisansüstü derecelerini cerrahi hastalıkları hemşireliği alanından almış olup tiroid cerrahisi ve cerrahi alanında çalışan hemşireler üzerine çalışma yapmış olmak.",
+            "İlan şartı ile ilgili çalışma alanından SCIE tarafından taranan Q1/Q2 kategorisindeki dergilerde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Erzurum Teknik Üniversitesi Rektörlüğünden ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemize aşağıda ünvanı, derecesi ve nitelikleri belirtilen kadrolara; 2547 sayılı Yükseköğretim Kanunu’nun ilgili maddeleri ile bu Kanun’a dayanılarak Yükseköğretim Kurulu Başkanlığınca yayınlanan Öğretim Üyeliğine Yükseltilm",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ERZURUM TEKNİK ÜNİVERSİTESİ",
+      "city": "Erzurum",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2214010/kamu-akademik-personel-akademik-personel-alimlari-erzurum teknik universitesi rektorlugunden-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853230",
+      "publishDate": "2026-09-04T00:00:00.000Z",
+      "deadline": "2026-09-18T00:00:00.000Z",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik ve Mimarlık Fakültesi",
+          "department": "Bilgisayar Mühendisliği",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği Bölümü mezunu olup Bilgisayar Mühendisliği alanında yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Mühendisliği Bölümü mezunu olup Bilgisayar Mühendisliği alanında yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik Bölümü mezunu olup Psikiyatri Hemşireliği alanında yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik Bölümü mezunu olup Psikiyatri Hemşireliği alanında yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Erzurum Teknik Üniversitesi Rektörlüğünden ARAŞTIRMA GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda yazılı birimlerine, 10.07.2018 tarihli Resmî Gazete’de yayımlanan Genel Kadro ve Usulü Hakkında 2 sayılı Cumhurbaşkanlığı Kararnamesi, 2547 sayılı Kanunun ilgili maddeleri ve 09 Kasım 2018 tarihli ve 30",
+      "applicationDocuments": []
+    },
+    {
+      "university": "EGE ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2215470/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-ege-universitesi-rektorlugu-",
+      "ilanNo": "YOK853231",
+      "publishDate": "2026-09-04T21:00:01+00:00",
+      "deadline": "2026-09-15T00:00:00.000Z",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Sosyoloji Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sosyoloji alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "EA",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Sosyoloji alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Ege Üniversitesi Rektörlüğünden: DÜZELTME İLANI 01.09.2026 tarih ve 33357 sayılı Resmî Gazete'de aslına uygun olarak yayımlanan Edebiyat Fakültesi Uygulamalı Sosyoloji Anabilim Dalı Araştırma Görevlisi kadrosuna ait Ales Puan türü aşağıdaki şekilde düzeltilmiştir. İLAN NO KURULUŞ BÖLÜM ANABİLİM DALI",
+      "applicationDocuments": []
+    },
+    {
+      "university": "TOROS ÜNİVERSİTESİ",
+      "city": "Mersi̇n",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2215475/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-toros-universitesi-rektorlugu-",
+      "ilanNo": "YOK853232",
+      "publishDate": "2026-09-04T21:00:01+00:00",
+      "deadline": "2026-09-19T23:59:01+00:00",
+      "detectedTitles": [
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Toros Üniversitesi Rektörlüğünden: DÜZELTME İLANI 01.09.2026 tarihli ve 33357 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Üniversitemiz Sağlık Hizmetleri Meslek Yüksekokulu Terapi ve Rehabilitasyon Bölümü Fizyoterapi Programına alınacak Dr. Öğr. Üyesi kadrosunun Başvuru İçin Gerekli Belgel",
+      "applicationDocuments": []
+    },
     {
       "university": "LOKMAN HEKİM ÜNİVERSİTESİ",
       "city": "Ankara",
