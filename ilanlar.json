@@ -1,7 +1,244 @@
 {
-  "lastUpdated": "2026-09-10T12:10:47.618Z",
+  "lastUpdated": "2026-09-10T12:17:31.359Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL MEDİPOL ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2218016/kamu-akademik-personel-akademik-personel-alimlari-istanbul-medipol-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853257",
+      "publishDate": "2026-09-09T00:00:00.000Z",
+      "deadline": "2026-09-24T00:00:00.000Z",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Felsefe ve Yapay Zekâ Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilim ve Teknoloji Tarihi Alanında Doktora Yapıyor Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilim ve Teknoloji Tarihi Alanında Doktora Yapıyor Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Anatomi Alanında Yüksek Lisans Yapıyor Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Anatomi Alanında Yüksek Lisans Yapıyor Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ortez ve Protez Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Robotik ve Akıllı Sistemler Alanında Doktora Yapıyor Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Robotik ve Akıllı Sistemler Alanında Doktora Yapıyor Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ortez ve Protez Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Ortez ve Protez Alanında Doktora Yapıyor Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ortez ve Protez Alanında Doktora Yapıyor Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Veri Tabanı, Ağ Tasarımı ve Yönetimi Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği veya Elektrik Elektronik Mühendisliği Mezunu Olup Aynı Alanda Tezli Yüksek Lisans Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Bilgisayar Mühendisliği veya Elektrik Elektronik Mühendisliği Mezunu Olup Aynı Alanda Tezli Yüksek Lisans Yapmış Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Yazılım, Uygulama Geliştirme ve Çözümleme Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği veya Elektrik-Elektronik Mühendisliği Mezunu Olup Bilgisayar Mühendisliği Alanında Tezli Yüksek Lisans Yapmış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Mühendisliği veya Elektrik-Elektronik Mühendisliği Mezunu Olup Bilgisayar Mühendisliği Alanında Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Elektrik ve Otomasyon Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mekatronik veya Biyomedikal Mühendisliği Alanında Tezli Yüksek Lisans Yapmış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mekatronik veya Biyomedikal Mühendisliği Alanında Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Elektrik ve Otomasyon Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mekatronik, Makine Mühendisliği, Bilgisayar Mühendisliği veya Endüstri Mühendisliği Alanında Lisans Mezunu Olup İlgili Alanda Tezli Yüksek Lisans Yapıyor Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mekatronik, Makine Mühendisliği, Bilgisayar Mühendisliği veya Endüstri Mühendisliği Alanında Lisans Mezunu Olup İlgili Alanda Tezli Yüksek Lisans Yapıyor Olmak ve YÖKDİL 85 veya Eş Değer Puan Almış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Elektrik ve Enerji Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği Alanında Lisans Mezunu Olup Aynı Alanda Tezli Yüksek Lisans Yapmış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Elektrik-Elektronik Mühendisliği Alanında Lisans Mezunu Olup Aynı Alanda Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Mimarlık ve Şehir Planlama Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Türk ve İslam Sanatları Tarihi Alanında Tezli Yüksek Lisans Yapmış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Türk ve İslam Sanatları Tarihi Alanında Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "İstatistik Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Biyoteknoloji Alanında Tezli Yüksek Lisans Yapmış Olmak",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Biyoteknoloji Alanında Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Medipol Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen akademik birimlerine, 2547 sayılı Yükseköğretim Kanunu’nun 31. ve 33. maddesi, aylık ve özlük hakları yönünden 4857 Sayılı İş Kanunu’nun ilgili maddeleri ile Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak",
+      "applicationDocuments": []
+    },
     {
       "university": "SİNOP ÜNİVERSİTESİ",
       "city": "Sinop",
