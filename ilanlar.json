@@ -1,7 +1,614 @@
 {
-  "lastUpdated": "2026-09-10T19:55:33.799Z",
+  "lastUpdated": "2026-09-10T19:56:33.782Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "MALTEPE ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2215620/kamu-akademik-personel-akademik-personel-alimlari-maltepe-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853240",
+      "publishDate": "2026-09-05T00:00:00.000Z",
+      "deadline": "2026-09-20T00:00:00.000Z",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Yabancı Diller Eğitimi Bölümü İngilizce Öğretmenliği Programı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "İngiliz Dili ve Edebiyatı, İngiliz Kültür Araştırmaları ve/veya İngilizce Karşılaştırmalı Edebiyat bilim alanlarından birinde doktora derecesine ve/veya doçentlik unvanına sahip olmak, alan ile ilgili teorik dersleri vermiş olmak. Ayrıca yüksek öğretim kurumlarında en az 15 yıl ders verme tecrübesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngiliz Dili ve Edebiyatı, İngiliz Kültür Araştırmaları ve/veya İngilizce Karşılaştırmalı Edebiyat bilim alanlarından birinde doktora derecesine ve/veya doçentlik unvanına sahip olmak, alan ile ilgili teorik dersleri vermiş olmak.",
+            "Ayrıca yüksek öğretim kurumlarında en az 15 yıl ders verme tecrübesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Yazılım Mühendisliği (İngilizce) Bölümü",
+          "title": "PROFESÖR",
+          "count": 2,
+          "requirements": "Doçentlik unvanını ve Doktora eğitimini Yazılım Mühendisliği ve/veya Bilgisayar Mühendisliği alanında tamamlamış olmak ve Fen alanında en az 85 İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik unvanını ve Doktora eğitimini Yazılım Mühendisliği ve/veya Bilgisayar Mühendisliği alanında tamamlamış olmak ve Fen alanında en az 85 İngilizce dil puanına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Yazılım Mühendisliği (İngilizce) Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Doktora eğitimini Yazılım Mühendisliği veya Bilgisayar Mühendisliği alanında tamamlamış olmak ve Fen alanında en az 85 İngilizce dil puanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doktora eğitimini Yazılım Mühendisliği veya Bilgisayar Mühendisliği alanında tamamlamış olmak ve Fen alanında en az 85 İngilizce dil puanına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hemşirelik Yüksekokulu",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Psikiyatri Hemşireliği alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Psikiyatri Hemşireliği alanında almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hemşirelik Yüksekokulu",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Cerrahi Hastalıkları Hemşireliği alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Cerrahi Hastalıkları Hemşireliği alanında almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Finans, Bankacılık ve Sigortacılık Bölümü Bankacılık ve Sigortacılık Programı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora eğitimini Bankacılık ve Sigortacılık alanında tamamlamış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak. Ayrıca belgelendirmek üzere en az on yıl bankacılık, muhasebe, vergi alanlarının birinde sektör deneyimi olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktora eğitimini Bankacılık ve Sigortacılık alanında tamamlamış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+            "Ayrıca belgelendirmek üzere en az on yıl bankacılık, muhasebe, vergi alanlarının birinde sektör deneyimi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü Beyin ve Sinir Cerrahisi Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Beyin ve Sinir Cerrahisi alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Beyin ve Sinir Cerrahisi alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü Beyin ve Sinir Cerrahisi Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Beyin ve Sinir Cerrahisi uzmanı olmak ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Beyin ve Sinir Cerrahisi uzmanı olmak ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü Kalp ve Damar Cerrahisi Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kalp Damar Cerrahisi uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Kalp Damar Cerrahisi uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü Kalp ve Damar Cerrahisi Anabilim Dalı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kalp Damar Cerrahisi uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Kalp Damar Cerrahisi uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü Kalp ve Damar Cerrahisi Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kalp Damar Cerrahisi uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Kalp Damar Cerrahisi uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü Plastik Rekonstrüktif ve Estetik Cerrahi Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçent unvanını Plastik Rekonstrüktif ve Estetik Cerrahi alanında almış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçent unvanını Plastik Rekonstrüktif ve Estetik Cerrahi alanında almış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Aile Hekimliği Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Aile Hekimliği uzmanı olmak ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Aile Hekimliği uzmanı olmak ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Çocuk Sağlığı ve Hastalıkları Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Çocuk Sağlığı ve Hastalıkları alanında almış ve Çocuk Kardiyoloji yan dal uzmanı olmak. Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Çocuk Sağlığı ve Hastalıkları alanında almış ve Çocuk Kardiyoloji yan dal uzmanı olmak.",
+            "Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Fizik Tedavi ve Rehabilitasyon Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Fizik Tedavi ve Rehabilitasyon uzmanı olmak İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizik Tedavi ve Rehabilitasyon uzmanı olmak İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Fizik Tedavi ve Rehabilitasyon Anabilim Dalı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Fizik Tedavi ve Rehabilitasyon uzmanı olmak İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizik Tedavi ve Rehabilitasyon uzmanı olmak İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Fizik Tedavi ve Rehabilitasyon Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fizik Tedavi ve Rehabilitasyon uzmanı olmak İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizik Tedavi ve Rehabilitasyon uzmanı olmak İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Nöroloji Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Nöroloji alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Nöroloji alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Nöroloji Anabilim Dalı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Nöroloji alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Nöroloji alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Nöroloji Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Nöroloji uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Nöroloji uzmanı olmak ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Radyoloji Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçent unvanını Radyoloji alanında almış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçent unvanını Radyoloji alanında almış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü Radyoloji Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Radyoloji uzmanı olmak. Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Radyoloji uzmanı olmak.",
+            "Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü Anatomi Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Anatomi bilim alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Anatomi bilim alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü Anatomi Anabilim Dalı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik unvanını Anatomi bilim alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik unvanını Anatomi bilim alanında almış ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü Anatomi Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Anatomi uzmanı olmak ya da Anatomi doktora eğitimini tamamlamış olmak, İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Anatomi uzmanı olmak ya da Anatomi doktora eğitimini tamamlamış olmak, İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü Tıbbi Biyokimya Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora ve Yüksek Lisans eğitimini Tıbbi Biyokimya alanında tamamlamış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktora ve Yüksek Lisans eğitimini Tıbbi Biyokimya alanında tamamlamış ve tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü Tıbbi Biyoloji ve Genetik Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisans eğitimini Moleküler Biyoloji ve Genetik alanında tamamlamış ve Nörobilim alanında doktora eğitimine sahip olmak. Moleküler düzeyde hayvan ve primer doku kültürü çalışmalarında deneyimli ve İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Lisans eğitimini Moleküler Biyoloji ve Genetik alanında tamamlamış ve Nörobilim alanında doktora eğitimine sahip olmak.",
+            "Moleküler düzeyde hayvan ve primer doku kültürü çalışmalarında deneyimli ve İngilizce yeterliğe (en az 85 puan) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü Tıp Eğitimi Anabilim Dalı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Lisans eğitimini Tıp Fakültesinde ve doktora eğitimini Tıp Eğitimi alanında tamamlamış olmak. Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak. Akreditasyon çalışmalarında deneyimli olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Lisans eğitimini Tıp Fakültesinde ve doktora eğitimini Tıp Eğitimi alanında tamamlamış olmak.",
+            "Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+            "Akreditasyon çalışmalarında deneyimli olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü Tıp Eğitimi Anabilim Dalı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisans eğitimini Tıp Fakültesinde ve doktora eğitimini Tıp Eğitimi alanında tamamlamış olmak. Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak. Akreditasyon çalışmalarında deneyimli olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Lisans eğitimini Tıp Fakültesinde ve doktora eğitimini Tıp Eğitimi alanında tamamlamış olmak.",
+            "Tercihen İngilizce yeterliğe (en az 85 puan) sahip olmak.",
+            "Akreditasyon çalışmalarında deneyimli olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Maltepe Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin aşağıda gösterilen akademik birimlerine 2547 sayılı Kanun ve T.C. Maltepe Üniversitesi Akademik Yükseltilme ve Atanma Yönergesi hükümleri uyarınca tam zamanlı statüde öğretim üyeleri alınacaktır. İLAN BAŞLAMA TARİHİ : 07.0",
+      "applicationDocuments": []
+    },
     {
       "university": "SİİRT ÜNİVERSİTESİ",
       "city": "Si̇i̇rt",
