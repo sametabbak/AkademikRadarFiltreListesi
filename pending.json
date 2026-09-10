@@ -1,66 +1,7 @@
 {
-  "lastUpdated": "2026-09-10T19:59:04.333Z",
+  "lastUpdated": "2026-09-10T19:59:08.118Z",
   "source": "ilan.gov.tr",
   "ads": [
-    {
-      "university": "İSTANBUL KÜLTÜR ÜNİVERSİTESİ",
-      "city": "İstanbul",
-      "uniType": "Vakıf",
-      "url": "https://www.ilan.gov.tr/ilan/2215573/kamu-akademik-personel-akademik-personel-alimlari-kultur-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
-      "ilanNo": "YOK853239",
-      "publishDate": "2026-09-07T00:00:00.000Z",
-      "deadline": "2026-09-21T23:59:00+00:00",
-      "detectedTitles": [
-        "ÖĞRETİM GÖREVLİSİ"
-      ],
-      "positions": [
-        {
-          "faculty": "Meslek Yüksekokulu",
-          "department": "Elektrik ve Enerji Bölümü, Yenilenebilir Enerji Teknikerliği Programı",
-          "title": "ÖĞRETİM GÖREVLİSİ",
-          "count": 1,
-          "requirements": "Fizik Bölümü Lisans Mezunu Olmak. Fizik Alanında Tezli Yüksek Lisans Yapmış Olmak. Hesaplamalı Yoğun Madde Fiziği Alanında Çalışmalar Yapmış Olmak.",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "SAY",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": 50,
-          "foreignLanguageExam": "YDS",
-          "derece": null,
-          "temelAlan": "Mühendislik",
-          "sartlar": [
-            "Fizik Bölümü Lisans Mezunu Olmak.",
-            "Fizik Alanında Tezli Yüksek Lisans Yapmış Olmak.",
-            "Hesaplamalı Yoğun Madde Fiziği Alanında Çalışmalar Yapmış Olmak."
-          ],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "Meslek Yüksekokulu",
-          "department": "Hukuk Bölümü, Mahkeme Büro Hizmetleri Programı",
-          "title": "ÖĞRETİM GÖREVLİSİ",
-          "count": 1,
-          "requirements": "Hukuk Bölümü Lisans Mezunu Olmak.\nKamu Hukuku Alanında Tezli Yüksek Lisans Yapmış Olmak.",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "SAY",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": 50,
-          "foreignLanguageExam": "YDS",
-          "derece": null,
-          "temelAlan": "Hukuk",
-          "sartlar": [
-            "Hukuk Bölümü Lisans Mezunu Olmak.",
-            "Kamu Hukuku Alanında Tezli Yüksek Lisans Yapmış Olmak."
-          ],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        }
-      ],
-      "contentSnippet": "İstanbul Kültür Üniversitesi Rektörlüğünden: 2547 Sayılı Yükseköğretim Kanunu ve Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav İle Giriş Sınavlarına İlişkin Usul Ve Esaslar Hakkında Yönetmeliğin ilgili maddelerine göre aşağıda belirtilen akademik ",
-      "applicationDocuments": []
-    },
     {
       "university": "MALTEPE ÜNİVERSİTESİ",
       "city": "İstanbul",
