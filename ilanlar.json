@@ -1,7 +1,184 @@
 {
-  "lastUpdated": "2026-09-10T12:45:05.257Z",
+  "lastUpdated": "2026-09-10T12:52:43.208Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "ARTVİN ÇORUH ÜNİVERSİTESİ",
+      "city": "Artvin",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2216761/kamu-akademik-personel-akademik-personel-alimlari-coruh-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853253",
+      "publishDate": "2026-09-07T21:00:00.000Z",
+      "deadline": "2026-09-22T20:59:00.000Z",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Batı Dilleri ve Edebiyatları",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İngiliz Dili ve Edebiyatı Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapıyor Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngiliz Dili ve Edebiyatı Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapıyor Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Bilgisayar Mühendisliği",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapıyor Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Mühendisliği Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapıyor Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik Bölümü Lisans Mezunu Olup Hemşirelik Esasları Alanında Tezli Yüksek Lisans Yapıyor Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik Bölümü Lisans Mezunu Olup Hemşirelik Esasları Alanında Tezli Yüksek Lisans Yapıyor Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Turizm Fakültesi",
+          "department": "Gastronomi ve Mutfak Sanatları",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Gastronomi ve Mutfak Sanatları Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapıyor Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Gastronomi ve Mutfak Sanatları Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapıyor Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Dişçilik Hizmetleri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Diş Hekimliği Fakültesi Lisans Mezunu Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Diş Hekimliği Fakültesi Lisans Mezunu Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Artvin Meslek Yüksekokulu",
+          "department": "Büro Hizmetleri ve Sekreterlik",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Kamu Yönetimi veya İşletme Bölümü Lisans Mezunu Olup Bu Alanlardan Birinde Tezli Yüksek Lisans Yapmış Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "Kamu Yönetimi veya İşletme Bölümü Lisans Mezunu Olup Bu Alanlardan Birinde Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Arhavi Meslek Yüksekokulu",
+          "department": "Büro Hizmetleri ve Sekreterlik",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İnsan Kaynakları Yönetimi, Siyaset Bilimi ve Kamu Yönetimi, Kamu Yönetimi veya İşletme Bölümü Lisans Mezunu Olup Bu Alanlardan Birinde Tezli Yüksek Lisans Yapmış Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "İnsan Kaynakları Yönetimi, Siyaset Bilimi ve Kamu Yönetimi, Kamu Yönetimi veya İşletme Bölümü Lisans Mezunu Olup Bu Alanlardan Birinde Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Uygulamalı Birim - Bilgi İşlem Daire Başkanlığında Görevlendirilecek",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Bilişim Sistemleri Mühendisliği, Yazılım Mühendisliği, Elektronik ve Haberleşme Mühendisliği, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği veya Yönetim Bilişim Sistemleri Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapmış Olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Bilişim Sistemleri Mühendisliği, Yazılım Mühendisliği, Elektronik ve Haberleşme Mühendisliği, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği veya Yönetim Bilişim Sistemleri Bölümü Lisans Mezunu Olup Alanında Tezli Yüksek Lisans Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Üniversitemiz aşağıda belirtilen birimlerine; \"10/07/2018 tarihli Resmi Gazete'de yayımlanan Genel Kadro ve Usulü Hakkında 2 Sayılı Cumhurbaşkanı Kararnamesi\", \"2547 sayılı Yükseköğretim Kanunu\", 09/11/2018 tarihli Resmi Gazete'de yayımlanan \"Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik\" ve \"Öncelikli Alanlardaki Araştırma Görevlisi Kadrolarına Atananların Lisansüstü Eğitimleri İle Diğer Hususlara İlişkin Usul ve Esaslar\" hükümleri uyarınca akademik personel alınacaktır.\n\nGENEL ŞARTLAR:\n1- 657 sayılı Devlet Memurları Kanununun 48 inci maddesinde belirtilen şartları taşımak,\n2- ALES’ten en az 70, Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından en az 50 puan veya eşdeğerliği kabul edilen bir sınavdan bu puan muadili bir puan almış olmak gerekir. Merkezi sınav muafiyetinden yararlanmayı talep edenlerin ön değerlendirme ve nihai değerlendirme aşamalarında ALES puanı 70 olarak kabul edilir.\n3- Yükseköğretim Kurulu Başkanlığının 22.05.2019 tarihli Yürütme Kurulu kararı gereğince, yapılacak başvurularda dikkate alınacak ALES puan türlerinin üniversitelerce belirlenmesi gerektiğinden tabloda belirtilen puan türleri esas alınacaktır.\n4- Ön değerlendirme ve nihai değerlendirme aşamalarında lisans mezuniyeti notunun hesaplanmasında kullanılacak 4’lük ve 5’lik not sistemlerinin 100’lük not sistemine eşdeğerliği Yükseköğretim Kurulu kararıyla belirlenir.\n5- Yabancı dille eğitim ve öğretim yapılan programlardaki öğretim görevlisi kadrolarına yapılacak atamalarda atama yapılacak programın eğitim dilinde; bilim alanı yabancı dille ilgili kadrolara yapılacak öğretim görevlisi atamaları ile 4/11/1981 tarihli ve 2547 sayılı Yükseköğretim Kanununun 5 inci maddesinin birinci fıkrasının (ı) bendi uyarınca zorunlu yabancı dil dersini vermek üzere öğretim görevlisi kadrolarına yapılacak atamalarda ilgili dilde; yükseköğretim kurumlarının uluslararası ilişkiler ile yabancı dille ilgili uygulamalı birimlerinde istihdam edilecek öğretim görevlisi atamalarında, en az bir dilde Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından en az 85 puan veya eşdeğerliği kabul edilen bir sınavdan bu puan muadili bir puana sahip olma şartı aranır.\n\nÖZEL ŞARTLAR:\n1- Araştırma görevlisi kadrosuna başvurabilmek için giriş sınavının yapıldığı yılın ocak ayının birinci günü itibarıyla otuz beş yaşını doldurmamış olmak gerekir.\n2- Araştırma görevlisi kadrolarına başvurularda tezli yüksek lisans, doktora veya sanatta yeterlik eğitimi öğrencisi olmak şartı aranır.\n3- Öğretim görevlisi kadrosuna başvuracak adaylarda en az tezli yüksek lisans derecesine sahip olmak veya lisans ve yüksek lisans derecesini birlikte veren programlardan mezun olmak şartı aranır.\n4- Meslek yüksekokullarının Yükseköğretim Kurulu tarafından belirlenen uzmanlık alanıyla doğrudan ilgili lisans mezuniyeti bulunmayan alanlardaki programların öğretim görevlisi kadrolarına başvuracak adaylarda, en az lisans mezunu olup belgelendirmek kaydıyla alanında en az iki yıl tecrübe sahibi olmak şartı aranır.\n5- Meslek yüksekokullarının Yükseköğretim Kurulu tarafından belirlenen uzmanlık alanlarındaki uygulamalı dersleri vermek üzere istihdam edilecek öğretim görevlilerinde, her program için Yükseköğretim Kurulu tarafından karar verilen sayıdaki öğretim görevlisi kadrosu için geçerli olmak üzere, lisans mezunu olup belgelendirmek kaydıyla uygulama alanında en az dört yıl mesleki tecrübe sahibi olmak şartı aranır.\n\nMUAFİYET:\n1- Doktora veya tıpta, diş hekimliğinde, eczacılıkta ve veteriner hekimlikte uzmanlık ya da sanatta yeterlik eğitimini tamamlamış olanlarda, özel şartların dördüncü ve beşinci maddeleri kapsamındaki öğretim görevlisi kadrolarına atanacak olanlarda, yükseköğretim kurumlarında öğretim elemanı kadrolarında çalışmış veya çalışmakta olanlarda merkezi sınav şartı aranmaz.\n2- Meslek yüksekokullarının, bu Yönetmeliğin 6 ncı maddesinin dördüncü fıkrası kapsamındaki öğretim görevlisi kadroları haricindeki öğretim elemanı kadrolarına yapılacak başvurularda yabancı dil şartı aranmaz.",
+      "applicationDocuments": []
+    },
     {
       "university": "İSTANBUL MEDİPOL ÜNİVERSİTESİ",
       "city": "İstanbul",
