@@ -1,21 +1,23 @@
 {
-  "lastUpdated": "2026-09-10T11:32:20.469Z",
+  "lastUpdated": "2026-09-10T11:37:19.044Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
-      "university": "Nevşehir Hacı Bektaş Veli Üniversitesi",
-      "city": "NevÅehir",
+      "university": "NevÅehir HacÄ± BektaÅ Veli Ãniversitesi",
+      "city": "NevÃÂehir",
       "uniType": "Devlet",
       "url": "https://www.ilan.gov.tr/ilan/2218223/kamu-akademik-personel-akademik-personel-alimlari-nevsehir-haci-bektas-veli-universitesi-ogretim-elemani-alim-ilani",
       "ilanNo": "YOK853260",
       "publishDate": "2026-09-09T00:00:00.000Z",
       "deadline": "2026-09-23T00:00:00.000Z",
-      "detectedTitles": [],
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
       "positions": [
         {
-          "faculty": "KozaklÄ± Meslek YÃ¼ksekokulu",
-          "department": "Veri TabanÄ±, AÄ TasarÄ±mÄ± ve YÃ¶netimi BÃ¶lÃ¼mÃ¼, Dijital SaÄlÄ±k Sistemleri TeknikerliÄi ProgramÄ±",
-          "title": "ÃÄRETÄ°M GÃREVLÄ°SÄ°",
+          "faculty": "KozaklÃÂ± Meslek YÃÂ¼ksekokulu",
+          "department": "Veri TabanÃÂ±, AÃÂ TasarÃÂ±mÃÂ± ve YÃÂ¶netimi BÃÂ¶lÃÂ¼mÃÂ¼, Dijital SaÃÂlÃÂ±k Sistemleri TeknikerliÃÂi ProgramÃÂ±",
+          "title": "ÖĞRETİM GÖREVLİSİ",
           "count": 1,
           "requirements": "",
           "alesRequired": true,
@@ -31,7 +33,7 @@
           "yasSiniri": null
         }
       ],
-      "contentSnippet": "Ãniversitemizin birimlerine 2547 sayÄ±lÄ± Kanunâun ve 09.11.2018 tarihli ve 30590 sayÄ±lÄ± ResmÃ® Gazeteâde yayÄ±mlanarak yÃ¼rÃ¼rlÃ¼Äe giren âÃÄretim Ãyesi DÄ±ÅÄ±ndaki ÃÄretim ElemanÄ± KadrolarÄ±na YapÄ±lacak Atamalarda Uygulanacak Merkezi SÄ±nav ile GiriÅ SÄ±navlarÄ±na Ä°liÅkin Usul ve Esaslar HakkÄ±nda YÃ¶netmelikâin ilgili hÃ¼kÃ¼mlerine gÃ¶re Ã¶Äretim elemanÄ± alÄ±nacaktÄ±r.\n\nBiliÅim Sistemleri MÃ¼hendisliÄi, Bilgisayar Teknolojisi ve BiliÅim Sistemleri, Bilgisayar Bilimleri, BiliÅim Sistemleri ve Teknolojileri, Bilgisayar ve ÃÄretim Teknolojileri ÃÄretmenliÄi bÃ¶lÃ¼mlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yÃ¼ksek lisans yapmÄ±Å olmak. Lisans mezuniyeti sonrasÄ± belgelendirmek kaydÄ±yla Dijital SaÄlÄ±k Sistemleri alanÄ±nda en az 1 (bir) yÄ±l sektÃ¶r deneyimine sahip olmak"
+      "contentSnippet": "ÃÂniversitemizin birimlerine 2547 sayÃÂ±lÃÂ± KanunÃ¢ÂÂun ve 09.11.2018 tarihli ve 30590 sayÃÂ±lÃÂ± ResmÃÂ® GazeteÃ¢ÂÂde yayÃÂ±mlanarak yÃÂ¼rÃÂ¼rlÃÂ¼ÃÂe giren Ã¢ÂÂÃÂÃÂretim ÃÂyesi DÃÂ±ÃÂÃÂ±ndaki ÃÂÃÂretim ElemanÃÂ± KadrolarÃÂ±na YapÃÂ±lacak Atamalarda Uygulanacak Merkezi SÃÂ±nav ile GiriÃÂ SÃÂ±navlarÃÂ±na ÃÂ°liÃÂkin Usul ve Esaslar HakkÃÂ±nda YÃÂ¶netmelikÃ¢ÂÂin ilgili hÃÂ¼kÃÂ¼mlerine gÃÂ¶re ÃÂ¶ÃÂretim elemanÃÂ± alÃÂ±nacaktÃÂ±r.\n\nBiliÃÂim Sistemleri MÃÂ¼hendisliÃÂi, Bilgisayar Teknolojisi ve BiliÃÂim Sistemleri, Bilgisayar Bilimleri, BiliÃÂim Sistemleri ve Teknolojileri, Bilgisayar ve ÃÂÃÂretim Teknolojileri ÃÂÃÂretmenliÃÂi bÃÂ¶lÃÂ¼mlerinin birinden lisans mezunu olup bu alanlardan birinde tezli yÃÂ¼ksek lisans yapmÃÂ±ÃÂ olmak. Lisans mezuniyeti sonrasÃÂ± belgelendirmek kaydÃÂ±yla Dijital SaÃÂlÃÂ±k Sistemleri alanÃÂ±nda en az 1 (bir) yÃÂ±l sektÃÂ¶r deneyimine sahip olmak"
     }
   ],
   "examCalendar": []
