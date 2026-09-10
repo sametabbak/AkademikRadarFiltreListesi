@@ -1,7 +1,63 @@
 {
-  "lastUpdated": "2026-09-10T11:57:04.332Z",
+  "lastUpdated": "2026-09-10T11:58:36.366Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "HACETTEPE ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2219905/kamu-akademik-personel-akademik-personel-alimlari-hacettepe-universitesi-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853263",
+      "publishDate": "2026-09-09T21:00:00.000Z",
+      "deadline": null,
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Aşı Enstitüsü",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Aşı Enstitüsü Sıhhıye Kampüsü",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 60,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Aşı Enstitüsü Sıhhıye Kampüsü."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Türk Dili ve Edebiyatı",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Edebiyat Fakültesi Beytepe Kampüsü",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 60,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Edebiyat Fakültesi Beytepe Kampüsü."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Hacettepe Üniversitesi Rektörlüğünden Üniversitemizin aşağıda isimleri yazılı birimlerine, 2547 sayılı Kanunun ilgili maddeleri ve 09.11.2018 tarih, 30590 sayılı Resmî Gazete’ de yayımlanarak yürürlüğe giren Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi",
+      "applicationDocuments": []
+    },
     {
       "university": "TRABZON ÜNİVERSİTESİ",
       "city": "Trabzon",
