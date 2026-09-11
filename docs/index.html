@@ -567,9 +567,34 @@ class GitHubAPI{
   async getFile(p){
     const res=await fetch(`${this.base}/contents/${p}?ref=${this.branch}`,{headers:this.h});
     if(res.status===404)return null;
-    if(!res.ok)throw new Error(`GitHub ${res.status}`);
+    if(!res.ok)throw new Error(`${p}: GitHub ${res.status}`);
     const d=await res.json();
-    return{content:JSON.parse(b64ToUtf8(d.content)),sha:d.sha};
+
+    let raw='';
+    if(d.content && d.content.trim()){
+      raw=b64ToUtf8(d.content);
+    } else if(d.download_url){
+      // GitHub returns empty content for blobs over 1 MB; fetch the raw blob.
+      const r2=await fetch(d.download_url);
+      if(r2.ok) raw=await r2.text();
+    }
+
+    if(!raw.trim()){
+      // A 0-byte file is recoverable: treat it as an empty list rather than
+      // failing the whole panel load, but say so.
+      console.warn(`${p} is empty`);
+      showToast(`${p} boş — boş liste olarak açıldı. Kaydederseniz yeniden oluşturulur.`,'error',7000);
+      const blank = p==='ilanlar.json'
+        ? {lastUpdated:null,source:'ilan.gov.tr',ads:[],examCalendar:[]}
+        : {lastUpdated:null,source:'ilan.gov.tr',ads:[]};
+      return {content:blank, sha:d.sha};
+    }
+
+    try{
+      return {content:JSON.parse(raw), sha:d.sha};
+    }catch(e){
+      throw new Error(`${p} geçerli JSON değil (${raw.length} bayt, başlangıç: ${JSON.stringify(raw.slice(0,40))})`);
+    }
   }
   async putFile(p,content,sha,msg,_retry){
     const enc=utf8ToB64(JSON.stringify(content,null,2));
@@ -2426,7 +2451,7 @@ async function initApp(){
   if(!token)return;
   const badge=el('status-badge');badge.textContent='Yükleniyor...';badge.className='connected';
   try{const api=new GitHubAPI(token,owner,repo,branch);await Store.init(api);loadUniversityList();badge.textContent=`${owner}/${repo}`;badge.className='connected';el('lock-screen').style.display='none';showToast('Veriler yüklendi','success')}
-  catch(e){badge.textContent='Hata';badge.className='';showToast(`Yüklenemedi: ${e.message}`,'error')}
+  catch(e){badge.textContent='Hata';badge.className='';showToast(`Yüklenemedi: ${e.message}`,'error',9000);console.error('Store.loadAll failed:',e)}
 }
 
 // ── Toast ──
