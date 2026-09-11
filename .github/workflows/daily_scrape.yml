@@ -3,7 +3,9 @@ name: Daily Academic Announcements Scraper
 on:
   schedule:
     # 07:00 Turkey time = 04:00 UTC
-    - cron: '0 4 * * *'
+    # Offset from the hour: on-the-hour slots are the most congested and
+    # are the ones GitHub drops first when the runner pool is saturated.
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 # Lets the built-in GITHUB_TOKEN push, so PUSH_TOKEN becomes optional.
@@ -13,7 +15,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -30,7 +32,20 @@ jobs:
       - name: Run scraper
         env:
           PANEL_MODE: "1"          # new ads -> pending.json for panel review
-        run: python scraper/scrape.py
+        run: python scraper/scrape.py 2>&1 | tee /tmp/scrape.log
+
+      # Makes a "nothing new" run visibly different from a real failure
+      # on the Actions summary page, instead of both looking like silence.
+      - name: Summarise outcome
+        if: always()
+        run: |
+          echo "### Scraper sonucu" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -n 4 /tmp/scrape.log 2>/dev/null >> $GITHUB_STEP_SUMMARY || echo "log yok" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          if grep -q "No new ads" /tmp/scrape.log 2>/dev/null; then
+            echo "Yeni ilan bulunamadi - commit atlandi. Bu bir hata degil." >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Commit and push data files
         run: |
