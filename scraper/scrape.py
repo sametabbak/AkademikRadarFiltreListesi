@@ -38,7 +38,9 @@ PANEL_MODE = os.environ.get("PANEL_MODE", "1").strip() == "1"
 
 PAGE_SIZE           = 20  # API returns max 20 items per page
 TIMEOUT             = 20
-MAX_RUNTIME_SECONDS = 20 * 60
+MAX_RUNTIME_SECONDS = 11 * 60   # must stay BELOW the workflow's timeout-minutes,
+                                # otherwise GitHub kills the job before the scraper
+                                # reaches its write step and the whole run is lost
 REQUEST_DELAY       = 0.5
 
 HEADERS = {
