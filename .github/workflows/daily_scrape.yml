@@ -30,22 +30,39 @@ jobs:
         run: pip install -r scraper/requirements.txt
 
       - name: Run scraper
+        # pipefail is essential: GitHub runs `run:` with `bash -e` but WITHOUT
+        # pipefail, so `python ... | tee` would report tee's exit code (always 0)
+        # and a crashing scraper would show up as a green run with no commit.
+        shell: bash
         env:
           PANEL_MODE: "1"          # new ads -> pending.json for panel review
-        run: python scraper/scrape.py 2>&1 | tee /tmp/scrape.log
+        run: |
+          set -o pipefail
+          python scraper/scrape.py 2>&1 | tee /tmp/scrape.log
 
       # Makes a "nothing new" run visibly different from a real failure
       # on the Actions summary page, instead of both looking like silence.
       - name: Summarise outcome
         if: always()
+        shell: bash
         run: |
           echo "### Scraper sonucu" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          tail -n 4 /tmp/scrape.log 2>/dev/null >> $GITHUB_STEP_SUMMARY || echo "log yok" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          if grep -q "No new ads" /tmp/scrape.log 2>/dev/null; then
-            echo "Yeni ilan bulunamadi - commit atlandi. Bu bir hata degil." >> $GITHUB_STEP_SUMMARY
+          if [ ! -s /tmp/scrape.log ]; then
+            echo "**Log bos** - scraper hic calismamis olabilir." >> $GITHUB_STEP_SUMMARY
+            exit 0
           fi
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -n 12 /tmp/scrape.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          if   grep -q "No new ads"       /tmp/scrape.log; then
+            echo "OK: Yeni ilan yok - commit atlandi (hata degil)." >> $GITHUB_STEP_SUMMARY
+          elif grep -q "pending.json"     /tmp/scrape.log; then
+            echo "OK: Yeni ilanlar pending.json dosyasina yazildi." >> $GITHUB_STEP_SUMMARY
+          elif grep -qiE "Traceback|Error|Exception" /tmp/scrape.log; then
+            echo "HATA: Scraper hata verdi - log'a bakin." >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Listeleme istegi sayisi: $(grep -c 'Listing page' /tmp/scrape.log || echo 0)" >> $GITHUB_STEP_SUMMARY
 
       - name: Commit and push data files
         run: |
