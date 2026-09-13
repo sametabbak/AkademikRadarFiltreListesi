@@ -8,7 +8,7 @@ on:
     # When nothing is new a run exits in ~15s and commits nothing, so the extra
     # attempts cost almost nothing against the 2000 free minutes/month.
     # Offset minutes are deliberate: on-the-hour slots are dropped first.
-    - cron: '15 22 * * *'    # 00:15 TR - main run, just after Resmi Gazete
+    - cron: '15 21 * * *'    # 00:15 TR - main run, just after Resmi Gazete
     - cron: '17 4 * * *'    # 07:17 TR - catches a dropped morning slot
     - cron: '10 16 * * *'   # 19:10 TR - late safety net
   workflow_dispatch:
