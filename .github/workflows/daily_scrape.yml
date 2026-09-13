@@ -2,15 +2,26 @@ name: Daily Academic Announcements Scraper
 
 on:
   schedule:
-    # 07:00 Turkey time = 04:00 UTC
-    # Offset from the hour: on-the-hour slots are the most congested and
-    # are the ones GitHub drops first when the runner pool is saturated.
-    - cron: '17 4 * * *'
+    # GitHub's free-tier scheduler silently DROPS runs when the runner pool is
+    # busy - no failure, no notification. With a single daily cron, one dropped
+    # slot means a missed day. Three spread-out attempts make that unlikely.
+    # When nothing is new a run exits in ~15s and commits nothing, so the extra
+    # attempts cost almost nothing against the 2000 free minutes/month.
+    # Offset minutes are deliberate: on-the-hour slots are dropped first.
+    - cron: '15 22 * * *'    # 00:15 TR - main run, just after Resmi Gazete
+    - cron: '17 4 * * *'    # 07:17 TR - catches a dropped morning slot
+    - cron: '10 16 * * *'   # 19:10 TR - late safety net
   workflow_dispatch:
 
 # Lets the built-in GITHUB_TOKEN push, so PUSH_TOKEN becomes optional.
 permissions:
   contents: write
+
+# If one run is still going when the next fires, queue it instead of letting
+# both push to the same files.
+concurrency:
+  group: scraper
+  cancel-in-progress: false
 
 jobs:
   scrape:
