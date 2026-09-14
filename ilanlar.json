@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-14T07:37:22.394Z",
+  "lastUpdated": "2026-09-14T07:37:47.090Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -13308,8 +13308,7 @@
       "detectedTitles": [
         "DOÇENT",
         "DR. ÖĞR. ÜYESİ",
-        "PROFESÖR",
-        "ARAŞTIRMA GÖREVLİSİ"
+        "PROFESÖR"
       ],
       "positions": [
         {
@@ -13575,7 +13574,7 @@
         {
           "faculty": "Orman",
           "department": "Orman Mühendisliği",
-          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
           "requirements": "Orman Mühendisliği lisans mezunu olmak, doktorasını Orman Mühendisliği anabilim dalında yapmış olmak, Geniş Yapraklı Türlerde Hacim ve Çap Modellemesi, LİDAR Destekli Orman Envanteri konularında çalışmalar yapmış olmak.",
           "alesRequired": false,
