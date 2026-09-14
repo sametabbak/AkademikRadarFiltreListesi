@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-14T07:16:38.214203+00:00",
+  "lastUpdated": "2026-09-14T07:20:05.520Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -246,15 +246,16 @@
       "publishDate": "2026-09-13T21:00:01+00:00",
       "deadline": null,
       "detectedTitles": [
-        "DOÇENT"
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
       ],
       "positions": [
         {
-          "faculty": "",
-          "department": "",
-          "title": "DOÇENT",
+          "faculty": "İSLAMİ İLİMLER FAKÜLTESİ",
+          "department": "TEMEL İSLAM BİLİMLERİ BÖLÜMÜ / Kelam A.B.D.",
+          "title": "PROFESÖR",
           "count": 1,
-          "requirements": "",
+          "requirements": "Doçentlik unvanını Temel İslam Bilimleri alanında almış olmak.  Günümüz  inanç  problemleri  ve  nübüvvet konularında çalışmalar yapmış olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -263,7 +264,31 @@
           "foreignLanguageExam": null,
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Doçentlik unvanını Temel İslam Bilimleri alanında almış olmak.",
+            "Günümüz inanç problemleri ve nübüvvet konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "KESKİN MESLEK YÜKSEKOKULU",
+          "department": "YÖNETİM VE ORGANİZASYON BÖLÜMÜ / İnsan Kaynakları Yönetimi Programı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını İşletme alanında yapmış olmak. KOBİ’lerde rekabet stratejilerinin firma performansına etkisi ve sürdürülebilir  liderlik  konularında  çalışmalar  yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktorasını İşletme alanında yapmış olmak.",
+            "KOBİ’lerde rekabet stratejilerinin firma performansına etkisi ve sürdürülebilir liderlik konularında çalışmalar yapmış olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         }
