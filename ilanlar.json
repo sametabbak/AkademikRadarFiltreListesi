@@ -1,7 +1,607 @@
 {
-  "lastUpdated": "2026-09-14T07:40:19.272Z",
+  "lastUpdated": "2026-09-14T12:32:30.136Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL BEYKENT ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2222200/kamu-akademik-personel-akademik-personel-alimlari-istanbul-beykent-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853292",
+      "publishDate": "2026-09-13T21:00:01+00:00",
+      "deadline": "2026-09-28T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Anesteziyoloji ve Reanimasyon ABD",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup, Anesteziyoloji ve Reanimasyon alanında doçentlik ünvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, Anesteziyoloji ve Reanimasyon alanında doçentlik ünvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Endüstri Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Enerji alanında doçentlik ünvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Enerji alanında doçentlik ünvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Beykent Üniversitesi Rektörlüğünden: Üniversitemize 2547 Sayılı Yükseköğretim Kanunu ve \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği” ile “İstanbul Beykent Üniversitesi Öğretim Üyeliğine Yükseltme ve Atama Yönergesi” (https://www.beykent.edu.tr/yonetmelikler-yonergeler/yonergeler) h",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL BEYKENT ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2222367/kamu-akademik-personel-akademik-personel-alimlari-istanbul-beykent-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853293",
+      "publishDate": "2026-09-13T21:00:01+00:00",
+      "deadline": "2026-09-28T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Su ve Atık Yönetimi Teknikerliği",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği alanında tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Elektrik-Elektronik Mühendisliği alanında tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Ceza ve Ceza Muhakemesi ABD",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Kamu Hukuku alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Kamu Hukuku alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Medeni Usul Hukuku ve İcra İflas Hukuku Anabilim Dalı",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Özel Hukuk alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Özel Hukuk alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Beykent Üniversitesi Rektörlüğünden: ARAŞTIRMA GÖREVLİSİ VE ÖĞRETİM GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda belirtilen Fakülte/Yüksekokul, 2547 sayılı Yükseköğretim Kanunu’nun ilgili maddeleri ile 09.11.2018 tarih ve 30590 sayılı Resmi Gazete’de yayımlanan “Öğretim Üyesi Dışındaki Öğre",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BOĞAZİÇİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2222413/kamu-akademik-personel-akademik-personel-alimlari-bogazici-universitesi-rektorlugu-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853294",
+      "publishDate": "2026-09-13T21:00:01+00:00",
+      "deadline": "2026-10-12T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Almanca Öğretmenliği, Alman Dili ve Edebiyatı veya Almanca Mütercim ve Tercümanlık programlarından birinden lisans derecesi almış olmak; En az tezli yüksek lisans derecesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizce) veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dilbilimi, Dilbilimi (%100 İngilizce), Çeviribilim (%100 İngilizce), İngilizce Mütercim ve Tercümanlık, Karşılaştırmalı Edebiyat (%100 İngilizc.",
+            "veya İngiliz Filolojisi lisans programlarının birinden mezun olmak; en az tezli yüksek lisans derecesine sahip olmak ve lisans mezuniyetinden sonra yükseköğretim kurumlarında en az 2 yıl İngilizce öğretimi deneyimine sahip olduğunu belgelendirmek."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Boğaziçi Üniversitesi Rektörlüğü'nden: ÖĞRETİM GÖREVLİSİ ALIM İLANI Üniversitemize 2547 sayılı Yükseköğretim Kanunu, 657 sayılı Devlet Memurları Kanunu’nun 48. maddesinde belirtilen genel şartlar, 10/07/2018 tarih ve 30474 sayılı Resmi Gazete’de yayımlanan Genel Kadro ve Usulü Hakkında 2 Sayılı Cumh",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BOĞAZİÇİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2222445/kamu-akademik-personel-akademik-personel-alimlari-bogazici-universitesi-rektorlugu-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853295",
+      "publishDate": "2026-09-13T21:00:01+00:00",
+      "deadline": "2026-09-28T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İnsan ve Toplum Bilimleri Fakültesi",
+          "department": "Tarih",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Tarih alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Tarih alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Boğaziçi Üniversitesi Rektörlüğü'nden: ARAŞTIRMA GÖREVLİSİ ALIM İLANI Üniversitemize 2547 sayılı Yükseköğretim Kanunu, 657 sayılı Devlet Memurları Kanunu’nun 48. maddesinde belirtilen genel şartlar, 10/07/2018 tarih ve 30474 sayılı Resmi Gazete’de yayımlanan Genel Kadro ve Usulü Hakkında 2 Sayılı Cu",
+      "applicationDocuments": []
+    },
     {
       "university": "AMASYA ÜNİVERSİTESİ",
       "city": "Amasya",
