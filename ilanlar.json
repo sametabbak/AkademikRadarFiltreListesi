@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-14T07:22:44.123Z",
+  "lastUpdated": "2026-09-14T07:36:15.409Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -13303,65 +13303,353 @@
       "uniType": "Devlet",
       "url": "https://www.ilan.gov.tr/ilan/2212856/kamu-akademik-personel-akademik-personel-alimlari-bursa-teknik-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
       "ilanNo": "YOK853223",
-      "publishDate": "2026-09-02T21:00:01+00:00",
+      "publishDate": "2026-09-03T00:00:00.000Z",
       "deadline": null,
       "detectedTitles": [
-        "PROFESÖR",
         "DOÇENT",
-        "DR. ÖĞR. ÜYESİ"
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR",
+        "ARAŞTIRMA GÖREVLİSİ"
       ],
       "positions": [
         {
-          "faculty": "",
-          "department": "",
-          "title": "PROFESÖR",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null,
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "",
-          "department": "",
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Çevre Mühendisliği",
           "title": "DOÇENT",
           "count": 1,
-          "requirements": "",
+          "requirements": "Çevre Mühendisliği lisans mezunu olmak, doktorasını Çevre Mühendisliği alanında yapmış olmak, doçentliğini Çevre Mühendisliği alanında almış olmak, Su Kalitesi Yönetimi, Deniz Kirliliği, Mikroplastik Kirliliği ve Çevresel Risk Değerlendirmeleri konularında çalışmalar yapmış olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
           "foreignLanguageRequired": false,
           "foreignLanguageScore": null,
           "foreignLanguageExam": null,
-          "derece": null,
+          "derece": 1,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Çevre Mühendisliği lisans mezunu olmak, doktorasını Çevre Mühendisliği alanında yapmış olmak, doçentliğini Çevre Mühendisliği alanında almış olmak, Su Kalitesi Yönetimi, Deniz Kirliliği, Mikroplastik Kirliliği ve Çevresel Risk Değerlendirmeleri konularında çalışmalar yapmış olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
         {
-          "faculty": "",
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Elektrik-Elektronik Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği lisans mezunu olmak, doktorasını Elektrik-Elektronik Mühendisliği anabilim dalında yapmış olmak, Konuşma Sıkıştırma ve Biyomedikal İşaret Sıkıştırma konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Elektrik-Elektronik Mühendisliği lisans mezunu olmak, doktorasını Elektrik-Elektronik Mühendisliği anabilim dalında yapmış olmak, Konuşma Sıkıştırma ve Biyomedikal İşaret Sıkıştırma konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Kimya",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kimya lisans mezunu olmak, doktorasını Kimya alanında yapmış olmak, Biyokütle Dönüşümü ve Katalizörler, Metal-Organik Kafes Yapıları ve Hidrojen Üretimi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Kimya lisans mezunu olmak, doktorasını Kimya alanında yapmış olmak, Biyokütle Dönüşümü ve Katalizörler, Metal-Organik Kafes Yapıları ve Hidrojen Üretimi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Kimya",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kimya lisans mezunu olmak, doktorasını Biyokimya alanında yapmış olmak, doçentliğini Kimya alanında almış olmak, Enzim İnhibisyonu, Moleküler Dinamik Simülasyonu ve İlaç Tasarımı konularında çalışmalar yapmış olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": null,
+          "sartlar": [
+            "Kimya lisans mezunu olmak, doktorasını Biyokimya alanında yapmış olmak, doçentliğini Kimya alanında almış olmak, Enzim İnhibisyonu, Moleküler Dinamik Simülasyonu ve İlaç Tasarımı konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Makine Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliği anabilim dalında yapmış olmak, Doku İskelelerinin Biyobozunması, Voksel Tabanlı Sayısal Modelleme ve Hibrit Kompozitler konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliği anabilim dalında yapmış olmak, Doku İskelelerinin Biyobozunması, Voksel Tabanlı Sayısal Modelleme ve Hibrit Kompozitler konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Makine Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliği anabilim dalında yapmış olmak, doçentliğini Makine Mühendisliği alanında almış olmak, Elektrikli Araç Çarpışma Güvenliği, Doğal Lifli Kompozitler ve Kafes Yapılar konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliği anabilim dalında yapmış olmak, doçentliğini Makine Mühendisliği alanında almış olmak, Elektrikli Araç Çarpışma Güvenliği, Doğal Lifli Kompozitler ve Kafes Yapılar konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Makine Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliği anabilim dalında yapmış olmak, doçentliğini Makine Mühendisliği alanında almış olmak, Hidrokinetik Türbinler, Termodinamik Çevrimlerin İstatistiksel Optimizasyonu ve Sistemlerin Termal Yönetimi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliği anabilim dalında yapmış olmak, doçentliğini Makine Mühendisliği alanında almış olmak, Hidrokinetik Türbinler, Termodinamik Çevrimlerin İstatistiksel Optimizasyonu ve Sistemlerin Termal Yönetimi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Matematik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Matematik lisans mezunu olmak, doktorasını Matematik alanında yapmış olmak, doçentliğini Matematik alanında almış olmak, Graflarda Benzerlik Ölçümleri, Transfer Matrisleri ve Topolojik İndekslerin Yapı Duyarlılığı konularında çalışmaları olmak,",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Matematik lisans mezunu olmak, doktorasını Matematik alanında yapmış olmak, doçentliğini Matematik alanında almış olmak, Graflarda Benzerlik Ölçümleri, Transfer Matrisleri ve Topolojik İndekslerin Yapı Duyarlılığı konularında çalışmaları olmak,."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Mekatronik Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Elektronik ve Haberleşme Mühendisliği lisans mezunu olmak, doktorasını Elektronik ve Haberleşme Mühendisliği alanında yapmış olmak, doçentliğini Elektrik-Elektronik ve Haberleşme Mühendisliği alanında almış olmak, Biyomedikal Görüntü İşleme, Derin Öğrenme ve Metasezgisel Optimizasyon konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Elektronik ve Haberleşme Mühendisliği lisans mezunu olmak, doktorasını Elektronik ve Haberleşme Mühendisliği alanında yapmış olmak, doçentliğini Elektrik-Elektronik ve Haberleşme Mühendisliği alanında almış olmak, Biyomedikal Görüntü İşleme, Derin Öğrenme ve Metasezgisel Optimizasyon konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Mekatronik Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Mekatronik Mühendisliği lisans mezunu olmak, doktorasını Mekatronik Mühendisliği veya Elektrik-Elektronik Mühendisliği anabilim dalında yapmış olmak, Biyolojik Sinyal İşleme, İnsan Kas/Motor Hareketleri ve Hareket Algılama konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Mekatronik Mühendisliği lisans mezunu olmak, doktorasını Mekatronik Mühendisliği veya Elektrik-Elektronik Mühendisliği anabilim dalında yapmış olmak, Biyolojik Sinyal İşleme, İnsan Kas/Motor Hareketleri ve Hareket Algılama konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Mekatronik Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliğinde yapmış olmak, doçentliğini Makine Mühendisliği alanında almış olmak, Robotik Sistemlerde Akıllı Algılama, Robotik Kontrol ve Fiziksel Etkileşim konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Makine Mühendisliği lisans mezunu olmak, doktorasını Makine Mühendisliğinde yapmış olmak, doçentliğini Makine Mühendisliği alanında almış olmak, Robotik Sistemlerde Akıllı Algılama, Robotik Kontrol ve Fiziksel Etkileşim konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Metalurji ve Malzeme Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doktorasını Metalurji ve Malzeme Mühendisliği anabilim dalında yapmış olmak, doçentliğini Malzeme ve Metalurji alanında almış olmak, Alaşımların Döküm Yöntemi, Döküm Hataları ve Polimer Matriksli Kompozitler konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktorasını Metalurji ve Malzeme Mühendisliği anabilim dalında yapmış olmak, doçentliğini Malzeme ve Metalurji alanında almış olmak, Alaşımların Döküm Yöntemi, Döküm Hataları ve Polimer Matriksli Kompozitler konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri",
+          "department": "Polimer Malzeme Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Polimer Mühendisliği veya Polimer Malzeme Mühendisliği lisans mezunu olmak, doktorasını Polimer Malzeme Mühendisliği anabilim dalında yapmış olmak, Polimerik Membran Uygulamaları, Antibakteriyel Polimerik Malzemeler ve Polimer Sentezi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Polimer Mühendisliği veya Polimer Malzeme Mühendisliği lisans mezunu olmak, doktorasını Polimer Malzeme Mühendisliği anabilim dalında yapmış olmak, Polimerik Membran Uygulamaları, Antibakteriyel Polimerik Malzemeler ve Polimer Sentezi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Orman",
+          "department": "Orman Mühendisliği",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Orman Mühendisliği lisans mezunu olmak, doktorasını Orman Mühendisliği anabilim dalında yapmış olmak, Geniş Yapraklı Türlerde Hacim ve Çap Modellemesi, LİDAR Destekli Orman Envanteri konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Orman Mühendisliği lisans mezunu olmak, doktorasını Orman Mühendisliği anabilim dalında yapmış olmak, Geniş Yapraklı Türlerde Hacim ve Çap Modellemesi, LİDAR Destekli Orman Envanteri konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mimarlık ve Tasarım",
+          "department": "Mimarlık Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Mimarlık Lisans mezunu olmak, doktorasını Mimarlık anabilim dalında yapmış olmak, doçentliğini Mimarlık alanında almış olmak, Afet, Ergonomi ve Kırsal Kültürel Miras-Turizm konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": null,
+          "sartlar": [
+            "Mimarlık Lisans mezunu olmak, doktorasını Mimarlık anabilim dalında yapmış olmak, doçentliğini Mimarlık alanında almış olmak, Afet, Ergonomi ve Kırsal Kültürel Miras-Turizm konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mimarlık ve Tasarım Şehir ve Bölge Planlama",
           "department": "",
           "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "Şehir ve Bölge Planlama lisans mezunu olmak, doktorasını Şehir ve Bölge Planlama anabilim dalında yapmış olmak, Kentsel Dönüşüm ve Planlamada Öğrenci Kent Etkileşimi konularında çalışmalar yapmış olmak. İngilizce ders verme yetkinliğine sahip olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
           "foreignLanguageRequired": false,
           "foreignLanguageScore": null,
           "foreignLanguageExam": null,
-          "derece": null,
+          "derece": 3,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "Şehir ve Bölge Planlama lisans mezunu olmak, doktorasını Şehir ve Bölge Planlama anabilim dalında yapmış olmak, Kentsel Dönüşüm ve Planlamada Öğrenci Kent Etkileşimi konularında çalışmalar yapmış olmak.",
+            "İngilizce ders verme yetkinliğine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Denizcilik Gemi İnşaatı ve Gemi Makineleri Mühendisliği",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Gemi İnşaatı ve Gemi Makineleri Mühendisliği lisans mezunu olmak, doktorasını Gemi İnşaatı ve Gemi Makineleri Mühendisliği alanında yapmış olmak, Gemilerde Enerji Verimliliği, Ekserji Temelli Analizler, Boru Akışlarının Hidromekanik ve Termodinamik Özellikleri, konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": null,
+          "sartlar": [
+            "Gemi İnşaatı ve Gemi Makineleri Mühendisliği lisans mezunu olmak, doktorasını Gemi İnşaatı ve Gemi Makineleri Mühendisliği alanında yapmış olmak, Gemilerde Enerji Verimliliği, Ekserji Temelli Analizler, Boru Akışlarının Hidromekanik ve Termodinamik Özellikleri, konularında çalışmalar yapmış olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         }
