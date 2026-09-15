@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T06:18:42.432Z",
+  "lastUpdated": "2026-09-15T06:24:53.633Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -470,6 +470,226 @@
           "temelAlan": null,
           "sartlar": [
             "Elektrik, Elektronik, Haberleşme, Bilgisayar Bilimleri, Bilgisayar Donanımı, Bilgisayar Yazılımı uzmanlık alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Antrenörlük Eğitimi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "“Beden Eğitimi ve Spor” alanında doçentliğini almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Beden Eğitimi ve Spor” alanında doçentliğini almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "Ameliyathane Hizmetleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Hemşirelik” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Hemşirelik” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "Çocuk Gelişimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Okul Öncesi Eğitimi” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Okul Öncesi Eğitimi” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "Diş Protez Teknolojisi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Protetik Diş Tedavisi” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Protetik Diş Tedavisi” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "İç Mekan Tasarımı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“İç Mimarlık ve Çevre Tasarımı” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“İç Mimarlık ve Çevre Tasarımı” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "İlk ve Acil Yardım",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Cerrahi Hastalıklar Hemşireliği” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Cerrahi Hastalıklar Hemşireliği” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "Elektrik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Elektrik Tesisleri” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Elektrik Tesisleri” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "Patoloji Laboratuvar Teknikleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Adli Tıp ve Adli Bilimler” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Adli Tıp ve Adli Bilimler” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "Uçak Teknolojisi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Enerji” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Enerji” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Plato Meslek Yüksekokulu",
+          "department": "Yeşil ve Ekolojik Bina Teknikerliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Mimarlık” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Mimarlık” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ekonomi ve Sosyal Araştırmalar Uygulama ve Araştırma Merkezi",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Yerel Yönetimler” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Yerel Yönetimler” alanında doktorasını tamamlamış olmak."
           ],
           "kanunMaddesi": null,
           "yasSiniri": null
