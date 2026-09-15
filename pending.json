@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T06:13:27.587Z",
+  "lastUpdated": "2026-09-15T06:18:42.432Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -289,6 +289,187 @@
           "temelAlan": null,
           "sartlar": [
             "“Bilgisayar Mühendisliği”, “Sayısal Yöntemler”, “Yazılım Mühendisliği”, “Yönetim Bilişim Sistemleri”, “Bilgisayar Bilimleri”, “Yapay Zeka ve Veri Mühendisliği” veya “Bilişim Sistemleri” alanlarından birinde doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Yeni Medya ve İletişim",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "“Sinema” alanında doçentliğini almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Sinema” alanında doçentliğini almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Halkla İlişkiler ve Reklamcılık",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Medya ve İletişim Çalışmaları” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Medya ve İletişim Çalışmaları” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İnsan ve Toplum Bilimleri",
+          "department": "Bankacılık ve Sigortacılık",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "“Finans” alanında doçentliğini almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Finans” alanında doçentliğini almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Bilgi Güvenliği Teknolojisi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik, Elektronik, Haberleşme, Bilgisayar Bilimleri, Bilgisayar Donanımı, Bilgisayar Yazılımı uzmanlık alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Elektrik, Elektronik, Haberleşme, Bilgisayar Bilimleri, Bilgisayar Donanımı, Bilgisayar Yazılımı uzmanlık alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Elektrik ve Elektronik Mühendisliği (İngilizce)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "“Bilgisayar Bilimleri ve Mühendisliği” alanında doçentliğini almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Bilgisayar Bilimleri ve Mühendisliği” alanında doçentliğini almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Elektrik ve Elektronik Mühendisliği (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik, Elektronik ve Haberleşme uzmanlık alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Elektrik, Elektronik ve Haberleşme uzmanlık alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Moleküler Biyoloji ve Genetik",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "“Tıbbi Biyoloji” alanında doçentliğini almış olmak. Yükseköğretim kurumlarında en az on yıl çalışmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Tıbbi Biyoloji” alanında doçentliğini almış olmak.",
+            "Yükseköğretim kurumlarında en az on yıl çalışmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Moleküler Biyoloji ve Genetik",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "“Tıp Fakültesi” mezunu olup doçentliğini “Tıbbi Genetik” alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Tıp Fakültesi” mezunu olup doçentliğini “Tıbbi Genetik” alanında almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Yapay Zeka ve Öğrenmesi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik, Elektronik, Haberleşme, Bilgisayar Bilimleri, Bilgisayar Donanımı, Bilgisayar Yazılımı uzmanlık alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Elektrik, Elektronik, Haberleşme, Bilgisayar Bilimleri, Bilgisayar Donanımı, Bilgisayar Yazılımı uzmanlık alanında doktorasını tamamlamış olmak."
           ],
           "kanunMaddesi": null,
           "yasSiniri": null
