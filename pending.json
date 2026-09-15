@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T06:24:53.633Z",
+  "lastUpdated": "2026-09-15T06:26:38.164Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -858,20 +858,18 @@
       "uniType": "Vakıf",
       "url": "https://www.ilan.gov.tr/ilan/2222801/kamu-akademik-personel-akademik-personel-alimlari-koc-universitesi-ogretim-uyesi-alim-ilani",
       "ilanNo": "YOK853301",
-      "publishDate": "2026-09-11T21:00:01+00:00",
-      "deadline": null,
+      "publishDate": "2026-09-12T00:00:00.000Z",
+      "deadline": "2026-09-26T00:00:00.000Z",
       "detectedTitles": [
-        "PROFESÖR",
-        "DOÇENT",
-        "UZMAN"
+        "DR. ÖĞR. ÜYESİ"
       ],
       "positions": [
         {
-          "faculty": "",
-          "department": "",
-          "title": "PROFESÖR",
+          "faculty": "İnsanî Bilimler ve Edebiyat Fakültesi",
+          "department": "Medya ve Görsel Sanatlar Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "1 \tilgili alanlarda doktora yapmış olmak. Kültürel\nüretim, medya antropolojisi ve medya\nçalışmaları alanlarında uzmanlaşmış olmak.\nMedya, sansür, kültür ve toplum ilişkileri\nüzerine çalışmalar yapmış olmak ve bu\nalanlarda İngilizce ders verebilmek.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -880,43 +878,11 @@
           "foreignLanguageExam": null,
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "",
-          "department": "",
-          "title": "DOÇENT",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null,
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "",
-          "department": "",
-          "title": "UZMAN",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null,
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "1 ilgili alanlarda doktora yapmış olmak.",
+            "Kültürel üretim, medya antropolojisi ve medya çalışmaları alanlarında uzmanlaşmış olmak.",
+            "Medya, sansür, kültür ve toplum ilişkileri üzerine çalışmalar yapmış olmak ve bu alanlarda İngilizce ders verebilmek."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         }
