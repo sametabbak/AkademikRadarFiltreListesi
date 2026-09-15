@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-14T20:16:50.270311+00:00",
+  "lastUpdated": "2026-09-15T06:13:27.587Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -128,35 +128,17 @@
       "publishDate": "2026-09-13T21:00:01+00:00",
       "deadline": "2026-09-29T23:59:00+00:00",
       "detectedTitles": [
-        "PROFESÖR",
         "DOÇENT",
-        "UZMAN"
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR"
       ],
       "positions": [
         {
-          "faculty": "",
-          "department": "",
-          "title": "PROFESÖR",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": "YDS",
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "",
-          "department": "",
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "Çizgi Film ve Animasyon",
           "title": "DOÇENT",
           "count": 1,
-          "requirements": "",
+          "requirements": "“Grafik” alanında doçentliğini almış olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
@@ -165,25 +147,149 @@
           "foreignLanguageExam": "YDS",
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "“Grafik” alanında doçentliğini almış olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         },
         {
-          "faculty": "",
-          "department": "",
-          "title": "UZMAN",
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "Çizgi Film ve Animasyon",
+          "title": "DR. ÖĞR. ÜYESİ",
           "count": 1,
-          "requirements": "",
+          "requirements": "“Grafik Tasarımı” alanında sanatta yeterlik tamamlamış olmak.",
           "alesRequired": false,
           "alesScore": null,
           "alesType": null,
-          "foreignLanguageRequired": true,
+          "foreignLanguageRequired": false,
           "foreignLanguageScore": null,
-          "foreignLanguageExam": "YDS",
+          "foreignLanguageExam": null,
           "derece": null,
           "temelAlan": null,
-          "sartlar": [],
+          "sartlar": [
+            "“Grafik Tasarımı” alanında sanatta yeterlik tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "Tiyatro",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Sahne Sanatları” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Sahne Sanatları” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Ekonomi (İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“İktisat” alanında doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“İktisat” alanında doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri (Türkçe)",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "“Yönetim ve Strateji” alanında doçentliğini almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Yönetim ve Strateji” alanında doçentliğini almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri (Türkçe)",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "“Pazarlama” alanında doçentliğini almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Pazarlama” alanında doçentliğini almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri (Türkçe)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Bilgisayar Mühendisliği”, “Sayısal Yöntemler”, “Yazılım Mühendisliği”, “Yönetim Bilişim Sistemleri”, “Bilgisayar Bilimleri”, “Yapay Zeka ve Veri Mühendisliği”, “Ekonometri” veya “Bilişim Sistemleri” alanlarından birinde doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Bilgisayar Mühendisliği”, “Sayısal Yöntemler”, “Yazılım Mühendisliği”, “Yönetim Bilişim Sistemleri”, “Bilgisayar Bilimleri”, “Yapay Zeka ve Veri Mühendisliği”, “Ekonometri” veya “Bilişim Sistemleri” alanlarından birinde doktorasını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi, İdari ve Sosyal Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri (Türkçe)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "“Bilgisayar Mühendisliği”, “Sayısal Yöntemler”, “Yazılım Mühendisliği”, “Yönetim Bilişim Sistemleri”, “Bilgisayar Bilimleri”, “Yapay Zeka ve Veri Mühendisliği” veya “Bilişim Sistemleri” alanlarından birinde doktorasını tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "“Bilgisayar Mühendisliği”, “Sayısal Yöntemler”, “Yazılım Mühendisliği”, “Yönetim Bilişim Sistemleri”, “Bilgisayar Bilimleri”, “Yapay Zeka ve Veri Mühendisliği” veya “Bilişim Sistemleri” alanlarından birinde doktorasını tamamlamış olmak."
+          ],
           "kanunMaddesi": null,
           "yasSiniri": null
         }
