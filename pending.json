@@ -1,5 +1,76 @@
 {
-  "lastUpdated": "2026-09-16T17:49:23.988Z",
+  "lastUpdated": "2026-09-16T19:31:01.985391+00:00",
   "source": "ilan.gov.tr",
-  "ads": []
+  "ads": [
+    {
+      "university": "LOKMAN HEKİM ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2225241/kamu-akademik-personel-akademik-personel-alimlari-lokman-hekim-universitesi-duzeltme-ilani-",
+      "ilanNo": "YOK853315",
+      "publishDate": "2026-09-15T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Fizyoloji Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıbbi Fizyoloji veya Fizyoloji alanında doktora mezunu olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıbbi Fizyoloji veya Fizyoloji alanında doktora mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Lokman Hekim Üniversitesi Rektörlüğünden DÜZELTME İLANI 05.09.2026 tarihli ve 33361 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Öğretim Üyeleri ve Öğretim Elemanları alım ilanı “A. Öğretim Üyesi Kadroları” başlıklı tablosunda, 11 sıra numarasıyla yer alan Tıp Fakültesi İngilizce Fizyoloji ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL OKAN ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2225240/kamu-akademik-personel-akademik-personel-alimlari-istanbul-okan-universitesi-iptal-ilani-",
+      "ilanNo": "YOK853314",
+      "publishDate": "2026-09-15T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Okan Üniversitesi Rektörlüğünden İPTAL İLANI 07.09.2026 tarih ve 33363 sayılı Resmî Gazete’de yayımlanan Araştırma Görevlisi alımı ilanımızda aşağıda belirtilen Fakültelere ait kadro ilanlarımız iptal edilmiştir. FAKÜLTE/YÜKSEKOKUL BÖLÜM/ PROGRAM/ ANABİLİM DALI MÜHENDİSLİK VE DOĞA BİLİMLERİ",
+      "applicationDocuments": []
+    }
+  ]
 }
