@@ -1,7 +1,44 @@
 {
-  "lastUpdated": "2026-09-16T20:42:00.238Z",
+  "lastUpdated": "2026-09-17T11:35:49.209Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL ATLAS ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2226269/kamu-akademik-personel-akademik-personel-alimlari-istanbul-atlas-universitesi-duzeltme-ilani-",
+      "ilanNo": "YOK853320",
+      "publishDate": "2026-09-16T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Çevre Koruma Teknolojileri Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Makine Mühendisliği alanında lisans mezunu olmak. Yangın ve Yangın Güvenliği veya Afet Yönetimi alanlarından birinden tezli yüksek lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Makine Mühendisliği alanında lisans mezunu olmak.",
+            "Yangın ve Yangın Güvenliği veya Afet Yönetimi alanlarından birinden tezli yüksek lisans mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Atlas Üniversitesi Rektörlüğünden DÜZELTME İLANI 14.09.2026 tarihli 33370 sayılı Resmî Gazete'de aslına uygun olarak yayımlanan Öğretim Elemanı ilanında, Meslek Yüksekokulu, Tıbbi Hizmetler ve Teknikler Bölümü, İlk ve Acil Yardım Programı/Öğr. Gör. yer alan kadro aşağıdaki şekilde düzeltilm",
+      "applicationDocuments": []
+    },
     {
       "university": "LOKMAN HEKİM ÜNİVERSİTESİ",
       "city": "Ankara",
