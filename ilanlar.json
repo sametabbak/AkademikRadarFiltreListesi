@@ -1,7 +1,43 @@
 {
-  "lastUpdated": "2026-09-18T08:27:53.793Z",
+  "lastUpdated": "2026-09-19T17:08:17.972Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "LOKMAN HEKİM ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2225241/kamu-akademik-personel-akademik-personel-alimlari-lokman-hekim-universitesi-duzeltme-ilani-",
+      "ilanNo": "YOK853315",
+      "publishDate": "2026-09-15T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Fizyoloji Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıbbi Fizyoloji veya Fizyoloji alanında doktora mezunu olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıbbi Fizyoloji veya Fizyoloji alanında doktora mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Lokman Hekim Üniversitesi Rektörlüğünden DÜZELTME İLANI 05.09.2026 tarihli ve 33361 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Öğretim Üyeleri ve Öğretim Elemanları alım ilanı “A. Öğretim Üyesi Kadroları” başlıklı tablosunda, 11 sıra numarasıyla yer alan Tıp Fakültesi İngilizce Fizyoloji ",
+      "applicationDocuments": []
+    },
     {
       "university": "KADİR HAS ÜNİVERSİTESİ",
       "city": "İstanbul",
