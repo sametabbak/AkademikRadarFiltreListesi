@@ -565,7 +565,10 @@ class GitHubAPI{
   constructor(t,o,r,b){this.token=t;this.owner=o;this.repo=r;this.branch=b;this.base=`https://api.github.com/repos/${o}/${r}`}
   get h(){return{'Authorization':`Bearer ${this.token}`,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'}}
   async getFile(p){
-    const res=await fetch(`${this.base}/contents/${p}?ref=${this.branch}`,{headers:this.h});
+    // cache:'no-store' so neither the browser nor an intermediary serves a
+    // stale copy of a file we are about to overwrite.
+    const res=await fetch(`${this.base}/contents/${p}?ref=${this.branch}`,
+                          {headers:this.h,cache:'no-store'});
     if(res.status===404)return null;
     if(!res.ok)throw new Error(`${p}: GitHub ${res.status}`);
     const d=await res.json();
@@ -573,15 +576,21 @@ class GitHubAPI{
     let raw='';
     if(d.content && d.content.trim()){
       raw=b64ToUtf8(d.content);
-    } else if(d.download_url){
-      // GitHub returns empty content for blobs over 1 MB; fetch the raw blob.
-      const r2=await fetch(d.download_url);
-      if(r2.ok) raw=await r2.text();
+    } else if(d.sha){
+      // Files over 1 MB come back with empty content. Fetch the blob BY ITS SHA
+      // rather than via download_url: download_url is raw.githubusercontent.com,
+      // which is CDN-cached for 5 minutes and can return an older version than
+      // the sha above. Pairing a new sha with old content would make the next
+      // save silently overwrite recent changes. The blob API is addressed by
+      // sha, so content and sha are guaranteed to match. Supports up to 100 MB.
+      const b=await fetch(`${this.base}/git/blobs/${d.sha}`,
+                          {headers:this.h,cache:'no-store'});
+      if(!b.ok) throw new Error(`${p}: blob okunamadı (GitHub ${b.status})`);
+      const blob=await b.json();
+      raw = blob.encoding==='base64' ? b64ToUtf8(blob.content||'') : (blob.content||'');
     }
 
     if(!raw.trim()){
-      // A 0-byte file is recoverable: treat it as an empty list rather than
-      // failing the whole panel load, but say so.
       console.warn(`${p} is empty`);
       showToast(`${p} boş — boş liste olarak açıldı. Kaydederseniz yeniden oluşturulur.`,'error',7000);
       const blank = p==='ilanlar.json'
@@ -593,7 +602,11 @@ class GitHubAPI{
     try{
       return {content:JSON.parse(raw), sha:d.sha};
     }catch(e){
-      throw new Error(`${p} geçerli JSON değil (${raw.length} bayt, başlangıç: ${JSON.stringify(raw.slice(0,40))})`);
+      // Report the position so a bad hand-edit can be found quickly
+      const m=String(e.message).match(/position (\d+)|column (\d+)/);
+      const pos=m?+(m[1]||m[2]):null;
+      const near=pos!=null?raw.slice(Math.max(0,pos-40),pos+40):raw.slice(0,60);
+      throw new Error(`${p} geçerli JSON değil (${raw.length} karakter). Sorunlu bölge: ${JSON.stringify(near)}`);
     }
   }
   async putFile(p,content,sha,msg,_retry){
