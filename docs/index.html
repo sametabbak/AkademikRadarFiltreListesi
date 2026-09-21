@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AkademikRadar Panel</title>
+<title>Akademik Radar Panel</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -636,6 +636,15 @@ class GitHubAPI{
 }
 
 // ── Store ──
+
+// Normalise records before writing: empty-string dates become null.
+function sanitizeAds(ads){
+  for(const a of ads||[])
+    for(const f of ['deadline','publishDate'])
+      if(a[f]==='') a[f]=null;
+  return ads;
+}
+
 const Store={
   api:null,
   _busy:false,
@@ -684,10 +693,12 @@ const Store={
     el('badge-rejected').textContent=(this.rejected.content.ads||[]).length;
   },
   async saveApproved(msg){
+    sanitizeAds(this.approved.content.ads);
     const r=await this.api.putFile('ilanlar.json',{...this.approved.content,lastUpdated:new Date().toISOString()},this.approved.sha,msg||'chore: update ilanlar.json via panel');
     this.approved.sha=r.content.sha;this.updateBadges();
   },
   async savePending(msg){
+    sanitizeAds(this.pending.content.ads);
     const r=await this.api.putFile('pending.json',{...this.pending.content,lastUpdated:new Date().toISOString()},this.pending.sha,msg||'chore: update pending.json via panel');
     this.pending.sha=r.content.sha;this.updateBadges();
   },
@@ -880,7 +891,7 @@ function openApprovedEditor(ilanNo){
   renderApprovedList();
 }
 function openBlankEditor(){
-  const blank={university:'',city:'',uniType:'Devlet',url:'',ilanNo:'',publishDate:'',deadline:'',detectedTitles:[],positions:[],contentSnippet:''};
+  const blank={university:'',city:'',uniType:'Devlet',url:'',ilanNo:'',publishDate:null,deadline:null,detectedTitles:[],positions:[],contentSnippet:''};
   activeEditor={tab:'add',ilanNo:'__new__',isNew:true};
   renderEditor('add-editor',blank,'add');
 }
@@ -1072,7 +1083,9 @@ function updatePos(containerId,idx,field,value){
 function updateDraft(input,containerId){
   const c=document.getElementById(containerId);
   const field=input.dataset.field;let val=input.value;
-  if(field==='deadline'||field==='publishDate')val=val?new Date(val).toISOString():'';
+  // A cleared date must be null, never "": a C# DateTime? accepts null but
+  // throws on an empty string, and one bad record fails the whole app list.
+  if(field==='deadline'||field==='publishDate')val=val?new Date(val).toISOString():null;
   c._draft[field]=val;
   refreshValidation(containerId);
 }
