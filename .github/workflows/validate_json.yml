@@ -59,7 +59,13 @@ jobs:
               ids = [a.get("ilanNo") for a in data["ads"]]
               dupes = sorted({i for i in ids if i and ids.count(i) > 1})
               if dupes:
-                  print(f"::warning file={path}::duplicate ilanNo: {', '.join(dupes)}")
+                  # A duplicate key is an error, not a warning: app code commonly
+                  # builds a dictionary or keyed table from ilanNo, which throws on
+                  # a repeated key and blanks the entire list for every user.
+                  level = "error" if path == "ilanlar.json" else "warning"
+                  print(f"::{level} file={path}::duplicate ilanNo: {', '.join(dupes)}")
+                  if level == "error":
+                      failed = True
 
               print(f"OK  {path}: {len(data['ads'])} ads")
 
