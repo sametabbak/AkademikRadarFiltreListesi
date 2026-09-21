@@ -638,10 +638,19 @@ class GitHubAPI{
 // ── Store ──
 
 // Normalise records before writing: empty-string dates become null.
+const SANE={alesScore:[50,100],foreignLanguageScore:[40,100],derece:[1,7],yasSiniri:[18,70]};
 function sanitizeAds(ads){
-  for(const a of ads||[])
+  for(const a of ads||[]){
     for(const f of ['deadline','publishDate'])
       if(a[f]==='') a[f]=null;
+    // Any number outside its plausible range is a parse artefact. Out-of-range
+    // values that exceed a C# int would also stop the app loading at all.
+    for(const p of a.positions||[])
+      for(const [f,[lo,hi]] of Object.entries(SANE)){
+        const v=p[f];
+        if(v!=null && (typeof v!=='number'||!Number.isFinite(v)||v<lo||v>hi)) p[f]=null;
+      }
+  }
   return ads;
 }
 
@@ -1501,6 +1510,19 @@ const P = (() => {
 
   const clean = s => String(s||'').replace(/[\s\u00a0]+/g,' ').trim();
 
+  // One plausible score out of text or a cell. Mirrors parse_score() in the
+  // scraper. The old code stripped every non-digit and glued the rest, so
+  // "70/85" became 7085 and a date became 2906202644484 — which overflowed a
+  // C# int and made the mobile app fail to load the entire list.
+  const ALES_RANGE=[50,100], LANG_RANGE=[40,100];
+  function parseScore(raw,[lo,hi]){
+    if(raw==null) return null;
+    const s=String(raw).replace(/\d{1,2}[./-]\d{1,2}[./-]\d{2,4}/g,' ');
+    const rx=/(?<!\d)(\d{2,3})(?:[.,]\d{1,2})?(?!\d)/g; let m;
+    while((m=rx.exec(s))!==null){ const v=+m[1]; if(v>=lo&&v<=hi) return v; }
+    return null;
+  }
+
   const OGRETIM_UYESI = ['PROFESÖR','DOÇENT','DR. ÖĞR. ÜYESİ'];
   const ALES_EXEMPT   = new Set(['PROFESÖR','DOÇENT']);
 
@@ -1585,7 +1607,7 @@ const P = (() => {
     const up=trUpper(text);
     if(!up.includes('ALES')) return r;
     r.alesRequired=true;
-    const m=up.match(/ALES[^0-9]{0,30}(\d{2,3})/); if(m) r.alesScore=+m[1];
+    const k=up.indexOf('ALES'); r.alesScore=parseScore(up.slice(k,k+60),ALES_RANGE);
     for(const t of ['SAYISAL','SÖZEL','EŞİT AĞIRLIK','SAY','SÖZ','EA'])
       if(up.includes(t)){ r.alesType={'SAYISAL':'SAY','SÖZEL':'SÖZ','EŞİT AĞIRLIK':'EA'}[t]||t; break; }
     return r;
@@ -1596,7 +1618,7 @@ const P = (() => {
     const up=trUpper(text);
     if(!['YDS','YÖKDİL','YABANCI DİL'].some(k=>up.includes(trUpper(k)))) return r;
     r.foreignLanguageRequired=true;
-    const m=up.match(/(?:YDS|YÖKDİL|YABANCI\s+DİL)[^0-9]{0,30}(\d{2,3})/); if(m) r.foreignLanguageScore=+m[1];
+    const m=up.match(/YDS|YÖKDİL|YABANCI\s+DİL/); r.foreignLanguageScore=m?parseScore(up.slice(m.index,m.index+60),LANG_RANGE):null;
     for(const e of ['YÖKDİL','YDS','TOEFL','IELTS']) if(up.includes(trUpper(e))){ r.foreignLanguageExam=e; break; }
     return r;
   }
@@ -1730,13 +1752,15 @@ const P = (() => {
         const asv=get('alesScore'), atv=get('alesType'), lsv=get('langScore');
 
         let ales;
-        if(String(asv).replace(/[^0-9]/g,'')&&!ALES_EXEMPT.has(primary))
-          ales={alesRequired:true,alesScore:+String(asv).replace(/[^0-9]/g,''),alesType:atv.trim()||null};
+        const colAles=parseScore(asv,ALES_RANGE);
+        if(colAles!==null&&!ALES_EXEMPT.has(primary))
+          ales={alesRequired:true,alesScore:colAles,alesType:atv.trim()||null};
         else { ales=extractAles(req,primary); if(!ales.alesRequired) ales=extractAles(fullText,primary); }
 
         let lang;
-        if(String(lsv).replace(/[^0-9]/g,''))
-          lang={foreignLanguageRequired:true,foreignLanguageScore:+String(lsv).replace(/[^0-9]/g,''),foreignLanguageExam:null};
+        const colLang=parseScore(lsv,LANG_RANGE);
+        if(colLang!==null)
+          lang={foreignLanguageRequired:true,foreignLanguageScore:colLang,foreignLanguageExam:null};
         else { lang=extractLang(req); if(!lang.foreignLanguageRequired) lang=extractLang(fullText); }
 
         const pos={faculty,department:dept,title:combined,count,requirements:req,...ales,...lang};
