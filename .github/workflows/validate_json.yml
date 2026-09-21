@@ -87,6 +87,32 @@ jobs:
                   if level == "error":
                       failed = True
 
+              # Integers must fit a C# int (the app's model). One overflowing
+              # value makes System.Text.Json reject the ENTIRE list, so the app
+              # shows no ads at all. Scores outside their plausible range are
+              # parse artefacts: flagged, but they don't break the app.
+              INT_MAX = 2**31 - 1
+              SANE = {"alesScore": (50, 100), "foreignLanguageScore": (40, 100),
+                      "derece": (1, 7), "yasSiniri": (18, 70)}
+              overflow, implausible = [], []
+              for a in data["ads"]:
+                  for i, pos in enumerate(a.get("positions", [])):
+                      for k, v in pos.items():
+                          if isinstance(v, bool) or not isinstance(v, (int, float)):
+                              continue
+                          tag = f"{a.get('ilanNo')}.pos[{i}].{k}={v}"
+                          if abs(v) > INT_MAX or isinstance(v, float):
+                              overflow.append(tag)
+                          elif k in SANE and not SANE[k][0] <= v <= SANE[k][1]:
+                              implausible.append(tag)
+              if overflow:
+                  print(f"::error file={path}::number the app cannot read (breaks loading): "
+                        + ", ".join(overflow[:10]))
+                  failed = True
+              if implausible:
+                  print(f"::warning file={path}::implausible score/value "
+                        f"({len(implausible)}): " + ", ".join(implausible[:10]))
+
               print(f"OK  {path}: {len(data['ads'])} ads")
 
           sys.exit(1 if failed else 0)
