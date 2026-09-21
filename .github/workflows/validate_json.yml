@@ -1,0 +1,67 @@
+name: Validate data files
+
+# Runs on every push that touches a data file, whoever made it — the scraper,
+# the panel, the GitHub web editor, or an AI assistant. A malformed file breaks
+# the mobile app for every user, so it must be caught immediately.
+on:
+  push:
+    paths:
+      - 'ilanlar.json'
+      - 'pending.json'
+      - 'rejected.json'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check JSON syntax and structure
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sys
+
+          failed = False
+          for path in ("ilanlar.json", "pending.json", "rejected.json"):
+              try:
+                  with open(path, encoding="utf-8") as f:
+                      text = f.read()
+              except FileNotFoundError:
+                  print(f"::error file={path}::file is missing")
+                  failed = True
+                  continue
+
+              if not text.strip():
+                  print(f"::error file={path}::file is empty")
+                  failed = True
+                  continue
+
+              try:
+                  data = json.loads(text)
+              except json.JSONDecodeError as e:
+                  line = text.split("\n")[e.lineno - 1]
+                  snippet = line[max(0, e.colno - 40): e.colno + 40]
+                  print(f"::error file={path},line={e.lineno},col={e.colno}::"
+                        f"invalid JSON: {e.msg}")
+                  print(f"    near: ...{snippet}...")
+                  print("    Tip: a double quote inside text must be written as \\\"")
+                  failed = True
+                  continue
+
+              if not isinstance(data.get("ads"), list):
+                  print(f"::error file={path}::top-level 'ads' list is missing")
+                  failed = True
+                  continue
+
+              ids = [a.get("ilanNo") for a in data["ads"]]
+              dupes = sorted({i for i in ids if i and ids.count(i) > 1})
+              if dupes:
+                  print(f"::warning file={path}::duplicate ilanNo: {', '.join(dupes)}")
+
+              print(f"OK  {path}: {len(data['ads'])} ads")
+
+          sys.exit(1 if failed else 0)
+          PY
