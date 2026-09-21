@@ -1,40 +1,5 @@
 {
-  "lastUpdated": "2026-09-21T06:42:08.512Z",
+  "lastUpdated": "2026-09-21T06:42:34.783Z",
   "source": "ilan.gov.tr",
-  "ads": [
-    {
-      "university": "İSTANBUL OKAN ÜNİVERSİTESİ",
-      "city": "İstanbul",
-      "uniType": "Vakıf",
-      "url": "https://www.ilan.gov.tr/ilan/2225240/kamu-akademik-personel-akademik-personel-alimlari-istanbul-okan-universitesi-iptal-ilani-",
-      "ilanNo": "YOK853314",
-      "publishDate": "2026-09-15T21:00:01+00:00",
-      "deadline": null,
-      "detectedTitles": [
-        "ARAŞTIRMA GÖREVLİSİ"
-      ],
-      "positions": [
-        {
-          "faculty": "",
-          "department": "",
-          "title": "ARAŞTIRMA GÖREVLİSİ",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null,
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        }
-      ],
-      "contentSnippet": "İstanbul Okan Üniversitesi Rektörlüğünden İPTAL İLANI 07.09.2026 tarih ve 33363 sayılı Resmî Gazete’de yayımlanan Araştırma Görevlisi alımı ilanımızda aşağıda belirtilen Fakültelere ait kadro ilanlarımız iptal edilmiştir. FAKÜLTE/YÜKSEKOKUL BÖLÜM/ PROGRAM/ ANABİLİM DALI MÜHENDİSLİK VE DOĞA BİLİMLERİ",
-      "applicationDocuments": []
-    }
-  ]
+  "ads": []
 }
