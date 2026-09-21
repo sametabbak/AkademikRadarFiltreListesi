@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-21T19:15:56.370Z",
+  "lastUpdated": "2026-09-21T19:16:31.418Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -55,10 +55,10 @@
           "count": 1,
           "requirements": "Lisans mezunu olup Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yapay Zekâ Mühendisliği, Yapay Zekâ ve Veri Mühendisliği, Elektrik Mühendisliği, Elektronik Mühendisliği, Elektrik-Elektronik Mühendisliği, Elektronik ve Haberleşme Mühendisliği, Endüstri Mühendisliği, Bilişim Sistemleri Mühendisliği, Makine Mühendisliği, Mekatronik Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Matematik Mühendisliği, Fizik Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Matematik ve Bilgisayar Bilimleri, İstatistik ve Bilgisayar Bilimleri, Bilgisayar Bilimleri, Bilişim Sistemleri ve Teknolojileri, Yönetim Bilişim Sistemleri, Yazılım Geliştirme, Bilgi Güvenliği Teknolojisi, Adli Bilişim Mühendisliği, Bilgisayar ve Öğretim Teknolojileri Öğretmenliği, Elektronik Öğretmenliği, Mekatronik Öğretmenliği veya Yapay Zekâ Teknolojileri alanlarından birinde Tezli Yüksek Lisans yapmış olmak ve Lisans mezuniyeti sonrasında Yapay Zekâ alanında en az 1(bir) yıl deneyime sahip olmak.",
           "alesRequired": true,
-          "alesScore": 202,
+          "alesScore": null,
           "alesType": "SAY",
           "foreignLanguageRequired": true,
-          "foreignLanguageScore": 202,
+          "foreignLanguageScore": null,
           "foreignLanguageExam": "YDS",
           "derece": 5,
           "temelAlan": null,
@@ -4232,59 +4232,6 @@
         }
       ],
       "contentSnippet": "Afyonkarahisar Sağlık Bilimleri Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ve Afyonkarahisar Sağlık Bilimleri Üniversitesi Öğretim Üyeliğine Yükseltilme ve Atanma Yönergesinin ilgil",
-      "applicationDocuments": []
-    },
-    {
-      "university": "İSTANBUL OKAN ÜNİVERSİTESİ",
-      "city": "İstanbul",
-      "uniType": "Vakıf",
-      "url": "https://www.ilan.gov.tr/ilan/2226536/kamu-akademik-personel-akademik-personel-alimlari-istanbul-okan-universitesi-iptal-ilani-",
-      "ilanNo": "YOK853321",
-      "publishDate": "2026-09-16T21:00:01+00:00",
-      "deadline": null,
-      "detectedTitles": [
-        "DR. ÖĞR. ÜYESİ",
-        "ÖĞRETİM GÖREVLİSİ"
-      ],
-      "positions": [
-        {
-          "faculty": "",
-          "department": "",
-          "title": "DR. ÖĞR. ÜYESİ",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null,
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "",
-          "department": "",
-          "title": "ÖĞRETİM GÖREVLİSİ",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": false,
-          "alesScore": null,
-          "alesType": null,
-          "foreignLanguageRequired": false,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": null,
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        }
-      ],
-      "contentSnippet": "İstanbul Okan Üniversitesi Rektörlüğünden İPTAL İLANI 07.09.2026 tarih ve 33363 sayılı Resmî Gazete’de yayımlanan Öğretim Üyesi ve Öğretim Görevlisi alım ilanımızda aşağıda belirtilen Fakülte / Meslek Yüksekokuluna ait kadro ilanlarımız iptal edilmiştir. FAKÜLTE/YÜKSEKOKUL BÖLÜM/ PROGRAM/ ANABİLİM D",
       "applicationDocuments": []
     }
   ]
