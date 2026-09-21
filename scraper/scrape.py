@@ -216,14 +216,46 @@ def is_academic(title: str) -> bool:
     return any(p.strip() in ACADEMIC_TITLES for p in re.split(r"[/]", title))
 
 # ── ALES / Language ───────────────────────────────────────────────────────────────────
+# ── Score parsing ───────────────────────────────────────────────────────────
+# ALES and foreign-language (YDS/YÖKDİL) minimums are scores out of 100.
+# Legal minimums in practice sit well inside these bounds; anything outside
+# them is a parsing artefact, not a real requirement.
+ALES_RANGE = (50, 100)
+LANG_RANGE = (40, 100)
+
+_DATE_RX = re.compile(r"\d{1,2}[./-]\d{1,2}[./-]\d{2,4}")
+_SCORE_RX = re.compile(r"(?<!\d)(\d{2,3})(?:[.,]\d{1,2})?(?!\d)")
+
+def parse_score(raw, rng) -> int | None:
+    """
+    Pull ONE plausible score out of free text or a table cell.
+
+    Previously a cell was reduced with re.sub(r"[^0-9]", "", cell), which glued
+    every digit together: "70/85" became 7085, a date became 2906202644484.
+    That last value overflows a C# int and made the mobile app fail to load
+    the whole list. Now: dates are removed first, only a standalone 2-3 digit
+    number is accepted (so the year 2025 can no longer yield 202), and the
+    result must fall inside the plausible range or it is discarded.
+    """
+    if raw is None:
+        return None
+    s = _DATE_RX.sub(" ", str(raw))
+    lo, hi = rng
+    for m in _SCORE_RX.finditer(s):
+        v = int(m.group(1))
+        if lo <= v <= hi:
+            return v
+    return None
+
+
 def extract_ales(text: str, title: str = "") -> dict:
     r = {"alesRequired": False, "alesScore": None, "alesType": None}
     if title in ALES_EXEMPT_TITLES: return r
     up = tr_upper(text)
     if "ALES" not in up: return r
     r["alesRequired"] = True
-    m = re.search(r"ALES[^0-9]{0,30}(\d{2,3})", up)
-    if m: r["alesScore"] = int(m.group(1))
+    k = up.find("ALES")
+    r["alesScore"] = parse_score(up[k:k + 60], ALES_RANGE)
     for t in ["SAY", "SÖZ", "EA", "SAYISAL", "SÖZEL", "EŞİT AĞIRLIK"]:
         if t in up: r["alesType"] = t; break
     return r
@@ -236,8 +268,8 @@ def extract_language(text: str, title: str = "") -> dict:
             r["foreignLanguageRequired"] = True
             break
     if not r["foreignLanguageRequired"]: return r
-    m = re.search(r"(?:YDS|YÖKDİL|YABANCI\s+DİL)[^0-9]{0,30}(\d{2,3})", up)
-    if m: r["foreignLanguageScore"] = int(m.group(1))
+    m = re.search(r"YDS|YÖKDİL|YABANCI\s+DİL", up)
+    r["foreignLanguageScore"] = parse_score(up[m.start():m.start() + 60], LANG_RANGE) if m else None
     for exam in ["YDS", "YÖKDİL", "TOEFL", "IELTS"]:
         if tr_upper(exam) in up: r["foreignLanguageExam"] = exam; break
     return r
@@ -762,16 +794,16 @@ def parse_positions(content_html: str, full_text: str) -> list:
                             req = re.sub(r"[ \t\n]+", " ", snippet[ki: ki + 400]).strip()
                             break
 
-            if ales_score_val.strip() and re.sub(r"[^0-9]", "", ales_score_val) and primary_title not in ALES_EXEMPT_TITLES:
-                digits = re.sub(r"[^0-9]", "", ales_score_val)
-                ales = {"alesRequired": True, "alesScore": int(digits) if digits else None, "alesType": ales_type_val.strip() or None}
+            col_ales = parse_score(ales_score_val, ALES_RANGE)
+            if col_ales is not None and primary_title not in ALES_EXEMPT_TITLES:
+                ales = {"alesRequired": True, "alesScore": col_ales, "alesType": ales_type_val.strip() or None}
             else:
                 ales = extract_ales(req, primary_title)
                 if not ales["alesRequired"]: ales = extract_ales(full_text, primary_title)
 
-            if lang_score_val.strip() and re.sub(r"[^0-9]", "", lang_score_val):
-                digits = re.sub(r"[^0-9]", "", lang_score_val)
-                lang = {"foreignLanguageRequired": True, "foreignLanguageScore": int(digits) if digits else None, "foreignLanguageExam": None}
+            col_lang = parse_score(lang_score_val, LANG_RANGE)
+            if col_lang is not None:
+                lang = {"foreignLanguageRequired": True, "foreignLanguageScore": col_lang, "foreignLanguageExam": None}
             else:
                 lang = extract_language(req, primary_title)
                 if not lang["foreignLanguageRequired"]: lang = extract_language(full_text, primary_title)
