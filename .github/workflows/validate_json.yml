@@ -67,6 +67,26 @@ jobs:
                   if level == "error":
                       failed = True
 
+              # Dates must be null or ISO-8601. An empty string is valid JSON
+              # but a C# DateTime? cannot deserialise it, so the app fails to load.
+              from datetime import datetime
+              bad_dates = []
+              for a in data["ads"]:
+                  for f in ("publishDate", "deadline"):
+                      v = a.get(f)
+                      if v is None:
+                          continue
+                      try:
+                          datetime.fromisoformat(str(v).replace("Z", "+00:00"))
+                      except ValueError:
+                          bad_dates.append(f"{a.get('ilanNo')}.{f}={v!r}")
+              if bad_dates:
+                  level = "error" if path == "ilanlar.json" else "warning"
+                  print(f"::{level} file={path}::invalid date (use null, not \"\"): "
+                        + ", ".join(bad_dates))
+                  if level == "error":
+                      failed = True
+
               print(f"OK  {path}: {len(data['ads'])} ads")
 
           sys.exit(1 if failed else 0)
