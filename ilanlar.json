@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-21T14:37:19.536Z",
+  "lastUpdated": "2026-09-21T14:37:55.204Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -2514,7 +2514,7 @@
           "count": 1,
           "requirements": "Tekstil Mühendisliği lisans mezunu olup, Tekstil Mühendisliği alanında tezli yüksek lisans yapmış olmak.",
           "alesRequired": true,
-          "alesScore": null,
+          "alesScore": 70,
           "alesType": "SAY",
           "foreignLanguageRequired": false,
           "foreignLanguageScore": null,
@@ -2534,7 +2534,7 @@
           "count": 1,
           "requirements": "İnşaat Mühendisliği lisans mezunu olup, İnşaat Mühendisliği, Yapı İşletmesi, Yapı Malzemesi veya Geoteknik alanlarının birinden tezli yüksek lisans yapmış olmak.",
           "alesRequired": true,
-          "alesScore": null,
+          "alesScore": 70,
           "alesType": "SAY",
           "foreignLanguageRequired": false,
           "foreignLanguageScore": null,
