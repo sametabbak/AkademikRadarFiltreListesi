@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-22T06:41:28.078Z",
+  "lastUpdated": "2026-09-22T06:41:33.994Z",
   "source": "ilan.gov.tr",
   "ads": [
     {
@@ -745,78 +745,6 @@
         }
       ],
       "contentSnippet": "İstanbul Beykent Üniversitesi Rektörlüğünden Üniversitemize 2547 sayılı Yükseköğretim Kanunu ve \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği” ile “İstanbul Beykent Üniversitesi Öğretim Üyeliğine Yükseltme ve Atama Yönergesi” (https://www.beykent.edu.tr/yonetmelikler-yonergeler/yonergeler) hü",
-      "applicationDocuments": []
-    },
-    {
-      "university": "İSTANBUL OKAN ÜNİVERSİTESİ",
-      "city": "İstanbul",
-      "uniType": "Vakıf",
-      "url": "https://www.ilan.gov.tr/ilan/2215628/kamu-akademik-personel-akademik-personel-alimlari-istanbul-okan-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
-      "ilanNo": "YOK853241",
-      "publishDate": "2026-09-06T21:00:01+00:00",
-      "deadline": "2026-09-21T23:59:00+00:00",
-      "detectedTitles": [
-        "ÖĞRETİM GÖREVLİSİ",
-        "ARAŞTIRMA GÖREVLİSİ",
-        "UZMAN"
-      ],
-      "positions": [
-        {
-          "faculty": "",
-          "department": "",
-          "title": "ÖĞRETİM GÖREVLİSİ",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "SAY",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": "YDS",
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "",
-          "department": "",
-          "title": "ARAŞTIRMA GÖREVLİSİ",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "SAY",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": "YDS",
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        },
-        {
-          "faculty": "",
-          "department": "",
-          "title": "UZMAN",
-          "count": 1,
-          "requirements": "",
-          "alesRequired": true,
-          "alesScore": 70,
-          "alesType": "SAY",
-          "foreignLanguageRequired": true,
-          "foreignLanguageScore": null,
-          "foreignLanguageExam": "YDS",
-          "derece": null,
-          "temelAlan": null,
-          "sartlar": [],
-          "kanunMaddesi": null,
-          "yasSiniri": null
-        }
-      ],
-      "contentSnippet": "İstanbul Okan Üniversitesi Rektörlüğünden: Üniversitemize 2547 sayılı Yükseköğretim Kanunu ve 09.11.2018 tarih ve 30590 sayılı Resmi Gazetede yayımlanarak yürürlüğe giren “Öğretim Üyeliği Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav İle Giriş Sınavlarına İlişk",
       "applicationDocuments": []
     }
   ]
