@@ -43,12 +43,32 @@ MAX_RUNTIME_SECONDS = 11 * 60   # must stay BELOW the workflow's timeout-minutes
                                 # reaches its write step and the whole run is lost
 REQUEST_DELAY       = 0.5
 
+# ilan.gov.tr sits behind a Kong gateway that returns 403 to requests which do
+# not look like the site's own front end. Origin/Referer and a complete browser
+# UA string matter; a bare UA is the easiest thing for a WAF to single out.
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Accept": "application/json",
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"),
+    "Accept": "application/json, text/plain, */*",
     "Content-Type": "application/json-patch+json",
-    "Accept-Language": "tr-TR,tr;q=0.9",
+    "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Origin": "https://www.ilan.gov.tr",
+    "Referer": "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
 }
+
+# Optional relay for when ilan.gov.tr blocks the runner's IP outright.
+# Set the PROXY_URL secret to e.g. https://<worker>.workers.dev/?url={url}
+PROXY_URL = os.environ.get("PROXY_URL", "").strip()
+
+def _via(url: str) -> str:
+    if not PROXY_URL:
+        return url
+    from urllib.parse import quote
+    return (PROXY_URL.replace("{url}", quote(url, safe=""))
+            if "{url}" in PROXY_URL else PROXY_URL + quote(url, safe=""))
 _session = requests.Session()
 _session.headers.update(HEADERS)
 _start_time = time.time()
@@ -989,19 +1009,35 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
 
 
 # ── API calls ─────────────────────────────────────────────────────────────────────────────
+class FetchError(RuntimeError):
+    """ilan.gov.tr could not be reached. Distinct from 'there is nothing new'."""
+
+
 def fetch_listing(skip_count: int) -> dict | None:
     body = {"keys": {"txv": [TAX_ID]}, "skipCount": skip_count, "maxResultCount": PAGE_SIZE}
-    try:
-        r = _session.post(LISTING_URL, json=body, timeout=TIMEOUT, verify=VERIFY_SSL)
-        r.raise_for_status()
-        return r.json().get("result")
-    except Exception as e:
-        log.error(f"Listing fetch failed (skip={skip_count}): {e}")
-        return None
+    last = None
+    for attempt in range(1, 4):
+        try:
+            r = _session.post(_via(LISTING_URL), json=body, timeout=TIMEOUT, verify=VERIFY_SSL)
+            if r.status_code in (403, 429, 503):
+                # Rate limiting or bot protection - back off and try again
+                last = f"HTTP {r.status_code}"
+                wait = attempt * 5
+                log.warning(f"Listing {last} (attempt {attempt}/3) - retrying in {wait}s")
+                time.sleep(wait)
+                continue
+            r.raise_for_status()
+            return r.json().get("result")
+        except Exception as e:
+            last = str(e)
+            log.warning(f"Listing attempt {attempt}/3 failed: {e}")
+            if attempt < 3:
+                time.sleep(attempt * 5)
+    raise FetchError(f"Listing fetch failed after 3 attempts (skip={skip_count}): {last}")
 
 def fetch_detail(ad_id: str) -> dict | None:
     try:
-        r = _session.get(DETAIL_URL, params={"id": ad_id}, timeout=TIMEOUT, verify=VERIFY_SSL)
+        r = _session.get(_via(DETAIL_URL), params={"id": ad_id}, timeout=TIMEOUT, verify=VERIFY_SSL)
         r.raise_for_status()
         return r.json().get("result")
     except Exception as e:
@@ -1119,7 +1155,17 @@ def main():
     stop = False
 
     while not stop and budget_ok():
-        result = fetch_listing(skip_count)
+        try:
+            result = fetch_listing(skip_count)
+        except FetchError as e:
+            # A blocked or unreachable API must NOT look like "nothing new".
+            # Exiting 0 here previously turned a 403 into a green run.
+            log.error(str(e))
+            if skip_count == 0:
+                log.error("Could not reach ilan.gov.tr at all - failing the run.")
+                raise SystemExit(2)
+            log.warning("Stopping pagination early; keeping what was collected.")
+            break
         if not result: break
 
         total = result.get("numFound", 0)
@@ -1158,7 +1204,8 @@ def main():
         if skip_count >= total: break
 
     if not new_ads:
-        log.info(f"=== No new ads. Done in {int(time.time()-_start_time)}s ===")
+        log.info(f"=== No new ads (API reachable, nothing unseen). "
+                 f"Done in {int(time.time()-_start_time)}s ===")
         return
 
     now = datetime.now(timezone.utc).isoformat()
