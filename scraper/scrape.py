@@ -38,15 +38,37 @@ PANEL_MODE = os.environ.get("PANEL_MODE", "1").strip() == "1"
 
 PAGE_SIZE           = 20  # API returns max 20 items per page
 TIMEOUT             = 20
-MAX_RUNTIME_SECONDS = 20 * 60
+MAX_RUNTIME_SECONDS = 11 * 60   # must stay BELOW the workflow's timeout-minutes,
+                                # otherwise GitHub kills the job before the scraper
+                                # reaches its write step and the whole run is lost
 REQUEST_DELAY       = 0.5
 
+# ilan.gov.tr sits behind a Kong gateway that returns 403 to requests which do
+# not look like the site's own front end. Origin/Referer and a complete browser
+# UA string matter; a bare UA is the easiest thing for a WAF to single out.
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    "Accept": "application/json",
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"),
+    "Accept": "application/json, text/plain, */*",
     "Content-Type": "application/json-patch+json",
-    "Accept-Language": "tr-TR,tr;q=0.9",
+    "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Origin": "https://www.ilan.gov.tr",
+    "Referer": "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
 }
+
+# Optional relay for when ilan.gov.tr blocks the runner's IP outright.
+# Set the PROXY_URL secret to e.g. https://<worker>.workers.dev/?url={url}
+PROXY_URL = os.environ.get("PROXY_URL", "").strip()
+
+def _via(url: str) -> str:
+    if not PROXY_URL:
+        return url
+    from urllib.parse import quote
+    return (PROXY_URL.replace("{url}", quote(url, safe=""))
+            if "{url}" in PROXY_URL else PROXY_URL + quote(url, safe=""))
 _session = requests.Session()
 _session.headers.update(HEADERS)
 _start_time = time.time()
@@ -214,14 +236,46 @@ def is_academic(title: str) -> bool:
     return any(p.strip() in ACADEMIC_TITLES for p in re.split(r"[/]", title))
 
 # ── ALES / Language ───────────────────────────────────────────────────────────────────
+# ── Score parsing ───────────────────────────────────────────────────────────
+# ALES and foreign-language (YDS/YÖKDİL) minimums are scores out of 100.
+# Legal minimums in practice sit well inside these bounds; anything outside
+# them is a parsing artefact, not a real requirement.
+ALES_RANGE = (50, 100)
+LANG_RANGE = (40, 100)
+
+_DATE_RX = re.compile(r"\d{1,2}[./-]\d{1,2}[./-]\d{2,4}")
+_SCORE_RX = re.compile(r"(?<!\d)(\d{2,3})(?:[.,]\d{1,2})?(?!\d)")
+
+def parse_score(raw, rng) -> int | None:
+    """
+    Pull ONE plausible score out of free text or a table cell.
+
+    Previously a cell was reduced with re.sub(r"[^0-9]", "", cell), which glued
+    every digit together: "70/85" became 7085, a date became 2906202644484.
+    That last value overflows a C# int and made the mobile app fail to load
+    the whole list. Now: dates are removed first, only a standalone 2-3 digit
+    number is accepted (so the year 2025 can no longer yield 202), and the
+    result must fall inside the plausible range or it is discarded.
+    """
+    if raw is None:
+        return None
+    s = _DATE_RX.sub(" ", str(raw))
+    lo, hi = rng
+    for m in _SCORE_RX.finditer(s):
+        v = int(m.group(1))
+        if lo <= v <= hi:
+            return v
+    return None
+
+
 def extract_ales(text: str, title: str = "") -> dict:
     r = {"alesRequired": False, "alesScore": None, "alesType": None}
     if title in ALES_EXEMPT_TITLES: return r
     up = tr_upper(text)
     if "ALES" not in up: return r
     r["alesRequired"] = True
-    m = re.search(r"ALES[^0-9]{0,30}(\d{2,3})", up)
-    if m: r["alesScore"] = int(m.group(1))
+    k = up.find("ALES")
+    r["alesScore"] = parse_score(up[k:k + 60], ALES_RANGE)
     for t in ["SAY", "SÖZ", "EA", "SAYISAL", "SÖZEL", "EŞİT AĞIRLIK"]:
         if t in up: r["alesType"] = t; break
     return r
@@ -234,8 +288,8 @@ def extract_language(text: str, title: str = "") -> dict:
             r["foreignLanguageRequired"] = True
             break
     if not r["foreignLanguageRequired"]: return r
-    m = re.search(r"(?:YDS|YÖKDİL|YABANCI\s+DİL)[^0-9]{0,30}(\d{2,3})", up)
-    if m: r["foreignLanguageScore"] = int(m.group(1))
+    m = re.search(r"YDS|YÖKDİL|YABANCI\s+DİL", up)
+    r["foreignLanguageScore"] = parse_score(up[m.start():m.start() + 60], LANG_RANGE) if m else None
     for exam in ["YDS", "YÖKDİL", "TOEFL", "IELTS"]:
         if tr_upper(exam) in up: r["foreignLanguageExam"] = exam; break
     return r
@@ -760,16 +814,16 @@ def parse_positions(content_html: str, full_text: str) -> list:
                             req = re.sub(r"[ \t\n]+", " ", snippet[ki: ki + 400]).strip()
                             break
 
-            if ales_score_val.strip() and re.sub(r"[^0-9]", "", ales_score_val) and primary_title not in ALES_EXEMPT_TITLES:
-                digits = re.sub(r"[^0-9]", "", ales_score_val)
-                ales = {"alesRequired": True, "alesScore": int(digits) if digits else None, "alesType": ales_type_val.strip() or None}
+            col_ales = parse_score(ales_score_val, ALES_RANGE)
+            if col_ales is not None and primary_title not in ALES_EXEMPT_TITLES:
+                ales = {"alesRequired": True, "alesScore": col_ales, "alesType": ales_type_val.strip() or None}
             else:
                 ales = extract_ales(req, primary_title)
                 if not ales["alesRequired"]: ales = extract_ales(full_text, primary_title)
 
-            if lang_score_val.strip() and re.sub(r"[^0-9]", "", lang_score_val):
-                digits = re.sub(r"[^0-9]", "", lang_score_val)
-                lang = {"foreignLanguageRequired": True, "foreignLanguageScore": int(digits) if digits else None, "foreignLanguageExam": None}
+            col_lang = parse_score(lang_score_val, LANG_RANGE)
+            if col_lang is not None:
+                lang = {"foreignLanguageRequired": True, "foreignLanguageScore": col_lang, "foreignLanguageExam": None}
             else:
                 lang = extract_language(req, primary_title)
                 if not lang["foreignLanguageRequired"]: lang = extract_language(full_text, primary_title)
@@ -955,19 +1009,35 @@ def parse_positions_from_text(content_html: str, full_text: str) -> list:
 
 
 # ── API calls ─────────────────────────────────────────────────────────────────────────────
+class FetchError(RuntimeError):
+    """ilan.gov.tr could not be reached. Distinct from 'there is nothing new'."""
+
+
 def fetch_listing(skip_count: int) -> dict | None:
     body = {"keys": {"txv": [TAX_ID]}, "skipCount": skip_count, "maxResultCount": PAGE_SIZE}
-    try:
-        r = _session.post(LISTING_URL, json=body, timeout=TIMEOUT, verify=VERIFY_SSL)
-        r.raise_for_status()
-        return r.json().get("result")
-    except Exception as e:
-        log.error(f"Listing fetch failed (skip={skip_count}): {e}")
-        return None
+    last = None
+    for attempt in range(1, 4):
+        try:
+            r = _session.post(_via(LISTING_URL), json=body, timeout=TIMEOUT, verify=VERIFY_SSL)
+            if r.status_code in (403, 429, 503):
+                # Rate limiting or bot protection - back off and try again
+                last = f"HTTP {r.status_code}"
+                wait = attempt * 5
+                log.warning(f"Listing {last} (attempt {attempt}/3) - retrying in {wait}s")
+                time.sleep(wait)
+                continue
+            r.raise_for_status()
+            return r.json().get("result")
+        except Exception as e:
+            last = str(e)
+            log.warning(f"Listing attempt {attempt}/3 failed: {e}")
+            if attempt < 3:
+                time.sleep(attempt * 5)
+    raise FetchError(f"Listing fetch failed after 3 attempts (skip={skip_count}): {last}")
 
 def fetch_detail(ad_id: str) -> dict | None:
     try:
-        r = _session.get(DETAIL_URL, params={"id": ad_id}, timeout=TIMEOUT, verify=VERIFY_SSL)
+        r = _session.get(_via(DETAIL_URL), params={"id": ad_id}, timeout=TIMEOUT, verify=VERIFY_SSL)
         r.raise_for_status()
         return r.json().get("result")
     except Exception as e:
@@ -1085,7 +1155,17 @@ def main():
     stop = False
 
     while not stop and budget_ok():
-        result = fetch_listing(skip_count)
+        try:
+            result = fetch_listing(skip_count)
+        except FetchError as e:
+            # A blocked or unreachable API must NOT look like "nothing new".
+            # Exiting 0 here previously turned a 403 into a green run.
+            log.error(str(e))
+            if skip_count == 0:
+                log.error("Could not reach ilan.gov.tr at all - failing the run.")
+                raise SystemExit(2)
+            log.warning("Stopping pagination early; keeping what was collected.")
+            break
         if not result: break
 
         total = result.get("numFound", 0)
@@ -1124,7 +1204,8 @@ def main():
         if skip_count >= total: break
 
     if not new_ads:
-        log.info(f"=== No new ads. Done in {int(time.time()-_start_time)}s ===")
+        log.info(f"=== No new ads (API reachable, nothing unseen). "
+                 f"Done in {int(time.time()-_start_time)}s ===")
         return
 
     now = datetime.now(timezone.utc).isoformat()
