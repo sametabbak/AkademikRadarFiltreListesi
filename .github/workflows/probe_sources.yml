@@ -1,10 +1,8 @@
 name: Probe data sources
 
-# Round 4. Round 3 was invalid: curl returned 000 (no connection) because
-# ilan.gov.tr's TLS chain is broken and curl needs -k, and the failing step
-# aborted before the httpx / curl_cffi tests ran at all.
-# Fixed here: -k on curl, and each client in its own step that cannot block
-# the others.
+# Round 5. The browser's request (Copy as cURL) carries a custom header,
+# X-Request-Origin: IGT-UI, which no earlier probe sent. This runs on GitHub's
+# own servers: if it succeeds here, no self-hosted runner is needed at all.
 on:
   workflow_dispatch:
 
@@ -12,83 +10,59 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      LIST: https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter
-      DET:  https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289
-      BODY: '{"keys":{"txv":[73]},"skipCount":0,"maxResultCount":1}'
-      UA:   Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-
     steps:
-      - name: Install clients
-        continue-on-error: true
-        run: pip install requests "httpx[http2]" curl_cffi --quiet
+      - name: Install requests
+        run: pip install requests --quiet
 
-      - name: curl (OpenSSL TLS)
-        continue-on-error: true
-        shell: bash
-        run: |
-          set +e
-          echo "-k is required: the site's certificate chain does not verify"
-          curl -sk -o /dev/null -w "  POST http1.1 -> %{http_code}\n" \
-            -X POST "$LIST" -H "Content-Type: application/json-patch+json" \
-            -H "User-Agent: $UA" -d "$BODY" --max-time 25
-          curl -sk --http2 -o /dev/null -w "  POST http2   -> %{http_code}\n" \
-            -X POST "$LIST" -H "Content-Type: application/json-patch+json" \
-            -H "User-Agent: $UA" -d "$BODY" --max-time 25
-          curl -sk --http2 -o /tmp/d.json -w "  GET  http2   -> %{http_code}  %{size_download} B\n" \
-            "$DET" -H "User-Agent: $UA" --max-time 25
-          echo "  body starts: $(head -c 120 /tmp/d.json 2>/dev/null)"
-          exit 0
-
-      - name: httpx with HTTP/2
-        continue-on-error: true
+      - name: Test the IGT-UI header
         shell: bash
         run: |
           python3 - <<'PY'
-          import httpx, os, json
-          BODY=json.loads(os.environ["BODY"]); UA=os.environ["UA"]
-          try:
-              with httpx.Client(http2=True, verify=False, timeout=25) as c:
-                  r=c.post(os.environ["LIST"], json=BODY,
-                           headers={"User-Agent":UA,"Content-Type":"application/json-patch+json"})
-                  print(f"  POST -> {r.status_code}  (negotiated {r.http_version})")
-                  if r.status_code==200: print("  numFound:", r.json()["result"]["numFound"])
-          except Exception as e: print("  error:", type(e).__name__, e)
-          PY
+          import requests, urllib3
+          urllib3.disable_warnings()
+          LIST = "https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter"
+          DET  = "https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289"
+          BODY = {"keys": {"txv": [73]}, "skipCount": 0, "maxResultCount": 12}
 
-      - name: curl_cffi impersonating Chrome
-        continue-on-error: true
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          import os, json
-          from curl_cffi import requests as cr
-          BODY=json.loads(os.environ["BODY"])
-          LIST=os.environ["LIST"]; DET=os.environ["DET"]
-          for imp in ("chrome131","chrome124","chrome120","chrome110","safari17_0"):
+          FULL = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:156.0) Gecko/20100101 Firefox/156.0",
+            "Accept": "text/plain",
+            "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
+            "Content-Type": "application/json-patch+json",
+            "Pragma": "no-cache", "Cache-Control": "no-cache",
+            "Expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-Request-Origin": "IGT-UI",
+            "Origin": "https://www.ilan.gov.tr",
+            "Referer": "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari",
+            "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin",
+          }
+          MINIMAL = {"Content-Type": "application/json-patch+json", "X-Request-Origin": "IGT-UI"}
+          WITHOUT = {k: v for k, v in FULL.items() if k != "X-Request-Origin"}
+
+          def run(label, headers):
               try:
-                  r=cr.post(LIST, json=BODY, impersonate=imp, timeout=25, verify=False)
-                  extra=""
-                  if r.status_code==200:
-                      try: extra=f"  numFound={r.json()['result']['numFound']}"
-                      except Exception: extra=f"  {len(r.content)}B"
-                  print(f"  POST as {imp:<12} -> {r.status_code}{extra}")
-                  if r.status_code==200:
-                      d=cr.get(DET, impersonate=imp, timeout=25, verify=False)
-                      print(f"  GET  detail as {imp} -> {d.status_code}  {len(d.content):,} bytes")
-                      print("  >>> WORKING CLIENT FOUND:", imp)
-                      break
+                  r = requests.post(LIST, json=BODY, headers=headers, timeout=25, verify=False)
+                  extra = ""
+                  if r.status_code == 200:
+                      res = r.json().get("result", {})
+                      extra = f"  numFound={res.get('numFound')}  ads={len(res.get('ads', []))}"
+                  print(f"  {label:<44} POST -> {r.status_code}{extra}")
+                  return r.status_code == 200
               except Exception as e:
-                  print(f"  {imp:<12} error: {type(e).__name__}: {e}")
-          PY
+                  print(f"  {label:<44} error: {type(e).__name__}: {e}")
+                  return False
 
-      - name: Resmî Gazete control
-        continue-on-error: true
-        shell: bash
-        run: |
-          set +e
-          for u in "https://www.resmigazete.gov.tr/" \
-                   "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2022/12/20221231-4.htm"; do
-            curl -sk -o /dev/null -w "  %{http_code}  %{size_download} B  $u\n" "$u" --max-time 25
-          done
-          exit 0
+          print("Which header is the gate?\n")
+          full_ok = run("full browser headers", FULL)
+          run("full headers WITHOUT X-Request-Origin", WITHOUT)
+          run("only Content-Type + X-Request-Origin", MINIMAL)
+
+          if full_ok:
+              d = requests.get(DET, headers=FULL, timeout=25, verify=False)
+              n = len(((d.json().get("result") or {}).get("content") or "")) if d.status_code == 200 else 0
+              print(f"\n  detail GET with full headers -> {d.status_code}  content {n:,} chars")
+              print("\n  >>> GitHub-hosted runners CAN use the API. No PC needed.")
+          else:
+              print("\n  >>> Still blocked from GitHub's servers - keep the self-hosted runner.")
+          PY
