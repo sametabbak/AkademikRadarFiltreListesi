@@ -1,12 +1,10 @@
 name: Probe data sources
 
-# Round 3. Rounds 1-2 established:
-#   - ilan.gov.tr category page: 200  (so the IP is not blocked)
-#   - /api/ paths: 403 regardless of headers, and the page sets no cookies
-#   - the 403 comes from Kong with an empty body, before IIS
-# What still differs between a browser and Python is the TLS handshake
-# fingerprint (JA3/JA4) and the HTTP version. These clients each present a
-# different fingerprint, so whichever succeeds identifies the filter.
+# Round 4. Round 3 was invalid: curl returned 000 (no connection) because
+# ilan.gov.tr's TLS chain is broken and curl needs -k, and the failing step
+# aborted before the httpx / curl_cffi tests ran at all.
+# Fixed here: -k on curl, and each client in its own step that cannot block
+# the others.
 on:
   workflow_dispatch:
 
@@ -14,63 +12,83 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      LIST: https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter
+      DET:  https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289
+      BODY: '{"keys":{"txv":[73]},"skipCount":0,"maxResultCount":1}'
+      UA:   Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+
     steps:
       - name: Install clients
-        run: pip install requests httpx[http2] curl_cffi --quiet
+        continue-on-error: true
+        run: pip install requests "httpx[http2]" curl_cffi --quiet
 
-      - name: Probe TLS / protocol fingerprints
+      - name: curl (OpenSSL TLS)
+        continue-on-error: true
         shell: bash
         run: |
-          LIST="https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter"
-          DET="https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289"
-          BODY='{"keys":{"txv":[73]},"skipCount":0,"maxResultCount":1}'
-          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
-
-          echo "=== curl CLI — OpenSSL fingerprint, HTTP/1.1 ==="
-          curl -s -o /dev/null -w "  POST http1.1 -> %{http_code}\n" \
+          set +e
+          echo "-k is required: the site's certificate chain does not verify"
+          curl -sk -o /dev/null -w "  POST http1.1 -> %{http_code}\n" \
             -X POST "$LIST" -H "Content-Type: application/json-patch+json" \
-            -H "User-Agent: $UA" -d "$BODY" --max-time 25 || true
-
-          echo "=== curl CLI — HTTP/2 ==="
-          curl -s --http2 -o /dev/null -w "  POST http2   -> %{http_code}\n" \
+            -H "User-Agent: $UA" -d "$BODY" --max-time 25
+          curl -sk --http2 -o /dev/null -w "  POST http2   -> %{http_code}\n" \
             -X POST "$LIST" -H "Content-Type: application/json-patch+json" \
-            -H "User-Agent: $UA" -d "$BODY" --max-time 25 || true
+            -H "User-Agent: $UA" -d "$BODY" --max-time 25
+          curl -sk --http2 -o /tmp/d.json -w "  GET  http2   -> %{http_code}  %{size_download} B\n" \
+            "$DET" -H "User-Agent: $UA" --max-time 25
+          echo "  body starts: $(head -c 120 /tmp/d.json 2>/dev/null)"
+          exit 0
 
-          echo "=== curl CLI — GET detail, HTTP/2 ==="
-          curl -s --http2 -o /tmp/det.json -w "  GET  http2   -> %{http_code}  %{size_download} bytes\n" \
-            "$DET" -H "User-Agent: $UA" --max-time 25 || true
-          head -c 160 /tmp/det.json 2>/dev/null; echo
-
+      - name: httpx with HTTP/2
+        continue-on-error: true
+        shell: bash
+        run: |
           python3 - <<'PY'
-          import json
-          BODY={"keys":{"txv":[73]},"skipCount":0,"maxResultCount":1}
-          LIST="https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter"
-          DET="https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289"
-          UA=("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-              "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36")
-
-          print("\n=== httpx with HTTP/2 ===")
+          import httpx, os, json
+          BODY=json.loads(os.environ["BODY"]); UA=os.environ["UA"]
           try:
-              import httpx
               with httpx.Client(http2=True, verify=False, timeout=25) as c:
-                  r=c.post(LIST, json=BODY, headers={"User-Agent":UA,
-                           "Content-Type":"application/json-patch+json"})
+                  r=c.post(os.environ["LIST"], json=BODY,
+                           headers={"User-Agent":UA,"Content-Type":"application/json-patch+json"})
                   print(f"  POST -> {r.status_code}  (negotiated {r.http_version})")
+                  if r.status_code==200: print("  numFound:", r.json()["result"]["numFound"])
           except Exception as e: print("  error:", type(e).__name__, e)
+          PY
 
-          print("\n=== curl_cffi impersonating Chrome (browser TLS fingerprint) ===")
-          for target in ("chrome124", "chrome120", "chrome110"):
+      - name: curl_cffi impersonating Chrome
+        continue-on-error: true
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os, json
+          from curl_cffi import requests as cr
+          BODY=json.loads(os.environ["BODY"])
+          LIST=os.environ["LIST"]; DET=os.environ["DET"]
+          for imp in ("chrome131","chrome124","chrome120","chrome110","safari17_0"):
               try:
-                  from curl_cffi import requests as cr
-                  r=cr.post(LIST, json=BODY, impersonate=target, timeout=25, verify=False)
+                  r=cr.post(LIST, json=BODY, impersonate=imp, timeout=25, verify=False)
                   extra=""
                   if r.status_code==200:
                       try: extra=f"  numFound={r.json()['result']['numFound']}"
                       except Exception: extra=f"  {len(r.content)}B"
-                  print(f"  POST as {target:<10} -> {r.status_code}{extra}")
+                  print(f"  POST as {imp:<12} -> {r.status_code}{extra}")
                   if r.status_code==200:
-                      d=cr.get(DET, impersonate=target, timeout=25, verify=False)
-                      print(f"  GET  detail          -> {d.status_code}  {len(d.content):,} bytes")
+                      d=cr.get(DET, impersonate=imp, timeout=25, verify=False)
+                      print(f"  GET  detail as {imp} -> {d.status_code}  {len(d.content):,} bytes")
+                      print("  >>> WORKING CLIENT FOUND:", imp)
                       break
-              except Exception as e: print(f"  {target}: error", type(e).__name__, e)
+              except Exception as e:
+                  print(f"  {imp:<12} error: {type(e).__name__}: {e}")
           PY
+
+      - name: Resmî Gazete control
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          for u in "https://www.resmigazete.gov.tr/" \
+                   "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2022/12/20221231-4.htm"; do
+            curl -sk -o /dev/null -w "  %{http_code}  %{size_download} B  $u\n" "$u" --max-time 25
+          done
+          exit 0
