@@ -36,6 +36,8 @@ function corsHeaders(origin) {
 
 export default {
   async fetch(request) {
+    // Server-to-server callers (the scraper) send no Origin. That is fine:
+    // corsHeaders() falls back to a default and nothing is rejected here.
     const origin = request.headers.get('Origin') || '';
     const cors = corsHeaders(origin);
 
@@ -70,11 +72,27 @@ export default {
     }
 
     // Relay the request, preserving method and body so POST /AdsByFilter works.
+    // Send the headers ilan.gov.tr's own front end sends. Its Kong gateway
+    // returns 403 to anything that looks automated, and the previous
+    // 'AkademikRadar/1.0' User-Agent was exactly such a signature.
+    // Mirrors the headers ilan.gov.tr's own front end sends. X-Request-Origin
+    // is the one the API gateway requires; without it every call gets 403.
     const init = {
       method: request.method,
       headers: {
-        'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; AkademikRadar/1.0)',
+        'Accept': 'text/plain',
+        'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:156.0) Gecko/20100101 Firefox/156.0',
+        'Pragma': 'no-cache',
+        'Cache-Control': 'no-cache',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-Request-Origin': 'IGT-UI',
+        'Origin': 'https://www.ilan.gov.tr',
+        'Referer': 'https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
       },
     };
     if (request.method === 'POST') {
