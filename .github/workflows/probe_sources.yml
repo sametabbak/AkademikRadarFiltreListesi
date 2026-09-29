@@ -1,9 +1,12 @@
 name: Probe data sources
 
-# Round 2. Round 1 showed ilan.gov.tr itself returns 200 while only the /api/
-# paths return 403 — so this is not IP blocking. The most likely cause is a
-# session requirement: load a page first, collect cookies, then call the API
-# with them. Each strategy below is tried in turn.
+# Round 3. Rounds 1-2 established:
+#   - ilan.gov.tr category page: 200  (so the IP is not blocked)
+#   - /api/ paths: 403 regardless of headers, and the page sets no cookies
+#   - the 403 comes from Kong with an empty body, before IIS
+# What still differs between a browser and Python is the TLS handshake
+# fingerprint (JA3/JA4) and the HTTP version. These clients each present a
+# different fingerprint, so whichever succeeds identifies the filter.
 on:
   workflow_dispatch:
 
@@ -12,79 +15,62 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Install requests
-        run: pip install requests --quiet
+      - name: Install clients
+        run: pip install requests httpx[http2] curl_cffi --quiet
 
-      - name: Probe API access strategies
+      - name: Probe TLS / protocol fingerprints
         shell: bash
         run: |
+          LIST="https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter"
+          DET="https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289"
+          BODY='{"keys":{"txv":[73]},"skipCount":0,"maxResultCount":1}'
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
+
+          echo "=== curl CLI — OpenSSL fingerprint, HTTP/1.1 ==="
+          curl -s -o /dev/null -w "  POST http1.1 -> %{http_code}\n" \
+            -X POST "$LIST" -H "Content-Type: application/json-patch+json" \
+            -H "User-Agent: $UA" -d "$BODY" --max-time 25 || true
+
+          echo "=== curl CLI — HTTP/2 ==="
+          curl -s --http2 -o /dev/null -w "  POST http2   -> %{http_code}\n" \
+            -X POST "$LIST" -H "Content-Type: application/json-patch+json" \
+            -H "User-Agent: $UA" -d "$BODY" --max-time 25 || true
+
+          echo "=== curl CLI — GET detail, HTTP/2 ==="
+          curl -s --http2 -o /tmp/det.json -w "  GET  http2   -> %{http_code}  %{size_download} bytes\n" \
+            "$DET" -H "User-Agent: $UA" --max-time 25 || true
+          head -c 160 /tmp/det.json 2>/dev/null; echo
+
           python3 - <<'PY'
-          import json, requests, urllib3
-          urllib3.disable_warnings()
+          import json
+          BODY={"keys":{"txv":[73]},"skipCount":0,"maxResultCount":1}
+          LIST="https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter"
+          DET="https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289"
+          UA=("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36")
 
-          CAT  = "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari"
-          LIST = "https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter"
-          DET  = "https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289"
-          BODY = {"keys": {"txv": [73]}, "skipCount": 0, "maxResultCount": 1}
-
-          UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36")
-
-          def show(name, r):
-              ok = r.status_code == 200
-              extra = ""
-              if ok:
-                  try:
-                      j = r.json()
-                      n = (j.get("result") or {}).get("numFound")
-                      extra = f"  numFound={n}" if n is not None else "  (json ok)"
-                  except Exception:
-                      extra = f"  non-json {len(r.content)}B"
-              print(f"  {name:<46}{r.status_code}{extra}")
-              return ok
-
-          print("STRATEGY 1 — plain API call (what the scraper does today)")
-          s = requests.Session()
-          s.headers.update({"User-Agent": UA, "Accept": "application/json, text/plain, */*",
-                            "Accept-Language": "tr-TR,tr;q=0.9",
-                            "Content-Type": "application/json-patch+json",
-                            "Origin": "https://www.ilan.gov.tr", "Referer": CAT})
-          try: show("POST AdsByFilter", s.post(LIST, json=BODY, timeout=25, verify=False))
-          except Exception as e: print("  error:", e)
-
-          print("\nSTRATEGY 2 — load the page first, reuse its cookies")
-          s2 = requests.Session()
-          s2.headers.update({"User-Agent": UA, "Accept-Language": "tr-TR,tr;q=0.9"})
+          print("\n=== httpx with HTTP/2 ===")
           try:
-              page = s2.get(CAT, timeout=25, verify=False)
-              print(f"  GET category page                             {page.status_code}"
-                    f"  cookies={list(s2.cookies.keys())}")
-              s2.headers.update({"Accept": "application/json, text/plain, */*",
-                                 "Content-Type": "application/json-patch+json",
-                                 "Origin": "https://www.ilan.gov.tr", "Referer": CAT,
-                                 "X-Requested-With": "XMLHttpRequest"})
-              show("POST AdsByFilter (with cookies)", s2.post(LIST, json=BODY, timeout=25, verify=False))
-              show("GET  GetAdDetail (with cookies)", s2.get(DET, timeout=25, verify=False))
-          except Exception as e: print("  error:", e)
+              import httpx
+              with httpx.Client(http2=True, verify=False, timeout=25) as c:
+                  r=c.post(LIST, json=BODY, headers={"User-Agent":UA,
+                           "Content-Type":"application/json-patch+json"})
+                  print(f"  POST -> {r.status_code}  (negotiated {r.http_version})")
+          except Exception as e: print("  error:", type(e).__name__, e)
 
-          print("\nSTRATEGY 3 — minimal headers (no Origin/Referer/Sec-*)")
-          try:
-              r = requests.post(LIST, json=BODY, timeout=25, verify=False,
-                                headers={"User-Agent": UA, "Content-Type": "application/json-patch+json"})
-              show("POST AdsByFilter", r)
-          except Exception as e: print("  error:", e)
-
-          print("\nSTRATEGY 4 — no custom headers at all")
-          try: show("POST AdsByFilter", requests.post(LIST, json=BODY, timeout=25, verify=False))
-          except Exception as e: print("  error:", e)
-
-          print("\nDIAGNOSTIC — what does the 403 body actually say?")
-          try:
-              r = requests.post(LIST, json=BODY, timeout=25, verify=False,
-                                headers={"User-Agent": UA, "Content-Type": "application/json-patch+json"})
-              print("  status:", r.status_code)
-              for k in ("server", "via", "cf-ray", "x-kong-response-latency", "content-type"):
-                  if k in r.headers: print(f"  {k}: {r.headers[k]}")
-              print("  body:", r.text[:400].replace("\n", " "))
-          except Exception as e: print("  error:", e)
+          print("\n=== curl_cffi impersonating Chrome (browser TLS fingerprint) ===")
+          for target in ("chrome124", "chrome120", "chrome110"):
+              try:
+                  from curl_cffi import requests as cr
+                  r=cr.post(LIST, json=BODY, impersonate=target, timeout=25, verify=False)
+                  extra=""
+                  if r.status_code==200:
+                      try: extra=f"  numFound={r.json()['result']['numFound']}"
+                      except Exception: extra=f"  {len(r.content)}B"
+                  print(f"  POST as {target:<10} -> {r.status_code}{extra}")
+                  if r.status_code==200:
+                      d=cr.get(DET, impersonate=target, timeout=25, verify=False)
+                      print(f"  GET  detail          -> {d.status_code}  {len(d.content):,} bytes")
+                      break
+              except Exception as e: print(f"  {target}: error", type(e).__name__, e)
           PY
