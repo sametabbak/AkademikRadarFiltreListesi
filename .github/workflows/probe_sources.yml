@@ -1,9 +1,9 @@
 name: Probe data sources
 
-# One-off diagnostic: which Turkish sources will a GitHub-hosted runner reach?
-# ilan.gov.tr returns 403 to this runner; this checks whether that is specific
-# to ilan.gov.tr or applies to the alternatives too, so the decision about
-# where to run the scraper is based on evidence rather than assumption.
+# Round 2. Round 1 showed ilan.gov.tr itself returns 200 while only the /api/
+# paths return 403 — so this is not IP blocking. The most likely cause is a
+# session requirement: load a page first, collect cookies, then call the API
+# with them. Each strategy below is tried in turn.
 on:
   workflow_dispatch:
 
@@ -12,56 +12,79 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Probe
+      - name: Install requests
+        run: pip install requests --quiet
+
+      - name: Probe API access strategies
         shell: bash
         run: |
           python3 - <<'PY'
-          import json, urllib.request, urllib.error, ssl
-          ctx = ssl.create_default_context()
-          ctx.check_hostname = False
-          ctx.verify_mode = ssl.CERT_NONE
+          import json, requests, urllib3
+          urllib3.disable_warnings()
 
-          BROWSER = {
-            "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                           "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"),
-            "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
-            "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8",
-          }
+          CAT  = "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari"
+          LIST = "https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter"
+          DET  = "https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289"
+          BODY = {"keys": {"txv": [73]}, "skipCount": 0, "maxResultCount": 1}
 
-          targets = [
-            ("ilan.gov.tr  listing API (POST)",
-             "https://www.ilan.gov.tr/api/api/services/app/Ad/AdsByFilter",
-             json.dumps({"keys":{"txv":[73]},"skipCount":0,"maxResultCount":1}).encode()),
-            ("ilan.gov.tr  detail API (GET)",
-             "https://www.ilan.gov.tr/api/api/services/app/AdDetail/GetAdDetail?id=2094289", None),
-            ("ilan.gov.tr  category page (GET)",
-             "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari", None),
-            ("resmigazete.gov.tr  home",
-             "https://www.resmigazete.gov.tr/", None),
-            ("resmigazete.gov.tr  ilan index .htm",
-             "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2022/12/20221231-4.htm", None),
-            ("resmigazete.gov.tr  ilan PDF",
-             "https://www.resmigazete.gov.tr/ilanlar/eskiilanlar/2022/07/20220727-4-19.pdf", None),
-            ("raw.githubusercontent (control)",
-             "https://raw.githubusercontent.com/sametabbak/AkademikRadarFiltreListesi/refs/heads/main/pending.json", None),
-          ]
+          UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36")
 
-          print(f"{'source':<40}{'status':<10}{'bytes':>10}")
-          print("-" * 62)
-          for label, url, body in targets:
-              hdrs = dict(BROWSER)
-              if body:
-                  hdrs["Content-Type"] = "application/json-patch+json"
-                  hdrs["Origin"] = "https://www.ilan.gov.tr"
-                  hdrs["Referer"] = "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari"
-              req = urllib.request.Request(url, data=body, headers=hdrs,
-                                           method="POST" if body else "GET")
-              try:
-                  with urllib.request.urlopen(req, timeout=25, context=ctx) as r:
-                      data = r.read()
-                      print(f"{label:<40}{r.status:<10}{len(data):>10,}")
-              except urllib.error.HTTPError as e:
-                  print(f"{label:<40}{e.code:<10}{'-':>10}   {e.reason}")
-              except Exception as e:
-                  print(f"{label:<40}{'ERR':<10}{'-':>10}   {type(e).__name__}: {e}")
+          def show(name, r):
+              ok = r.status_code == 200
+              extra = ""
+              if ok:
+                  try:
+                      j = r.json()
+                      n = (j.get("result") or {}).get("numFound")
+                      extra = f"  numFound={n}" if n is not None else "  (json ok)"
+                  except Exception:
+                      extra = f"  non-json {len(r.content)}B"
+              print(f"  {name:<46}{r.status_code}{extra}")
+              return ok
+
+          print("STRATEGY 1 — plain API call (what the scraper does today)")
+          s = requests.Session()
+          s.headers.update({"User-Agent": UA, "Accept": "application/json, text/plain, */*",
+                            "Accept-Language": "tr-TR,tr;q=0.9",
+                            "Content-Type": "application/json-patch+json",
+                            "Origin": "https://www.ilan.gov.tr", "Referer": CAT})
+          try: show("POST AdsByFilter", s.post(LIST, json=BODY, timeout=25, verify=False))
+          except Exception as e: print("  error:", e)
+
+          print("\nSTRATEGY 2 — load the page first, reuse its cookies")
+          s2 = requests.Session()
+          s2.headers.update({"User-Agent": UA, "Accept-Language": "tr-TR,tr;q=0.9"})
+          try:
+              page = s2.get(CAT, timeout=25, verify=False)
+              print(f"  GET category page                             {page.status_code}"
+                    f"  cookies={list(s2.cookies.keys())}")
+              s2.headers.update({"Accept": "application/json, text/plain, */*",
+                                 "Content-Type": "application/json-patch+json",
+                                 "Origin": "https://www.ilan.gov.tr", "Referer": CAT,
+                                 "X-Requested-With": "XMLHttpRequest"})
+              show("POST AdsByFilter (with cookies)", s2.post(LIST, json=BODY, timeout=25, verify=False))
+              show("GET  GetAdDetail (with cookies)", s2.get(DET, timeout=25, verify=False))
+          except Exception as e: print("  error:", e)
+
+          print("\nSTRATEGY 3 — minimal headers (no Origin/Referer/Sec-*)")
+          try:
+              r = requests.post(LIST, json=BODY, timeout=25, verify=False,
+                                headers={"User-Agent": UA, "Content-Type": "application/json-patch+json"})
+              show("POST AdsByFilter", r)
+          except Exception as e: print("  error:", e)
+
+          print("\nSTRATEGY 4 — no custom headers at all")
+          try: show("POST AdsByFilter", requests.post(LIST, json=BODY, timeout=25, verify=False))
+          except Exception as e: print("  error:", e)
+
+          print("\nDIAGNOSTIC — what does the 403 body actually say?")
+          try:
+              r = requests.post(LIST, json=BODY, timeout=25, verify=False,
+                                headers={"User-Agent": UA, "Content-Type": "application/json-patch+json"})
+              print("  status:", r.status_code)
+              for k in ("server", "via", "cf-ray", "x-kong-response-latency", "content-type"):
+                  if k in r.headers: print(f"  {k}: {r.headers[k]}")
+              print("  body:", r.text[:400].replace("\n", " "))
+          except Exception as e: print("  error:", e)
           PY
