@@ -1,97 +1,129 @@
 name: Daily Academic Announcements Scraper
 
+# ilan.gov.tr's /api/ routes return 403 to GitHub-hosted runners, while a
+# Turkish home connection is accepted. So this runs on a self-hosted runner
+# on Samet's PC. The scraper collects every ad it has not seen before, so a
+# run that is delayed or skipped loses nothing - the next run picks it all up.
+
 on:
   schedule:
-    # GitHub's free-tier scheduler silently DROPS runs when the runner pool is
-    # busy - no failure, no notification. With a single daily cron, one dropped
-    # slot means a missed day. Three spread-out attempts make that unlikely.
-    # When nothing is new a run exits in ~15s and commits nothing, so the extra
-    # attempts cost almost nothing against the 2000 free minutes/month.
-    # Offset minutes are deliberate: on-the-hour slots are dropped first.
-    - cron: '15 21 * * *'    # 00:15 TR - main run, just after Resmi Gazete
-    - cron: '17 4 * * *'    # 07:17 TR - catches a dropped morning slot
-    - cron: '10 16 * * *'   # 19:10 TR - late safety net
+    - cron: '15 21 * * *'   # 00:15 TR
+    - cron: '17 4 * * *'    # 07:17 TR  - main run, after Resmi Gazete
+    - cron: '10 16 * * *'   # 19:10 TR
   workflow_dispatch:
 
-# Lets the built-in GITHUB_TOKEN push, so PUSH_TOKEN becomes optional.
 permissions:
-  contents: write
+  contents: write           # lets checkout's token push; no PAT needed
 
-# If one run is still going when the next fires, queue it instead of letting
-# both push to the same files.
 concurrency:
   group: scraper
   cancel-in-progress: false
 
 jobs:
   scrape:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 20
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+      # Pick a real Python; skip the Microsoft Store alias and bundled copies.
+      - name: Locate Python
+        shell: powershell
+        run: |
+          $found = $null
+          foreach ($reg in @("HKLM:\SOFTWARE\Python\PythonCore","HKCU:\SOFTWARE\Python\PythonCore")) {
+            if (Test-Path $reg) {
+              foreach ($ver in (Get-ChildItem $reg | Sort-Object Name -Descending)) {
+                $ip = (Get-ItemProperty "$($ver.PSPath)\InstallPath" -ErrorAction SilentlyContinue).'(default)'
+                if ($ip) {
+                  $c = Join-Path $ip "python.exe"
+                  if ((Test-Path $c) -and ($c -notlike "*WindowsApps*") -and ($c -notlike "*GIMP*")) { $found = $c; break }
+                }
+              }
+            }
+            if ($found) { break }
+          }
+          if (-not $found) {
+            $found = (& where.exe python 2>$null) |
+                     Where-Object { $_ -notlike "*WindowsApps*" -and $_ -notlike "*GIMP*" } |
+                     Select-Object -First 1
+          }
+          if (-not $found) {
+            Write-Host "::error::Python bulunamadi. Python'u 'Install for all users' ile kurun veya runner servisini kendi kullanici hesabinizla calistirin."
+            exit 1
+          }
+          Write-Host "Python: $found"
+          & "$found" --version
+          # Windows PowerShell 5.1: '>>' writes UTF-16, which the runner cannot
+          # read, so the variable would silently never be set. Use UTF-8.
+          "PYTHON_EXE=$found" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - name: Install dependencies
-        run: pip install -r scraper/requirements.txt
+        shell: powershell
+        run: |
+          & "$env:PYTHON_EXE" -m pip install --upgrade pip --quiet --disable-pip-version-check
+          & "$env:PYTHON_EXE" -m pip install -r scraper/requirements.txt --quiet --disable-pip-version-check
 
       - name: Run scraper
-        # pipefail is essential: GitHub runs `run:` with `bash -e` but WITHOUT
-        # pipefail, so `python ... | tee` would report tee's exit code (always 0)
-        # and a crashing scraper would show up as a green run with no commit.
-        shell: bash
+        shell: powershell
         env:
-          PANEL_MODE: "1"          # new ads -> pending.json for panel review
+          PANEL_MODE: "1"
+          PYTHONUTF8: "1"
+          PYTHONIOENCODING: "utf-8"
         run: |
-          set -o pipefail
-          python scraper/scrape.py 2>&1 | tee /tmp/scrape.log
+          $log = Join-Path $env:TEMP "scrape.log"
+          # Redirect through cmd, not PowerShell: in PowerShell 5.1, '2>&1' turns
+          # every stderr line (all of Python's logging) into an error record and
+          # aborts the step on the first log line.
+          cmd /c "`"$env:PYTHON_EXE`" scraper\scrape.py > `"$log`" 2>&1"
+          $code = $LASTEXITCODE
+          Get-Content $log -Encoding UTF8
+          if ($code -ne 0) {
+            Write-Host "::error::Scraper exit code $code"
+            exit $code
+          }
 
-      # Makes a "nothing new" run visibly different from a real failure
-      # on the Actions summary page, instead of both looking like silence.
       - name: Summarise outcome
         if: always()
-        shell: bash
+        shell: powershell
         run: |
-          echo "### Scraper sonucu" >> $GITHUB_STEP_SUMMARY
-          if [ ! -s /tmp/scrape.log ]; then
-            echo "**Log bos** - scraper hic calismamis olabilir." >> $GITHUB_STEP_SUMMARY
-            exit 0
-          fi
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          tail -n 12 /tmp/scrape.log >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          if   grep -q "No new ads"       /tmp/scrape.log; then
-            echo "OK: Yeni ilan yok - commit atlandi (hata degil)." >> $GITHUB_STEP_SUMMARY
-          elif grep -q "pending.json"     /tmp/scrape.log; then
-            echo "OK: Yeni ilanlar pending.json dosyasina yazildi." >> $GITHUB_STEP_SUMMARY
-          elif grep -qiE "Traceback|Error|Exception" /tmp/scrape.log; then
-            echo "HATA: Scraper hata verdi - log'a bakin." >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Listeleme istegi sayisi: $(grep -c 'Listing page' /tmp/scrape.log || echo 0)" >> $GITHUB_STEP_SUMMARY
+          $log = Join-Path $env:TEMP "scrape.log"
+          "### Scraper sonucu" | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+          if (Test-Path $log) {
+            '```'                                     | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+            Get-Content $log -Tail 12 -Encoding UTF8  | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+            '```'                                     | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+            $txt = Get-Content $log -Raw -Encoding UTF8
+            if     ($txt -match "No new ads")   { "Yeni ilan yok - commit atlandi (hata degil)."   | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
+            elseif ($txt -match "pending.json") { "Yeni ilanlar pending.json dosyasina yazildi."   | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
+            elseif ($txt -match "403")          { "HATA: ilan.gov.tr 403 dondu."                   | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
+          } else {
+            "**Log bos** - scraper hic calismamis olabilir." | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+          }
 
       - name: Commit and push data files
+        shell: powershell
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # In PANEL_MODE the scraper writes pending.json, so all three
-          # data files must be staged - staging only ilanlar.json silently
-          # discarded every scrape.
           git add ilanlar.json pending.json rejected.json
 
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "chore: scrape update [$(date -u +%Y-%m-%dT%H:%M:%SZ)]"
-            for i in 1 2 3; do
-              git pull --rebase --autostash && git push && echo "Push succeeded." && break
-              echo "Push attempt $i failed, retrying in 5s..."
-              sleep 5
-            done
-          fi
+          git diff --staged --quiet
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "No changes to commit."
+            exit 0
+          }
+          $ts = [System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+          git commit -m "chore: scrape update [$ts]"
+          for ($i = 1; $i -le 3; $i++) {
+            git pull --rebase --autostash
+            git push
+            if ($LASTEXITCODE -eq 0) { Write-Host "Push succeeded."; exit 0 }
+            Write-Host "Push attempt $i failed, retrying in 5s..."
+            Start-Sleep -Seconds 5
+          }
+          Write-Host "::error::Push failed after 3 attempts."
+          exit 1
