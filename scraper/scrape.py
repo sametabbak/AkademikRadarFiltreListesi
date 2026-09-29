@@ -47,11 +47,20 @@ REQUEST_DELAY       = 0.5
 # not look like the site's own front end. Origin/Referer and a complete browser
 # UA string matter; a bare UA is the easiest thing for a WAF to single out.
 HEADERS = {
-    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                   "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"),
-    "Accept": "application/json, text/plain, */*",
-    "Content-Type": "application/json-patch+json",
+    # Mirrors what ilan.gov.tr's own front end sends (captured from the browser).
+    # X-Request-Origin is the key one: the API gateway returns 403 without it.
+    # Accept-Encoding is deliberately NOT copied - the browser advertises br/zstd,
+    # which `requests` cannot decode without extra packages.
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:156.0) "
+                   "Gecko/20100101 Firefox/156.0"),
+    "Accept": "text/plain",
     "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Content-Type": "application/json-patch+json",
+    "Pragma": "no-cache",
+    "Cache-Control": "no-cache",
+    "Expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+    "X-Requested-With": "XMLHttpRequest",
+    "X-Request-Origin": "IGT-UI",
     "Origin": "https://www.ilan.gov.tr",
     "Referer": "https://www.ilan.gov.tr/ilan/kategori/73/akademik-personel-alimlari",
     "Sec-Fetch-Dest": "empty",
