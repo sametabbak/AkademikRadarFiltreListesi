@@ -1,9 +1,10 @@
 name: Daily Academic Announcements Scraper
 
-# ilan.gov.tr's /api/ routes return 403 to GitHub-hosted runners, while a
-# Turkish home connection is accepted. So this runs on a self-hosted runner
-# on Samet's PC. The scraper collects every ad it has not seen before, so a
-# run that is delayed or skipped loses nothing - the next run picks it all up.
+# Scheduled runs use GitHub's own servers. A manual run can be sent to the
+# self-hosted runner on Samet's PC instead, via the dropdown on Run workflow.
+#
+# The API requires the browser's header set, including X-Request-Origin: IGT-UI
+# (see HEADERS in scrape.py). Without it every /api/ call returns 403.
 
 on:
   schedule:
@@ -11,24 +12,93 @@ on:
     - cron: '17 4 * * *'    # 07:17 TR  - main run, after Resmi Gazete
     - cron: '10 16 * * *'   # 19:10 TR
   workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Nerede calissin?'
+        type: choice
+        options: [github, pc]
+        default: github
 
 permissions:
-  contents: write           # lets checkout's token push; no PAT needed
+  contents: write
 
 concurrency:
   group: scraper
   cancel-in-progress: false
 
 jobs:
-  scrape:
-    runs-on: self-hosted
+  # ── GitHub-hosted: every scheduled run, and manual runs set to "github" ───
+  scrape-github:
+    if: github.event_name != 'workflow_dispatch' || inputs.runner == 'github'
+    runs-on: ubuntu-latest
     timeout-minutes: 20
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Pick a real Python; skip the Microsoft Store alias and bundled copies.
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt --quiet
+
+      - name: Run scraper
+        shell: bash
+        env:
+          PANEL_MODE: "1"
+        run: |
+          # pipefail: without it `| tee` reports tee's exit code and a failing
+          # scraper would show as a green run.
+          set -o pipefail
+          python scraper/scrape.py 2>&1 | tee /tmp/scrape.log
+
+      - name: Summarise outcome
+        if: always()
+        shell: bash
+        run: |
+          echo "### Scraper sonucu (GitHub)" >> $GITHUB_STEP_SUMMARY
+          if [ ! -s /tmp/scrape.log ]; then
+            echo "**Log bos** - scraper hic calismamis olabilir." >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -n 12 /tmp/scrape.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          if   grep -q "No new ads"   /tmp/scrape.log; then echo "Yeni ilan yok - commit atlandi (hata degil)." >> $GITHUB_STEP_SUMMARY
+          elif grep -q "pending.json" /tmp/scrape.log; then echo "Yeni ilanlar pending.json dosyasina yazildi." >> $GITHUB_STEP_SUMMARY
+          elif grep -q "403"          /tmp/scrape.log; then echo "HATA: ilan.gov.tr 403 dondu - basliklar degismis olabilir." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Commit and push data files
+        shell: bash
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ilanlar.json pending.json rejected.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: scrape update [$(date -u +%Y-%m-%dT%H:%M:%SZ)]"
+          for i in 1 2 3; do
+            git pull --rebase --autostash && git push && { echo "Push succeeded."; exit 0; }
+            echo "Push attempt $i failed, retrying in 5s..."
+            sleep 5
+          done
+          echo "::error::Push failed after 3 attempts."
+          exit 1
+
+  # ── Self-hosted PC: only when chosen manually ─────────────────────────────
+  scrape-pc:
+    if: github.event_name == 'workflow_dispatch' && inputs.runner == 'pc'
+    runs-on: self-hosted
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Locate Python
         shell: powershell
         run: |
@@ -50,14 +120,10 @@ jobs:
                      Where-Object { $_ -notlike "*WindowsApps*" -and $_ -notlike "*GIMP*" } |
                      Select-Object -First 1
           }
-          if (-not $found) {
-            Write-Host "::error::Python bulunamadi. Python'u 'Install for all users' ile kurun veya runner servisini kendi kullanici hesabinizla calistirin."
-            exit 1
-          }
+          if (-not $found) { Write-Host "::error::Python bulunamadi."; exit 1 }
           Write-Host "Python: $found"
           & "$found" --version
-          # Windows PowerShell 5.1: '>>' writes UTF-16, which the runner cannot
-          # read, so the variable would silently never be set. Use UTF-8.
+          # PowerShell 5.1 '>>' writes UTF-16, which the runner cannot read
           "PYTHON_EXE=$found" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - name: Install dependencies
@@ -74,31 +140,27 @@ jobs:
           PYTHONIOENCODING: "utf-8"
         run: |
           $log = Join-Path $env:TEMP "scrape.log"
-          # Redirect through cmd, not PowerShell: in PowerShell 5.1, '2>&1' turns
-          # every stderr line (all of Python's logging) into an error record and
-          # aborts the step on the first log line.
+          # Redirect via cmd: in PowerShell 5.1 '2>&1' turns Python's log lines
+          # into error records and aborts the step.
           cmd /c "`"$env:PYTHON_EXE`" scraper\scrape.py > `"$log`" 2>&1"
           $code = $LASTEXITCODE
           Get-Content $log -Encoding UTF8
-          if ($code -ne 0) {
-            Write-Host "::error::Scraper exit code $code"
-            exit $code
-          }
+          if ($code -ne 0) { Write-Host "::error::Scraper exit code $code"; exit $code }
 
       - name: Summarise outcome
         if: always()
         shell: powershell
         run: |
           $log = Join-Path $env:TEMP "scrape.log"
-          "### Scraper sonucu" | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+          "### Scraper sonucu (PC)" | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
           if (Test-Path $log) {
-            '```'                                     | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
-            Get-Content $log -Tail 12 -Encoding UTF8  | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
-            '```'                                     | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+            '```'                                    | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+            Get-Content $log -Tail 12 -Encoding UTF8 | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
+            '```'                                    | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
             $txt = Get-Content $log -Raw -Encoding UTF8
-            if     ($txt -match "No new ads")   { "Yeni ilan yok - commit atlandi (hata degil)."   | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
-            elseif ($txt -match "pending.json") { "Yeni ilanlar pending.json dosyasina yazildi."   | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
-            elseif ($txt -match "403")          { "HATA: ilan.gov.tr 403 dondu."                   | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
+            if     ($txt -match "No new ads")   { "Yeni ilan yok - commit atlandi (hata degil)." | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
+            elseif ($txt -match "pending.json") { "Yeni ilanlar pending.json dosyasina yazildi." | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
+            elseif ($txt -match "403")          { "HATA: ilan.gov.tr 403 dondu."                 | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8 }
           } else {
             "**Log bos** - scraper hic calismamis olabilir." | Out-File -Append $env:GITHUB_STEP_SUMMARY -Encoding utf8
           }
@@ -108,14 +170,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           git add ilanlar.json pending.json rejected.json
-
           git diff --staged --quiet
-          if ($LASTEXITCODE -eq 0) {
-            Write-Host "No changes to commit."
-            exit 0
-          }
+          if ($LASTEXITCODE -eq 0) { Write-Host "No changes to commit."; exit 0 }
           $ts = [System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
           git commit -m "chore: scrape update [$ts]"
           for ($i = 1; $i -le 3; $i++) {
