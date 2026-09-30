@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akademik Radar Panel</title>
+<title>AkademikRadar Panel</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -639,7 +639,19 @@ class GitHubAPI{
 
 // Normalise records before writing: empty-string dates become null.
 const SANE={alesScore:[50,100],foreignLanguageScore:[40,100],derece:[1,7],yasSiniri:[18,70]};
+// Remove repeated ilanNo in place, keeping the first (newest) copy.
+// Returns how many were removed. A duplicate in ilanlar.json can stop the
+// mobile app loading entirely, so no save may ever write one.
+function dedupeAds(ads){
+  if(!Array.isArray(ads)) return 0;
+  const seen=new Set(), drop=[];
+  ads.forEach((a,i)=>{ const k=a&&a.ilanNo; if(!k) return;
+    if(seen.has(k)) drop.push(i); else seen.add(k); });
+  for(let i=drop.length-1;i>=0;i--) ads.splice(drop[i],1);
+  return drop.length;
+}
 function sanitizeAds(ads){
+  dedupeAds(ads);
   for(const a of ads||[]){
     for(const f of ['deadline','publishDate'])
       if(a[f]==='') a[f]=null;
@@ -691,7 +703,32 @@ const Store={
   async loadAll(){
     const[p,a,r]=await Promise.all([this.api.getFile('pending.json'),this.api.getFile('ilanlar.json'),this.api.getFile('rejected.json')]);
     if(p)this.pending=p;if(a)this.approved=a;if(r)this.rejected=r;
+    await this.heal();
     this.refresh();
+  },
+
+  // Repair state left by an interrupted operation, every time the panel opens:
+  // duplicates in any list, and ads sitting in pending that are already
+  // approved or rejected. Each fix is written back so it only happens once.
+  async heal(){
+    const notes=[];
+    try{
+      const nA=dedupeAds(this.approved.content.ads);
+      if(nA){ await this.saveApproved(`fix: remove ${nA} duplicate ads`); notes.push(`${nA} yinelenen onaylı ilan`); }
+    }catch(e){ console.warn('heal approved',e); }
+    try{
+      const known=new Set([...(this.approved.content.ads||[]),...(this.rejected.content.ads||[])].map(a=>a.ilanNo));
+      const before=(this.pending.content.ads||[]).length;
+      this.pending.content.ads=(this.pending.content.ads||[]).filter(a=>!known.has(a.ilanNo));
+      dedupeAds(this.pending.content.ads);
+      const nP=before-this.pending.content.ads.length;
+      if(nP){ await this.savePending(`fix: drop ${nP} already-processed ads from pending`); notes.push(`${nP} zaten işlenmiş bekleyen ilan`); }
+    }catch(e){ console.warn('heal pending',e); }
+    try{
+      const nR=dedupeAds(this.rejected.content.ads);
+      if(nR){ await this.saveRejected(`fix: remove ${nR} duplicate rejections`); notes.push(`${nR} yinelenen reddedilen`); }
+    }catch(e){ console.warn('heal rejected',e); }
+    if(notes.length) showToast('Otomatik onarım: '+notes.join(', ')+' temizlendi','success',7000);
   },
   refresh(){this.updateBadges();renderPendingList();renderApprovedList();renderRejectedList()},
   updateBadges(){
@@ -712,6 +749,7 @@ const Store={
     this.pending.sha=r.content.sha;this.updateBadges();
   },
   async saveRejected(msg){
+    dedupeAds(this.rejected.content.ads);
     const r=await this.api.putFile('rejected.json',{...this.rejected.content,lastUpdated:new Date().toISOString()},this.rejected.sha,msg||'chore: update rejected.json via panel');
     this.rejected.sha=r.content.sha;this.updateBadges();
   },
@@ -719,8 +757,15 @@ const Store={
     const idx=(this.pending.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);
     if(idx===-1)return;
     const ad=this.pending.content.ads.splice(idx,1)[0];
-    this.approved.content.ads.unshift(ad);
-    await Promise.all([this.savePending(`chore: approve ${ilanNo}`),this.saveApproved(`feat: approve ${ilanNo}`)]);
+    // Guard: if an earlier half-finished approve already put it in ilanlar.json,
+    // only clear it from pending instead of adding a second copy.
+    if(!(this.approved.content.ads||[]).some(a=>a.ilanNo===ilanNo))
+      this.approved.content.ads.unshift(ad);
+    // Order matters. Writing ilanlar.json first means a failure part-way leaves
+    // the ad in BOTH files (harmless: healed on next load), never in NEITHER
+    // (lost). Parallel writes allowed either outcome.
+    await this.saveApproved(`feat: approve ${ilanNo}`);
+    await this.savePending(`chore: approve ${ilanNo}`);
   },
   async reject(ilanNo){
     const idx=(this.pending.content.ads||[]).findIndex(a=>a.ilanNo===ilanNo);
@@ -825,9 +870,17 @@ async function bulkApprove(){
   if(!selectedPending.size)return;
   const ids=[...selectedPending];
   const ok=await Store.mutate(async()=>{
-    for(const id of ids){const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===id);if(idx===-1)continue;const ad=Store.pending.content.ads.splice(idx,1)[0];Store.approved.content.ads.unshift(ad)}
-    await Store.savePending();
+    const have=new Set((Store.approved.content.ads||[]).map(a=>a.ilanNo));
+    for(const id of ids){
+      const idx=(Store.pending.content.ads||[]).findIndex(a=>a.ilanNo===id);
+      if(idx===-1) continue;
+      const ad=Store.pending.content.ads.splice(idx,1)[0];
+      if(!have.has(id)){ Store.approved.content.ads.unshift(ad); have.add(id); }
+    }
+    // ilanlar.json first: a failure between the two writes leaves duplicates
+    // in pending (healed on next load) rather than losing the ads.
     await Store.saveApproved(`feat: bulk approve ${ids.length} ads`);
+    await Store.savePending();
   },'Toplu onaylama');
   if(ok){ selectedPending.clear();updateBulkBar();Store.refresh();showToast(`${ids.length} ilan onaylandı`,'success'); }
 }
