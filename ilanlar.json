@@ -1,7 +1,2058 @@
 {
-  "lastUpdated": "2026-10-03T09:20:32.769Z",
+  "lastUpdated": "2026-10-05T10:19:05.642Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "SAMSUN ÜNİVERSİTESİ",
+      "city": "Samsun",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2244735/kamu-akademik-personel-akademik-personel-alimlari-samsun-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853443",
+      "publishDate": "2026-10-02T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Çocuk Nefrolojisi alanında almış olup pediatrik kronik böbrek hastalığı olan hastalarda büyüme ve pubertal gelişim, diyaliz ve naklin rolü, konularında Q1 veya Q2 kapsamlı dergilerde yayımlanmış çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Çocuk Nefrolojisi alanında almış olup pediatrik kronik böbrek hastalığı olan hastalarda büyüme ve pubertal gelişim, diyaliz ve naklin rolü, konularında Q1 veya Q2 kapsamlı dergilerde yayımlanmış çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Göğüs Hastalıkları alanında almış olup alfa-1 antitripsin eksikliği, bronşektazi, pulmoner tromboemboli ve mikobakteriyel enfeksiyonlar konularında SCI veya SCI-E kapsamlı dergilerde yayımlanmış çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Göğüs Hastalıkları alanında almış olup alfa-1 antitripsin eksikliği, bronşektazi, pulmoner tromboemboli ve mikobakteriyel enfeksiyonlar konularında SCI veya SCI-E kapsamlı dergilerde yayımlanmış çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Gastroenteroloji alanında almış olup primer biliyer kolanjit ve gastrointestinal hemoraji konularında Q1 veya Q2 kapsamlı dergilerde yayımlanmış çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Gastroenteroloji alanında almış olup primer biliyer kolanjit ve gastrointestinal hemoraji konularında Q1 veya Q2 kapsamlı dergilerde yayımlanmış çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Samsun Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemiz akademik birimlerine 657 sayılı Devlet Memurları Kanunu’nun 48 inci maddesi, 2547 sayılı Yükseköğretim Kanunu ve bu kanuna dayalı olarak çıkartılan ilgili Yönetmelik ile Samsun Üniversitesi Akademik Yükseltme ve Atama Ölçütle",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL BEYKENT ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2244738/kamu-akademik-personel-akademik-personel-alimlari-beykent-universitesi-rektorlugu-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853444",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": "2026-10-17T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "Yapay Zeka ve Makine Öğrenmesi",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri, Bilgisayar Bilimleri ve Mühendisliği, Bilgisayar Bilimleri, Bilişim Sistemleri Mühendisliği, Bilgi Teknolojileri, Teknoloji ve Bilgi Yönetimi, Bilişim Sistemleri ve Teknolojileri, Yapay Zeka Teknolojileri, Sistem Analizi, Veri Bilimi ve Analitiği, Matematik ve Bilgisayar Bilimleri alanlarından birinde en az tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri, Bilgisayar Bilimleri ve Mühendisliği, Bilgisayar Bilimleri, Bilişim Sistemleri Mühendisliği, Bilgi Teknolojileri, Teknoloji ve Bilgi Yönetimi, Bilişim Sistemleri ve Teknolojileri, Yapay Zeka Teknolojileri, Sistem Analizi, Veri Bilimi ve Analitiği, Matematik ve Bilgisayar Bilimleri alanlarından birinde en az tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "Matematik ve Bilgisayar Bilimleri",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri, Bilgisayar Bilimleri ve Mühendisliği, Bilgisayar Bilimleri, Bilişim Sistemleri Mühendisliği, Bilgi Teknolojileri, Teknoloji ve Bilgi Yönetimi, Bilişim Sistemleri ve Teknolojileri, Yapay Zeka Teknolojileri, Sistem Analizi, Veri Bilimi ve Analitiği, Matematik ve Bilgisayar Bilimleri alanlarından birinde en az tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Yönetim Bilişim Sistemleri, Bilgisayar ve Öğretim Teknolojileri, Bilgisayar Bilimleri ve Mühendisliği, Bilgisayar Bilimleri, Bilişim Sistemleri Mühendisliği, Bilgi Teknolojileri, Teknoloji ve Bilgi Yönetimi, Bilişim Sistemleri ve Teknolojileri, Yapay Zeka Teknolojileri, Sistem Analizi, Veri Bilimi ve Analitiği, Matematik ve Bilgisayar Bilimleri alanlarından birinde en az tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik -Mimarlık Fakültesi",
+          "department": "Endüstri Mühendisliği (İngilizce)",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Endüstri Mühendisliği alanında lisans mezunu olup Endüstri Mühendisliği alanında en az tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Endüstri Mühendisliği alanında lisans mezunu olup Endüstri Mühendisliği alanında en az tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Beykent Üniversitesi Rektörlüğünden: ARAŞTIRMA GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda belirtilen Fakülte/Yüksekokul, 2547 sayılı Yükseköğretim Kanunu’nun ilgili maddeleri ile 09.11.2018 tarih ve 30590 sayılı Resmi Gazete’de yayımlanan “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadroları",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ISPARTA UYGULAMALI BİLİMLER ÜNİVERSİTESİ",
+      "city": "Isparta",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2244747/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-uygulamali-bilimler-universitesi-rektorlugu-",
+      "ilanNo": "YOK853445",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Teknik Bilimler Meslek Yüksekokulu",
+          "department": "Görsel-İşitsel Teknikler ve Medya Yapımcılığı Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Sinema sanat alanında doçent ünvanı almış olmak. Türk ve Dünya sineması, sinemada yapay zekâ, göstergebilim ve ideoloji konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Sinema sanat alanında doçent ünvanı almış olmak.",
+            "Türk ve Dünya sineması, sinemada yapay zekâ, göstergebilim ve ideoloji konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Teknik Bilimler Meslek Yüksekokulu",
+          "department": "Görsel-İşitsel Teknikler ve Medya Yapımcılığı Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Sinema bilim alanında doçent ünvanı almış olmak. Türk ve Dünya sineması, sinemada yapay zekâ, göstergebilim ve ideoloji konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Sinema bilim alanında doçent ünvanı almış olmak.",
+            "Türk ve Dünya sineması, sinemada yapay zekâ, göstergebilim ve ideoloji konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Isparta Uygulamalı Bilimler Üniversitesi Rektörlüğünden: DÜZELTME İLANI Eski Hali İlan Sıra No Birimi Bölümü Anabilim / Anasanat Dalı / Programı Adet Der. Ünvanı Özel Şartlar Adres ve İletişim Bilgileri 6 Teknik Bilimler Meslek Yüksekokulu Görsel-İşitsel Teknikler ve Medya Yapımcılığı Bölümü Fotoğra",
+      "applicationDocuments": []
+    },
+    {
+      "university": "AHİ EVRAN ÜNİVERSİTESİ",
+      "city": "Kirşehi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2244748/kamu-akademik-personel-akademik-personel-alimlari-kirsehir-ahi-evran-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853446",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": "2026-10-19T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Temel İslam Bilimleri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İlahiyat Fakültesi lisans mezunu olup; Tezli yüksek lisansını Temel İslam Bilimleri alanında yapmış olmak. (Arapça derslerini vermek üzere yabancı dil şartını Arapçadan sağlamış olmak)",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "İlahiyat Fakültesi lisans mezunu olup; Tezli yüksek lisansını Temel İslam Bilimleri alanında yapmış olmak. (Arapça derslerini vermek üzere yabancı dil şartını Arapçadan sağlamış olmak)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kaman Meslek Yüksekokulu",
+          "department": "İnşaat",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İnşaat Mühendisliği alanında lisans ve tezli yüksek lisans mezunu olup; Yüksek lisans sonrası ilgili alanda en az 2 (iki) yıl mesleki deneyime sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İnşaat Mühendisliği alanında lisans ve tezli yüksek lisans mezunu olup; Yüksek lisans sonrası ilgili alanda en az 2 (iki) yıl mesleki deneyime sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kaman Meslek Yüksekokulu",
+          "department": "İnşaat",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mimarlık, İnşaat Mühendisliği, Ulaştırma Mühendisliği, Yapı Öğretmenliği, Şehir ve Bölge Planlama, Makine Mühendisliği, Harita Mühendisliği, Jeoloji Mühendisliği veya Jeofizik Mühendisliği lisans mezunu olup; tezli yüksek lisans yapmış olmak ve lisans sonrası olmak kaydıyla Akıllı Altyapılar alanında sektör deneyimine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mimarlık, İnşaat Mühendisliği, Ulaştırma Mühendisliği, Yapı Öğretmenliği, Şehir ve Bölge Planlama, Makine Mühendisliği, Harita Mühendisliği, Jeoloji Mühendisliği veya Jeofizik Mühendisliği lisans mezunu olup; tezli yüksek lisans yapmış olmak ve lisans sonrası olmak kaydıyla Akıllı Altyapılar alanında sektör deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mucur Meslek Yüksekokulu",
+          "department": "Bilgisayar Teknolojileri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Animasyon, Animasyon ve Oyun Tasarımı, Bilişim Teknolojileri ve Oyun, Canlandırma Filmi, Canlandırma Filmi Tasarım ve Yönetimi, Çizgi Film, Çizgi Film (Animasyon), Çizgi Film ve Animasyon, Dijital Oyun Tasarımı, Film Tasarımı ve Animasyon, Görsel İletişim Tasarımı, Grafik Tasarımı/Grafik Tasarım, Oyun Tasarımı ve Geliştirme, Oyun Teknolojileri, Sanal Gerçeklik ve Etkileşimli Teknolojiler, Sanat ve Tasarım, Sanat ve Tasarım Çalışmaları, Tasarım Çalışmaları veya Yazılım Mühendisliği programlarının birinden lisans mezunu olup; bu alanlardan birinde tezli yüksek lisans veya doktora mezunu olmak ve ilgili alanda lisansüstü sonrası en az 2 (iki) yıl mesleki deneyime sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Animasyon, Animasyon ve Oyun Tasarımı, Bilişim Teknolojileri ve Oyun, Canlandırma Filmi, Canlandırma Filmi Tasarım ve Yönetimi, Çizgi Film, Çizgi Film (Animasyon), Çizgi Film ve Animasyon, Dijital Oyun Tasarımı, Film Tasarımı ve Animasyon, Görsel İletişim Tasarımı, Grafik Tasarımı/Grafik Tasarım, Oyun Tasarımı ve Geliştirme, Oyun Teknolojileri, Sanal Gerçeklik ve Etkileşimli Teknolojiler, Sanat ve Tasarım, Sanat ve Tasarım Çalışmaları, Tasarım Çalışmaları veya Yazılım Mühendisliği programlarının birinden lisans mezunu olup; bu alanlardan birinde tezli yüksek lisans veya doktora mezunu olmak ve ilgili alanda lisansüstü sonrası en az 2 (iki) yıl mesleki deneyime sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mucur Meslek Yüksekokulu",
+          "department": "Yazılım, Uygulama Geliştirme ve Çözümleme",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lisans ve tezli yüksek lisans mezunu olup; ilgili alanda (Oyun Geliştirme ve Programlama) lisans sonrası en az 3 (üç) yıl mesleki deneyime sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Lisans ve tezli yüksek lisans mezunu olup; ilgili alanda (Oyun Geliştirme ve Programlam.",
+            "lisans sonrası en az 3 (üç) yıl mesleki deneyime sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Rektörlük (Dış İlişkiler Ofisi)",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lisans ve tezli yüksek lisansını uluslararası ilişkiler, siyaset bilimi ve uluslararası ilişkiler, kamu yönetimi veya siyaset bilimi ve kamu yönetimi alanında yapmış olup; Proje Hazırlama Teknikleri konusunda sertifika sahibi olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Lisans ve tezli yüksek lisansını uluslararası ilişkiler, siyaset bilimi ve uluslararası ilişkiler, kamu yönetimi veya siyaset bilimi ve kamu yönetimi alanında yapmış olup; Proje Hazırlama Teknikleri konusunda sertifika sahibi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Rektörlük (Bilgisayar Bilimleri Araştırma ve Uygulama Merkezi)",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilişim, yazılım veya bilgisayar lisans programlarının birinden mezun olmak; belirtilen alanların birinde tezli yüksek lisans veya doktora yapmış olup; kurumsal yazılım mimarileri, backend/frontend geliştirme veya API entegrasyonu alanlarında en az 2 (iki) yıl mesleki deneyim sahibi olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilişim, yazılım veya bilgisayar lisans programlarının birinden mezun olmak; belirtilen alanların birinde tezli yüksek lisans veya doktora yapmış olup; kurumsal yazılım mimarileri, backend/frontend geliştirme veya API entegrasyonu alanlarında en az 2 (iki) yıl mesleki deneyim sahibi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Rektörlük (Teknoloji Transfer Ofisi Uygulama ve Araştırma Merkezi)",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Uluslararası İlişkiler veya Siyaset Bilimi ve Uluslararası İlişkiler tezli yüksek lisans yapmış olup; E-Devlet onaylı ISO 9001:2015 Kalite Yönetim Sistemi ve Avrupa Birliği Proje Hazırlama ve Yönetimi sertifikalarına sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Uluslararası İlişkiler veya Siyaset Bilimi ve Uluslararası İlişkiler tezli yüksek lisans yapmış olup; E-Devlet onaylı ISO 9001:2015 Kalite Yönetim Sistemi ve Avrupa Birliği Proje Hazırlama ve Yönetimi sertifikalarına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Rektörlük (Kalite Yönetim Koordinatörlüğü)",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Endüstri Mühendisliği, Bilgisayar Mühendisliği, Yazılım Mühendisliği veya Matematik Mühendisliği alanında tezli yüksek lisans veya doktora yapmış olup; kalite yönetimi veya yazılım geliştirme alanında en az 3 (üç) yıl mesleki deneyime sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Endüstri Mühendisliği, Bilgisayar Mühendisliği, Yazılım Mühendisliği veya Matematik Mühendisliği alanında tezli yüksek lisans veya doktora yapmış olup; kalite yönetimi veya yazılım geliştirme alanında en az 3 (üç) yıl mesleki deneyime sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Teknik Bilimler Meslek Yüksekokulu",
+          "department": "İstatistik",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Bilgisayar Bilimleri lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak ve ilgili alanda (Büyük Veri) lisans sonrası en az bir yıl deneyime sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Bilgisayar Teknolojisi ve Bilişim Sistemleri, Bilgisayar Bilimleri lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak ve ilgili alanda (Büyük Veri) lisans sonrası en az bir yıl deneyime sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Teknik Bilimler Meslek Yüksekokulu",
+          "department": "Elektrik ve Enerji",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Kimya Mühendisliği, Makine Mühendisliği veya Enerji Sistemleri Mühendisliği lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak ve lisans sonrası olmak kaydıyla Yenilenebilir Enerji alanında sektör deneyimine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": 4,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Kimya Mühendisliği, Makine Mühendisliği veya Enerji Sistemleri Mühendisliği lisans mezunu olup bu alanlardan birinde tezli yüksek lisans yapmış olmak ve lisans sonrası olmak kaydıyla Yenilenebilir Enerji alanında sektör deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, İngilizce Mütercim ve Tercümanlık, İngiliz Dil Bilimi, Çeviri Bilim (İngilizce) alanlarının birinden lisans mezunu olmak. İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, İngilizce Mütercim ve Tercümanlık, İngiliz Dil Bilimi, Çeviri Bilim (İngilizce) veya eğitim bilimleri alanlarının birinde tezli yüksek lisans yapmış olmak. Lisans mezuniyeti sonrası en az 3 (üç) yıl İngilizce ders verme tecrübesine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, İngilizce Mütercim ve Tercümanlık, İngiliz Dil Bilimi, Çeviri Bilim (İngilizc.",
+            "alanlarının birinden lisans mezunu olmak. İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, İngilizce Mütercim ve Tercümanlık, İngiliz Dil Bilimi, Çeviri Bilim (İngilizc.",
+            "veya eğitim bilimleri alanlarının birinde tezli yüksek lisans yapmış olmak. Lisans mezuniyeti sonrası en az 3 (üç) yıl İngilizce ders verme tecrübesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Arkeoloji",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Arkeoloji veya Prehistorya/Tarih Öncesi Arkeoloji lisans mezun olup; Prehistorya/Tarih Öncesi Arkeoloji alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Arkeoloji veya Prehistorya/Tarih Öncesi Arkeoloji lisans mezun olup; Prehistorya/Tarih Öncesi Arkeoloji alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olup; Cerrahi Hastalıklar Hemşireliği alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olup; Cerrahi Hastalıklar Hemşireliği alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olup; Doğum ve Kadın Hastalıkları Hemşireliği, Doğum - Kadın Sağlığı ve Hastalıkları Hemşireliği veya Kadın Sağlığı ve Hastalıkları Hemşireliği alanlarının birinde tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olup; Doğum ve Kadın Hastalıkları Hemşireliği, Doğum - Kadın Sağlığı ve Hastalıkları Hemşireliği veya Kadın Sağlığı ve Hastalıkları Hemşireliği alanlarının birinde tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kırşehir Ahi Evran Üniversitesi Rektörlüğünden: ÖĞRETİM ELEMANI ALIM İLANI Üniversitemizin insan kaynakları politikası doğrultusunda 2547 sayılı Kanunun 6 ncı, 7 inci ve 65 inci maddelerine dayanılarak hazırlanan 09 Kasım 2018 tarihli Resmi Gazetede yayınlanan Öğretim Üyesi Dışındaki Öğretim Elemanı",
+      "applicationDocuments": []
+    },
+    {
+      "university": "AHİ EVRAN ÜNİVERSİTESİ",
+      "city": "Kirşehi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2244776/kamu-akademik-personel-akademik-personel-alimlari-kirsehir-ahi-evran-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853448",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Çiçekdağı Meslek Yüksekokulu",
+          "department": "Çocuk Bakımı ve Gençlik Hizmetleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Çocuk Gelişimi veya Eğitim Programları ve Öğretim programlarında yapmış olup; çocuk eğitiminde ebeveyn yeterlilikleri ve okul öncesi eğitiminde afet eğitimi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktorasını Çocuk Gelişimi veya Eğitim Programları ve Öğretim programlarında yapmış olup; çocuk eğitiminde ebeveyn yeterlilikleri ve okul öncesi eğitiminde afet eğitimi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Matematik ve Fen Bilimleri Eğitimi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Matematik Eğitimi alanından almış olup; uzamsal yetenek ve matematiksel ilişkilendirme becerileri konularında çalışma yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Matematik Eğitimi alanından almış olup; uzamsal yetenek ve matematiksel ilişkilendirme becerileri konularında çalışma yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Türkçe ve Sosyal Bilimler Eğitimi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Türkçe Eğitimi veya Eğitim Yönetimi alanından almış olup; Türkçe öğretmen yeterlikleri, Türkçe öğretim süreç ve yönetimi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Türkçe Eğitimi veya Eğitim Yönetimi alanından almış olup; Türkçe öğretmen yeterlikleri, Türkçe öğretim süreç ve yönetimi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Yabancı Diller Eğitimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını İngiliz Dili Eğitimi alanında yapmış olup; yabancı dilde yazma becerilerinin eğitiminde yazılı düzeltici dönüt verilmesi ve karşılaştırmalı derlembilim konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doktorasını İngiliz Dili Eğitimi alanında yapmış olup; yabancı dilde yazma becerilerinin eğitiminde yazılı düzeltici dönüt verilmesi ve karşılaştırmalı derlembilim konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Eğitim Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Bilgisayar ve Öğretim Teknolojileri Eğitimi alanında almış olup; akran öğretimi ve eğitsel veri madenciliği konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Bilgisayar ve Öğretim Teknolojileri Eğitimi alanında almış olup; akran öğretimi ve eğitsel veri madenciliği konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Matematik",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Matematik alanında almış olup; nilpotent uyumlu leibniz cebirlerinin sınıflandırılması konusunda çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Matematik alanında almış olup; nilpotent uyumlu leibniz cebirlerinin sınıflandırılması konusunda çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Matematik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Matematik alanında almış olup; esnek-kaba kümeler üzerindeki topolojik yapılar ve karar verme yöntemleri konusunda çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Matematik alanında almış olup; esnek-kaba kümeler üzerindeki topolojik yapılar ve karar verme yöntemleri konusunda çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Antropoloji",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Fiziki Antropoloji ve Paleoantropoloji alanında almış olup; dental kimliklendirme konusunda çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentlik ünvanını Fiziki Antropoloji ve Paleoantropoloji alanında almış olup; dental kimliklendirme konusunda çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İşletme",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Yenilenebilir enerji kooperatifçiliği, sağlık hizmetleri kooperatifçiliği, ahilik ve kooperatifçilik konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Yenilenebilir enerji kooperatifçiliği, sağlık hizmetleri kooperatifçiliği, ahilik ve kooperatifçilik konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İşletme",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Pazarlama veya Yönetim ve Organizasyon alanından almış olup; sessiz direniş ve örgütsel farkındalık konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doçentlik ünvanını Pazarlama veya Yönetim ve Organizasyon alanından almış olup; sessiz direniş ve örgütsel farkındalık konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Siyaset Bilimi ve Kamu Yönetimi",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Stratejik Yönetim veya Yönetim ve Organizasyon alanından almış olup; bilge liderlik ve sosyal sermaye konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doçentlik ünvanını Stratejik Yönetim veya Yönetim ve Organizasyon alanından almış olup; bilge liderlik ve sosyal sermaye konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Temel İslam Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını hadis alanında yapmış olup; bölgesel hadis tarihi ve hadis havzaları üzerine bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Doktorasını hadis alanında yapmış olup; bölgesel hadis tarihi ve hadis havzaları üzerine bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Felsefe ve Din Bilimleri Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Din Felsefesi alanından almış olup; din epistemolojisi, pragmatizm ve din konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Doçentlik ünvanını Din Felsefesi alanından almış olup; din epistemolojisi, pragmatizm ve din konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Felsefe ve Din Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Felsefe ve Din Bilimleri alanında doktora yapmış olup; popüler kültür, görsel sanat ve medya konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Felsefe ve Din Bilimleri alanında doktora yapmış olup; popüler kültür, görsel sanat ve medya konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kaman Meslek Yüksekokulu",
+          "department": "Gıda İşleme",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Gıda Mühendisliği veya Kimya alanında almış olup; elektrokimyasal sakkarit sensörleri ve enzim inhibisyonu konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentlik ünvanını Gıda Mühendisliği veya Kimya alanında almış olup; elektrokimyasal sakkarit sensörleri ve enzim inhibisyonu konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mucur Meslek Yüksekokulu",
+          "department": "Finans-Bankacılık ve Sigortacılık",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Finans alanından almış olup; uluslararası borsalarda işlem gören kuruluşların finansal yapıları, dijital ve mobil bankacılığın kârlılığa etkileri konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentlik ünvanını Finans alanından almış olup; uluslararası borsalarda işlem gören kuruluşların finansal yapıları, dijital ve mobil bankacılığın kârlılığa etkileri konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Mimarlık",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisans, yüksek lisans ve doktorasını Mimarlık alanında yapmış olup; endüstriyel atık kullanımı ve tarihi yığma yapıların yapısal analizi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Lisans, yüksek lisans ve doktorasını Mimarlık alanında yapmış olup; endüstriyel atık kullanımı ve tarihi yığma yapıların yapısal analizi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İç Hastalıkları Hemşireliği alanında doktora yapmış olup; enteral nütrisyon eğitimi ve yoğun bakım hemşirelerinde klinik yetkinlik konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "İç Hastalıkları Hemşireliği alanında doktora yapmış olup; enteral nütrisyon eğitimi ve yoğun bakım hemşirelerinde klinik yetkinlik konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sosyal Bilimler Meslek Yüksekokulu",
+          "department": "Dış Ticaret",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını finans veya bankacılık alanında yapmış olup; bankacılık sektörünün beceri ihtiyaçları, sanayi ve sürdürülebilirlik konularında bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doktorasını finans veya bankacılık alanında yapmış olup; bankacılık sektörünün beceri ihtiyaçları, sanayi ve sürdürülebilirlik konularında bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp fakültesi mezunu olup, fizyoloji alanında doktora yapmış olmak. Elektrofizyoloji ve kalsiyum görüntüleme konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp fakültesi mezunu olup, fizyoloji alanında doktora yapmış olmak.",
+            "Elektrofizyoloji ve kalsiyum görüntüleme konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Histoloji ve Embriyoloji alanında almış olup; kök hücre ve deneysel hastalık modelleri konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentlik ünvanını Histoloji ve Embriyoloji alanında almış olup; kök hücre ve deneysel hastalık modelleri konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup, doçentlik ünvanını Halk Sağlığı alanından almış olmak. Aile planlaması, tütün ve tütün ürünleri konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, doçentlik ünvanını Halk Sağlığı alanından almış olmak.",
+            "Aile planlaması, tütün ve tütün ürünleri konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup, doçentlik ünvanını Nöroloji alanından almış olmak. Multipl skleroz, epilepsi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, doçentlik ünvanını Nöroloji alanından almış olmak.",
+            "Multipl skleroz, epilepsi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup, uzmanlığını göz hastalıkları alanından almış olmak. Retinal ven tıkanıklılığı ve diabetik hastalarda intravitreal uygulamalar konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, uzmanlığını göz hastalıkları alanından almış olmak.",
+            "Retinal ven tıkanıklılığı ve diabetik hastalarda intravitreal uygulamalar konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ziraat Fakültesi",
+          "department": "Zootekni",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Zootekni alanından almış olup; kanatlı hayvanlarda alternatif yem katkı maddeleri ve bağırsak histomorfolojisi konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Ziraat ve Orman",
+          "sartlar": [
+            "Doçentlik ünvanını Zootekni alanından almış olup; kanatlı hayvanlarda alternatif yem katkı maddeleri ve bağırsak histomorfolojisi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ziraat Fakültesi",
+          "department": "Toprak Bilimi ve Bitki Besleme",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Toprak Bilimi ve Bitki Besleme alanından almış olup; vermikompostlama süreçleri ve arıtma çamuru konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Ziraat ve Orman",
+          "sartlar": [
+            "Doçentlik ünvanını Toprak Bilimi ve Bitki Besleme alanından almış olup; vermikompostlama süreçleri ve arıtma çamuru konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ziraat Fakültesi",
+          "department": "Toprak Bilimi ve Bitki Besleme",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doktorasını Toprak bilimi ve Bitki Besleme alanında yapmış olup; orman ekosistemlerinde karbon stoğu ve tıbbi aromatik bitkilerde biyolojik aktiviteler konularında çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Ziraat ve Orman",
+          "sartlar": [
+            "Doktorasını Toprak bilimi ve Bitki Besleme alanında yapmış olup; orman ekosistemlerinde karbon stoğu ve tıbbi aromatik bitkilerde biyolojik aktiviteler konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kırşehir Ahi Evran Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin insan kaynakları politikası doğrultusunda aşağıda belirtilen birimlere 2547 sayılı Kanunun 23., 24. ve 26. maddeleri ile 12.06.2018 tarihli Resmi Gazete’de yayımlanarak yürürlüğe giren Öğretim Üyeliğine Yükselti",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ANKARA HACI BAYRAM VELİ ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2244784/kamu-akademik-personel-akademik-personel-alimlari-ankara-haci-bayram-veli-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853449",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Arkeoloji",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Arkeoloji alanında Doktora yapmış olmak; Hellenistik ve Roma dönemi heykeltraşlığı konusunda çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Arkeoloji alanında Doktora yapmış olmak; Hellenistik ve Roma dönemi heykeltraşlığı konusunda çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Edebiyat Fakültesi",
+          "department": "Felsefe",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Felsefe alanında Doktora yapmış olmak; bilim felsefesi, fizik felsefesi ve yapay zeka felsefesi alanlarında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Felsefe alanında Doktora yapmış olmak; bilim felsefesi, fizik felsefesi ve yapay zeka felsefesi alanlarında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Özel Hukuk",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ticaret Hukuku alanında Doçent ünvanına sahip olmak; şirketler hukuku, sigorta hukuku, sermaye piyasası hukuku, deniz ticareti hukuku alanlarında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Ticaret Hukuku alanında Doçent ünvanına sahip olmak; şirketler hukuku, sigorta hukuku, sermaye piyasası hukuku, deniz ticareti hukuku alanlarında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Özel Hukuk",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ticaret Hukuku alanında Doçent ünvanına sahip olmak; anonim ve limited şirketler hukuku, kıymetli evrak hukuku, rekabet hukuku, enerji hukuku alanlarında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Ticaret Hukuku alanında Doçent ünvanına sahip olmak; anonim ve limited şirketler hukuku, kıymetli evrak hukuku, rekabet hukuku, enerji hukuku alanlarında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Özel Hukuk",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "İş ve Sosyal Güvenlik Hukuku alanında Doçent ünvanına sahip olmak; sendikalar hukuku ve sosyal güvenlik hukuku alanlarında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "İş ve Sosyal Güvenlik Hukuku alanında Doçent ünvanına sahip olmak; sendikalar hukuku ve sosyal güvenlik hukuku alanlarında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Özel Hukuk",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Medeni Usul ve İcra İflas Hukuku alanında Doçent ünvanına sahip olmak; iflas ve konkordato hukuku ve davada taraf konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Medeni Usul ve İcra İflas Hukuku alanında Doçent ünvanına sahip olmak; iflas ve konkordato hukuku ve davada taraf konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Çalışma Ekonomisi ve Endüstri İlişkileri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "İş ve Sosyal Güvenlik Hukuku alanında Doçent ünvanına sahip olmak; yeni çalışma biçimleri konusunda çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İş ve Sosyal Güvenlik Hukuku alanında Doçent ünvanına sahip olmak; yeni çalışma biçimleri konusunda çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İşletme",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Üretim ve Operasyon yönetimi alanında Doçent ünvanına sahip olmak; sürdürülebilir üretim, lojistik yönetimi ve kalite konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Üretim ve Operasyon yönetimi alanında Doçent ünvanına sahip olmak; sürdürülebilir üretim, lojistik yönetimi ve kalite konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İşletme",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Nicel Karar Yöntemleri alanında Doçent ünvanına sahip olmak; deneysel yöntemler ile doğrusal olmayan zaman serisi analizleri ve zamanla değişen nedensellik analizleri konularında SSCI veya SCI-Exp. kapsamında taranan dergilerde yayınlanmış çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Nicel Karar Yöntemleri alanında Doçent ünvanına sahip olmak; deneysel yöntemler ile doğrusal olmayan zaman serisi analizleri ve zamanla değişen nedensellik analizleri konularında SSCI veya SCI-Exp. kapsamında taranan dergilerde yayınlanmış çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği alanında Doçent ünvanına sahip olmak; yapay zeka ve derin öğrenme konularının pratik uygulamaları konusunda çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Elektrik-Elektronik Mühendisliği alanında Doçent ünvanına sahip olmak; yapay zeka ve derin öğrenme konularının pratik uygulamaları konusunda çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İktisat",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Uluslararası İktisat alanında Doçent ünvanına sahip olmak; uluslararası üretim ve işgücü politikaları, Avrupa Birliği'nin sanayi ve ticaret sistemi konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Uluslararası İktisat alanında Doçent ünvanına sahip olmak; uluslararası üretim ve işgücü politikaları, Avrupa Birliği'nin sanayi ve ticaret sistemi konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İktisat",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Makro İktisat alanında Doçent ünvanına sahip olmak; kurumsal kalite, ekonomik güven ve yoksulluk konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Makro İktisat alanında Doçent ünvanına sahip olmak; kurumsal kalite, ekonomik güven ve yoksulluk konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Siyaset Bilimi ve Kamu Yönetimi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Siyaset Bilimi alanında Doçent ünvanına sahip olmak; kadın ve aile politikaları analizi, dekolonyalizm konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Siyaset Bilimi alanında Doçent ünvanına sahip olmak; kadın ve aile politikaları analizi, dekolonyalizm konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Siyaset Bilimi ve Kamu Yönetimi",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kamu Yönetimi alanında Doçent ünvanına sahip olmak; yönetişim ve kamu özel ortaklığı konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Kamu Yönetimi alanında Doçent ünvanına sahip olmak; yönetişim ve kamu özel ortaklığı konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Siyaset Bilimi ve Kamu Yönetimi",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Siyasi Tarih alanında Doçent ünvanına sahip olmak; Türk siyasal hayatı ve son dönem Osmanlı tarihi konularında AHCI veya SSCI kapsamında taranan dergilerde yayınlanmış çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Siyasi Tarih alanında Doçent ünvanına sahip olmak; Türk siyasal hayatı ve son dönem Osmanlı tarihi konularında AHCI veya SSCI kapsamında taranan dergilerde yayınlanmış çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Siyaset Bilimi ve Kamu Yönetimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Siyaset Bilimi ve Kamu Yönetimi alanında Doktora yapmış olmak; yeni toplumsal hareketler ve alternatif demokratik katılım modelleri konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Siyaset Bilimi ve Kamu Yönetimi alanında Doktora yapmış olmak; yeni toplumsal hareketler ve alternatif demokratik katılım modelleri konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Uluslararası Ticaret ve Finansman",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Makro iktisat alanında Doçent ünvanına sahip olmak; basitleştirilmiş gümrük prosedürleri ve enerji yoksulluğu konularında SSCI veya SCI- Exp. kapsamında taranan dergilerde yayınlanmış çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Makro iktisat alanında Doçent ünvanına sahip olmak; basitleştirilmiş gümrük prosedürleri ve enerji yoksulluğu konularında SSCI veya SCI- Exp. kapsamında taranan dergilerde yayınlanmış çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Temel İslam Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tasavvuf alanında Doktora yapmış olmak; çocuklarda ahlaki gelişim ve tasavvuf ilişkisi konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Tasavvuf alanında Doktora yapmış olmak; çocuklarda ahlaki gelişim ve tasavvuf ilişkisi konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Temel İslam Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kur’an-ı Kerim Okuma ve Kıraat İlmi alanında Doçent ünvanına sahip olmak; Kur’an tilaveti ve kıraat farklılıkları konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Kur’an-ı Kerim Okuma ve Kıraat İlmi alanında Doçent ünvanına sahip olmak; Kur’an tilaveti ve kıraat farklılıkları konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Temel İslam Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Temel İslam Bilimleri alanında Doçent ünvanına sahip olmak; Esbabı nüzul analizleri ve hatimesi bulunan klasik tefsirler üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Temel İslam Bilimleri alanında Doçent ünvanına sahip olmak; Esbabı nüzul analizleri ve hatimesi bulunan klasik tefsirler üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Felsefe ve Din Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Din Felsefesi alanında Doktora yapmış olmak; zihin felsefesi ve teistik bilinç argümanları konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "Din Felsefesi alanında Doktora yapmış olmak; zihin felsefesi ve teistik bilinç argümanları konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Gazetecilik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Gazetecilik alanında Doktora yapmış olmak; sosyal medya, dijital gazetecilik, yapay zeka ve robot gazetecilik konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Gazetecilik alanında Doktora yapmış olmak; sosyal medya, dijital gazetecilik, yapay zeka ve robot gazetecilik konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Halkla İlişkiler ve Tanıtım",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "İletişim Çalışmaları alanında Doçent ünvanına sahip olmak; halkla ilişkiler, siyasal iletişim ve karşılaştırmalı iletişim konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "İletişim Çalışmaları alanında Doçent ünvanına sahip olmak; halkla ilişkiler, siyasal iletişim ve karşılaştırmalı iletişim konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Halkla İlişkiler ve Tanıtım",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "İletişim Çalışmaları alanında Doçent ünvanına sahip olmak; halkla ilişkiler, siyasal iletişim ve yeni medya konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "İletişim Çalışmaları alanında Doçent ünvanına sahip olmak; halkla ilişkiler, siyasal iletişim ve yeni medya konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Türk Müziği Devlet Konservatuvarı",
+          "department": "Çalgı Eğitimi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Müzik alanında Doçent ünvanına sahip olmak; Klasik kemençe icrası ile Türk müziğinde postmodernizm, gelenek ve yenilik konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Müzik alanında Doçent ünvanına sahip olmak; Klasik kemençe icrası ile Türk müziğinde postmodernizm, gelenek ve yenilik konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Türk Müziği Devlet Konservatuvarı",
+          "department": "Çalgı Eğitimi",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Müzik alanında Doçent ünvanına sahip olmak, Türk Müziği keman icrası, eğitimi ve Türk Müziği icra üslubu konularında çalışmaları bulunmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Müzik alanında Doçent ünvanına sahip olmak, Türk Müziği keman icrası, eğitimi ve Türk Müziği icra üslubu konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Turizm Fakültesi",
+          "department": "Turizm Rehberliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Turizm alanında Doçent ünvanına sahip olmak; Turizm rehberliği, turizmde girişimcilik, sürdürülebilir turizm konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Turizm alanında Doçent ünvanına sahip olmak; Turizm rehberliği, turizmde girişimcilik, sürdürülebilir turizm konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Turizm Fakültesi",
+          "department": "Gastronomi ve Mutfak Sanatları",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Yönetim ve Strateji alanında Doçent ünvanına sahip olmak, gastronomi eğitimi ve yerel yiyecek tüketimi konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Yönetim ve Strateji alanında Doçent ünvanına sahip olmak, gastronomi eğitimi ve yerel yiyecek tüketimi konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tapu Kadastro Yüksekokulu",
+          "department": "Tapu Kadastro",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Harita Mühendisliği alanında Doçent ünvanına sahip olmak; ölçme tekniği, GNSS yazılımları ve iyonosferik modelleme konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Harita Mühendisliği alanında Doçent ünvanına sahip olmak; ölçme tekniği, GNSS yazılımları ve iyonosferik modelleme konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Ankara Hacı Bayram Veli Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemiz akademik birimlerine 657 sayılı Devlet Memurları Kanunu’nun 48. maddesi, 2547 sayılı Yükseköğretim Kanunu’nun 23. 24. ve 26. maddeleri, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği’nin ilgili maddeleri",
+      "applicationDocuments": []
+    },
+    {
+      "university": "DEMİROĞLU BİLİM ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2244862/kamu-akademik-personel-akademik-personel-alimlari-demiroglu-bilim-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853450",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": "2026-10-20T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "-",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İşletme ve Yönetim Bilimleri Fakültesi",
+          "department": "Yönetim Bilişim Sistemleri Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 2,
+          "requirements": "Yönetim Bilişim Sistemleri Lisans mezunu olmak Yönetim Bilişim Sistemleri veya Veri Analitiği veya Matematik Mühendisliği veya Yazılım Mühendisliği alanlarından birinde Yüksek Lisans veya Doktora yapıyor olmak",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Yönetim Bilişim Sistemleri Lisans mezunu olmak Yönetim Bilişim Sistemleri veya Veri Analitiği veya Matematik Mühendisliği veya Yazılım Mühendisliği alanlarından birinde Yüksek Lisans veya Doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İşletme ve Yönetim Bilimleri Fakültesi",
+          "department": "İşletme Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 2,
+          "requirements": "İşletme Bölümü Lisans Mezunu olmak aynı alanda veya Muhasebe veya Yönetim ve Organizasyon alanlarından birinde Yüksek Lisans veya Doktora yapıyor olmak",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "İşletme Bölümü Lisans Mezunu olmak aynı alanda veya Muhasebe veya Yönetim ve Organizasyon alanlarından birinde Yüksek Lisans veya Doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Demiroğlu Bilim Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanunu ile Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliğinin ilgili maddeleri uyarınca, Üniversitemiz Öğretim Üyeliğine Yükseltme ve Atama Kriterlerini sağlamış olmak koşuluyla Ö",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL YENİ YÜZYIL ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2244869/kamu-akademik-personel-akademik-personel-alimlari-istanbul-yeni-yuzyil-universitesi-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853451",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": "2026-10-19T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Eczacılık Fakültesi",
+          "department": "Farmasötik Toksikoloji Anabilim Dalı",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Eczacılık fakültesi lisans mezunu olmak, ALES sayısal puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizce) en az 50 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık fakültesi lisans mezunu olmak, ALES sayısal puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizc.",
+            "en az 50 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Halkla İlişkiler ve Reklamcılık Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Halkla İlişkiler ve Reklamcılık, Halkla İlişkiler ve Tanıtım, Reklamcılık veya Reklamcılık ve Tanıtım lisans programlarının birinden mezun olmak; bu alanlardan birinde tezli yüksek lisans veya doktora yapıyor olmak. ALES sözel puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizce) en az 50 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SÖZ",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Halkla İlişkiler ve Reklamcılık, Halkla İlişkiler ve Tanıtım, Reklamcılık veya Reklamcılık ve Tanıtım lisans programlarının birinden mezun olmak; bu alanlardan birinde tezli yüksek lisans veya doktora yapıyor olmak. ALES sözel puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizc.",
+            "en az 50 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Meslek Yüksekokulu",
+          "department": "Bilgisayar Programcılığı Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Bilgisayar Bilimleri Mühendisliği, Bilgisayar Bilimi ve Mühendisliği, Bilişim Sistemleri Mühendisliği, Bilgisayar ve Enformatik Mühendisliği, Kontrol ve Bilgisayar Mühendisliği, Bilgisayar ve Yazılım Mühendisliği, Yazılım Mühendisliği, Bilgisayar Bilimleri, Matematik ve Bilgisayar Bilimleri, İstatistik ve Bilgisayar Bilimleri veya Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezunu olmak. Bu alanlardan birinde tezli yüksek lisans yapmış olmak. ALES Sözel, Eşit Ağırlık veya Sayısal puan türünden en az 70 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Bilgisayar Bilimleri Mühendisliği, Bilgisayar Bilimi ve Mühendisliği, Bilişim Sistemleri Mühendisliği, Bilgisayar ve Enformatik Mühendisliği, Kontrol ve Bilgisayar Mühendisliği, Bilgisayar ve Yazılım Mühendisliği, Yazılım Mühendisliği, Bilgisayar Bilimleri, Matematik ve Bilgisayar Bilimleri, İstatistik ve Bilgisayar Bilimleri veya Bilgisayar ve Öğretim Teknolojileri Öğretmenliği bölümlerinin birinden lisans mezunu olmak.",
+            "Bu alanlardan birinde tezli yüksek lisans yapmış olmak.",
+            "ALES Sözel, Eşit Ağırlık veya Sayısal puan türünden en az 70 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon bölümü lisans mezunu olmak ve Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans yapıyor olmak. ALES Sayısal veya Eşit Ağırlık puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizce) en az 50 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon bölümü lisans mezunu olmak ve Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans yapıyor olmak. ALES Sayısal veya Eşit Ağırlık puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizc.",
+            "en az 50 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olmak, ALES sayısal puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizce) en az 50 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olmak, ALES sayısal puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizc.",
+            "en az 50 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Ameliyat Hizmetleri Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olmak, Cerrahi Hastalıkları Hemşireliği alanızda tezli yüksek lisans yapmış olmak. ALES Sayısal veya Eşit ağırlık puan türünden en az 70 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olmak, Cerrahi Hastalıkları Hemşireliği alanızda tezli yüksek lisans yapmış olmak.",
+            "ALES Sayısal veya Eşit ağırlık puan türünden en az 70 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Ameliyat Hizmetleri Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olmak, tezli yüksek lisans yapmış olmak, belgelendirmek şartıyla lisans veya yüksek lisans öğreniminden sonra Yükseköğretim kurumlarında en az 3 yıl ders verme deneyimine sahip olmak. ALES Sayısal veya Eşit ağırlık puan türünden en az 70 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olmak, tezli yüksek lisans yapmış olmak, belgelendirmek şartıyla lisans veya yüksek lisans öğreniminden sonra Yükseköğretim kurumlarında en az 3 yıl ders verme deneyimine sahip olmak.",
+            "ALES Sayısal veya Eşit ağırlık puan türünden en az 70 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "İlk ve Acil Yardım Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik, Acil Yardım ve Afet Yönetimi bölümlerinden birinden lisans mezunu olmak ve bu alanların birinde tezli yüksek lisans yapmış olmak. ALES sayısal puan türünden en az 70 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik, Acil Yardım ve Afet Yönetimi bölümlerinden birinden lisans mezunu olmak ve bu alanların birinde tezli yüksek lisans yapmış olmak.",
+            "ALES sayısal puan türünden en az 70 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Tıbbi Veri İşleme Teknikerliği Programı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sağlık Yönetimi Lisans mezunu olmak, bu alanda tezli yüksek lisans yapmış olmak. Belgelendirmek kaydıyla lisans veya yüksek lisans öğreniminden sonra yükseköğretim kurumlarında çalışma deneyimine sahip olmak. ALES sayısal veya eşit ağırlık puan türünden en az 70 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Sağlık Yönetimi Lisans mezunu olmak, bu alanda tezli yüksek lisans yapmış olmak.",
+            "Belgelendirmek kaydıyla lisans veya yüksek lisans öğreniminden sonra yükseköğretim kurumlarında çalışma deneyimine sahip olmak.",
+            "ALES sayısal veya eşit ağırlık puan türünden en az 70 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Rekreasyon Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Rekreasyon Bölümü lisans mezunu olup, Spor Bilimleri Temel Alanlarında yüksek lisans yapıyor olmak. ALES sayısal/eşit ağırlık/sözel puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizce) en az 50 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Rekreasyon Bölümü lisans mezunu olup, Spor Bilimleri Temel Alanlarında yüksek lisans yapıyor olmak. ALES sayısal/eşit ağırlık/sözel puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizc.",
+            "en az 50 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Tıbbi Farmakoloji Anabilim Dalı",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Tıbbi farmakoloji alanında yüksek lisans yapıyor olmak. ALES sayısal puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizce) en az 50 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YÖKDİL",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıbbi farmakoloji alanında yüksek lisans yapıyor olmak. ALES sayısal puan türünden en az 70 puan almış olmak, YÖKDİL veya muadili bir sınavdan (İngilizc.",
+            "en az 50 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Yeni Yüzyıl Üniversitesi Rektörlüğünden ARAŞTIRMA GÖREVLİSİ VE ÖĞRETİM GÖREVLİSİ ALIM İLANI Üniversitemiz Birimlerine 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Es",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ADANA ALPARSLAN TÜRKEŞ BİLİM VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "Adana",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2244914/kamu-akademik-personel-akademik-personel-alimlari-iptal-ilani-alparslan-turkes-bilim-ve-teknoloji-universitesi-rektorlugu-",
+      "ilanNo": "YOK853452",
+      "publishDate": "2026-10-04T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Havacılık ve Uzay Bilimleri Fakültesi",
+          "department": "Havacılık Yönetimi",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Havacılık ve Uzay Mühendisliği, Uzay Mühendisliği, Uçak Mühendisliği lisans mezunu olup, bu alanlardan birinde tezli yüksek lisans veya doktora yapıyor olmak",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": null,
+          "sartlar": [
+            "Havacılık ve Uzay Mühendisliği, Uzay Mühendisliği, Uçak Mühendisliği lisans mezunu olup, bu alanlardan birinde tezli yüksek lisans veya doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi Rektörlüğünden: İPTAL İLANI 20.09.2026 tarihli ve 33376 sayılı Resmi Gazete’de yayımlanan ve aşağıda belirtilen 6 Sıra Nolu Havacılık ve Uzay Bilimleri Fakültesi Havacılık Yönetimi Bölümü Havacılık Yönetimi Anabilim Dalı 1 (bir) adet Araştırma G",
+      "applicationDocuments": []
+    },
     {
       "university": "ÇANKIRI KARATEKİN ÜNİVERSİTESİ",
       "city": "Çankiri",
