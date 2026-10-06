@@ -1,7 +1,876 @@
 {
-  "lastUpdated": "2026-10-05T10:19:05.642Z",
+  "lastUpdated": "2026-10-06T11:23:12.912Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "AKDENİZ ÜNİVERSİTESİ",
+      "city": "Antalya",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2246143/kamu-akademik-personel-akademik-personel-alimlari-akdeniz-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853453",
+      "publishDate": "2026-10-05T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "EĞİTİM FAKÜLTESİ",
+          "department": "EĞİTİM BİLİMLERİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Eğitim Programları ve Öğretim alanında yüksek lisans ve doktora yapmış olmak; öğrencilerin akademik öğrenme süreçlerinde üretken yapay zeka kullanımı ve eğitimde yapay zeka tespit araçlarının zararları ile etik risklerine ilişkin konularda bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Eğitim Programları ve Öğretim alanında yüksek lisans ve doktora yapmış olmak; öğrencilerin akademik öğrenme süreçlerinde üretken yapay zeka kullanımı ve eğitimde yapay zeka tespit araçlarının zararları ile etik risklerine ilişkin konularda bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MANAVGAT YABANCI DİLLER FAKÜLTESİ",
+          "department": "MÜTERCİM VE TERCÜMANLIK",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Almanca Mütercim ve Tercümanlık, Alman Dili ve Edebiyatı veya Almanca Öğretmenliği alanlarının birinden lisans ve bu alanların herhangi birinden doktora derecesine sahip olmak. Yapay zeka destekli çeviri teknolojilerinde eşdeğerlik üzerine bilimsel çalışma yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Almanca Mütercim ve Tercümanlık, Alman Dili ve Edebiyatı veya Almanca Öğretmenliği alanlarının birinden lisans ve bu alanların herhangi birinden doktora derecesine sahip olmak.",
+            "Yapay zeka destekli çeviri teknolojilerinde eşdeğerlik üzerine bilimsel çalışma yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SOSYAL BİLİMLER MESLEK YÜKSEKOKULU",
+          "department": "SEYAHAT-TURİZM VE EĞLENCE HİZMETLERİ",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "İşletme Ana Bilim Dalında doktora yapmış olmak. Turizm alanında Doçent unvanı almış olmak. E-spor turizmi, unutulmaz turizm deneyimi, turizm sektöründe yapay zeka uygulamaları ve yenileyici (Rejeneratif) turizm konusunda bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "İşletme Ana Bilim Dalında doktora yapmış olmak. Turizm alanında Doçent unvanı almış olmak. E-spor turizmi, unutulmaz turizm deneyimi, turizm sektöründe yapay zeka uygulamaları ve yenileyici (Rejenerati.",
+            "turizm konusunda bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "CERRAHİ TIP BİLİMLERİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Perinatoloji yan dal uzmanı olmak. Fetal büyüme kısıtlılığı ve servikal yetmezlik konularında bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Perinatoloji yan dal uzmanı olmak.",
+            "Fetal büyüme kısıtlılığı ve servikal yetmezlik konularında bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "DAHİLİ TIP BİLİMLERİ",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Neonatoloji bilim dalında Doçentlik unvanı almış olmak. Prematüre retinopatisi ve diyabetik anne bebekleri alanında bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Neonatoloji bilim dalında Doçentlik unvanı almış olmak.",
+            "Prematüre retinopatisi ve diyabetik anne bebekleri alanında bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Akdeniz Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin akademik birimlerine, 2547 sayılı Yükseköğretim Kanunu, 2914 sayılı Yükseköğretim Personel Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği, Yükseköğretim Kurumlarında Yabancı Dil Öğretimi ve Yabancı Dille Öğret",
+      "applicationDocuments": []
+    },
+    {
+      "university": "AKDENİZ ÜNİVERSİTESİ",
+      "city": "Antalya",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2246144/kamu-akademik-personel-akademik-personel-alimlari-akdeniz-universitesi-rektorlugu-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853454",
+      "publishDate": "2026-10-05T21:00:01+00:00",
+      "deadline": "2026-10-20T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "CERRAHİ TIP BİLİMLERİ",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Kadın Hastalıkları ve Doğum Uzmanı olmak. Üremeye Yardımcı Tedavi Klinik Uygulamaları Sertifikalı Eğitim Programını tamamlamış olmak. Üremeye Yardımcı Tedavi Merkezini yönetmek için gerekli sertifikaya sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Kadın Hastalıkları ve Doğum Uzmanı olmak.",
+            "Üremeye Yardımcı Tedavi Klinik Uygulamaları Sertifikalı Eğitim Programını tamamlamış olmak.",
+            "Üremeye Yardımcı Tedavi Merkezini yönetmek için gerekli sertifikaya sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "DAHİLİ TIP BİLİMLERİ",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İç Hastalıkları uzmanı olmak. Yoğun bakım yan dal uzmanı olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "İç Hastalıkları uzmanı olmak.",
+            "Yoğun bakım yan dal uzmanı olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Akdeniz Üniversitesi Rektörlüğünden: ÖĞRETİM GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda yazılı birimlerine, 2547 sayılı Yükseköğretim Kanunu’nun ilgili maddeleri ve “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav İle Giriş Sınavlarına İlişkin Usu",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ÇANKAYA ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2246146/kamu-akademik-personel-akademik-personel-alimlari-cankaya universitesi rektorlugunden-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853455",
+      "publishDate": "2026-10-05T21:00:01+00:00",
+      "deadline": "2026-10-20T23:59:01+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Çankaya Üniversitesi Rektörlüğünden Üniversitemizin aşağıda gösterilen bölümlerine 657 sayılı Kanunun 48. maddesinde belirtilen genel şartları taşıyan, 2547 sayılı Kanunun 26, 24 ve 23. maddeleri ile Üniversitemiz Akademik Yükseltilme ve Atama Kriterleri Yönergesi ve Öğretim Üyesi Dışındaki Öğretim ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KAFKAS ÜNİVERSİTESİ",
+      "city": "Kars",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2246147/kamu-akademik-personel-akademik-personel-alimlari-iptal-ve-duzeltme-ilani-kafkas universitesi rektorlugunden-",
+      "ilanNo": "YOK853456",
+      "publishDate": "2026-10-05T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT",
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "Tarih",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "İptal edilmiştir.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İptal edilmiştir."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik- Mimarlık Fakültesi",
+          "department": "Kimya Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Kimya Bilim alanda almış olup katı sıvı faz dengeleri konusunda çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Kimya Bilim alanda almış olup katı sıvı faz dengeleri konusunda çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İptal edilmiştir.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "İptal edilmiştir."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Tıbbi Parazitoloji alanında almış olup zoonotik kan parazitleri konusunda bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Tıbbi Parazitoloji alanında almış olup zoonotik kan parazitleri konusunda bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kafkas Üniversitesi Rektörlüğünden İPTAL VE DÜZELTME İLANI Üniversitemiz çeşitli birimleri için 28.09.2026 tarihli ve 33384 sayılı Resmî Gazete'de aslına uygun olarak yayımlanan aşağıda tabloda belirtilen Doktor Öğretim üyesi ilanlarımız, İlanımızın 3/G maddesinde belirtilen “Üniversitemiz gerekli d",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ARTVİN ÇORUH ÜNİVERSİTESİ",
+      "city": "Artvi̇n",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2246150/kamu-akademik-personel-akademik-personel-alimlari-coruh-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853457",
+      "publishDate": "2026-10-05T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Eğitim Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Eğitim/Öğretim Teknolojileri Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Ölçek Geliştirme ve Uyarlama Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Doçentliğini Eğitim/Öğretim Teknolojileri Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Ölçek Geliştirme ve Uyarlama Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Matematik ve Fen Bilimleri Eğitimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını İlköğretim Fen Bilgisi Eğitimi Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Fen Eğitiminde Oyun Temelli Öğrenme Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Doktorasını İlköğretim Fen Bilgisi Eğitimi Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Fen Eğitiminde Oyun Temelli Öğrenme Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Tarih",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Yakınçağ Tarihi Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve 19. YY Osmanlı Devleti Diplomasi Tarihi Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentliğini Yakınçağ Tarihi Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve.",
+            "YY Osmanlı Devleti Diplomasi Tarihi Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Felsefe",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Felsefe Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Klasik ve Modern Mantık Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentliğini Felsefe Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Klasik ve Modern Mantık Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Felsefe",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Felsefe Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve İslam Felsefesi ve Tasavvuf Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentliğini Felsefe Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve İslam Felsefesi ve Tasavvuf Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen Edebiyat Fakültesi",
+          "department": "Türk Dili ve Edebiyatı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Türk Halk Bilimi Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Dijital Kültür Üzerine Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentliğini Türk Halk Bilimi Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Dijital Kültür Üzerine Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İşletme Fakültesi",
+          "department": "Sağlık Yönetimi",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Yönetim ve Organizasyon Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Kırsal Sağlık Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Yönetim ve Organizasyon Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Kırsal Sağlık Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İşletme Fakültesi",
+          "department": "Sağlık Yönetimi",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını İşletme Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 2 Yıl Çalışmış ve Denetim Kalitesi Üzerine Ölçek Geliştirme Çalışması Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını İşletme Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 2 Yıl Çalışmış ve Denetim Kalitesi Üzerine Ölçek Geliştirme Çalışması Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Bilgisayar Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Bilgisayar ve Bilişim Sistemleri Mühendisliği, Bilişim Sistemleri Mühendisliği, Bilişim Sistemleri, Bilgisayar Bilimi ve Mühendisliği, Bilgisayar Bilimleri, Yapay Zekâ ve Veri Mühendisliği, Veri Bilimi ve Yapay Zekâ Alanlarından Birinde Doktora Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Mühendisliği, Yazılım Mühendisliği, Bilgisayar ve Bilişim Sistemleri Mühendisliği, Bilişim Sistemleri Mühendisliği, Bilişim Sistemleri, Bilgisayar Bilimi ve Mühendisliği, Bilgisayar Bilimleri, Yapay Zekâ ve Veri Mühendisliği, Veri Bilimi ve Yapay Zekâ Alanlarından Birinde Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Elektrik- Elektronik Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği, Elektronik Mühendisliği veya Elektronik ve Haberleşme Mühendisliği Alanında Doktora Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Elektrik-Elektronik Mühendisliği, Elektronik Mühendisliği veya Elektronik ve Haberleşme Mühendisliği Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Elektrik- Elektronik Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Elektrik-Elektronik Mühendisliği, Elektronik Mühendisliği veya Elektronik ve Haberleşme Mühendisliği Alanında Doktora Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Elektrik-Elektronik Mühendisliği, Elektronik Mühendisliği veya Elektronik ve Haberleşme Mühendisliği Alanında Doktora Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Orman Fakültesi",
+          "department": "Orman Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Orman Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Karışık Meşcerelerin Silvikültürü Konusunda Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Ziraat ve Orman",
+          "sartlar": [
+            "Doçentliğini Orman Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Karışık Meşcerelerin Silvikültürü Konusunda Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Orman Fakültesi",
+          "department": "Orman Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Orman Mühendisliği Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Koruma Biyolojisi ve Tür Dağılım Modellemesi Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Ziraat ve Orman",
+          "sartlar": [
+            "Doktorasını Orman Mühendisliği Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Koruma Biyolojisi ve Tür Dağılım Modellemesi Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Orman Fakültesi",
+          "department": "Orman Endüstri Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Orman Endüstrisi Mühendisliği Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Ahşap Koruma Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doktorasını Orman Endüstrisi Mühendisliği Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Ahşap Koruma Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "İş Sağlığı ve Güvenliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Çevre Bilimleri ve Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Çok Kriterli Karar Verme Analizi Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Çevre Bilimleri ve Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Çok Kriterli Karar Verme Analizi Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "İş Sağlığı ve Güvenliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Kimya Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Kimyasal Kirleticilerin Kolormatik Sensör Tespit Kitleri Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Kimya Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 5 Yıl Çalışmış ve Kimyasal Kirleticilerin Kolormatik Sensör Tespit Kitleri Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Beslenme ve Diyetetik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Beslenme ve Diyetetik Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Fonksiyonel Besinlerle İlgili Metodolojik Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Beslenme ve Diyetetik Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Fonksiyonel Besinlerle İlgili Metodolojik Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Rekreasyon",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Rekreasyon Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Rekreasyon Tarihi Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Doçentliğini Rekreasyon Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Rekreasyon Tarihi Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "Rekreasyon",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Rekreasyon veya Beden Eğitimi ve Spor Eğitimi Alanında Doktora Yapmış Olup Alanında En Az 10 Yıl Tecrübe Sahibi Olmak ve Rekreasyon Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Rekreasyon veya Beden Eğitimi ve Spor Eğitimi Alanında Doktora Yapmış Olup Alanında En Az 10 Yıl Tecrübe Sahibi Olmak ve Rekreasyon Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Turizm Fakültesi",
+          "department": "Gastronomi ve Mutfak Sanatları",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Gıda Bilimleri ve Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Modifiye Nişastalar Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doçentliğini Gıda Bilimleri ve Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Modifiye Nişastalar Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Arhavi Meslek Yüksekokulu",
+          "department": "Dış Ticaret",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Üretim Yönetimi Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Metasezgisel Algoritmalar Üzerine Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Üretim Yönetimi Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Metasezgisel Algoritmalar Üzerine Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Artvin Meslek Yüksekokulu",
+          "department": "Makine ve Metal Teknolojileri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Makine Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Elektrosprey Soğutma Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Makine Mühendisliği Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Elektrosprey Soğutma Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Artvin Meslek Yüksekokulu",
+          "department": "Finans- Bankacılık ve Sigortacılık",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını İktisat Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Sanal Para Piyasaları Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktorasını İktisat Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Sanal Para Piyasaları Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Borçka Acarlar Meslek Yüksekokulu",
+          "department": "Elektronik ve Otomasyon",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Metalurji ve Malzeme Mühendisliği Teknolojileri Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 3 Yıl Çalışmış ve Toz Metalurjisi ve Manyetokalorik Malzemeler Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktorasını Metalurji ve Malzeme Mühendisliği Teknolojileri Alanında Yapmış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 3 Yıl Çalışmış ve Toz Metalurjisi ve Manyetokalorik Malzemeler Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Biyoloji Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Botanik Alanında Çalışma Yapmış Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Biyoloji Alanında Almış Olup Yükseköğretim Kurumlarında Akademik Personel Olarak En Az 10 Yıl Çalışmış ve Botanik Alanında Çalışma Yapmış Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Artvin Çoruh Üniversitesi Rektörlüğünden: Üniversitemiz aşağıda belirtilen birimlerine; \"2547 sayılı Yükseköğretim Kanunu\",\"657 sayılı Devlet Memurları Kanununun 48. maddesi\", \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği\" ile \"Üniversitemiz Öğretim Üyeliğine Yükseltilme ve Atanma Yönergesini",
+      "applicationDocuments": []
+    },
     {
       "university": "SAMSUN ÜNİVERSİTESİ",
       "city": "Samsun",
