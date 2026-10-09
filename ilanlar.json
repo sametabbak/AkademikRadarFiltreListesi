@@ -1,7 +1,60 @@
 {
-  "lastUpdated": "2026-10-09T07:15:44.213Z",
+  "lastUpdated": "2026-10-09T13:32:09.059Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "GİRESUN ÜNİVERSİTESİ",
+      "city": "Gi̇resun",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2250965/kamu-akademik-personel-akademik-personel-alimlari-giresun-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853477",
+      "publishDate": "2026-10-08T21:00:01+00:00",
+      "deadline": "2026-10-23T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Giresun Üniversitesi Rektörlüğünden Üniversitemiz birimlerine 2547 sayılı Yükseköğretim Kanunu, 657 sayılı Devlet Memurları Kanunu’nun 48 inci maddesi, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ve Giresun Üniversitesi Öğretim Üyeliğine Yükseltilme ve Atanma Yönergesi hükümleri uyarınca öğr",
+      "applicationDocuments": []
+    },
     {
       "university": "BANDIRMA ONYEDİ EYLÜL ÜNİVERSİTESİ",
       "city": "Balikesi̇r",
