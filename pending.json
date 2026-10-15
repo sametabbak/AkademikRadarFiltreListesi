@@ -1,7 +1,534 @@
 {
-  "lastUpdated": "2026-10-14T13:19:18.722847+00:00",
+  "lastUpdated": "2026-10-15T13:04:44.645149+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "NECMETTİN ERBAKAN ÜNİVERSİTESİ",
+      "city": "Konya",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2257591/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-necmettin-erbakan-universitesi-rektorlugu-",
+      "ilanNo": "YOK853495",
+      "publishDate": "2026-10-14T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Seydişehir Kamil Akkanat Sağlık Bilimleri Fakültesi/Hemşirelik/Çocuk Sağlığı ve Hastalıkları Hemşireliği1",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik programı lisans mezunu olmak. Çocuk Sağlığı ve Hastalıkları Hemşireliği veya Hemşirelik alanlarının birinde tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 7,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik programı lisans mezunu olmak.",
+            "Çocuk Sağlığı ve Hastalıkları Hemşireliği veya Hemşirelik alanlarının birinde tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Seydişehir Kamil Akkanat Sağlık Bilimleri Fakültesi/Hemşirelik/Çocuk Sağlığı ve Hastalıkları Hemşireliği1",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik programı lisans mezunu olmak. Çocuk Sağlığı ve Hastalıkları Hemşireliği veya Hemşirelik alanlarının birinde tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 7,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik programı lisans mezunu olmak.",
+            "Çocuk Sağlığı ve Hastalıkları Hemşireliği veya Hemşirelik alanlarının birinde tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Seydişehir Kamil Akkanat Sağlık Bilimleri Fakültesi/Hemşirelik/Çocuk Sağlığı ve Hastalıkları Hemşireliği1",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik programı lisans mezunu olmak. Çocuk Sağlığı ve Hastalıkları Hemşireliği veya Hemşirelik alanlarının birinde tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 7,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik programı lisans mezunu olmak.",
+            "Çocuk Sağlığı ve Hastalıkları Hemşireliği veya Hemşirelik alanlarının birinde tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Necmettin Erbakan Üniversitesi Rektörlüğünden: DÜZELTME İLANI 13.10.2026 tarih ve 33399 sayılı Resmî Gazete’de aslı uygun olarak yayımlanan Üniversitemiz akademik birimlerinde ihtiyaç duyulan öğretim elemanı ilanı, 2026-16 nolu kadro “ÖZEL ŞARTLAR” bölümü aşağıda belirtildiği şekilde düzeltilmiştir.",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ANTALYA BELEK ÜNİVERSİTESİ",
+      "city": "Antalya",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2257588/kamu-akademik-personel-akademik-personel-alimlari-belek-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853494",
+      "publishDate": "2026-10-14T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik Mimarlık Fakültesi",
+          "department": "Yazılım Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Bilgisayar Mühendisliği ya da Yazılım Mühendisliği alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Bilgisayar Mühendisliği ya da Yazılım Mühendisliği alanında almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sanat ve Tasarım Fakültesi",
+          "department": "İletişim ve Tasarımı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İletişim alanında doktora eğitimi almış olmak ve dijital iletişim alanında çalışmaları bulunmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "İletişim alanında doktora eğitimi almış olmak ve dijital iletişim alanında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Mimarlık Fakültesi",
+          "department": "Yazılım Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Bilgisayar Mühendisliği, Yazılım Mühendisliği ya da Elektrik Elektronik Mühendisliği alanında almış olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doktorasını Bilgisayar Mühendisliği, Yazılım Mühendisliği ya da Elektrik Elektronik Mühendisliği alanında almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Antalya Belek Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ PERSONEL ALIM İLANI I. Öğretim Üyesi (profesör, doçent, doktor öğretim üyesi) olarak personel alım ilanı; Üniversitemizin aşağıda Tablo1’de belirtilen birimlerine 657 sayılı Devlet Memurları Kanunu’nun 48’inci maddesinde belirtilen genel şartl",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İNÖNÜ ÜNİVERSİTESİ",
+      "city": "Malatya",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2257510/kamu-akademik-personel-akademik-personel-alimlari-inonu universitesi rektorlugunden-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853493",
+      "publishDate": "2026-10-14T21:00:01+00:00",
+      "deadline": "2026-10-30T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Çin dili ve edebiyatı, Çin dili ve kültürü, sinoloji veya Çince mütercim ve tercümanlık bölümlerinin birinden lisans mezunu olup tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 3,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Çin dili ve edebiyatı, Çin dili ve kültürü, sinoloji veya Çince mütercim ve tercümanlık bölümlerinin birinden lisans mezunu olup tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lisansüstü eğitimini halk sağlığı alanında yapmış olup tıbbi dokümantasyon alanında çalışmaları olmak. Yükseköğretim kurumlarında en az 5 yıl ders verme deneyimine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Lisansüstü eğitimini halk sağlığı alanında yapmış olup tıbbi dokümantasyon alanında çalışmaları olmak.",
+            "Yükseköğretim kurumlarında en az 5 yıl ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Kariyer Merkezi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Doktora mezunu olup gençlik üzerine çalışma yapmış olmak. Yükseköğretim Kurulu Başkanlığınca eş değerliliği kabul edilen ikinci bir yabancı dil sınavından en az 50 puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Doktora mezunu olup gençlik üzerine çalışma yapmış olmak.",
+            "Yükseköğretim Kurulu Başkanlığınca eş değerliliği kabul edilen ikinci bir yabancı dil sınavından en az 50 puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İnönü Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine; Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik hükümleri uyarınca öğretim görevlisi kadrosuna başvur",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ATATÜRK ÜNİVERSİTESİ",
+      "city": "Erzurum",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2257509/kamu-akademik-personel-akademik-personel-alimlari-ataturk universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853492",
+      "publishDate": "2026-10-14T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olup, Biyoistatistik ve Tıp Bilişimi Alanında çalışma yapmış olmak. (Atatürk Üniversitesi Öğretim Üyeliği Kadrolarına Başvuru İçin Gerekli Koşullar ve Uygulama Esasları’nın 9. maddesi uygulanacaktır.)",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, Biyoistatistik ve Tıp Bilişimi Alanında çalışma yapmış olmak. (Atatürk Üniversitesi Öğretim Üyeliği Kadrolarına Başvuru İçin Gerekli Koşullar ve Uygulama Esasları’nın.",
+            "maddesi uygulanacaktır.)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Atatürk Üniversitesi Rektörlüğünden Üniversitemize bağlı birimlerde istihdam edilmek üzere, 2547 sayılı Kanun ve Üniversitemiz Öğretim Üyeliği Kadrolarına Başvuru İçin Gerekli Koşullar ve Uygulama Esaslarına göre öğretim üyesi alınacaktır. Müracaat edecek adayların 657 sayılı Devlet Memurları Kanunu",
+      "applicationDocuments": []
+    },
+    {
+      "university": "AKSARAY ÜNİVERSİTESİ",
+      "city": "Aksaray",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2257508/kamu-akademik-personel-akademik-personel-alimlari-aksaray universitesi rektorlugunden-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853491",
+      "publishDate": "2026-10-14T21:00:01+00:00",
+      "deadline": "2026-10-30T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Aksaray Teknik Bilimler Meslek Yüksekokulu",
+          "department": "Elektronik ve Otomasyon",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Biyomedikal Mühendisliği Bölümü lisans mezunu olup, ilgili alanda tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Biyomedikal Mühendisliği Bölümü lisans mezunu olup, ilgili alanda tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Güzelyurt Meslek Yüksekokulu",
+          "department": "Bitkisel ve Hayvansal Üretimi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bitki Koruma Bölümü lisans mezunu olup, ilgili alanda tezli yüksek lisans yapmış bulunmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Bitki Koruma Bölümü lisans mezunu olup, ilgili alanda tezli yüksek lisans yapmış bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Turizm Fakültesi",
+          "department": "Gastronomi ve Mutfak Sanatları",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Gastronomi ve Mutfak Sanatları lisans mezunu olup, ilgili alanda yüksek yapmış bulunmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Gastronomi ve Mutfak Sanatları lisans mezunu olup, ilgili alanda yüksek yapmış bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dili Eğitimi veya İngiliz Dilbilimi lisans mezunu olup, bu alanların birinde tezli yüksek lisans yapmış bulunmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Amerikan Kültürü ve Edebiyatı, İngiliz Dili Eğitimi veya İngiliz Dilbilimi lisans mezunu olup, bu alanların birinde tezli yüksek lisans yapmış bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İlahiyat Fakültesi",
+          "department": "Felsefe ve Din bilimleri",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İlahiyat Fakültesi veya İslami İlimler Fakültesi lisans mezunu olup, dinler tarihi alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "İlahiyat Fakültesi veya İslami İlimler Fakültesi lisans mezunu olup, dinler tarihi alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Elektrik-Elektronik Mühendisliği",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mühendislik Fakültesi Elektrik-Elektronik Mühendisliği Bölümü lisans mezunu olup, ilgili alanda tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mühendislik Fakültesi Elektrik-Elektronik Mühendisliği Bölümü lisans mezunu olup, ilgili alanda tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Maliye",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Maliye Bölümü lisans mezunu olup, maliye alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Maliye Bölümü lisans mezunu olup, maliye alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Veteriner Fakültesi",
+          "department": "Klinik Öncesi Bilimleri",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Veteriner Fakültesi mezunu olup, Veterinerlik Farmakoloji ve Toksitolojisi alanında yüksek lisans veya doktora yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Veteriner Fakültesi mezunu olup, Veterinerlik Farmakoloji ve Toksitolojisi alanında yüksek lisans veya doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Dijital Dönüşüm Koordinatörlüğü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Yönetim Bilişim Sistemleri, Endüstri Mühendisliği, Bilgisayar Mühendisliği veya Bilişim Sistemleri Mühendisliği lisans programlarının birinden mezun olup, Yönetim Bilişim Sistemleri, Bilgisayar Mühendisliği, Bilişim Sistemleri, Bilişim Teknolojileri, Endüstri Mühendisliği, Bilgisayar Bilimleri, Veri Bilimi veya Veri Analitiği alanlarından birinde tezli yüksek lisansını tamamlamış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Yönetim Bilişim Sistemleri, Endüstri Mühendisliği, Bilgisayar Mühendisliği veya Bilişim Sistemleri Mühendisliği lisans programlarının birinden mezun olup, Yönetim Bilişim Sistemleri, Bilgisayar Mühendisliği, Bilişim Sistemleri, Bilişim Teknolojileri, Endüstri Mühendisliği, Bilgisayar Bilimleri, Veri Bilimi veya Veri Analitiği alanlarından birinde tezli yüksek lisansını tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Aksaray Üniversitesi Rektörlüğünden Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik hükümleri çerçevesinde; Üniversitemizin aşağıda yer alan birimlerine 2547 sayılı Kanun’un 31. madde",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BAŞKENT ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2257507/kamu-akademik-personel-akademik-personel-alimlari-baskent-universitesi-rektorlugu-ogreti-uyesi-alim-ilani",
+      "ilanNo": "YOK853490",
+      "publishDate": "2026-10-14T21:00:01+00:00",
+      "deadline": "2026-11-06T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "DAHİLİ TIP BİLİMLERİ AİLE HEKİMLİĞİ ANABİLİM DALI",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Aile Hekimliği alanında tıpta uzmanlık eğitimini tamamlamış olmak. Görev yeri Adana Dr. Turgut Noyan Uygulama ve Araştırma Merkezi olacaktır.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Aile Hekimliği alanında tıpta uzmanlık eğitimini tamamlamış olmak.",
+            "Görev yeri Adana Dr.",
+            "Turgut Noyan Uygulama ve Araştırma Merkezi olacaktır."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "TEMEL TIP BİLİMLERİ FİZYOLOJİ ANABİLİM DALI",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 2,
+          "requirements": "Fizyoloji (Tıp) Anabilim Dalında tıpta uzmanlık veya doktora eğitimini tamamlamış olmak; Elektrofizyoloji/Metabolizma konusunda çalışmaları/yayınları bulunmak. Üniversitemiz Ankara Kampüste görev yapacaktır.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoloji (Tıp) Anabilim Dalında tıpta uzmanlık veya doktora eğitimini tamamlamış olmak; Elektrofizyoloji/Metabolizma konusunda çalışmaları/yayınları bulunmak.",
+            "Üniversitemiz Ankara Kampüste görev yapacaktır."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Başkent Üniversitesi Rektörlüğünden: Aşağıda Belirtilen Bölümlere Öğretim Üyesi, Öğretim Görevlisi Alınacaktır. ÖĞRETİM ÜYESİ KADROLARI: TIP FAKÜLTESİ Anabilim Dalı / Bilim Dalı Toplam Profesör Doçent Dr. Öğr. Üyesi Adana Ankara Ankara Adana Ankara Acil Tıp Anabilim Dalı 1 1 Biyofizik Anabilim Dalı ",
+      "applicationDocuments": []
+    },
     {
       "university": "ONDOKUZ MAYIS ÜNİVERSİTESİ",
       "city": "Samsun",
