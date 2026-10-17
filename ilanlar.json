@@ -1,7 +1,733 @@
 {
-  "lastUpdated": "2026-10-15T13:18:41.583Z",
+  "lastUpdated": "2026-10-17T14:18:59.087Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "ABDULLAH GÜL ÜNİVERSİTESİ",
+      "city": "Kayseri̇",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2259119/kamu-akademik-personel-akademik-personel-alimlari-abdullah-gul-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853496",
+      "publishDate": "2026-10-15T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Endüstri Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Endüstri Mühendisliği alanında almış olmak. Yapay zekâ ve veri madenciliği alanlarında yayınları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Endüstri Mühendisliği alanında almış olmak.",
+            "Yapay zekâ ve veri madenciliği alanlarında yayınları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Endüstri Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doktora derecesini ve doçentlik ünvanını Endüstri Mühendisliği alanında almış olmak. Karar bilimi ve çok kriterli karar verme alanlarında yayınları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doktora derecesini ve doçentlik ünvanını Endüstri Mühendisliği alanında almış olmak.",
+            "Karar bilimi ve çok kriterli karar verme alanlarında yayınları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Makine Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Makine Mühendisliği alanında almış olmak. Kompozit malzemeler üzerine yayınları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Makine Mühendisliği alanında almış olmak.",
+            "Kompozit malzemeler üzerine yayınları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Abdullah Gül Üniversitesi Rektörlüğünden: ÖĞRETİM ELEMANI ALIM İLANI (2026-04) Eğitim dili İngilizce olan Üniversitemize; 2547 sayılı Yükseköğretim Kanunu, 657 sayılı Devlet Memurları Kanunu’nun 48’inci maddesinde belirtilen şartlar ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ile Üniversi",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ABDULLAH GÜL ÜNİVERSİTESİ",
+      "city": "Kayseri̇",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2259120/kamu-akademik-personel-akademik-personel-alimlari-abdullah-gul-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853497",
+      "publishDate": "2026-10-15T21:00:01+00:00",
+      "deadline": "2026-10-30T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Yönetim Bilimleri Fakültesi",
+          "department": "İşletme",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fakültelerin Ekonomi, Ekonometri, İktisat, Uluslararası Ticaret, Uluslararası Ticaret ve Finansman, Uluslararası Ticaret ve İşletmecilik, Uluslararası İşletme Yönetimi, Finans ve Bankacılık, İşletme veya İşletme Mühendisliği ile bu lisans programlarına eşdeğerliliği YÖK tarafından kabul edilmiş bölümlerden lisans mezunu olmak, Türkiye'de yerleşik bir üniversitede İşletme veya Veri Bilimi veya Muhasebe ve Finansman Ana Bilim Dalında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Fakültelerin Ekonomi, Ekonometri, İktisat, Uluslararası Ticaret, Uluslararası Ticaret ve Finansman, Uluslararası Ticaret ve İşletmecilik, Uluslararası İşletme Yönetimi, Finans ve Bankacılık, İşletme veya İşletme Mühendisliği ile bu lisans programlarına eşdeğerliliği YÖK tarafından kabul edilmiş bölümlerden lisans mezunu olmak, Türkiye'de yerleşik bir üniversitede İşletme veya Veri Bilimi veya Muhasebe ve Finansman Ana Bilim Dalında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Malzeme Bilimi ve Nanoteknoloji Mühendisliği",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizik, Fizik Mühendisliği, Malzeme Bilimi ve Mühendisliği, Elektrik, Elektronik veya Elektrik-Elektronik Mühendisliği Bölümlerinden birinden Lisans derecesine sahip olmak. Fizik, Fizik Mühendisliği veya Malzeme-Nanoteknoloji programlarından birinde yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Fizik, Fizik Mühendisliği, Malzeme Bilimi ve Mühendisliği, Elektrik, Elektronik veya Elektrik-Elektronik Mühendisliği Bölümlerinden birinden Lisans derecesine sahip olmak.",
+            "Fizik, Fizik Mühendisliği veya Malzeme-Nanoteknoloji programlarından birinde yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük (Teknoloji Transfer Ofisi)",
+          "department": "-",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Yükseköğretim kurumlarının en az dört yıllık lisans eğitimi veren herhangi bir bölümünden lisans derecesi ile mezun olmak ve herhangi bir alanda tezli yüksek lisans derecesine sahip olmak veya Yükseköğretim Kurulu tarafından denkliği kabul edilen yurt dışındaki yükseköğretim kurumlarından lisans ve tezli yüksek lisans mezunu olmak. Teknoloji Transfer Ofisi, Teknoloji Geliştirme Bölgesi yönetici şirketi, 5746 sayılı Kanun kapsamındaki Ar-Ge veya Tasarım Merkezleri, TEKMER, Sanayi ve/veya Ticaret Odaları, 6550 sayılı Kanun kapsamındaki araştırma altyapılarında teknoloji yönetimi, inovasyon yönetimi, proje yönetimi, iş geliştirme, girişimcilik, üniversite-sanayi iş birliği, fikri ve sınai mülkiyet hakları, ticarileştirme, sözleşme yönetimi, projelerin idari ve mali süreçlerinin yönetimi veya iş ağı geliştirme alanlarından bir veya birkaçında en az iki yıl mesleki deneyime sahip olmak. Adayların başvuru sırasında sağladıkları tüm özel şartları belgelendirmeleri zorunludur. Deneyime ilişkin belgeler çalışma belgesi, hizmet belgesi, SGK hizmet dökümü, görev veya yetki yazısı, kurum/kuruluş tarafından düzenlenmiş resmi belgelerdir. Belgelendirilemeyen deneyim, sertifika ve mesleki yeterlilikler değerlendirmeye alınmaz.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 70,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Yükseköğretim kurumlarının en az dört yıllık lisans eğitimi veren herhangi bir bölümünden lisans derecesi ile mezun olmak ve herhangi bir alanda tezli yüksek lisans derecesine sahip olmak veya Yükseköğretim Kurulu tarafından denkliği kabul edilen yurt dışındaki yükseköğretim kurumlarından lisans ve tezli yüksek lisans mezunu olmak.",
+            "Teknoloji Transfer Ofisi, Teknoloji Geliştirme Bölgesi yönetici şirketi, 5746 sayılı Kanun kapsamındaki Ar-Ge veya Tasarım Merkezleri, TEKMER, Sanayi ve/veya Ticaret Odaları, 6550 sayılı Kanun kapsamındaki araştırma altyapılarında teknoloji yönetimi, inovasyon yönetimi, proje yönetimi, iş geliştirme, girişimcilik, üniversite-sanayi iş birliği, fikri ve sınai mülkiyet hakları, ticarileştirme, sözleşme yönetimi, projelerin idari ve mali süreçlerinin yönetimi veya iş ağı geliştirme alanlarından bir veya birkaçında en az iki yıl mesleki deneyime sahip olmak.",
+            "Adayların başvuru sırasında sağladıkları tüm özel şartları belgelendirmeleri zorunludur.",
+            "Deneyime ilişkin belgeler çalışma belgesi, hizmet belgesi, SGK hizmet dökümü, görev veya yetki yazısı, kurum/kuruluş tarafından düzenlenmiş resmi belgelerdir.",
+            "Belgelendirilemeyen deneyim, sertifika ve mesleki yeterlilikler değerlendirmeye alınmaz."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Abdullah Gül Üniversitesi Rektörlüğünden: Eğitim dili İngilizce olan Üniversitemize; 2547 sayılı Yükseköğretim Kanunu, 657 sayılı Devlet Memurları Kanununun 48 inci maddesinde belirtilen şartlar, 10/07/2018 tarihli ve 30474 sayılı Resmi Gazete’de yayımlanan Genel Kadro ve Usulü Hakkında 2 sayılı Cum",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KOCAELİ SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "Kocaeli̇",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2259121/kamu-akademik-personel-akademik-personel-alimlari-kocaeli-saglik-ve-teknoloji-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853498",
+      "publishDate": "2026-10-15T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Diş Hekimliği Fak.",
+          "department": "Pedodonti A.D.",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Çocuk Diş Hekimliği alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Çocuk Diş Hekimliği alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fak.",
+          "department": "Ağız Diş ve Çene Cerrahisi A.D.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Ağız Diş ve Çene Cerrahisi alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Ağız Diş ve Çene Cerrahisi alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fak.",
+          "department": "Ağız, Diş ve Çene Cerrahisi A.D.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Uzmanlığını Ağız Diş ve Çene Cerrahisi alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Uzmanlığını Ağız Diş ve Çene Cerrahisi alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fak.",
+          "department": "Ağız Diş Çene Cerrahisi A.D.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Ağız Diş ve Çene Cerrahisi alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Ağız Diş ve Çene Cerrahisi alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fak.",
+          "department": "Ebelik Pr.",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Kadın Hastalıkları ve Doğum alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Kadın Hastalıkları ve Doğum alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fak.",
+          "department": "Fizyoterapi ve Rehabilitasyon Pr.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Fizyoterapi ve Rehabilitasyon alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Fizyoterapi ve Rehabilitasyon alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fak.",
+          "department": "Fizyoterapi ve Rehabilitasyon Pr.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon Bölümü Lisans mezunu olup Spor Bilimleri alanında doktorasını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon Bölümü Lisans mezunu olup Spor Bilimleri alanında doktorasını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fak.",
+          "department": "Hemşirelik Pr.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Cerrahi Hastalıkları Hemşireliği alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Cerrahi Hastalıkları Hemşireliği alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fak.",
+          "department": "Hemşirelik Pr.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını İç Hastalıkları Hemşireliği alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını İç Hastalıkları Hemşireliği alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sosyal ve Beşeri Bil. Fak.",
+          "department": "İşletme Pr.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını İşletme alanından almış olmak. Belgelendirmek kaydıyla Yükseköğretim Kurumları Lisansüstü Programlarında ders vermiş olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doktorasını İşletme alanından almış olmak.",
+            "Belgelendirmek kaydıyla Yükseköğretim Kurumları Lisansüstü Programlarında ders vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Avrupa MYO",
+          "department": "Optisyenlik Pr.",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Göz Hastalıkları alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Göz Hastalıkları alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Avrupa MYO",
+          "department": "Anestezi Pr.",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Anesteziyoloji ve Reanimasyon",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Anesteziyoloji ve Reanimasyon."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Avrupa MYO",
+          "department": "Bilgisayar Programcılığı Pr.",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini bilgisayar Mühendisliği alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini bilgisayar Mühendisliği alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Avrupa MYO",
+          "department": "Tıbbi Görüntüleme Teknikleri Pr.",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Fizik alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Fizik alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Avrupa MYO",
+          "department": "Ameliyathane Hizmetleri Pr.",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Uzmanlığını Tıp alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Uzmanlığını Tıp alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kocaeli Sağlık ve Teknoloji Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanununun ilgili maddeleri, \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği\" ile “Kocaeli Sağlık ve Teknoloji Üniversitesi Öğretim Üyeliğine Yükseltilme ve Atama Krit",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BURSA ULUDAĞ ÜNİVERSİTESİ",
+      "city": "Bursa",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2259123/kamu-akademik-personel-akademik-personel-alimlari-bursa-uludag-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853499",
+      "publishDate": "2026-10-15T21:00:01+00:00",
+      "deadline": "2026-10-30T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "UZMAN"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 6,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 4,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "UZMAN",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Bursa Uludağ Üniversitesi Rektörlüğünden: Üniversitemize bağlı birimlere 2547 Sayılı Yükseköğretim Kanunu ve bu kanuna dayalı olarak çıkartılan ilgili mevzuat hükümleri uyarınca öğretim elemanı alınacaktır. 1- İlanda yeralan Profesör ve Doçent kadrosu için Personel Daire Başkanlığı'na, Doktor Öğreti",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KOCAELİ SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "Kocaeli̇",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2259125/kamu-akademik-personel-akademik-personel-alimlari-kocaeli-saglik-ve-teknoloji-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853500",
+      "publishDate": "2026-10-15T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Sağlık Bilimleri Fak.",
+          "department": "Hemşirelik Pr.",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik veya Hemşirelik alanların birinde Yüksek Lisans veya doktorasını yapıyor olmak. Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından (İngilizce) en az 50 puan veya eşdeğerliği kabul edilen bir sınavdan bu puan muadili bir puan almış olmak",
+          "alesRequired": true,
+          "alesScore": 59,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik veya Hemşirelik alanların birinde Yüksek Lisans veya doktorasını yapıyor olmak. Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından (İngilizc.",
+            "en az 50 puan veya eşdeğerliği kabul edilen bir sınavdan bu puan muadili bir puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sosyal ve Beşeri Bil. Fak.",
+          "department": "İşletme Pr.",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Uluslararası Ticaret lisans mezunu olup, Üretim Yönetimi ve Pazarlama alanında doktora yapıyor olmak. Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından (İngilizce) en az 50 puan veya eşdeğerliği kabul edilen bir sınavdan bu puan muadili bir puan almış olmak",
+          "alesRequired": true,
+          "alesScore": 59,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Uluslararası Ticaret lisans mezunu olup, Üretim Yönetimi ve Pazarlama alanında doktora yapıyor olmak. Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından (İngilizc.",
+            "en az 50 puan veya eşdeğerliği kabul edilen bir sınavdan bu puan muadili bir puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kocaeli Sağlık ve Teknoloji Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanununun ilgili maddeleri ile \"Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Es",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL GEDİK ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2259262/kamu-akademik-personel-akademik-personel-alimlari-istanbul-gedik-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853501",
+      "publishDate": "2026-10-15T21:00:01+00:00",
+      "deadline": "2026-10-30T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Gedik Meslek Yüksekokulu",
+          "department": "Kaynak Teknolojisi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Malzeme ve Metalurji Mühendisliği alanında almış olmak. Kaynak Teknolojileri ve Kompozit Malzemeler konularında bilimsel çalışmalar yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Malzeme ve Metalurji Mühendisliği alanında almış olmak.",
+            "Kaynak Teknolojileri ve Kompozit Malzemeler konularında bilimsel çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Hemşirelik Esasları alanında yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Hemşirelik Esasları alanında yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Hemşirelik alanında yapmış olup tez çalışmasını Cerrahi hastalıkları hemşireliği alanında yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını Hemşirelik alanında yapmış olup tez çalışmasını Cerrahi hastalıkları hemşireliği alanında yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Gedik Üniversitesi Rektörlüğünden Üniversitemize 2547 sayılı Yükseköğretim Kanunu’nun ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği’nin ilgili maddeleri ile İstanbul Gedik Üniversitesi Akademik Yükseltme ve Atama Yönergesi uyarınca aşağıda belirtilen kadroya Öğretim Elemanı alınaca",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL GEDİK ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2259316/kamu-akademik-personel-akademik-personel-alimlari-istanbul-gedik-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853502",
+      "publishDate": "2026-10-15T21:00:01+00:00",
+      "deadline": "2026-10-30T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İngilizce Öğretmenliği, İngiliz/Amerikan Dili ve Edebiyatı, İngiliz Dil Bilimi/Eğitimi, Mütercim Tercümanlık, İngiliz Edebiyatı ve ilgili bölümlerin birinden lisans mezunu olmak. Tezli yüksek lisans eğitimini tamamlamış olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngilizce Öğretmenliği, İngiliz/Amerikan Dili ve Edebiyatı, İngiliz Dil Bilimi/Eğitimi, Mütercim Tercümanlık, İngiliz Edebiyatı ve ilgili bölümlerin birinden lisans mezunu olmak.",
+            "Tezli yüksek lisans eğitimini tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Gedik Üniversitesi Rektörlüğünden Üniversitemize 2547 sayılı Yükseköğretim Kanunu’nun ve Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik gereğince öngörülen koşulları sağlamı",
+      "applicationDocuments": []
+    },
     {
       "university": "NECMETTİN ERBAKAN ÜNİVERSİTESİ",
       "city": "Konya",
