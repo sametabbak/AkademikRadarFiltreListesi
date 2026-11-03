@@ -1,7 +1,622 @@
 {
-  "lastUpdated": "2026-10-31T12:20:40.716Z",
+  "lastUpdated": "2026-11-03T07:05:57.713Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "BİTLİS EREN ÜNİVERSİTESİ",
+      "city": "Bi̇tli̇s",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2274523/kamu-akademik-personel-akademik-personel-alimlari-bitlis-eren-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853579",
+      "publishDate": "2026-10-30T21:00:01+00:00",
+      "deadline": "2026-11-14T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "KİMYA",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Toprak kirliliği ve yenilikçi azot giderim prosesleri konularında çalışmaları bulunmak. TÜBİTAK destekli projede görev almış olmak. SCI veya SCI-E yayınları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Toprak kirliliği ve yenilikçi azot giderim prosesleri konularında çalışmaları bulunmak.",
+            "TÜBİTAK destekli projede görev almış olmak.",
+            "SCI veya SCI-E yayınları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "TURİZM İŞLETMECİLİĞİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Turizm İşletmeciliği alanında Tezli Yüksek Lisans ve Doktora yapmış olmak. Turist deneyimi ve kurumsal sosyal sorumluluk konularında çalışmaları bulunmak. SSCI ve alan indekslerinde taranan dergilerde yayımlanmış makaleleri bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Turizm İşletmeciliği alanında Tezli Yüksek Lisans ve Doktora yapmış olmak.",
+            "Turist deneyimi ve kurumsal sosyal sorumluluk konularında çalışmaları bulunmak.",
+            "SSCI ve alan indekslerinde taranan dergilerde yayımlanmış makaleleri bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "BİLGİSAYAR MÜHENDİSLİĞİ",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Bilgisayar Bilimleri ve Mühendisliği alanında Doçent ünvanı almış olmak. Yapay zeka ve makine öğrenmesi konularında çalışmaları bulunmak. Web of Science (WOS) veri tabanına göre H indeksi en az 25 olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilgisayar Bilimleri ve Mühendisliği alanında Doçent ünvanı almış olmak.",
+            "Yapay zeka ve makine öğrenmesi konularında çalışmaları bulunmak.",
+            "Web of Science (WOS) veri tabanına göre H indeksi en az 25 olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "EBELİK",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ebelik alanında Tezli Yüksek Lisans ve Doktora yapmış olmak. Ebelik mesleğinin güçlendirilmesi konusunda çalışması bulunmak. İlgili alanda SCI veya SCI-E yayınları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik alanında Tezli Yüksek Lisans ve Doktora yapmış olmak.",
+            "Ebelik mesleğinin güçlendirilmesi konusunda çalışması bulunmak.",
+            "İlgili alanda SCI veya SCI-E yayınları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "TIBBİ HİZMETLER VE TEKNİKLER",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kimya alanında Tezli Yüksek Lisans ve Doktora yapmış olmak. Tıbbi aromatik bitkilerde antiglokom, antidiyabet ve antikolinesteraz konularında çalışmaları bulunmak. SCI veya SCI-E yayınları bulunmak. TÜBİTAK destekli projelerde görev almış olmak. Web of Science (WOS) veri tabanına göre H indeksi en az 10 olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Kimya alanında Tezli Yüksek Lisans ve Doktora yapmış olmak.",
+            "Tıbbi aromatik bitkilerde antiglokom, antidiyabet ve antikolinesteraz konularında çalışmaları bulunmak.",
+            "SCI veya SCI-E yayınları bulunmak.",
+            "TÜBİTAK destekli projelerde görev almış olmak.",
+            "Web of Science (WOS) veri tabanına göre H indeksi en az 10 olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "DAHİLİ TIP BİLİMLERİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak. Tıpta uzmanlığını Çocuk Sağlığı ve Hastalıkları alanında yapmış olmak. (Bitlis Eren Üniversitesi Akademik Yükseltilme ve Atanma Yönergesinde belirtilen puan ve diğer şartların sağlanmaması durumunda, bu yönergenin 9/c maddesi uygulanacaktır.)",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak.",
+            "Tıpta uzmanlığını Çocuk Sağlığı ve Hastalıkları alanında yapmış olmak. (Bitlis Eren Üniversitesi Akademik Yükseltilme ve Atanma Yönergesinde belirtilen puan ve diğer şartların sağlanmaması durumunda, bu yönergenin 9/c maddesi uygulanacaktır.)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "CERRAHİ TIP BİLİMLERİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak. Üroloji alanında Doçent ünvanı almış olmak. İlgili alanda çalışmaları bulunmak. Web of Science (WOS) veri tabanına göre H-indeksi en az 15 olmak. (Bitlis Eren Üniversitesi Akademik Yükseltilme ve Atanma Yönergesinde belirtilen puan ve diğer şartların sağlanmaması durumunda, bu yönergenin 9/c maddesi uygulanacaktır.)",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak.",
+            "Üroloji alanında Doçent ünvanı almış olmak.",
+            "İlgili alanda çalışmaları bulunmak.",
+            "Web of Science (WOS) veri tabanına göre H-indeksi en az 15 olmak. (Bitlis Eren Üniversitesi Akademik Yükseltilme ve Atanma Yönergesinde belirtilen puan ve diğer şartların sağlanmaması durumunda, bu yönergenin 9/c maddesi uygulanacaktır.)."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Bitlis Eren Üniversitesi Rektörlüğünden Üniversitemize, 2547 Sayılı Yükseköğretim Kanunu ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliğinin ilgili maddeleri uyarınca öğretim üyesi alınacaktır. Detaylı bilgi, Üniversitemizin www.beu.edu.tr adresinde mevcuttur. Başvuru süresi, ilanın Resmi Gaze",
+      "applicationDocuments": []
+    },
+    {
+      "university": "TOROS ÜNİVERSİTESİ",
+      "city": "Mersi̇n",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2274950/kamu-akademik-personel-akademik-personel-alimlari-toros-universitesi-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853580",
+      "publishDate": "2026-10-30T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Yabancı Diller Yüksekokulu",
+          "department": "Yabancı Diller Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Üniversitelerin Mütercim Tercümanlık lisans programından mezun olmak ve İngiliz Dili Eğitimi alanında tezli yüksek lisans derecesine sahip olmak. Belgelendirmek kaydıyla Yükseköğretim kurumlarında en az 3 yıl süre ile temel İngilizce dersleri vermiş olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Üniversitelerin Mütercim Tercümanlık lisans programından mezun olmak ve İngiliz Dili Eğitimi alanında tezli yüksek lisans derecesine sahip olmak.",
+            "Belgelendirmek kaydıyla Yükseköğretim kurumlarında en az 3 yıl süre ile temel İngilizce dersleri vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Toros Üniversitesi Rektörlüğünden Üniversitemize aylık ve özlük hakları yönünden 4857 sayılı İş Kanunu hükümlerine tabi, tam zamanlı görev yapacak, 2547 sayılı Yükseköğretim Kanunu ve Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavın",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR DEMOKRASİ ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2274507/kamu-akademik-personel-akademik-personel-alimlari-izmir-demokrasi-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853576",
+      "publishDate": "2026-11-01T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Eğitim Fakültesi",
+          "department": "Özel Eğitim Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Özel Eğitim Öğretmenliği veya Görme Engelliler Öğretmenliği lisans mezunu olmak. Doktorasını Özel Eğitim alanından almış olmak. Görme becerilerinin desteklenmesi, yönelim ve bağımsız hareket becerilerine yönelik eğitim programları alanında çalışma yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Özel Eğitim Öğretmenliği veya Görme Engelliler Öğretmenliği lisans mezunu olmak.",
+            "Doktorasını Özel Eğitim alanından almış olmak.",
+            "Görme becerilerinin desteklenmesi, yönelim ve bağımsız hareket becerilerine yönelik eğitim programları alanında çalışma yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Güzel Sanatlar Fakültesi",
+          "department": "Grafik Tasarımı Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Sanatta yeterliğini Grafik alanından almış olmak. Mobil arayüz tasarımı alanında sanatsal ve akademik çalışma yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Sanatta yeterliğini Grafik alanından almış olmak.",
+            "Mobil arayüz tasarımı alanında sanatsal ve akademik çalışma yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Kamu Hukuku Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Hukuk Fakültesi mezunu olmak. Tezli yüksek lisans ve doktorasını Kamu Hukuku alanından almış olmak. İdare hukuku, idari yargı ve adil yargılanma hakkı alanında çalışma yapmış olmak. İngilizce ders verme yeterliğine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Hukuk Fakültesi mezunu olmak.",
+            "Tezli yüksek lisans ve doktorasını Kamu Hukuku alanından almış olmak.",
+            "İdare hukuku, idari yargı ve adil yargılanma hakkı alanında çalışma yapmış olmak.",
+            "İngilizce ders verme yeterliğine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Özel Hukuku Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Hukuk fakültesi mezunu olmak. Özel hukuk alanında tezli yüksek lisans ve özel hukuk alanında doktora derecesine sahip olmak. Avrupa Birliği özel hukuku alanında yayımlanmış çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Hukuk fakültesi mezunu olmak.",
+            "Özel hukuk alanında tezli yüksek lisans ve özel hukuk alanında doktora derecesine sahip olmak.",
+            "Avrupa Birliği özel hukuku alanında yayımlanmış çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "İktisat Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Makro İktisat alanından almış olmak. Döngüsel ekonomi ve gelir eşitsizliği alanında çalışma yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doçentliğini Makro İktisat alanından almış olmak.",
+            "Döngüsel ekonomi ve gelir eşitsizliği alanında çalışma yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Elektrik-Elektronik Mühendisliği Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Lisans, tezli yüksek lisans ve doktorasını Elektrik-Elektronik Mühendisliği veya Bilgisayar Mühendisliği alanında almış olmak. Optik yüzeyler ve süzgeç mimarileri alanlarında çalışma yapmış olmak. Uluslararası projelerde Ar-Ge deneyimine sahip olmak. İngilizce ders verme yeterliğine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Lisans, tezli yüksek lisans ve doktorasını Elektrik-Elektronik Mühendisliği veya Bilgisayar Mühendisliği alanında almış olmak.",
+            "Optik yüzeyler ve süzgeç mimarileri alanlarında çalışma yapmış olmak.",
+            "Uluslararası projelerde Ar-Ge deneyimine sahip olmak.",
+            "İngilizce ders verme yeterliğine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Makine Mühendisliği Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Makine Mühendisliği lisans mezunu olmak. Doktorasını Makine Mühendisliği alanından almış olmak. Termal enerji depolama sistemleri üzerine çalışma yapmış olmak. İngilizce ders verme yeterliğine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Makine Mühendisliği lisans mezunu olmak.",
+            "Doktorasını Makine Mühendisliği alanından almış olmak.",
+            "Termal enerji depolama sistemleri üzerine çalışma yapmış olmak.",
+            "İngilizce ders verme yeterliğine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İzmir Demokrasi Üniversitesi Rektörlüğünden: A2026/3 ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin aşağıda belirtilen kadrolarına 2547 sayılı Kanun'un ilgili maddeleri ve İzmir Demokrasi Üniversitesi Öğretim Üyeliğine Yükseltme ve Atanma Esasları uyarınca öğretim üyesi alınacaktır. Sıra No Fakülte / Mesl",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR DEMOKRASİ ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2274513/kamu-akademik-personel-akademik-personel-alimlari-izmir-demokrasi-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853577",
+      "publishDate": "2026-11-01T21:00:01+00:00",
+      "deadline": "2026-11-16T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Endüstri Mühendisliği Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Endüstri Mühendisliği lisans mezunu olmak. Endüstri Mühendisliği alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Endüstri Mühendisliği lisans mezunu olmak.",
+            "Endüstri Mühendisliği alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "Bilgi İşlem Daire Başkanlığı",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Mühendisliği lisans programından mezun olmak. Bilgisayar Mühendisliği alanında tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 65,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": null,
+          "sartlar": [
+            "Bilgisayar Mühendisliği lisans programından mezun olmak.",
+            "Bilgisayar Mühendisliği alanında tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Rektörlük",
+          "department": "İş Sağlığı ve Güvenliği Koordinatörlüğü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fen, Mühendislik, Mimarlık veya İş Sağlığı ve Güvenliği alanlarında tezli yüksek lisans yapmış olmak. Çalışma ve Sosyal Güvenlik Bakanlığı tarafından verilmiş geçerli İş Güvenliği Uzmanlığı Belgesine (A veya B sınıfı) sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 65,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": null,
+          "sartlar": [
+            "Fen, Mühendislik, Mimarlık veya İş Sağlığı ve Güvenliği alanlarında tezli yüksek lisans yapmış olmak.",
+            "Çalışma ve Sosyal Güvenlik Bakanlığı tarafından verilmiş geçerli İş Güvenliği Uzmanlığı Belgesine (A veya B sınıfı) sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İzmir Demokrasi Üniversitesi Rektörlüğünden: ÖE2026/2 ARAŞTIRMA GÖREVLİSİ VE ÖĞRETİM GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanunu'nun 50/d maddesi ile 31. maddesi kapsamında “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamala",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR KÂTİP ÇELEBİ ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2274517/kamu-akademik-personel-akademik-personel-alimlari-izmir-katip-celebi-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853578",
+      "publishDate": "2026-11-01T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Diş Hekimliği",
+          "department": "Klinik Bilimler",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "özellikleri üzerine bilimsel çalışmalar yapmış olmak. 2 Protetik Diş Tedavisi Dr. Öğr. Üyesi 1 1 Dijital volumetrik analiz yöntemi ile restorasyon materyalleri üzerinde aktif karbonun etkilerinin değerlendirilmesine ilişkin, SCI/SCI-E kapsamında taranan Q1 kategorisinde yayımlanmış araştırma makalesi bulunmak. Protetik Diş Tedavisi alanında lisans düzeyinde en az bir dönem teorik ve pratik ders",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "özellikleri üzerine bilimsel çalışmalar yapmış olmak. 2 Protetik Diş Tedavisi Dr.",
+            "Üyesi 1 1 Dijital volumetrik analiz yöntemi ile restorasyon materyalleri üzerinde aktif karbonun etkilerinin değerlendirilmesine ilişkin, SCI/SCI-E kapsamında taranan Q1 kategorisinde yayımlanmış araştırma makalesi bulunmak.",
+            "Protetik Diş Tedavisi alanında lisans düzeyinde en az bir dönem teorik ve pratik ders."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği",
+          "department": "Klinik Bilimler",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "özellikleri üzerine bilimsel çalışmalar yapmış olmak. 2 Protetik Diş Tedavisi Dr. Öğr. Üyesi 1 1 Dijital volumetrik analiz yöntemi ile restorasyon materyalleri üzerinde aktif karbonun etkilerinin değerlendirilmesine ilişkin, SCI/SCI-E kapsamında taranan Q1 kategorisinde yayımlanmış araştırma makalesi bulunmak. Protetik Diş Tedavisi alanında lisans düzeyinde en az bir dönem teorik ve pratik ders",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "özellikleri üzerine bilimsel çalışmalar yapmış olmak. 2 Protetik Diş Tedavisi Dr.",
+            "Üyesi 1 1 Dijital volumetrik analiz yöntemi ile restorasyon materyalleri üzerinde aktif karbonun etkilerinin değerlendirilmesine ilişkin, SCI/SCI-E kapsamında taranan Q1 kategorisinde yayımlanmış araştırma makalesi bulunmak.",
+            "Protetik Diş Tedavisi alanında lisans düzeyinde en az bir dönem teorik ve pratik ders."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği",
+          "department": "Klinik Bilimler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği",
+          "department": "Klinik Bilimler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gemi İnşaatı ve Denizcilik",
+          "department": "Gemi Makineleri İşletme Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler",
+          "department": "İktisat",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler",
+          "department": "Sağlık Yönetimi",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [],
+          "kanunMaddesi": "50/d",
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İzmir Kâtip Çelebi Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin aşağıda belirtilen kadrolarına 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ve Üniversitemiz Senatosu’nca belirlenerek Yükseköğretim Kurulu Başkanlığı tarafından onaylana",
+      "applicationDocuments": []
+    },
     {
       "university": "BOĞAZİÇİ ÜNİVERSİTESİ",
       "city": "İstanbul",
