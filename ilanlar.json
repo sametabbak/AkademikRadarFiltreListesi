@@ -1,7 +1,359 @@
 {
-  "lastUpdated": "2026-11-04T06:13:13.770Z",
+  "lastUpdated": "2026-11-05T18:45:56.950Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "İSTANBUL KÜLTÜR ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2279175/kamu-akademik-personel-akademik-personel-alimlari-istanbul kultur universitesi rektorlugunden-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853585",
+      "publishDate": "2026-11-04T21:00:01+00:00",
+      "deadline": "2026-11-19T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Beslenme ve Diyetetik Bölümü, Beslenme ve Diyetetik Programı",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "70",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Kültür Üniversitesi Rektörlüğünden 2547 sayılı Yükseköğretim Kanunu ve Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmeliğin ilgili maddelerine göre aşağıda belirtilen akademik b",
+      "applicationDocuments": []
+    },
+    {
+      "university": "SAMSUN ÜNİVERSİTESİ",
+      "city": "Samsun",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2279176/kamu-akademik-personel-akademik-personel-alimlari-samsun-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853586",
+      "publishDate": "2026-11-04T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Temel Bilimler",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentlik ünvanını Matematik bilim alanında almış olup Mühendislik Fakülteleri bünyesinde en az beş yıl Temel ve İleri Matematik dersleri vermiş olmak. Dizi uzayları, integral denklemleri ve Newtonyen olmayan analiz konularında çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentlik ünvanını Matematik bilim alanında almış olup Mühendislik Fakülteleri bünyesinde en az beş yıl Temel ve İleri Matematik dersleri vermiş olmak.",
+            "Dizi uzayları, integral denklemleri ve Newtonyen olmayan analiz konularında çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Jinekolojik endoskopik cerrahi alanında deneyimli olup üremeye yardımcı tedavi uygulamaları kursu ile embriyo transfer kursu sertifikasına sahip olup bu alanda en az iki yıl deneyimli olmak. Ayrıca robotic cerrahi alanında sertifikaya sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Jinekolojik endoskopik cerrahi alanında deneyimli olup üremeye yardımcı tedavi uygulamaları kursu ile embriyo transfer kursu sertifikasına sahip olup bu alanda en az iki yıl deneyimli olmak.",
+            "Ayrıca robotic cerrahi alanında sertifikaya sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Üremeye Yardımcı Tedavi Sertifikasına sahip olup bu alanda en az iki yıl deneyimli olmak ve oosit maturasyon anomalileri ve intrahepatik kolestaz alanlarında Q1 veya Q2 kapsamlı dergilerde yayınlanmış çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Üremeye Yardımcı Tedavi Sertifikasına sahip olup bu alanda en az iki yıl deneyimli olmak ve oosit maturasyon anomalileri ve intrahepatik kolestaz alanlarında Q1 veya Q2 kapsamlı dergilerde yayınlanmış çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Alanında Q1 veya Q2 kapsamlı dergilerde yayımlanmış çalışmaları olup pelvis ve asetabulum cerrahisinde deneyim sahibi olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Alanında Q1 veya Q2 kapsamlı dergilerde yayımlanmış çalışmaları olup pelvis ve asetabulum cerrahisinde deneyim sahibi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Samsun Üniversitesi Rektörlüğünden: ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemiz akademik birimlerine 657 sayılı Devlet Memurları Kanunu’nun 48 inci maddesi, 2547 sayılı Yükseköğretim Kanunu ve bu kanuna dayalı olarak çıkartılan ilgili Yönetmelik ile Samsun Üniversitesi Akademik Yükseltme ve Atama Ölçütle",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL KÜLTÜR ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2279177/kamu-akademik-personel-akademik-personel-alimlari-istanbul kultur universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853587",
+      "publishDate": "2026-11-04T21:00:01+00:00",
+      "deadline": "2026-11-19T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "İngiliz Dili ve Edebiyatı Bölümü, İngiliz Dili ve Edebiyatı Programı (Eğitim Dili: İngilizce)",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora Öğrenimini İngiliz Dili ve Edebiyatı Alanında Tamamlamış Olmak. Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doktora Öğrenimini İngiliz Dili ve Edebiyatı Alanında Tamamlamış Olmak.",
+            "Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi",
+          "department": "Özel Hukuk Bölümü, Medeni Usul ve İcra İflas Hukuku Anabilim Dalı",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Medeni Usul ve İcra İflas Hukuku Alanında Doçentlik Unvanını Aldıktan Sonra En Az Beş Yıl Süreyle Açık Bulunan Profesörlük Kadrosu İle İlgili Bilim Alanında Çalışmış Olmak. Medeni Usul ve İcra İflas Hukuku Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Medeni Usul ve İcra İflas Hukuku Alanında Doçentlik Unvanını Aldıktan Sonra En Az Beş Yıl Süreyle Açık Bulunan Profesörlük Kadrosu İle İlgili Bilim Alanında Çalışmış Olmak.",
+            "Medeni Usul ve İcra İflas Hukuku Alanında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "Türk Dili ve Edebiyatı Bölümü, Türk Dili ve Edebiyatı Programı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Klasik Türk Edebiyatı Alanında Almış Olmak. Klasik Dönem Şair Biyografileri ve Tezkire Geleneği, Manzum Dinî-Tasavvufi Metinler, Irak Türk Edebiyatı ve Şiir Mecmuası Alanlarında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Doçentliğini Klasik Türk Edebiyatı Alanında Almış Olmak.",
+            "Klasik Dönem Şair Biyografileri ve Tezkire Geleneği, Manzum Dinî-Tasavvufi Metinler, Irak Türk Edebiyatı ve Şiir Mecmuası Alanlarında Bilimsel Çalışmaları İle Yayınlara Sahip Olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Kültür Üniversitesi Rektörlüğünden Üniversitemizin aşağıda bilgileri belirtilen akademik birimlerine, ilgili unvanlar için 2547 sayılı Yükseköğretim Kanunu, YÖK Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği ile T.C. İstanbul Kültür Üniversitesi Öğretim Üyeliğine Yükseltilme ve Atanma ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "NECMETTİN ERBAKAN ÜNİVERSİTESİ",
+      "city": "Konya",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2279180/kamu-akademik-personel-akademik-personel-alimlari-necmettin erbakan universitesi rektorlugunden-arastirma-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853588",
+      "publishDate": "2026-11-04T21:00:01+00:00",
+      "deadline": "2026-11-20T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Fen Fakültesi/Moleküler Biyoloji ve Genetik/Moleküler Biyoloji ve Genetik1",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Moleküler Biyoloji ve Genetik programı lisans mezunu olmak. Moleküler Biyoloji ve Genetik alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 6,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "Moleküler Biyoloji ve Genetik programı lisans mezunu olmak.",
+            "Moleküler Biyoloji ve Genetik alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hemşirelik Fakültesi/Hemşirelik/İç Hastalıkları Hemşireliği1",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik programı lisans mezunu olmak. İç Hastalıkları Hemşireliği alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik programı lisans mezunu olmak.",
+            "İç Hastalıkları Hemşireliği alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hukuk Fakültesi/Özel Hukuk/İş ve Sosyal Güvenlik Hukuku1",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hukuk Fakültesi lisans mezunu olmak. Özel Hukuk alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 6,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Hukuk Fakültesi lisans mezunu olmak.",
+            "Özel Hukuk alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Uygulamalı Bilimler Fakültesi/Muhasebe ve Finans Yönetimi/Muhasebe ve Finans Yönetimi1",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Muhasebe ve Finans Yönetimi, İktisat, İşletme veya İşletme Mühendisliği lisans programlarının birinden lisans mezun olmak. Bu alanların birinde tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 7,
+          "temelAlan": null,
+          "sartlar": [
+            "Muhasebe ve Finans Yönetimi, İktisat, İşletme veya İşletme Mühendisliği lisans programlarının birinden lisans mezun olmak.",
+            "Bu alanların birinde tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Necmettin Erbakan Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanunu ile Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmeliğinin i",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR DEMOKRASİ ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2279290/kamu-akademik-personel-akademik-personel-alimlari-izmir-demokrasi-universitesi-iptal-ilani-",
+      "ilanNo": "YOK853589",
+      "publishDate": "2026-11-04T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Makine Mühendisliği Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Makine Mühendisliği lisans mezunu olmak. Doktorasını Makine Mühendisliği alanından almış olmak. Termal enerji depolama sistemleri üzerine çalışma yapmış olmak. İngilizce ders verme yeterliğine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Makine Mühendisliği lisans mezunu olmak.",
+            "Doktorasını Makine Mühendisliği alanından almış olmak.",
+            "Termal enerji depolama sistemleri üzerine çalışma yapmış olmak.",
+            "İngilizce ders verme yeterliğine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İzmir Demokrasi Üniversitesi Rektörlüğünden İPTAL İLANI 02.11.2026 tarih ve 33418 sayılı Resmî Gazete'de yayımlanan A2026/3 Öğretim Üyesi Alım İlanımızdaki A2026/3-7 numaralı aşağıda belirtilen kadro İPTAL edilmiştir. İZMİR DEMOKRASİ ÜNİVERSİTESİ REKTÖRLÜĞÜNDEN A2026/3 ÖĞRETİM ÜYESİ ALIM İLANI Sıra ",
+      "applicationDocuments": []
+    },
     {
       "university": "ANTALYA BİLİM ÜNİVERSİTESİ",
       "city": "Antalya",
