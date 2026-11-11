@@ -1,5 +1,314 @@
 {
-  "lastUpdated": "2026-11-11T06:09:17.035Z",
+  "lastUpdated": "2026-11-11T15:51:45.442013+00:00",
   "source": "ilan.gov.tr",
-  "ads": []
+  "ads": [
+    {
+      "university": "İSTANBUL BEYKENT ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2286638/kamu-akademik-personel-akademik-personel-alimlari-istanbul-beykent-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853629",
+      "publishDate": "2026-11-10T21:00:01+00:00",
+      "deadline": "2026-11-25T23:59:00+00:00",
+      "detectedTitles": [
+        "DOÇENT",
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "*Bilgisayar Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Matematik alanında doçentlik unvanı almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Matematik alanında doçentlik unvanı almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Elektrik-Elektronik Mühendisliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "İşaret İşleme, Kontrol, Haberleşme alanlarından birinde doçentlik unvanı almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İşaret İşleme, Kontrol, Haberleşme alanlarından birinde doçentlik unvanı almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Elektrik-Elektronik Mühendisliği",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "İşaret İşleme, Kontrol, Haberleşme alanlarından birinde doçentlik unvanı almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İşaret İşleme, Kontrol, Haberleşme alanlarından birinde doçentlik unvanı almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik-Mimarlık Fakültesi",
+          "department": "Elektrik-Elektronik Mühendisliği",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İşaret İşleme, Kontrol, Haberleşme alanlarından birinde doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "İşaret İşleme, Kontrol, Haberleşme alanlarından birinde doktora yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fen-Edebiyat Fakültesi",
+          "department": "Rusça Mütercim ve Tercümanlık",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Rus Dili ve Edebiyatı alanında doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Rus Dili ve Edebiyatı alanında doktora yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Tıbbi Patoloji",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Tıp Fakültesi mezunu olup, Tıbbi Patoloji alanında uzmanlık eğitimini tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olup, Tıbbi Patoloji alanında uzmanlık eğitimini tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Restoratif Diş Tedavisi ABD",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Restoratif Diş Tedavisi ABD",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Restoratif Diş Tedavisi alanında doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Restoratif Diş Tedavisi ABD",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Restoratif Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Protetik Diş Tedavisi ABD",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi",
+          "department": "Protetik Diş Tedavisi ABD",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Protetik Diş Tedavisi alanında uzmanlık eğitimini (DUS) tamamlamış olmak ve Protetik Diş Tedavisi doçentlik unvanını almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Beykent Üniversitesi Rektörlüğünden: Üniversitemize 2547 sayılı Yükseköğretim Kanunu ve \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği” ile “İstanbul Beykent Üniversitesi Öğretim Üyeliğine Yükseltme ve Atama Yönergesi” (https://www.beykent.edu.tr/yonetmelikler-yonergeler/yonergeler) h",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL RUMELİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2286637/kamu-akademik-personel-akademik-personel-alimlari-istanbul-rumeli-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853628",
+      "publishDate": "2026-11-10T21:00:01+00:00",
+      "deadline": "2026-11-25T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İKTİSADİ, İDARİ ve SOSYAL BİLİMLER FAKÜLTESİ",
+          "department": "HAVACILIK YÖNETİMİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Havacılık Yönetimi alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doktorasını Havacılık Yönetimi alanında almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Rumeli Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen Fakülte ve Yüksekokul Bölümlerine 2547 sayılı Yükseköğretim Kanunu “Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği”nin ilgili maddelerine göre Öğretim Üyeleri alınacaktır. İstenilen Belgeler Dilekçe (Başvuru dilekçel",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ŞIRNAK ÜNİVERSİTESİ",
+      "city": "Şirnak",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2286636/kamu-akademik-personel-akademik-personel-alimlari-sirnak universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853627",
+      "publishDate": "2026-11-10T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Turizm ve Otel İşletmeciliği Yüksekokulu",
+          "department": "Turizm İşletmeciliği",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "a",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Şırnak Üniversitesi Rektörlüğünden ÖĞRETİM ÜYESİ ALIM İLANI (2026-05) Üniversitemizin aşağıda isimleri yazılı birimlerine, 2547 sayılı Kanunun ilgili maddeleri, 12.06.2018 tarihli Resmi Gazete’de yayımlanarak yürürlüğe giren “Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği”nin ilgili maddeleri v",
+      "applicationDocuments": []
+    }
+  ]
 }
