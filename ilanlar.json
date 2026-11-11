@@ -1,7 +1,4227 @@
 {
-  "lastUpdated": "2026-11-09T06:59:11.991Z",
+  "lastUpdated": "2026-11-11T06:09:14.002Z",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "DİCLE ÜNİVERSİTESİ",
+      "city": "Di̇yarbakir",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283080/kamu-akademik-personel-akademik-personel-alimlari-iptal-ilani-dicle-universitesi-rektorlugu-",
+      "ilanNo": "YOK853605",
+      "publishDate": "2026-11-06T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Dicle Üniversitesi Rektörlüğünden: İPTAL İLANI 19.10.2026 tarihli ve 33405 sayılı Resmi Gazete’de aslına uygun olarak yayımlanan öğretim elemanı alımı ilanımızdaki aşağıda belirtilen kadro iptal edilmiştir. SIRA BİRİM BÖLÜM ANABİLİM DALI/PR. ÜNVAN ADET DERECE ASGARİ ALES PUANI VE PUAN TÜRÜ ASGARİ YA",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KAHRAMANMARAŞ SÜTÇÜ İMAM ÜNİVERSİTESİ",
+      "city": "Kahramanmaraş",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283097/kamu-akademik-personel-akademik-personel-alimlari-kahramanmaras sutcu imam universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853606",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Gastronomi ve Mutfak Sanatları Bölümü Gastronomi ve Mutfak Sanatları Anabilim Dalı",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "şartlarını sağlamadığı tespit edilen adayların başvuruları kabul edilmez. •  Başvuran   adaylarda   Yükseköğretim   Kurumları   Yabancı   Dil    (YÖKDİL),   YDS sınavından, Profesör ve Doçentler için en az 60 (altmış) Dr. Öğretim Üyeleri için en az 55 (elli beş) puan  veya eşdeğeri  kabul edilen  merkezi bir yabancı dil  sınavından  bu puanın muadili bir puan almış olmak şartı aranır. Çalışma alan",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "şartlarını sağlamadığı tespit edilen adayların başvuruları kabul edilmez.",
+            "Başvuran   adaylarda   Yükseköğretim   Kurumları   Yabancı   Dil    (YÖKDİL),   YDS sınavından, Profesör ve Doçentler için en az 60 (altmış) Dr. Öğretim Üyeleri için en az 55 (elli beş) puan  veya eşdeğeri  kabul edilen  merkezi bir yabancı dil  sınavından  bu puanın muadili bir puan almış olmak şartı aranır. Çalışma alan."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eczane Hizmetleri Bölümü Eczane Hizmetleri Programı",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "şartlarını sağlamadığı tespit edilen adayların başvuruları kabul edilmez. •  Başvuran   adaylarda   Yükseköğretim   Kurumları   Yabancı   Dil    (YÖKDİL),   YDS sınavından, Profesör ve Doçentler için en az 60 (altmış) Dr. Öğretim Üyeleri için en az 55 (elli beş) puan  veya eşdeğeri  kabul edilen  merkezi bir yabancı dil  sınavından  bu puanın muadili bir puan almış olmak şartı aranır. Çalışma alan",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "şartlarını sağlamadığı tespit edilen adayların başvuruları kabul edilmez.",
+            "Başvuran   adaylarda   Yükseköğretim   Kurumları   Yabancı   Dil    (YÖKDİL),   YDS sınavından, Profesör ve Doçentler için en az 60 (altmış) Dr. Öğretim Üyeleri için en az 55 (elli beş) puan  veya eşdeğeri  kabul edilen  merkezi bir yabancı dil  sınavından  bu puanın muadili bir puan almış olmak şartı aranır. Çalışma alan."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Fizyoterapi ve Rehabilitasyon Bölümü Fizyoterapi ve Rehabilitasyon Programı",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "şartı aranır. •  Başvurular https://basvuru.ksu.edu.tr çevrim içi ortam üzerinden başvuru yapılacaktır. •  Başvuru yapan öğretim üyesi adayları, ilan edilen kadrolardan yalnız birine müracaatta bulunabilirler. Şahsen veya posta ile yapılan başvurular geçersiz sayılacaktır. •  İlan, Üniversitemiz (www.ksu.edu.tr) web sayfasının Duyurular kısmında mevcut olup, Üniversitemiz web sitesinde yapılacak o",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "şartı aranır.",
+            "Başvurular https://basvuru.ksu.edu.tr çevrim içi ortam üzerinden başvuru yapılacaktır.",
+            "Başvuru yapan öğretim üyesi adayları, ilan edilen kadrolardan yalnız birine müracaatta bulunabilirler. Şahsen veya posta ile yapılan başvurular geçersiz sayılacaktır.",
+            "İlan, Üniversitemiz (www.ksu.edu.tr) web sayfasının Duyurular kısmında mevcut olup, Üniversitemiz web sitesinde yapılacak o."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıbbi Hizmetler ve Teknikler Bölümü Patoloji Laboratuvar Teknikleri Programı",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "şartı aranır. •  Başvurular https://basvuru.ksu.edu.tr çevrim içi ortam üzerinden başvuru yapılacaktır. •  Başvuru yapan öğretim üyesi adayları, ilan edilen kadrolardan yalnız birine müracaatta bulunabilirler. Şahsen veya posta ile yapılan başvurular geçersiz sayılacaktır. •  İlan, Üniversitemiz (www.ksu.edu.tr) web sayfasının Duyurular kısmında mevcut olup, Üniversitemiz web sitesinde yapılacak o",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "şartı aranır.",
+            "Başvurular https://basvuru.ksu.edu.tr çevrim içi ortam üzerinden başvuru yapılacaktır.",
+            "Başvuru yapan öğretim üyesi adayları, ilan edilen kadrolardan yalnız birine müracaatta bulunabilirler. Şahsen veya posta ile yapılan başvurular geçersiz sayılacaktır.",
+            "İlan, Üniversitemiz (www.ksu.edu.tr) web sayfasının Duyurular kısmında mevcut olup, Üniversitemiz web sitesinde yapılacak o."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kimya ve Kimyasal İşleme Teknolojileri Bölümü Kimya Teknolojisi Programı",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "şartı aranır. •  Başvurular https://basvuru.ksu.edu.tr çevrim içi ortam üzerinden başvuru yapılacaktır. •  Başvuru yapan öğretim üyesi adayları, ilan edilen kadrolardan yalnız birine müracaatta bulunabilirler. Şahsen veya posta ile yapılan başvurular geçersiz sayılacaktır. •  İlan, Üniversitemiz (www.ksu.edu.tr) web sayfasının Duyurular kısmında mevcut olup, Üniversitemiz web sitesinde yapılacak o",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Fen Bilimleri",
+          "sartlar": [
+            "şartı aranır.",
+            "Başvurular https://basvuru.ksu.edu.tr çevrim içi ortam üzerinden başvuru yapılacaktır.",
+            "Başvuru yapan öğretim üyesi adayları, ilan edilen kadrolardan yalnız birine müracaatta bulunabilirler. Şahsen veya posta ile yapılan başvurular geçersiz sayılacaktır.",
+            "İlan, Üniversitemiz (www.ksu.edu.tr) web sayfasının Duyurular kısmında mevcut olup, Üniversitemiz web sitesinde yapılacak o."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kahramanmaraş Sütçü İmam Üniversitesi Rektörlüğünden • Üniversitemizin aşağıda belirtilen birimlerine, 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyeliğine Atanma ve Yükseltilme Yönetmeliği ile Üniversitemiz Öğretim Üyeliğine Atama, Yükseltme Ölçütleri ve Uygulama Yönergesine uygun olarak, 657 sayılı",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KAHRAMANMARAŞ SÜTÇÜ İMAM ÜNİVERSİTESİ",
+      "city": "Kahramanmaraş",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283103/kamu-akademik-personel-akademik-personel-alimlari-kahramanmaras sutcu imam universitesi rektorlugunden-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853607",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": "2026-11-23T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mülkiyet Koruma ve Güvenlik Bölümü Sivil Savunma ve İtfaiyecilik Programı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kahramanmaraş Sütçü İmam Üniversitesi Rektörlüğünden 2547 sayılı Yükseköğretim Kanunu ile Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmeliğin ilgili hükümleri çerçevesinde, Üniversitemi",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ANKARA MÜZİK VE GÜZEL SANATLAR ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283108/kamu-akademik-personel-akademik-personel-alimlari-ankara muzik ve guzel sanatlar universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853608",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "Müzik ve Güzel Sanatlar Eğitim Fakültesi",
+          "department": "Müzik Eğitimi Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Müzik alanında doçent ünvanına sahip olmak, Türk müziği keman icracılığı ve eğitimi ile Türk Müziği nazariyatı konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Müzik alanında doçent ünvanına sahip olmak, Türk müziği keman icracılığı ve eğitimi ile Türk Müziği nazariyatı konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik ve Güzel Sanatlar Eğitim Fakültesi",
+          "department": "Müzik Eğitimi Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Müzik alanında doçent ünvanına sahip olmak, ud icracılığı ve eğitimi, Türk mûsikîsinde makam, usûl, eser ve icra analizleri ile Türk din mûsikîsi ve Mevlevî Âyinleri alanlarında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Müzik alanında doçent ünvanına sahip olmak, ud icracılığı ve eğitimi, Türk mûsikîsinde makam, usûl, eser ve icra analizleri ile Türk din mûsikîsi ve Mevlevî Âyinleri alanlarında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik ve Sahne Sanatları Fakültesi",
+          "department": "Türk Sanat Müziği Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Müzik alanında doçent ünvanına sahip olmak, ud ile solo resitaller/konserler vermiş olmak; ud eğitimi ve metodolojisi, eser ve icra tahlili, mûsikî güfteleri ve terminolojisi alanlarında yayımlanmış bilimsel çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Müzik alanında doçent ünvanına sahip olmak, ud ile solo resitaller/konserler vermiş olmak; ud eğitimi ve metodolojisi, eser ve icra tahlili, mûsikî güfteleri ve terminolojisi alanlarında yayımlanmış bilimsel çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik ve Sahne Sanatları Fakültesi",
+          "department": "Türk Sanat Müziği Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Müzik alanında doçent ünvanına sahip olmak, Türk müziği klarnet icracılığı, yöresel icra pratikleri ve Türk müziği klarnet eğitimi konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Müzik alanında doçent ünvanına sahip olmak, Türk müziği klarnet icracılığı, yöresel icra pratikleri ve Türk müziği klarnet eğitimi konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik ve Sahne Sanatları Fakültesi",
+          "department": "Türk Sanat Müziği Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Müzik alanında doçent ünvanına sahip olmak, Kanun icracılığı ve Kanun eğitimi ile Türk müziği nazariyatı konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Müzik alanında doçent ünvanına sahip olmak, Kanun icracılığı ve Kanun eğitimi ile Türk müziği nazariyatı konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik ve Sahne Sanatları Fakültesi",
+          "department": "Sahne Sanatları Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Sahne Sanatları alanında doçent ünvanına sahip olmak, Yurt dışında operalarda sahne almış olmak, uluslararası albüm çalışmasında yer almak, Türkiye ve dünya prömiyeri yapılmış eserlerde sahne almak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Sahne Sanatları alanında doçent ünvanına sahip olmak, Yurt dışında operalarda sahne almış olmak, uluslararası albüm çalışmasında yer almak, Türkiye ve dünya prömiyeri yapılmış eserlerde sahne almak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik ve Sahne Sanatları Fakültesi",
+          "department": "Müzik Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Müzikle ilgili programlardan tezli yüksek lisans ve doktora/sanatta yeterlik mezunu olmak. Batı müziği Klarnet icracısı olup, solo ve orkestra ile icraları bulunmak. Yükseköğretim Kurumlarında en az üç yıl ders vermiş olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Müzikle ilgili programlardan tezli yüksek lisans ve doktora/sanatta yeterlik mezunu olmak.",
+            "Batı müziği Klarnet icracısı olup, solo ve orkestra ile icraları bulunmak.",
+            "Yükseköğretim Kurumlarında en az üç yıl ders vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik ve Sahne Sanatları Fakültesi",
+          "department": "Türk Halk Müziği Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Müzik alanında doçent ünvanına sahip olmak; dilsiz kaval ve mey icracılığı ile ses eğitimi alanında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Müzik alanında doçent ünvanına sahip olmak; dilsiz kaval ve mey icracılığı ile ses eğitimi alanında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Müzik Bilimleri ve Teknolojileri Fakültesi",
+          "department": "Müzik Teknolojisi Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ses Teknolojisi alanında tezli yüksek lisans, Müzik Bilimleri alanında doktora/sanatta yeterlik yapmış olmak. Hoparlör sistemleri, konser miks konsolları ile ilgili çalışmaları bulunmak. Yükseköğretim kurumlarında en az üç yıl ders vermiş olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 1,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Ses Teknolojisi alanında tezli yüksek lisans, Müzik Bilimleri alanında doktora/sanatta yeterlik yapmış olmak.",
+            "Hoparlör sistemleri, konser miks konsolları ile ilgili çalışmaları bulunmak.",
+            "Yükseköğretim kurumlarında en az üç yıl ders vermiş olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Ankara Müzik ve Güzel Sanatlar Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen akademik birimlerine, Devlet Yükseköğretim Kurumlarında Öğretim Elemanı Norm Kadrolarının Belirlenmesine ve Kullanılmasına İlişkin Yönetmelik, 2914 sayılı Yükseköğretim Personel Kanunu ve 2547 sayılı Yüksek",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BEZM-İ ÂLEM VAKIF ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2283112/kamu-akademik-personel-akademik-personel-alimlari-bezmialem vakif universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853609",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Eczacılık Fakültesi",
+          "department": "Eczacılık Meslek Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Eczacılık Fakültesi mezunu olmak ve Fitofarmasi uzmanlık derecesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık Fakültesi mezunu olmak ve Fitofarmasi uzmanlık derecesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Eczacılık Fakültesi",
+          "department": "Temel Eczacılık Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Eczacılık Fakültesi mezunu olmak ve Farmakognozi Doktora Derecesine sahip olmak. Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Eczacılık Fakültesi mezunu olmak ve Farmakognozi Doktora Derecesine sahip olmak.",
+            "Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Ruh Sağlığı ve Hastalıkları uzmanı olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Ruh Sağlığı ve Hastalıkları uzmanı olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Ruh Sağlığı ve Hastalıkları uzmanı olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Ruh Sağlığı ve Hastalıkları uzmanı olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Uzmanlığını Genel Cerrahi alanında yapmış olmak, Karaciğer nakli konusunda deneyimli olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Uzmanlığını Genel Cerrahi alanında yapmış olmak, Karaciğer nakli konusunda deneyimli olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Uzmanlığını Genel Cerrahi alanında yapmış olmak, Robotik cerrahi, laparoskopik cerrahi ve endoskopi alanlarında deneyimli olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Uzmanlığını Genel Cerrahi alanında yapmış olmak, Robotik cerrahi, laparoskopik cerrahi ve endoskopi alanlarında deneyimli olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Doçentliğini Kulak Burun Boğaz Hastalıkları alanında almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Doçentliğini Kulak Burun Boğaz Hastalıkları alanında almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Cerrahi Tıp Bilimleri Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Uzmanlığını Ortopedi ve Travmatoloji alanında yapmış olmak, Robotik kalça ve diz artroplastisi cerrahisi konusunda deneyimli olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Uzmanlığını Ortopedi ve Travmatoloji alanında yapmış olmak, Robotik kalça ve diz artroplastisi cerrahisi konusunda deneyimli olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Biyofizik alanında doktora mezunu olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Biyofizik alanında doktora mezunu olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Biyofizik alanında doktora mezunu olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Biyofizik alanında doktora mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Biyoistatistik doktora mezunu olmak. Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Biyoistatistik doktora mezunu olmak.",
+            "Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Histoloji ve Embriyoloji alanında almış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Histoloji ve Embriyoloji alanında almış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını veya uzmanlığını Histoloji ve Embriyoloji alanında yapmış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doktorasını veya uzmanlığını Histoloji ve Embriyoloji alanında yapmış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Tıbbi Biyokimya doktorası yapmış olmak, Metabolomik alanında çalışma yapmış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Tıbbi Biyokimya doktorası yapmış olmak, Metabolomik alanında çalışma yapmış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıbbi Genetik alanında doktora mezunu olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak,",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıbbi Genetik alanında doktora mezunu olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak,."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ebelik Bölümü",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ebelik veya Kadın Sağlığı ve Hastalıkları Hemşireliği alanlarından birinde doçentlik belgesine sahip olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik veya Kadın Sağlığı ve Hastalıkları Hemşireliği alanlarından birinde doçentlik belgesine sahip olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ebelik Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ebelik veya Kadın Sağlığı ve Hastalıkları Hemşireliği alanlarından birinde doktorasını yapmış olmak, Alanında bilimsel yayınlar yapmış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik veya Kadın Sağlığı ve Hastalıkları Hemşireliği alanlarından birinde doktorasını yapmış olmak, Alanında bilimsel yayınlar yapmış olmak, Yabancı dille eğitim yapılan programlarda öğretim elemanlarının öğretim dili yabancı dilde ders verebilmeleri için, Yükseköğretim kurumlarında yabancı dilde öğretim yapılmasında uyulacak esaslara ilişkin belirlenen yeterliliğe sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ebelik alanında doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik alanında doktora yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Sağlık Yönetimi Bölümü",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Yönetim ve Strateji alanında doçentlik unvanına sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Yönetim ve Strateji alanında doçentlik unvanına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Moleküler Biyoloji ve Genetik alanında doktora yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Moleküler Biyoloji ve Genetik alanında doktora yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yaşam Bilimleri ve Biyoteknoloji Enstitüsü",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıp fakültesi mezunu olmak. İmmünoloji alanında doktora yapmış olmak. Diyabet, transplantasyon immünolojisi ve pankreatik Langerhans adacık nakli alanlarında bilimsel çalışma deneyimi olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıp fakültesi mezunu olmak.",
+            "İmmünoloji alanında doktora yapmış olmak.",
+            "Diyabet, transplantasyon immünolojisi ve pankreatik Langerhans adacık nakli alanlarında bilimsel çalışma deneyimi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Yaşam Bilimleri ve Biyoteknoloji Enstitüsü",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "İmmünoloji alanında yüksek lisans ve doktora eğitimini tamamlamış olmak. Diyabet immünolojisi alanında bilimsel çalışma deneyimi olup; pankreatik Langerhans adacık izolasyonunda laboratuvar tecrübesi olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "İmmünoloji alanında yüksek lisans ve doktora eğitimini tamamlamış olmak.",
+            "Diyabet immünolojisi alanında bilimsel çalışma deneyimi olup; pankreatik Langerhans adacık izolasyonunda laboratuvar tecrübesi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Bezmiâlem Vakıf Üniversitesi Rektörlüğünden Üniversitemize 2547 sayılı Yükseköğretim Kanunu'nun ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği'nin ilgili maddeleri uyarınca \"Öğretim Üyesi\" alınacaktır. İlan Başlama Tarihi : 09.11.2026 İlan Bitiş Tarihi : 23.11.2026 FAKÜLTE BÖLÜM ANABİLİM DAL",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BEZM-İ ÂLEM VAKIF ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2283118/kamu-akademik-personel-akademik-personel-alimlari-bezmialem vakif universitesi rektorlugunden-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853610",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Ebelik Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Ebelik Anabilim Dalında tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik Anabilim Dalında tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler Bölümü",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Tıp Fakültesi mezunu olmak, Göz Hastalıklarında uzmanlık yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıp Fakültesi mezunu olmak, Göz Hastalıklarında uzmanlık yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Bezmiâlem Vakıf Üniversitesi Rektörlüğünden Üniversitemize 2547 sayılı Yükseköğretim Kanunu'nun ve 09.11.2018 tarihli, 30590 sayılı Resmi Gazete'de yayımlanan Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esas",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KOCAELİ SAĞLIK VE TEKNOLOJİ ÜNİVERSİTESİ",
+      "city": "Kocaeli̇",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2283147/kamu-akademik-personel-akademik-personel-alimlari-kocaeli-saglik-ve-teknoloji-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853611",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Sosyal ve Beşeri Bilimler Fak.",
+          "department": "Psikoloji Pr.",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Eğitim Bilimleri (Rehberlik ve Psikolojik Danışmanlık) alanından almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doçentliğini Eğitim Bilimleri (Rehberlik ve Psikolojik Danışmanlık) alanından almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Kocaeli Sağlık ve Teknoloji Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanununun ilgili maddeleri, “Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği” ile “Kocaeli Sağlık ve Teknoloji Üniversitesi Öğretim Üyeliğine Yükseltilme ve Atama Kri",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR YÜKSEK TEKNOLOJİ ENSTİTÜSÜ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283151/kamu-akademik-personel-akademik-personel-alimlari-izmir yuksek teknoloji enstitusu rektorlugunden-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853612",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "YABANCI DİLLER YÜKSEKOKULU",
+          "department": "Yabancı Diller (İNGİLİZCE)",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İngiliz Dili ve Edebiyatı Bölümünden Lisans mezunu olmak ve alanında tezli yüksek lisans yapmış olmak. Yükseköğretim kurumlarında alanında en az beş yıl ders ders verme deneyimine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 70,
+          "foreignLanguageExam": "YDS",
+          "derece": 6,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "İngiliz Dili ve Edebiyatı Bölümünden Lisans mezunu olmak ve alanında tezli yüksek lisans yapmış olmak.",
+            "Yükseköğretim kurumlarında alanında en az beş yıl ders ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İzmir Yüksek Teknoloji Enstitüsü Rektörlüğünden Enstitümüzün aşağıda belirtilen birimlerine 2547 sayılı Kanun’un ilgili maddeleri ve “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik” ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR YÜKSEK TEKNOLOJİ ENSTİTÜSÜ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283152/kamu-akademik-personel-akademik-personel-alimlari-izmir yuksek teknoloji enstitusu rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853613",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İzmir Yüksek Teknoloji Enstitüsü Rektörlüğünden Aşağıda anabilim dalı itibariyle ünvan ve şartları belirtilen, Enstitümüz birimlerinde açık bulunan kadrolara 2547 sayılı Yükseköğretim Kanunu’nun, 12/06/2018 tarihli Resmi Gazete’de yayımlanan Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliğinin ilg",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KARADENİZ TEKNİK ÜNİVERSİTESİ",
+      "city": "Trabzon",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283160/kamu-akademik-personel-akademik-personel-alimlari-karadeniz teknik universitesi rektorlugunden-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853614",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": "2026-11-23T23:59:00+00:00",
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Trabzon Meslek Yüksekokulu Mimarlık ve Şehir Planlama Bölümü Harita ve Kadastro Programı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Harita Mühendisliği Bölümü lisans mezunu olup, Harita Mühendisliği anabilim dalında tezli yüksek lisans ve doktora yapmış olmak. Yükseköğretim kurumlarında en az 5 (beş) yıl çalışma deneyimine sahip olmak. Yapı bilgi modelleme ve arazi yönetimi konularında çalışmalar yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Harita Mühendisliği Bölümü lisans mezunu olup, Harita Mühendisliği anabilim dalında tezli yüksek lisans ve doktora yapmış olmak.",
+            "Yükseköğretim kurumlarında en az 5 (beş) yıl çalışma deneyimine sahip olmak.",
+            "Yapı bilgi modelleme ve arazi yönetimi konularında çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diş Hekimliği Fakültesi Klinik Bilimler Bölümü Periodontoloji Anabilim Dalı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İlgili alanda uzmanlığını almış olmak. Periodontal hastalıklar ile dental implant tedavileri arasındaki ilişki üzerine çalışmalar yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "İlgili alanda uzmanlığını almış olmak.",
+            "Periodontal hastalıklar ile dental implant tedavileri arasındaki ilişki üzerine çalışmalar yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Arsin Meslek Yüksekokulu Tasarım Bölümü İç Mekan Tasarımı Programı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mimarlık veya İç Mimarlık Bölümü lisans mezunu olup, İç Mimarlık ve Çevre Tasarımı veya Kentsel Tasarım anabilim dallarından birinde tezli yüksek lisans yapmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Mimarlık veya İç Mimarlık Bölümü lisans mezunu olup, İç Mimarlık ve Çevre Tasarımı veya Kentsel Tasarım anabilim dallarından birinde tezli yüksek lisans yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Karadeniz Teknik Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine; Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik, 2547 sayılı Yükseköğretim Kanunu ve 657 s",
+      "applicationDocuments": []
+    },
+    {
+      "university": "KARAMANOĞLU MEHMETBEY ÜNİVERSİTESİ",
+      "city": "Karaman",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283207/kamu-akademik-personel-akademik-personel-alimlari-karamanoglu mehmetbey universitesi rektorlugunden-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853615",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": "2026-11-23T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi Fizyoterapi ve Rehabilitasyon Ortopedik Fizyoterapi",
+          "department": "",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon Bölümü lisans mezunu olup Fizyoterapi ve Rehabilitasyon veya Ortopedik Fizyoterapi ve Rehabilitasyon Anabilim Dalında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 65,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon Bölümü lisans mezunu olup Fizyoterapi ve Rehabilitasyon veya Ortopedik Fizyoterapi ve Rehabilitasyon Anabilim Dalında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sosyal Bilimler Meslek Yüksekokulu Yönetim ve Organizasyon Lojistik",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Lojistik Yönetimi, Uluslararası Ticaret ve Lojistik veya İşletme bölümlerinin birinden mezun olup bu alanların birinde tezli yüksek lisans yapmış olmak. Belgelendirmek kaydıyla alanında en az 3 yıl deneyime sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "EA",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Lojistik Yönetimi, Uluslararası Ticaret ve Lojistik veya İşletme bölümlerinin birinden mezun olup bu alanların birinde tezli yüksek lisans yapmış olmak.",
+            "Belgelendirmek kaydıyla alanında en az 3 yıl deneyime sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Edebiyat Fakültesi Mütercim ve Tercümanlık Farsça Mütercim ve Tercümanlık",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fars Dili ve Edebiyatı alanında lisans ve tezli yüksek lisansını tamamlamış olup Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından (Farsça) en az 85 puan veya eşdeğerliği kabul edilen bir sınavdan (Farsça) bu puan muadili bir puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY-SÖZ-EA",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 85,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Fars Dili ve Edebiyatı alanında lisans ve tezli yüksek lisansını tamamlamış olup Yükseköğretim Kurulu tarafından kabul edilen merkezi yabancı dil sınavından (Farsç.",
+            "en az 85 puan veya eşdeğerliği kabul edilen bir sınavdan (Farsç.",
+            "bu puan muadili bir puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu Sağlık ve Bakım Hizmetleri Evde Hasta Bakımı",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olup alanında tezli yüksek lisans yapmış olmak. Belgelendirmek şartıyla sağlık hizmetleri alanında en az 2 yıl çalışmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olup alanında tezli yüksek lisans yapmış olmak.",
+            "Belgelendirmek şartıyla sağlık hizmetleri alanında en az 2 yıl çalışmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Teknik Bilimler Meslek Yüksekokulu Makine ve Metal Teknolojileri Üretimde Kalite Kontrol",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Makine Mühendisliği, İmalat Mühendisliği, Maden Mühendisliği, Kamu Yönetimi, İşletme veya Uluslararası Ticaret ve Lojistik bölümlerinin birinden mezun olup bu alanların birinde tezli yüksek lisans yapmış olmak. Belgelendirmek kaydıyla yükseköğretim kurumlarında ders verme deneyimine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY-EA",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Makine Mühendisliği, İmalat Mühendisliği, Maden Mühendisliği, Kamu Yönetimi, İşletme veya Uluslararası Ticaret ve Lojistik bölümlerinin birinden mezun olup bu alanların birinde tezli yüksek lisans yapmış olmak.",
+            "Belgelendirmek kaydıyla yükseköğretim kurumlarında ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Karamanoğlu Mehmetbey Üniversitesi Rektörlüğünden Üniversitemizin aşağıda yazılı birimlerine; Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik, 2547 sayılı Yükseköğretim Kanunu ve 657 ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "SAĞLIK BİLİMLERİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2283213/kamu-akademik-personel-akademik-personel-alimlari-saglik bilimleri universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853616",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": "2026-11-23T23:59:01+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ",
+        "DOÇENT",
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "Gülhane Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Endodonti uzmanı olmak. Mandibular kemik yapısı üzerine doğum sayısının etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Endodonti uzmanı olmak.",
+            "Mandibular kemik yapısı üzerine doğum sayısının etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Diş Hekimliği Fakültesi",
+          "department": "Klinik Bilimler",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Periodontoloji alanında doçent ünvanına sahip olmak. Geriatrik hastalarda periodontal durum ile sağlıkla ilgili yaşam kalitesi ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Periodontoloji alanında doçent ünvanına sahip olmak.",
+            "Geriatrik hastalarda periodontal durum ile sağlıkla ilgili yaşam kalitesi ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Fizyoterapi ve Rehabilitasyon Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon veya Fizik Tedavi ve Rehabilitasyon programında doktora yapmış olmak. Neonatal brakial fleksus palsili çocuklarda üst ekstremite basınç merkezi değişikliği konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon veya Fizik Tedavi ve Rehabilitasyon programında doktora yapmış olmak.",
+            "Neonatal brakial fleksus palsili çocuklarda üst ekstremite basınç merkezi değişikliği konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Hemşirelik Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Cerrahi Hastalıklar Hemşireliği alanında doçent ünvanına sahip olmak. Sanal gerçeklik simülasyonunun cerrahi korku ve hemodinamik parametrelere etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Cerrahi Hastalıklar Hemşireliği alanında doçent ünvanına sahip olmak.",
+            "Sanal gerçeklik simülasyonunun cerrahi korku ve hemodinamik parametrelere etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Hemşirelik Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Hemşirelik Esasları alanında doçent ünvanına sahip olmak. Sanal hasta simülasyonunda farklı debrifing metotları konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik Esasları alanında doçent ünvanına sahip olmak.",
+            "Sanal hasta simülasyonunda farklı debrifing metotları konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Eczacılık Fakültesi",
+          "department": "Temel Eczacılık Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Analitik Kimya programında doktora yapmış olmak. Yarayaprağının fitokimyasal profili ve biyoaktivitesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Analitik Kimya programında doktora yapmış olmak.",
+            "Yarayaprağının fitokimyasal profili ve biyoaktivitesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Hemşirelik Fakültesi",
+          "department": "Hemşirelik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Hemşirelik Esasları alanında doçent ünvanına sahip olmak. Sedasyon uygulanan yoğun bakım hastalarının ağrı yönetiminde hemşirelerin kanıta dayalı uygulaması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik Esasları alanında doçent ünvanına sahip olmak.",
+            "Sedasyon uygulanan yoğun bakım hastalarının ağrı yönetiminde hemşirelerin kanıta dayalı uygulaması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Sağlık Bilimleri Fakültesi",
+          "department": "Beslenme ve Diyetetik",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Beslenme ve Diyetetik alanında doçent ünvanına sahip olmak. Online yemek servisi uygulamalarının yeme alışkanlıkları üzerine etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Beslenme ve Diyetetik alanında doçent ünvanına sahip olmak.",
+            "Online yemek servisi uygulamalarının yeme alışkanlıkları üzerine etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Sağlık Bilimleri Fakültesi",
+          "department": "Sosyal Hizmet",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Sosyal Hizmet veya Din Sosyolojisi alanında doçent ünvanına sahip olmak. Çevresel partikül maruziyeti ile prematür mortalite ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Sosyal Hizmet veya Din Sosyolojisi alanında doçent ünvanına sahip olmak.",
+            "Çevresel partikül maruziyeti ile prematür mortalite ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Sağlık Bakım Hizmetleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kadın Sağlığı ve Hastalıkları Hemşireliği programında doktora yapmış olmak. Aile çevresi davranışları ile çocuk sağlığı ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Kadın Sağlığı ve Hastalıkları Hemşireliği programında doktora yapmış olmak.",
+            "Aile çevresi davranışları ile çocuk sağlığı ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıbbi Farmakoloji alanında tıpta uzmanlık yapmış olmak. Absans epilepside oreksin tip-2 reseptörlerinin rolü konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıbbi Farmakoloji alanında tıpta uzmanlık yapmış olmak.",
+            "Absans epilepside oreksin tip-2 reseptörlerinin rolü konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Uluslararası Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Histoloji ve Embriyoloji alanında doçent ünvanına sahip olmak. Transplant yapılan karaciğer hepatositlerinde telomer kısalması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Histoloji ve Embriyoloji alanında doçent ünvanına sahip olmak.",
+            "Transplant yapılan karaciğer hepatositlerinde telomer kısalması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Uluslararası Tıp Fakültesi",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Histoloji ve Embriyoloji alanında doçent ünvanına sahip olmak. Psoriazis lezyonlarında T hücresi yoğunluğu ile gen ekspresyonu ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Histoloji ve Embriyoloji alanında doçent ünvanına sahip olmak.",
+            "Psoriazis lezyonlarında T hücresi yoğunluğu ile gen ekspresyonu ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Uluslararası Tıp Fakültesi",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıbbi Farmakoloji alanında tıpta uzmanlık veya doktora yapmış olmak. Gen ve hücre tedavilerinin maliyet etkinliği konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıbbi Farmakoloji alanında tıpta uzmanlık veya doktora yapmış olmak.",
+            "Gen ve hücre tedavilerinin maliyet etkinliği konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Adana Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Beyin ve Sinir Cerrahisi alanında doçent ünvanına sahip olmak. Ankilozan spondiliti olan hastalarda subaksial servikal kırıkların cerrahi sonuçları konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Beyin ve Sinir Cerrahisi alanında doçent ünvanına sahip olmak.",
+            "Ankilozan spondiliti olan hastalarda subaksial servikal kırıkların cerrahi sonuçları konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Adana Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji alanında doçent ünvanına sahip olmak. Sağ tarafta oluşan enfektif endokarditler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji alanında doçent ünvanına sahip olmak.",
+            "Sağ tarafta oluşan enfektif endokarditler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Adana Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Endokrinoloji ve Metabolizma Hastalıkları alanında doçent ünvanına sahip olmak. Subklinik hipotiroidide serum paraoksanaz-1 aktivitesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Endokrinoloji ve Metabolizma Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Subklinik hipotiroidide serum paraoksanaz-1 aktivitesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Adana Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ruh Sağlığı ve Hastalıkları uzmanı olmak. Psikoz ile periferik adenozin deaminaz enzim düzeylerinin ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Ruh Sağlığı ve Hastalıkları uzmanı olmak.",
+            "Psikoz ile periferik adenozin deaminaz enzim düzeylerinin ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Atatürk Sanatoryum SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Aile Hekimliği alanında doçent ünvanına sahip olmak. Toksik metal maruziyeti ve nörotoksik belirteçleri konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Aile Hekimliği alanında doçent ünvanına sahip olmak.",
+            "Toksik metal maruziyeti ve nörotoksik belirteçleri konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Dışkapı Yıldırım Beyazıt SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Göz Hastalıkları alanında doçent ünvanına sahip olmak. Korneal endotel iyileşmesi üzerine trombositten zengin fibrinin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Korneal endotel iyileşmesi üzerine trombositten zengin fibrinin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Dışkapı Yıldırım Beyazıt SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kulak Burun Boğaz Hastalıkları alanında doçent ünvanına sahip olmak. İdiopatik ani işitme kaybında intratimpanik deksametazon uygulaması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kulak Burun Boğaz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "İdiopatik ani işitme kaybında intratimpanik deksametazon uygulaması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Dr. Abdurrahman Yurtaslan Onkoloji SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Nükleer Tıp alanında doçent ünvanına sahip olmak. Diyabetik ayak osteomiyelitlerinde kantitatif kemik SPECT/CT'nin tanısal performansı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Nükleer Tıp alanında doçent ünvanına sahip olmak.",
+            "Diyabetik ayak osteomiyelitlerinde kantitatif kemik SPECT/CT'nin tanısal performansı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Dr. Abdurrahman Yurtaslan Onkoloji SUAM",
+          "department": "Temel Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıbbi Mikrobiyoloji alanında doçent ünvanına sahip olmak. Klebsiella pneumoniae bakterisinde karbapenemaz tespitinde farklı yöntemlerin karşılaştırılması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıbbi Mikrobiyoloji alanında doçent ünvanına sahip olmak.",
+            "Klebsiella pneumoniae bakterisinde karbapenemaz tespitinde farklı yöntemlerin karşılaştırılması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Dr. Sami Ulus Kadın Doğum Çocuk Sağlığı ve Hastalıkları SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Çocuk Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak. Jüvenil idiopatik artritte tiyol/disülfit homeostazisindeki değişimler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Jüvenil idiopatik artritte tiyol/disülfit homeostazisindeki değişimler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Etlik Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Genel Cerrahi uzmanı olmak. İleri yaşta laparoskopik ventral meş rektopeksi uygulamasının güvenilirliği konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Genel Cerrahi uzmanı olmak.",
+            "İleri yaşta laparoskopik ventral meş rektopeksi uygulamasının güvenilirliği konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Etlik Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Göz Hastalıkları uzmanı olmak. Desemet membran endotelial keratoplasti riskinin klinik validasyonu konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları uzmanı olmak.",
+            "Desemet membran endotelial keratoplasti riskinin klinik validasyonu konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Etlik Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Fiziksel Tıp ve Rehabilitasyon alanında doçent ünvanına sahip olmak. Kronik boyun ağrısında miyofasial tetikleyici noktaların önemi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Fiziksel Tıp ve Rehabilitasyon alanında doçent ünvanına sahip olmak.",
+            "Kronik boyun ağrısında miyofasial tetikleyici noktaların önemi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Etlik Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. TAVI sonrası atrial fibrilasyonun tahmin edilmesinde uzamış atrial refraktör periyodun kullanılması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "TAVI sonrası atrial fibrilasyonun tahmin edilmesinde uzamış atrial refraktör periyodun kullanılması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Gülhane SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Göz Hastalıkları alanında doçent ünvanına sahip olmak. Silah yaralanmalarında profilaktik korioretinektomi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Silah yaralanmalarında profilaktik korioretinektomi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Sincan SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Stabil koroner kalp hastalığı olanlarda farklı bir inflamasyon biyobelirteci konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Stabil koroner kalp hastalığı olanlarda farklı bir inflamasyon biyobelirteci konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Sincan SUAM",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıbbi Biyokimya alanında doçent ünvanına sahip olmak. Makine öğrenmesi ile LDL kolesterol düzeyinin tahmini konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıbbi Biyokimya alanında doçent ünvanına sahip olmak.",
+            "Makine öğrenmesi ile LDL kolesterol düzeyinin tahmini konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Fiziksel Tıp ve Rehabilitasyon uzmanı olup Romatoloji alanında doçent ünvanına sahip olmak. PET/CT'nin romatolojide tanısal etkinliği konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Fiziksel Tıp ve Rehabilitasyon uzmanı olup Romatoloji alanında doçent ünvanına sahip olmak.",
+            "PET/CT'nin romatolojide tanısal etkinliği konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Çocuk Ürolojisi yan dal uzmanı olup Çocuk Cerrahisi alanında doçent ünvanına sahip olmak. Nöropatik mesanesi olan çocuklarda üst üriner sistem hasarı riskinin belirlenmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk Ürolojisi yan dal uzmanı olup Çocuk Cerrahisi alanında doçent ünvanına sahip olmak.",
+            "Nöropatik mesanesi olan çocuklarda üst üriner sistem hasarı riskinin belirlenmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Antikolinerjik ilaç zehirlenmelerinde zehirlenme şiddet skoru ile beyin natriüretik peptit düzeyi arasındaki ilişki konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Antikolinerjik ilaç zehirlenmelerinde zehirlenme şiddet skoru ile beyin natriüretik peptit düzeyi arasındaki ilişki konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Plevral efüzyonların transüda eksüda ayrımında plevral sıvı tiyol/disülfit homeostazisinin kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Plevral efüzyonların transüda eksüda ayrımında plevral sıvı tiyol/disülfit homeostazisinin kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak. Dikkat eksikliği hiperaktivite bozukluğunda metilfenidat tedavisinin etkileri konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Dikkat eksikliği hiperaktivite bozukluğunda metilfenidat tedavisinin etkileri konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Endokrinoloji ve Metabolizma Hastalıkları alanında doçent ünvanına sahip olmak. Subakut tiroiditin tanısında sistemik immün inflamasyon indeksinin kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Endokrinoloji ve Metabolizma Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Subakut tiroiditin tanısında sistemik immün inflamasyon indeksinin kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Endokrinoloji ve Metabolizma Hastalıkları alanında doçent ünvanına sahip olmak. Tiroid nodül hacminin maligniteyi tahmin etmede kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Endokrinoloji ve Metabolizma Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Tiroid nodül hacminin maligniteyi tahmin etmede kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Geriatri (İç Hastalıkları) alanında doçent ünvanına sahip olmak. Osteoporozu olan hastalarda kırılganlığın vertebral kırıkları tahmin etmede kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Geriatri (İç Hastalıkları) alanında doçent ünvanına sahip olmak.",
+            "Osteoporozu olan hastalarda kırılganlığın vertebral kırıkları tahmin etmede kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Kalp nakli yapılacak hastaların ekokardiyografik ve hemodinamik analiz konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Kalp nakli yapılacak hastaların ekokardiyografik ve hemodinamik analiz konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Ankara Ulucanlar Göz SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Göz Hastalıkları alanında doçent ünvanına sahip olmak. Glokomu olmayan çocuklarda intraoküler basıncın farklı yöntemlerle ölçümü konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Glokomu olmayan çocuklarda intraoküler basıncın farklı yöntemlerle ölçümü konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Antalya SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Anesteziyoloji ve Reanimasyon uzmanı olup Algoloji alanında doçent ünvanına sahip olmak. Ağrılı servikal radikülopatinin tedavisinde pulslu radyofrekansı uygulamasının etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Anesteziyoloji ve Reanimasyon uzmanı olup Algoloji alanında doçent ünvanına sahip olmak.",
+            "Ağrılı servikal radikülopatinin tedavisinde pulslu radyofrekansı uygulamasının etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Antalya SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Göğüs Hastalıkları uzmanı olup Yoğun Bakım alanında doçent ünvanına sahip olmak. Covid 19 enfeksiyonuna bağlı solunum yetmezliğinde yüksek akım nazal oksijen tedavisini etkileyen faktörler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göğüs Hastalıkları uzmanı olup Yoğun Bakım alanında doçent ünvanına sahip olmak.",
+            "Covid 19 enfeksiyonuna bağlı solunum yetmezliğinde yüksek akım nazal oksijen tedavisini etkileyen faktörler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Antalya SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Elektrokardiyoversiyon sonrası atrial fibrilasyonun tahmininde sistemik immün inflamasyon indeksinin kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Elektrokardiyoversiyon sonrası atrial fibrilasyonun tahmininde sistemik immün inflamasyon indeksinin kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Antalya Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kalp ve Damar Cerrahisi alanında doçent ünvanına sahip olmak. Kritik koroner arter hastalığı olanlarda aort sertliği ile prolidaz aktivitesi ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kalp ve Damar Cerrahisi alanında doçent ünvanına sahip olmak.",
+            "Kritik koroner arter hastalığı olanlarda aort sertliği ile prolidaz aktivitesi ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Antalya Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Stabil olmayan anjinanın ayırıcı tanısında end-tidal karbondioksit değerinin kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Stabil olmayan anjinanın ayırıcı tanısında end-tidal karbondioksit değerinin kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Antalya Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Nöroloji alanında doçent ünvanına sahip olmak. Akut inmesi olan yaşlı hastalarda sarkopeninin belirlenmesinde temporal kas kalınlığının kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Nöroloji alanında doçent ünvanına sahip olmak.",
+            "Akut inmesi olan yaşlı hastalarda sarkopeninin belirlenmesinde temporal kas kalınlığının kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Antalya Şehir SUAM",
+          "department": "Temel Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Tıbbi Biyokimya alanında doçent ünvanına sahip olmak. Multiple skleroz hastalarında dengelenmiş oksidatif stres indeksinin hastalık ile ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıbbi Biyokimya alanında doçent ünvanına sahip olmak.",
+            "Multiple skleroz hastalarında dengelenmiş oksidatif stres indeksinin hastalık ile ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Balıkesir Atatürk Şehir SUAM",
+          "department": "Temel Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıbbi Biyokimya alanında doçent ünvanına sahip olmak. LDL kolesterolün tahmin edilmesinde farklı formüllerin karşılaştırılması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıbbi Biyokimya alanında doçent ünvanına sahip olmak.",
+            "LDL kolesterolün tahmin edilmesinde farklı formüllerin karşılaştırılması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Bursa Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Transradial koroner anjiyografi sonrası radial arter stenozunun kan viskozitesi ile ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Transradial koroner anjiyografi sonrası radial arter stenozunun kan viskozitesi ile ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Bursa Yüksek İhtisas SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kalp ve Damar Cerrahisi alanında doçent ünvanına sahip olmak. Yetişkinlerde koroner arteriovenöz fistüller konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kalp ve Damar Cerrahisi alanında doçent ünvanına sahip olmak.",
+            "Yetişkinlerde koroner arteriovenöz fistüller konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Bursa Yüksek İhtisas SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Neonatoloji alanında doçent ünvanına sahip olmak. Preterm bebeklerde biyokimyasal metabolik kemik hastalığının klinik belirleyicileri konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Neonatoloji alanında doçent ünvanına sahip olmak.",
+            "Preterm bebeklerde biyokimyasal metabolik kemik hastalığının klinik belirleyicileri konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Bursa Yüksek İhtisas SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Sürekli atrial fibrilasyonu olan hastalarda sol ventrikül diastolik fonksiyonu üzerine elektrokardiyoversiyonun etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Sürekli atrial fibrilasyonu olan hastalarda sol ventrikül diastolik fonksiyonu üzerine elektrokardiyoversiyonun etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Diyarbakır Gazi Yaşargil SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Ayak bileği yaralanmaları konusunda çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Ayak bileği yaralanmaları konusunda çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Elazığ Fethi Sekin Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Travmatik olmayan burun kanamasının durdurulmasında topikal lidokainin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Travmatik olmayan burun kanamasının durdurulmasında topikal lidokainin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Erzurum Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Anesteziyoloji ve Reanimasyon alanında doçent ünvanına sahip olmak. Akciğer fibrozisinde melatonin agonistinin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Anesteziyoloji ve Reanimasyon alanında doçent ünvanına sahip olmak.",
+            "Akciğer fibrozisinde melatonin agonistinin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Erzurum Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak. Epidural fibroziste trombositten zengin fibrinin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak.",
+            "Epidural fibroziste trombositten zengin fibrinin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Erzurum Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Ortopedi ve Travmatoloji uzmanı olmak. Pediatrik distal radius torus kırıklarında yumuşak bandaj ve rijit immobilizasyonun karşılaştırılması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Ortopedi ve Travmatoloji uzmanı olmak.",
+            "Pediatrik distal radius torus kırıklarında yumuşak bandaj ve rijit immobilizasyonun karşılaştırılması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Erzurum Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıbbi Onkoloji yan dal uzmanı olmak. Ekstragonadal germ hücre tümörlerinin salvaj tedavisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıbbi Onkoloji yan dal uzmanı olmak.",
+            "Ekstragonadal germ hücre tümörlerinin salvaj tedavisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gaziantep Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak. Periprostetik eklem enfeksiyonunda sinoviyal nötrofil sayısının tanısal değeri konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak.",
+            "Periprostetik eklem enfeksiyonunda sinoviyal nötrofil sayısının tanısal değeri konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Bakırköy Dr. Sadi Konuk SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Perinatoloji yan dal uzmanı olup Kadın Hastalıkları ve Doğum alanında doçent ünvanına sahip olmak. Preterm doğum tahmininde miyometrial kalınlık/servikal uzunluk oranının kullanımı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Perinatoloji yan dal uzmanı olup Kadın Hastalıkları ve Doğum alanında doçent ünvanına sahip olmak.",
+            "Preterm doğum tahmininde miyometrial kalınlık/servikal uzunluk oranının kullanımı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Bakırköy Prof. Dr. Mazhar Osman Ruh Sağlığı ve Sinir Hastalıkları SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Nöroloji alanında doçent ünvanına sahip olmak. Uyuşturucu madde kullanımının beynin elektriksel aktivitesi üzerine etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Nöroloji alanında doçent ünvanına sahip olmak.",
+            "Uyuşturucu madde kullanımının beynin elektriksel aktivitesi üzerine etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Bakırköy Prof. Dr. Mazhar Osman Ruh Sağlığı ve Sinir Hastalıkları SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ruh Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak. Psikotik hastalığı olanlar tarafından işlenilen cinayetler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Ruh Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Psikotik hastalığı olanlar tarafından işlenilen cinayetler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Beyoğlu Göz SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Göz Hastalıkları alanında doçent ünvanına sahip olmak. Korneal biyomekanik ve anterior segment parametreleri arasındaki ilişki konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Korneal biyomekanik ve anterior segment parametreleri arasındaki ilişki konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Dr. Siyami Ersek Göğüs Kalp ve Damar Cerrahisi SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Miyokard enfarktüsü geçiren hastalarda mortalite tahmininde fragmente QRS dalgasının önemi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Miyokard enfarktüsü geçiren hastalarda mortalite tahmininde fragmente QRS dalgasının önemi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Fatih Sultan Mehmet SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Acil servise gelen yaşlı hastalarda düşme ile ilgili faktörler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Acil servise gelen yaşlı hastalarda düşme ile ilgili faktörler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Fatih Sultan Mehmet SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "İç Hastalıkları alanında doçent ünvanına sahip olmak. Üreme çağındaki kadınlarda tiroid otoantikorlarının gelişimi üzerine demir eksikliğinin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "İç Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Üreme çağındaki kadınlarda tiroid otoantikorlarının gelişimi üzerine demir eksikliğinin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Gaziosmanpaşa SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kadın Hastalıkları ve Doğum uzmanı olmak. Serum speksin düzeylerinin hiperemezis gravidarum biyobelirteci olarak kullanılması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kadın Hastalıkları ve Doğum uzmanı olmak.",
+            "Serum speksin düzeylerinin hiperemezis gravidarum biyobelirteci olarak kullanılması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Haseki SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kadın Hastalıkları ve Doğum alanında doçent ünvanına sahip olmak. Sistemik lupus eritematozusu olan kadınlarda over rezervinin değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kadın Hastalıkları ve Doğum alanında doçent ünvanına sahip olmak.",
+            "Sistemik lupus eritematozusu olan kadınlarda over rezervinin değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Haydarpaşa Numune SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Anesteziyoloji ve Reanimasyon uzmanı olup Yoğun Bakım alanında doçent ünvanına sahip olmak. Septik şokta ekstrakorporal kan arıtma tedavisinin mortalite üzerine etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Anesteziyoloji ve Reanimasyon uzmanı olup Yoğun Bakım alanında doçent ünvanına sahip olmak.",
+            "Septik şokta ekstrakorporal kan arıtma tedavisinin mortalite üzerine etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Haydarpaşa Numune SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Beyin ve Sinir Cerrahisi alanında doçent ünvanına sahip olmak. Konjenital ve edinsel lomber spinal stenozun morfometrik analizi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Beyin ve Sinir Cerrahisi alanında doçent ünvanına sahip olmak.",
+            "Konjenital ve edinsel lomber spinal stenozun morfometrik analizi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Haydarpaşa Numune SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Göz Hastalıkları alanında doçent ünvanına sahip olmak. Vitreomaküler arayüz hastalıklarında vitrektomi sonrası yüksek sapmalardaki değişimler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Vitreomaküler arayüz hastalıklarında vitrektomi sonrası yüksek sapmalardaki değişimler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Haydarpaşa Numune SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Göz Hastalıkları alanında doçent ünvanına sahip olmak. Pseudoeksfoliasyon sendromu olanlarda anterior skleral kalınlığın değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Pseudoeksfoliasyon sendromu olanlarda anterior skleral kalınlığın değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Haydarpaşa Numune SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Acil serviste akut migren ataklarında intravenöz ibuprofen uygulamasının etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Acil serviste akut migren ataklarında intravenöz ibuprofen uygulamasının etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Haydarpaşa Numune SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Aile Hekimliği alanında doçent ünvanına sahip olmak. Diyabetik hastalarda bazal metabolizma hızının değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Aile Hekimliği alanında doçent ünvanına sahip olmak.",
+            "Diyabetik hastalarda bazal metabolizma hızının değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Kartal Dr. Lütfi Kırdar Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak. Proksimal humerus kırıklarında fiksasyon farklılıkları konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak.",
+            "Proksimal humerus kırıklarında fiksasyon farklılıkları konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Kartal Koşuyolu Yüksek İhtisas SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Çocuk Kardiyolojisi yan dal uzmanı olup Çocuk Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak. Prematüre bebeklerde ve çocuklarda patent duktus arteriozusun kapatılması konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk Kardiyolojisi yan dal uzmanı olup Çocuk Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Prematüre bebeklerde ve çocuklarda patent duktus arteriozusun kapatılması konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Prof. Dr. Cemil Taşçıoğlu Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıbbi Patoloji alanında doçent ünvanına sahip olmak. İntratorasik lenf nodüllerinde ve akciğer lezyonlarında likid temelli sitolojinin tanısal değeri konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıbbi Patoloji alanında doçent ünvanına sahip olmak.",
+            "İntratorasik lenf nodüllerinde ve akciğer lezyonlarında likid temelli sitolojinin tanısal değeri konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Prof. Dr. Cemil Taşçıoğlu Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Neonatoloji alanında doçent ünvanına sahip olmak. Çok düşük doğum ağırlıklı preterm bebeklerde lipid emülsiyonlarının morbidite üzerine etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Neonatoloji alanında doçent ünvanına sahip olmak.",
+            "Çok düşük doğum ağırlıklı preterm bebeklerde lipid emülsiyonlarının morbidite üzerine etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Prof. Dr. Cemil Taşçıoğlu Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Çocuk Kardiyolojisi yan dal uzmanı olup Çocuk Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak. Kronik kalp hastalığı olan çocuklarda transkateter ablasyonunun sonuçları konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk Kardiyolojisi yan dal uzmanı olup Çocuk Sağlığı ve Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Kronik kalp hastalığı olan çocuklarda transkateter ablasyonunun sonuçları konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Sancaktepe Şehit Prof. Dr. İlhan Varank SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kulak Burun Boğaz Hastalıkları alanında doçent ünvanına sahip olmak. İntratimpanik N-asetilsistein kontrollü salınım sisteminin analizi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kulak Burun Boğaz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "İntratimpanik N-asetilsistein kontrollü salınım sisteminin analizi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Sancaktepe Şehit Prof. Dr. İlhan Varank SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Üroloji alanında doçent ünvanına sahip olmak. Bilateral üreter taşlarının tedavi kararını etkileyen faktörler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Üroloji alanında doçent ünvanına sahip olmak.",
+            "Bilateral üreter taşlarının tedavi kararını etkileyen faktörler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Sancaktepe Şehit Prof. Dr. İlhan Varank SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları uzmanı olmak. Dikkat eksikliği hiperaktivite bozukluğu olan çocuklarda serum ferritin düzeylerinin becerilere etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları uzmanı olmak.",
+            "Dikkat eksikliği hiperaktivite bozukluğu olan çocuklarda serum ferritin düzeylerinin becerilere etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Sancaktepe Şehit Prof. Dr. İlhan Varank SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Diyabet hastalarında fragmente QRS ile mikroalbüminüri arasındaki ilişki konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Diyabet hastalarında fragmente QRS ile mikroalbüminüri arasındaki ilişki konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kulak Burun Boğaz Hastalıkları alanında doçent ünvanına sahip olmak. Covid 19 pandemisi sürecinde ani sensorinöral işitme kayıpları konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kulak Burun Boğaz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Covid 19 pandemisi sürecinde ani sensorinöral işitme kayıpları konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Hematoloji alanında doçent ünvanına sahip olmak. Yaşlılarda günlük aktiviteler üzerine aneminin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Hematoloji alanında doçent ünvanına sahip olmak.",
+            "Yaşlılarda günlük aktiviteler üzerine aneminin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Sultan 2. Abdülhamid Han SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Anesteziyoloji ve Reanimasyon alanında doçent ünvanına sahip olmak. Elektrokonvülsif tedavi sırasında intrakranial basınç değişiminin değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Anesteziyoloji ve Reanimasyon alanında doçent ünvanına sahip olmak.",
+            "Elektrokonvülsif tedavi sırasında intrakranial basınç değişiminin değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Şişli Hamidiye Etfal SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji alanında doçent ünvanına sahip olmak. Yoğun bakımda hastane kaynaklı Pseudomonas aeruginosa enfeksiyonu olan hastaların mortalitesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji alanında doçent ünvanına sahip olmak.",
+            "Yoğun bakımda hastane kaynaklı Pseudomonas aeruginosa enfeksiyonu olan hastaların mortalitesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Taksim SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Radyoloji alanında doçent ünvanına sahip olmak. Şok dalga litotripsisi uygulaması öncesi çocukların radyolojik değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Radyoloji alanında doçent ünvanına sahip olmak.",
+            "Şok dalga litotripsisi uygulaması öncesi çocukların radyolojik değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Ümraniye SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Üroloji alanında doçent ünvanına sahip olmak. Yüksek riskli açık radikal prostatektomi yapılan hastalarda ortaya çıkan komplikasyonlar konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Üroloji alanında doçent ünvanına sahip olmak.",
+            "Yüksek riskli açık radikal prostatektomi yapılan hastalarda ortaya çıkan komplikasyonlar konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İstanbul Yedikule Göğüs ve Hastalıkları ve Göğüs Cerrahisi SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Göğüs Hastalıkları alanında doçent ünvanına sahip olmak. Amfizemi olan hastalarda bronkoskopik volüm redüksiyonunun mortaliteye etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göğüs Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Amfizemi olan hastalarda bronkoskopik volüm redüksiyonunun mortaliteye etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İzmir Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Çocuklarda ateşli silah yaralanmaları ile acil servis dinamiklerinin değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Çocuklarda ateşli silah yaralanmaları ile acil servis dinamiklerinin değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İzmir Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Nöroloji alanında doçent ünvanına sahip olmak. Multiple skleroz hastalarında beyin segmental hacmi ile klinik parametreler arasındaki ilişki konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Nöroloji alanında doçent ünvanına sahip olmak.",
+            "Multiple skleroz hastalarında beyin segmental hacmi ile klinik parametreler arasındaki ilişki konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İzmir Tepecik SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Göz Hastalıkları alanında doçent ünvanına sahip olmak. Retinopatisi olmayan diyabetik çocuklarda optik koherans tomografisi ile oküler değişimlerin belirlenmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları alanında doçent ünvanına sahip olmak.",
+            "Retinopatisi olmayan diyabetik çocuklarda optik koherans tomografisi ile oküler değişimlerin belirlenmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İzmir Tepecik SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kadın Hastalıkları ve Doğum alanında doçent ünvanına sahip olmak. Ekstrauterin plasantal bölgedeki trofoblastik tümörler konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kadın Hastalıkları ve Doğum alanında doçent ünvanına sahip olmak.",
+            "Ekstrauterin plasantal bölgedeki trofoblastik tümörler konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İzmir Tepecik SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları uzmanı olmak. Duchenne musküler distrofide genotip ile bilişsel fenotip ilişkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları uzmanı olmak.",
+            "Duchenne musküler distrofide genotip ile bilişsel fenotip ilişkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kayseri Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kulak Burun Boğaz Hastalıkları uzmanı olmak. Çocuklarda tonsillektomi sonrası kanamanın analizi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kulak Burun Boğaz Hastalıkları uzmanı olmak.",
+            "Çocuklarda tonsillektomi sonrası kanamanın analizi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kayseri Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Çocuk Sağlığı ve Hastalıkları uzmanı olmak. Pediatrik crush sendromunda renal replasman tedavisinin tahmin edicileri konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Çocuk Sağlığı ve Hastalıkları uzmanı olmak.",
+            "Pediatrik crush sendromunda renal replasman tedavisinin tahmin edicileri konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kayseri Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Tıbbi Onkoloji alanında doçent ünvanına sahip olmak. Mutant metastatik kolorektal kanserde klinikopatolojik özelliklerin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Tıbbi Onkoloji alanında doçent ünvanına sahip olmak.",
+            "Mutant metastatik kolorektal kanserde klinikopatolojik özelliklerin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kayseri Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Kardiyoloji alanında doçent ünvanına sahip olmak. Atrial fibrilasyonun tekrarının tahmin edicileri konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kardiyoloji alanında doçent ünvanına sahip olmak.",
+            "Atrial fibrilasyonun tekrarının tahmin edicileri konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kocaeli Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Göz Hastalıkları uzmanı olmak. Retinopatisi olmayan diyabetik hastalarda yakın refleksinin değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": null,
+          "sartlar": [
+            "Göz Hastalıkları uzmanı olmak.",
+            "Retinopatisi olmayan diyabetik hastalarda yakın refleksinin değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kocaeli Şehir SUAM",
+          "department": "Cerrahi Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak. Tendon iyileşmesi üzerine yağ grefti etkisinin biyomekanik değerlendirilmesi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Ortopedi ve Travmatoloji alanında doçent ünvanına sahip olmak.",
+            "Tendon iyileşmesi üzerine yağ grefti etkisinin biyomekanik değerlendirilmesi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Kocaeli Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Acil Tıp alanında doçent ünvanına sahip olmak. Çocuklarda kusmanın kontrol edilmesinde antiemetiklerin etkisi konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Acil Tıp alanında doçent ünvanına sahip olmak.",
+            "Çocuklarda kusmanın kontrol edilmesinde antiemetiklerin etkisi konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Konya Şehir SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji uzmanı olmak. İmmünosüpressif tedavi öncesi Hepatit B reaktivasyonu konusunda nörologların farkındalığı konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji uzmanı olmak.",
+            "İmmünosüpressif tedavi öncesi Hepatit B reaktivasyonu konusunda nörologların farkındalığı konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Osmaniye SUAM",
+          "department": "Dahili Tıp Bilimleri",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Kadın Hastalıkları ve Doğum uzmanı olmak. Sol dal bloğu olan akut kalp yetmezliğinde EKG temelli değerlendirme konusunda çalışması olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Kadın Hastalıkları ve Doğum uzmanı olmak.",
+            "Sol dal bloğu olan akut kalp yetmezliğinde EKG temelli değerlendirme konusunda çalışması olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Sağlık Bilimleri Üniversitesi Rektörlüğünden ÖĞRETİM ÜYESİ ALIM İLANI Üniversitemizin aşağıda belirtilen birimlerine, 2547 sayılı Yükseköğretim Kanunu, 02.11.2018 tarih ve 30583 sayılı Resmî Gazete'de yayımlanan Devlet Yükseköğretim Kurumlarında Öğretim Elemanı Norm Kadrolarının Belirlenmesine ve Ku",
+      "applicationDocuments": []
+    },
+    {
+      "university": "TED ÜNİVERSİTESİ",
+      "city": "Ankara",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2283277/kamu-akademik-personel-akademik-personel-alimlari-ted-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853617",
+      "publishDate": "2026-11-08T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik Fakültesi",
+          "department": "Endüstri Mühendisliği Bölümü",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 2,
+          "requirements": "Adayların; -Doktora derecelerini “Endüstri Mühendisliği” alanından almış olmaları, -Sağlık sistemlerinin yönetimi ve optimizasyonu, İnsani yardım lojistiği, Enerji sistemlerinde optimizasyon, Dağıtım lojistiği, Rassal optimizasyon alanlarının bir veya birden fazlasında araştırma deneyimlerinin olması gerekmektedir.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Adayların; -Doktora derecelerini “Endüstri Mühendisliği” alanından almış olmaları, -Sağlık sistemlerinin yönetimi ve optimizasyonu, İnsani yardım lojistiği, Enerji sistemlerinde optimizasyon, Dağıtım lojistiği, Rassal optimizasyon alanlarının bir veya birden fazlasında araştırma deneyimlerinin olması gerekmektedir."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "TED Üniversitesi Rektörlüğünden: Üniversitemize, “2547 Sayılı Yüksek Öğretim Kanunu”, “Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği”nin ilgili maddeleri, “TED Üniversitesi (TEDÜ) Akademik Atama ve Yükseltme Kriterleri” ve “Yükseköğretim Kurumlarında Yabancı Dil Öğretimi ve Yabancı Dille Öğret",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İSTANBUL BİLGİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2284932/kamu-akademik-personel-akademik-personel-alimlari-istanbul-bilgi-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853618",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": "2026-11-25T23:59:00+00:00",
+      "detectedTitles": [
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "İletişim Tasarımı ve Yönetimi Lisans Programı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "İletişim Tasarımı ve Yönetimi, İletişim veya Pazarlama alanlarından birinde doktora derecesine ve doçentlik ünvanına sahip olmak, ilgili alanlarda bilimsel yayınları bulunmak ve bu alanlarda yükseköğretim kurumlarında lisans düzeyinde İngilizce ders verme deneyimine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "İletişim Tasarımı ve Yönetimi, İletişim veya Pazarlama alanlarından birinde doktora derecesine ve doçentlik ünvanına sahip olmak, ilgili alanlarda bilimsel yayınları bulunmak ve bu alanlarda yükseköğretim kurumlarında lisans düzeyinde İngilizce ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "Radyo, Televizyon ve Sinema Lisans Programı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Radyo, Televizyon ve Sinema, Sinema ve Televizyon, Sinema, Film Tasarımı, İletişim Bilimleri, Fotoğraf ve Video, Görsel Kültür, Tasarım-Teknoloji ve Toplum, Birleşik Sanatlar alanlarının birinde lisans ve doktora/sanatta yeterlik derecesine sahip olmak, yükseköğretim kurumlarında film yapımı alanlarından birinde lisans düzeyinde uygulamalı/teknik ders verme deneyimi bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Güzel Sanatlar",
+          "sartlar": [
+            "Radyo, Televizyon ve Sinema, Sinema ve Televizyon, Sinema, Film Tasarımı, İletişim Bilimleri, Fotoğraf ve Video, Görsel Kültür, Tasarım-Teknoloji ve Toplum, Birleşik Sanatlar alanlarının birinde lisans ve doktora/sanatta yeterlik derecesine sahip olmak, yükseköğretim kurumlarında film yapımı alanlarından birinde lisans düzeyinde uygulamalı/teknik ders verme deneyimi bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mimarlık Fakültesi",
+          "department": "Mimarlık Lisans Programı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Mimarlık alanında doktora, Mimarlık-Planlama-Tasarım (Mimarlık) alanında doçentlik derecesi bulunmak, yapı ve malzeme teknolojileri alanında bilimsel yayınlara ve bu alanda yükseköğretim kurumlarında lisans düzeyinde İngilizce ders verme deneyimine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mimarlık alanında doktora, Mimarlık-Planlama-Tasarım (Mimarlık) alanında doçentlik derecesi bulunmak, yapı ve malzeme teknolojileri alanında bilimsel yayınlara ve bu alanda yükseköğretim kurumlarında lisans düzeyinde İngilizce ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Mekatronik Mühendisliği Lisans Programı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Mekatronik Mühendisliği, Makine Mühendisliği veya Fizik Bilim alanında doçentliğini almış olmak, genel görelilik ve matematiksel fizik alanlarında bilimsel yayınlar yapmış olmak ve yükseköğretim kurumlarında lisans düzeyinde İngilizce ders verme deneyimine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mekatronik Mühendisliği, Makine Mühendisliği veya Fizik Bilim alanında doçentliğini almış olmak, genel görelilik ve matematiksel fizik alanlarında bilimsel yayınlar yapmış olmak ve yükseköğretim kurumlarında lisans düzeyinde İngilizce ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Beslenme ve Diyetetik Lisans Programı",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Beslenme ve Diyetetik alanında doktora ve doçentliğini almış olmak, yetişkin beslenmesi alanında bilimsel yayınlara ve bu alanda yükseköğretim kurumlarında lisans ve yüksek lisans düzeyinde ders verme deneyimine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Beslenme ve Diyetetik alanında doktora ve doçentliğini almış olmak, yetişkin beslenmesi alanında bilimsel yayınlara ve bu alanda yükseköğretim kurumlarında lisans ve yüksek lisans düzeyinde ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Hizmetleri Meslek Yüksekokulu",
+          "department": "Anestezi Önlisans Programı",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Cerrahi Hastalıklar Hemşireliği alanında doktora yapmış olmak, bu alanda bilimsel yayınları bulunmak ve yükseköğretim kurumlarının Anestezi ön lisans programlarında en az 2 akademik yıl uygulamalı ders verme deneyimine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Cerrahi Hastalıklar Hemşireliği alanında doktora yapmış olmak, bu alanda bilimsel yayınları bulunmak ve yükseköğretim kurumlarının Anestezi ön lisans programlarında en az 2 akademik yıl uygulamalı ders verme deneyimine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İstanbul Bilgi Üniversitesi Rektörlüğünden: Üniversitemizin aşağıda belirtilen kadrolarına, 2547 sayılı Yükseköğretim Kanunu’nun ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği’nin ilgili maddeleri uyarınca Öğretim Üyesi alınacaktır. Sıra No Fakülte Bölüm/Program/ Anabilim Dalı Unvan Kadro Sa",
+      "applicationDocuments": []
+    },
+    {
+      "university": "SAĞLIK BİLİMLERİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2284939/kamu-akademik-personel-akademik-personel-alimlari-saglik-bilimleri-universitesi-rektorlugu-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853619",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": "2026-11-24T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ",
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Hamidiye Sağlık Bilimleri Fakültesi",
+          "department": "Ebelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Ebelik lisans mezunu olup Ebelik programında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik lisans mezunu olup Ebelik programında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Gülhane Sağlık Meslek Yüksekokulu",
+          "department": "Tıbbi Hizmetler ve Teknikler",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olup Cerrahi Hastalıklar Hemşireliği programında tezli yüksek lisans yapmış olmak. Doku ve organ nakli alanında 5 yıl süre ile çalışmış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olup Cerrahi Hastalıklar Hemşireliği programında tezli yüksek lisans yapmış olmak.",
+            "Doku ve organ nakli alanında 5 yıl süre ile çalışmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Sağlık Bilimleri Fakültesi",
+          "department": "Fizyoterapi ve Rehabilitasyon",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon lisans mezunu olup Fizyoterapi ve Rehabilitasyon programında doktora yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon lisans mezunu olup Fizyoterapi ve Rehabilitasyon programında doktora yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Hamidiye Hemşirelik Fakültesi",
+          "department": "Hemşirelik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik lisans mezunu olup Psikiyatri Hemşireliği programında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 50,
+          "foreignLanguageExam": null,
+          "derece": 4,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik lisans mezunu olup Psikiyatri Hemşireliği programında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Sağlık Bilimleri Üniversitesi Rektörlüğünden: ÖĞRETİM ELEMANI ALIM İLANI Üniversitemizin aşağıdaki tabloda bilgileri bulunan birimlerine 09 Kasım 2018 tarihli ve 30590 sayılı Resmî Gazete'de yayımlanan \"Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sına",
+      "applicationDocuments": []
+    },
+    {
+      "university": "GÜMÜŞHANE ÜNİVERSİTESİ",
+      "city": "Gümüşhane",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2284946/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-gumushane-universitesi-rektorlugu-",
+      "ilanNo": "YOK853620",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Mühendislik ve Doğa Bilimleri Fakültesi",
+          "department": "Yazılım Mühendisliği Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Yazılım Mühendisliği lisans mezunu olup Yapay Zeka ve Akıllı Sistemler Anabilim Dalında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Yazılım Mühendisliği lisans mezunu olup Yapay Zeka ve Akıllı Sistemler Anabilim Dalında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "Hemşirelik Bölümü",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik Bölümü lisans mezunu olup Çocuk Sağlığı ve Hastalıkları Hemşireliği Anabilim Dalında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik Bölümü lisans mezunu olup Çocuk Sağlığı ve Hastalıkları Hemşireliği Anabilim Dalında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Gümüşhane Üniversitesi Rektörlüğünden: DÜZELTME İLANI 06.11.2026 tarihli ve 33422 sayılı Resmî Gazete’de yayımlanan ilanımızda bazı birim kadroları için istenilen YDS veya Eşdeğer Puanı aşağıdaki şekliyle düzeltilmiştir. Birim Bölüm Anabilim Dalı/ Program Kadro Adedi Derece ÜNVAN ALES Puanı ve ALES ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "SABANCI ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2284965/kamu-akademik-personel-akademik-personel-alimlari-sabanci-universitesi-rektorlugu-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853621",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": "2026-11-24T23:59:00+00:00",
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Yönetim Bilimleri Fakültesi",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Pazarlama",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [
+            "Pazarlama."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Sabancı Üniversitesi Rektörlüğünden: 2547 sayılı Yükseköğretim Kanunu ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği doğrultusunda, Üniversitemize tam zamanlı öğretim üyeleri alınacaktır. Öğretim Üyeleri kadrolarına başvuracakların; bölümü belirtir dilekçe, nüfus cüzdanı fotokopisi, 2 fotoğr",
+      "applicationDocuments": []
+    },
+    {
+      "university": "İZMİR BAKIRÇAY ÜNİVERSİTESİ",
+      "city": "İzmi̇r",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2285009/kamu-akademik-personel-akademik-personel-alimlari-izmir-bakircay-universitesi-iptal-ilani-",
+      "ilanNo": "YOK853622",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Hukuk Fakültesi Kamu Hukuku Bölümü Ceza ve Ceza Muhakemesi Hukuku Anabilim Dalı",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Hukuk fakültesi mezunu olmak, kamu hukuku alanında yüksek lisans ve doktora yapmış olmak. Dijital ceza muhakemesi, bilişim ceza hukuku, yapay zekâ veya dijital deliller alanında WoS veya Scopus veri tabanında yayınlar yapmış ve uluslararası yayınlanmış bildirileri olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": false,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 5,
+          "temelAlan": "Hukuk",
+          "sartlar": [
+            "Hukuk fakültesi mezunu olmak, kamu hukuku alanında yüksek lisans ve doktora yapmış olmak.",
+            "Dijital ceza muhakemesi, bilişim ceza hukuku, yapay zekâ veya dijital deliller alanında WoS veya Scopus veri tabanında yayınlar yapmış ve uluslararası yayınlanmış bildirileri olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "İzmir Bakırçay Üniversitesi Rektörlüğünden İPTAL İLANI 19.10.2026 tarihli ve 33405 sayılı Resmî Gazete’de yayımlanan doktor öğretim üyesi ilanımız iptal edilmiştir. SIRA NO KADRO ÜNVANI DERECE ADET FAKÜLTE-BÖLÜM-ANABİLİM DALI AÇIKLAMALAR 3 Dr. Öğr. Üyesi 5 1 Hukuk Fakültesi Kamu Hukuku Bölümü Ceza v",
+      "applicationDocuments": []
+    },
+    {
+      "university": "MUNZUR ÜNİVERSİTESİ",
+      "city": "Tunceli̇",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2285027/kamu-akademik-personel-akademik-personel-alimlari-munzur universitesi rektorlugunden-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853623",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": "2026-11-25T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Kamu Yönetimi alanında Doçent unvanı almış olup, Personel Yönetimi, E-Konsolosluk ve Küreselleşmenin Yerel Kültüre Etkisi konusunda çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Kamu Yönetimi alanında Doçent unvanı almış olup, Personel Yönetimi, E-Konsolosluk ve Küreselleşmenin Yerel Kültüre Etkisi konusunda çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Sağlık Bilimleri Fakültesi",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Çocuk Gelişimi veya Eğitim Bilimleri Alanında almış, Okul Sağlığı ve Çocuk Liderliği üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Çocuk Gelişimi veya Eğitim Bilimleri Alanında almış, Okul Sağlığı ve Çocuk Liderliği üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tunceli Meslek Yüksekokulu",
+          "department": "",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Kimya alanından almış, Antosiyaninler ve Fenolik Bileşiklerin Sıvı Kromatografik Yöntemler ile Analizi ve Nadir Toprak Element İçerikli Malzemeler ile Boyar Madde Giderimi ve İletkenlik konularında çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Kimya alanından almış, Antosiyaninler ve Fenolik Bileşiklerin Sıvı Kromatografik Yöntemler ile Analizi ve Nadir Toprak Element İçerikli Malzemeler ile Boyar Madde Giderimi ve İletkenlik konularında çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Spor Bilimleri Fakültesi",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Beden Eğitimi Spor Öğretmenliği lisans mezunu olmak, Doçentliğini Hareket ve Antrenman Bilimleri alanında almış olmak, Uzun Dönem Antrenmanlarla Birlikte Kurkumin Takviyesinin Bazı Fizyolojik Parametrelere Etkisi ve Metabolik Sendrom ile ilgili çalışması olmak. UEFA B lisans Futbol Antrenörlük Belgesine sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Beden Eğitimi Spor Öğretmenliği lisans mezunu olmak, Doçentliğini Hareket ve Antrenman Bilimleri alanında almış olmak, Uzun Dönem Antrenmanlarla Birlikte Kurkumin Takviyesinin Bazı Fizyolojik Parametrelere Etkisi ve Metabolik Sendrom ile ilgili çalışması olmak.",
+            "UEFA B lisans Futbol Antrenörlük Belgesine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tunceli Meslek Yüksekokulu",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Gıda Bilimleri ve Mühendisliği alanında almış, Prediktif Mikrobiyoloji, Kantitatif Mikrobiyal Risk Değerlendirmesi ve Gıda Işınlama üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Gıda Bilimleri ve Mühendisliği alanında almış, Prediktif Mikrobiyoloji, Kantitatif Mikrobiyal Risk Değerlendirmesi ve Gıda Işınlama üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tunceli Meslek Yüksekokulu",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentlik unvanını İnşaat Mühendisliği bilim alanında almış olmak. Ilık Asfalt Karışımları konularında bilimsel çalışmaları olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentlik unvanını İnşaat Mühendisliği bilim alanında almış olmak.",
+            "Ilık Asfalt Karışımları konularında bilimsel çalışmaları olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Tunceli Meslek Yüksekokulu",
+          "department": "",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Fizik alanında almış, İnce Film Formunda Kalıcı Mıknatıs Termoelektrik ve Tribo Elektrik Malzemeler üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Fizik alanında almış, İnce Film Formunda Kalıcı Mıknatıs Termoelektrik ve Tribo Elektrik Malzemeler üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktorasını Müzik ve Sahne Sanatları alanında yapmış olmak, Tunceli Müzik Kültürü ve Kültürel Bellek üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doktorasını Müzik ve Sahne Sanatları alanında yapmış olmak, Tunceli Müzik Kültürü ve Kültürel Bellek üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Resim alanında lisans, yüksek lisans ve Sanatta Yeterlik derecesine sahip olmak. Kozmolojik Sanat, Sanatta Yapı-Biçim İlişkileri ve Temel Sanat Eğitimi üzerine araştırma ve sanatsal üretim yapmış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Resim alanında lisans, yüksek lisans ve Sanatta Yeterlik derecesine sahip olmak.",
+            "Kozmolojik Sanat, Sanatta Yapı-Biçim İlişkileri ve Temel Sanat Eğitimi üzerine araştırma ve sanatsal üretim yapmış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "Güzel Sanatlar, Tasarım ve Mimarlık Fakültesi",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Resim–İş Öğretmenliği lisans mezunu olmak, Resim Anasanat Dalında yüksek lisans ve sanatta yeterlilik yapmış olmak. Çağdaş Sanat Alanında Mekân Odaklı Araştırmalar Disiplinlerarası Proje ve Uygulamalar gerçekleştirmiş olmak. Alanında 5 yıl tecrübesi olmak .",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Resim–İş Öğretmenliği lisans mezunu olmak, Resim Anasanat Dalında yüksek lisans ve sanatta yeterlilik yapmış olmak.",
+            "Çağdaş Sanat Alanında Mekân Odaklı Araştırmalar Disiplinlerarası Proje ve Uygulamalar gerçekleştirmiş olmak.",
+            "Alanında 5 yıl tecrübesi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İletişim Fakültesi",
+          "department": "",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Doktora çalışmasını İletişim Anabilim dalında yapmış olmak. Video Oyunları, Sinema, Etkileşimli Sinema ve Reklamcılık konularında çalışmaları olmak. SCIE / SSCI / AHCI kapsamındaki dergilerin Q kategorilerinde yayını olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 2,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Doktora çalışmasını İletişim Anabilim dalında yapmış olmak.",
+            "Video Oyunları, Sinema, Etkileşimli Sinema ve Reklamcılık konularında çalışmaları olmak.",
+            "SCIE / SSCI / AHCI kapsamındaki dergilerin Q kategorilerinde yayını olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Munzur Üniversitesi Rektörlüğünden ÖĞRETİM ÜYESİ ALIM İLANI İlan Tarihi : 10.11.2026 Son Başvuru Tarihi : 25.11. 2026 Üniversitemizin ilgili birimlerinde istihdam edilmek üzere, 2547 sayılı Yükseköğretim Kanunu, Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliğinin ilgili maddeleri ve Üniversitemiz",
+      "applicationDocuments": []
+    },
+    {
+      "university": "MUNZUR ÜNİVERSİTESİ",
+      "city": "Tunceli̇",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2285031/kamu-akademik-personel-akademik-personel-alimlari-munzur universitesi rektorlugunden-ogretim-gorevlisi-alim-ilani",
+      "ilanNo": "YOK853624",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "Pertek Sakine Genç Meslek Yüksekokulu",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Veteriner Fakültesi lisans mezunu olmak, Veteriner Patoloji alanında tezli yüksek lisans yapmış olmak, Yükseköğrenim kurumunda en az 5 yıl tecrübe ve ders vermiş olmak, Deney Hayvanları Kullanım Sertifikasına sahip olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": 3,
+          "temelAlan": null,
+          "sartlar": [
+            "Veteriner Fakültesi lisans mezunu olmak, Veteriner Patoloji alanında tezli yüksek lisans yapmış olmak, Yükseköğrenim kurumunda en az 5 yıl tecrübe ve ders vermiş olmak, Deney Hayvanları Kullanım Sertifikasına sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Munzur Üniversitesi Rektörlüğünden ÖĞRETİM GÖREVLİSİ ALIM İLANI Üniversitemizin aşağıda isimleri yazılı birimlerine, 2547 sayılı Yükseköğretim Kanunu’nun ve “Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esasl",
+      "applicationDocuments": []
+    },
+    {
+      "university": "TOROS ÜNİVERSİTESİ",
+      "city": "Mersi̇n",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2285038/kamu-akademik-personel-akademik-personel-alimlari-duzeltme-ilani-toros universitesi rektorlugunden-",
+      "ilanNo": "YOK853625",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": null,
+          "sartlar": [],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Toros Üniversitesi Rektörlüğünden DÜZELTME İLANI 31 Ekim 2026 tarihli ve 33416 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan Öğretim Görevlisi Alım ilanımızda, Yabancı Diller Yüksekokulu Yabancı Diller Bölümü için ilan edilen bir (1) kadronun ünvanı “Öğretim Görevlisi (Ders Verecek)” olarak ",
+      "applicationDocuments": []
+    },
+    {
+      "university": "BAHÇEŞEHİR ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2285086/kamu-akademik-personel-akademik-personel-alimlari-bahcesehir-universitesi-ogretim-uyesi-alim-ilani",
+      "ilanNo": "YOK853626",
+      "publishDate": "2026-11-09T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "PROFESÖR"
+      ],
+      "positions": [
+        {
+          "faculty": "EĞİTİM BİLİMLERİ FAKÜLTESİ",
+          "department": "BİLGİSAYAR VE ÖĞRETİM TEKNOLOJİLERİ EĞİTİMİ BÖLÜMÜ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Bilgisayar mühendisliği veya ilgili alanlardan lisans, Mühendislik alanlarından doktora mezunu olmak. Uzaktan eğitim sistemleri konusunda bilimsel araştırmaları olmak dijital eğitim veya web tabanlı eğitim konularına yönelik projelerde görev almış olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": "YDS",
+          "derece": null,
+          "temelAlan": "Eğitim Bilimleri",
+          "sartlar": [
+            "Bilgisayar mühendisliği veya ilgili alanlardan lisans, Mühendislik alanlarından doktora mezunu olmak.",
+            "Uzaktan eğitim sistemleri konusunda bilimsel araştırmaları olmak dijital eğitim veya web tabanlı eğitim konularına yönelik projelerde görev almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Bahçeşehir Üniversitesi Rektörlüğünden Üniversitemizin aşağıda belirtilen birimlerine 2547 sayılı Yükseköğretim Kanununun ilgili maddeleri \"Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği\", \"Yükseköğretim Kurumlarında Yabancı Dil Öğretimi ve Yabancı Dille Öğretim Yapılmasında Uyulacak Esaslara İ",
+      "applicationDocuments": []
+    },
     {
       "university": "İZMİR BAKIRÇAY ÜNİVERSİTESİ",
       "city": "İzmi̇r",
