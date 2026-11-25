@@ -1,7 +1,621 @@
 {
-  "lastUpdated": "2026-11-24T19:20:43.926731+00:00",
+  "lastUpdated": "2026-11-25T18:26:07.143129+00:00",
   "source": "ilan.gov.tr",
   "ads": [
+    {
+      "university": "BİRUNİ ÜNİVERSİTESİ",
+      "city": "İstanbul",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2302677/kamu-akademik-personel-akademik-personel-alimlari-iptal-ilani-biruni-universitesi-rektorlugu-",
+      "ilanNo": "YOK853703",
+      "publishDate": "2026-11-24T21:00:01+00:00",
+      "deadline": null,
+      "detectedTitles": [
+        "ÖĞRETİM GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "MESLEK YÜKSEKOKULU",
+          "department": "Fizyoterapi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MESLEK YÜKSEKOKULU",
+          "department": "Fizyoterapi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MESLEK YÜKSEKOKULU",
+          "department": "Fizyoterapi",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans mezunu olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Fizyoterapi ve Rehabilitasyon alanında tezli yüksek lisans mezunu olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Biruni Üniversitesi Rektörlüğünden: İPTAL İLANI 13.11.2026 tarihli ve 33429 sayılı Resmî Gazete’de aslına uygun olarak yayımlanan ilanımız aşağıdaki belirtilen kadro ilanı iptal edilmiştir. İlan Başlama Tarihi : 13.11.2026 İlan Bitiş Tarihi : 27.11.2026 FAKÜLTE BÖLÜM / PROGRAM ANABİLİM DALI / BİLİMD",
+      "applicationDocuments": []
+    },
+    {
+      "university": "ÇAĞ ÜNİVERSİTESİ",
+      "city": "Mersi̇n",
+      "uniType": "Vakıf",
+      "url": "https://www.ilan.gov.tr/ilan/2302666/kamu-akademik-personel-akademik-personel-alimlari-cag universitesi rektorlugunden-ogretim-elemani-alim-ilani",
+      "ilanNo": "YOK853702",
+      "publishDate": "2026-11-24T21:00:01+00:00",
+      "deadline": "2026-12-09T23:59:00+00:00",
+      "detectedTitles": [
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Uluslararası Finans ve Bankacılık",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Finans, Bankacılık, Finans ve Bankacılık, Finansal Ekonomi, Finansal Teknolojiler veya Sermaye Piyasaları alanlarının birinde tezli yüksek lisans mezunu veya öğrencisi olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 70,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Finans, Bankacılık, Finans ve Bankacılık, Finansal Ekonomi, Finansal Teknolojiler veya Sermaye Piyasaları alanlarının birinde tezli yüksek lisans mezunu veya öğrencisi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İktisadi ve İdari Bilimler Fakültesi",
+          "department": "Uluslararası Ticaret ve Lojistik",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Uluslararası ticaret ve lojistik, lojistik, lojistik yönetimi, tedarik zinciri yönetimi, endüstri mühendisliği alanlarının birinde tezli yüksek lisans mezunu veya öğrencisi olmak.",
+          "alesRequired": true,
+          "alesScore": null,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 70,
+          "foreignLanguageExam": null,
+          "derece": null,
+          "temelAlan": "Sosyal Bilimler",
+          "sartlar": [
+            "Uluslararası ticaret ve lojistik, lojistik, lojistik yönetimi, tedarik zinciri yönetimi, endüstri mühendisliği alanlarının birinde tezli yüksek lisans mezunu veya öğrencisi olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Çağ Üniversitesi Rektörlüğünden ÖĞRETİM ELEMANI ALIM İLANI Üniversitemize 2547 sayılı Yükseköğretim Kanununu ve Öğretim Üyesi Dışındaki Öğretim Elemanı Kadrolarına Yapılacak Atamalarda Uygulanacak Merkezi Sınav ile Giriş Sınavlarına İlişkin Usul ve Esaslar Hakkında Yönetmelik uyarınca aşağıda belirt",
+      "applicationDocuments": []
+    },
+    {
+      "university": "MANİSA CELÂL BAYAR ÜNİVERSİTESİ",
+      "city": "Mani̇sa",
+      "uniType": "Devlet",
+      "url": "https://www.ilan.gov.tr/ilan/2302665/kamu-akademik-personel-akademik-personel-alimlari-manisa-celal-bayar-universitesi-rektorlugu-akademik-personel-alim-ilani",
+      "ilanNo": "YOK853701",
+      "publishDate": "2026-11-24T21:00:01+00:00",
+      "deadline": "2026-12-09T23:59:00+00:00",
+      "detectedTitles": [
+        "PROFESÖR",
+        "DOÇENT",
+        "DR. ÖĞR. ÜYESİ",
+        "ÖĞRETİM GÖREVLİSİ",
+        "ARAŞTIRMA GÖREVLİSİ"
+      ],
+      "positions": [
+        {
+          "faculty": "İNSAN VE TOPLUM BİLİMLERİ FAKÜLTESİ",
+          "department": "TÜRK VE İSLAM SANATI",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Türk İslam Sanatı alanında almış olmak. Osmanlı Sanatı ve Arşiv Belgelerinde Osmanlı Mimarisi üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": null,
+          "sartlar": [
+            "Doçentliğini Türk İslam Sanatı alanında almış olmak.",
+            "Osmanlı Sanatı ve Arşiv Belgelerinde Osmanlı Mimarisi üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "ATOM VE MOLEKÜL FİZİĞİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Fizik alanında almış olmak. İyonik sıvılar, molekül dinamiği, dış elektrik alan etkileri, nonlineer optik özellikler ve ligand-protein etkileşmeleri üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Fizik alanında almış olmak.",
+            "İyonik sıvılar, molekül dinamiği, dış elektrik alan etkileri, nonlineer optik özellikler ve ligand-protein etkileşmeleri üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "GEOMETRİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Matematik alanında almış olmak. Öklid ve Minkowski uzaylarında Tzitzeica tipi eğrilerin diferansiyel geometrisi üzerine bilimsel çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Matematik alanında almış olmak.",
+            "Öklid ve Minkowski uzaylarında Tzitzeica tipi eğrilerin diferansiyel geometrisi üzerine bilimsel çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SPOR BİLİMLERİ FAKÜLTESİ",
+          "department": "BEDEN EĞİTİMİ VE SPOR",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Spor Bilimleri alanında almış olmak. Davranış örüntüleri, Model temelli araştırmalar ve Beden eğitiminde özerklik desteği üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Doçentliğini Spor Bilimleri alanında almış olmak.",
+            "Davranış örüntüleri, Model temelli araştırmalar ve Beden eğitiminde özerklik desteği üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SPOR BİLİMLERİ FAKÜLTESİ",
+          "department": "SPORDA PSİKOSOSYAL ALANLAR",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Spor Bilimleri alanında almış olmak. Sporcularda psikolojik ve psikofizyolojik yanıtlar üzerine çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Spor Bilimleri",
+          "sartlar": [
+            "Doçentliğini Spor Bilimleri alanında almış olmak.",
+            "Sporcularda psikolojik ve psikofizyolojik yanıtlar üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "RADYOLOJİ",
+          "title": "PROFESÖR",
+          "count": 1,
+          "requirements": "Doçentliğini Radyoloji alanında almış olmak. Baş boyun ve pelvik bölgede elastosonografik çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Radyoloji alanında almış olmak.",
+            "Baş boyun ve pelvik bölgede elastosonografik çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "HASAN FERDİ TURGUTLU TEKNOLOJİ FAKÜLTESİ",
+          "department": "MAKİNE TEORİSİ VE DİNAMİĞİ",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Mekatronik Mühendisliği veya Makine Mühendisliği alanında almış olmak. İnsansız hava araçlarının optimal kontrolü ve robotik sistemlerde ayrık kontrol sentezi konularında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini Mekatronik Mühendisliği veya Makine Mühendisliği alanında almış olmak.",
+            "İnsansız hava araçlarının optimal kontrolü ve robotik sistemlerde ayrık kontrol sentezi konularında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "MÜHENDİSLİK VE DOĞA BİLİMLERİ FAKÜLTESİ",
+          "department": "ULAŞTIRMA",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini İnşaat Mühendisliği alanında almış olmak. Limanlarda rıhtım atama, demiryolu yük taşımacılığının planlanması ve kuru liman entegrasyonu problemlerinin simülasyon tabanlı yöntemlerle modellenmesi konularında çalışmaları bulunmak. Yabancı dille ders vermek üzere istihdam edileceğinden Yükseköğretim Kurumlarında Yabancı Dil Öğretimi ve Yabancı Dille Öğretim Yapılmasında Uyulacak Esaslara İlişkin Yönetmelik'in 8. Maddesinin 7. Fıkrası Hükümlerini Sağlamak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Doçentliğini İnşaat Mühendisliği alanında almış olmak. Limanlarda rıhtım atama, demiryolu yük taşımacılığının planlanması ve kuru liman entegrasyonu problemlerinin simülasyon tabanlı yöntemlerle modellenmesi konularında çalışmaları bulunmak. Yabancı dille ders vermek üzere istihdam edileceğinden Yükseköğretim Kurumlarında Yabancı Dil Öğretimi ve Yabancı Dille Öğretim Yapılmasında Uyulacak Esaslara İlişkin Yönetmelik'in.",
+            "Maddesinin.",
+            "Fıkrası Hükümlerini Sağlamak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "ORTOPEDİ VE TRAVMATOLOJİ",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Ortopedi ve Travmatoloji alanında almış olmak. Kemik ve yumuşak doku tümörleri konusunda çalışmaları bulunmak. Uluslararası merkezlerde ortopedik onkoloji alanında klinik veya akademik deneyime sahip olmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Ortopedi ve Travmatoloji alanında almış olmak.",
+            "Kemik ve yumuşak doku tümörleri konusunda çalışmaları bulunmak.",
+            "Uluslararası merkezlerde ortopedik onkoloji alanında klinik veya akademik deneyime sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "NÖROLOJİ",
+          "title": "DOÇENT",
+          "count": 1,
+          "requirements": "Doçentliğini Nöroloji alanında almış olmak. İnme Servisi ve Nöroanjiografi Ünitesinde inme yönetimi ve endovasküler girişimsel süreçlerde deneyime sahip olmak. Nöroloji yoğun bakım ile Girişimsel nöroloji alanında çalışmaları bulunmak.",
+          "alesRequired": false,
+          "alesScore": null,
+          "alesType": null,
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 1,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Doçentliğini Nöroloji alanında almış olmak.",
+            "İnme Servisi ve Nöroanjiografi Ünitesinde inme yönetimi ve endovasküler girişimsel süreçlerde deneyime sahip olmak.",
+            "Nöroloji yoğun bakım ile Girişimsel nöroloji alanında çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "GÖĞÜS CERRAHİSİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıpta uzmanlığını Göğüs Cerrahisi alanında almış olmak. Minimal invaziv toraks cerrahisi ve akciğer kanseri ile ilgili çalışmaları bulunmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıpta uzmanlığını Göğüs Cerrahisi alanında almış olmak.",
+            "Minimal invaziv toraks cerrahisi ve akciğer kanseri ile ilgili çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "PATOLOJİ",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Tıpta uzmanlığını Patoloji alanında almış olmak. Moleküler Patoloji konusunda çalışmaları bulunmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Tıpta uzmanlığını Patoloji alanında almış olmak.",
+            "Moleküler Patoloji konusunda çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "TIP FAKÜLTESİ",
+          "department": "ÇOCUK SAĞLIĞI VE HASTALIKLARI",
+          "title": "DR. ÖĞR. ÜYESİ",
+          "count": 1,
+          "requirements": "Çocuk Romatoloji yan dal uzmanı olmak. Adenozin deaminaz 2 eksikliği gibi çocukluk çağı vaskülitleri ve kronik non-bakteriyel osteomiyelitin tedavisindeki ilaç değişiminde osteoporozun etkisi üzerine çalışmaları bulunmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 3,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Çocuk Romatoloji yan dal uzmanı olmak.",
+            "Adenozin deaminaz 2 eksikliği gibi çocukluk çağı vaskülitleri ve kronik non-bakteriyel osteomiyelitin tedavisindeki ilaç değişiminde osteoporozun etkisi üzerine çalışmaları bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SALİHLİ MESLEK YÜKSEKOKULU",
+          "department": "ÖZEL GÜVENLİK VE KORUMA",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Sosyal Bilimler alanında herhangi bir lisans programından mezun olmak. Lisans mezuniyeti sonrasında kolluk hizmetlerinde en az 10 yıl mesleki çalışma deneyimine sahip olmak; Önemli Tesisleri Koruma, Savunma Taktikleri, Güvenlik Cihazları Kullanımı ile Önemli Kişileri Koruma eğitimi belgelerine sahip olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "Sosyal Bilimler alanında herhangi bir lisans programından mezun olmak.",
+            "Lisans mezuniyeti sonrasında kolluk hizmetlerinde en az 10 yıl mesleki çalışma deneyimine sahip olmak; Önemli Tesisleri Koruma, Savunma Taktikleri, Güvenlik Cihazları Kullanımı ile Önemli Kişileri Koruma eğitimi belgelerine sahip olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "YABANCI DİLLER YÜKSEKOKULU",
+          "department": "YABANCI DİLLER",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fakültelerin İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Çeviribilimi (İngilizce), Amerikan Kültürü ve Edebiyatı, Mütercim Tercümanlık (İngilizce) bölümlerinin birinden lisans mezunu olmak. Bu Alanlardan Birinde Tezli Yüksek Lisans ve Doktora Yapmış Olmak. Üniversitemiz Senatosu Kararı Uyarınca Merkezi Yabancı Dil Sınavından En Az 90 (doksan) Puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 90,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Fakültelerin İngilizce Öğretmenliği, İngiliz Dili ve Edebiyatı, Çeviribilimi (İngilizce), Amerikan Kültürü ve Edebiyatı, Mütercim Tercümanlık (İngilizc.",
+            "bölümlerinin birinden lisans mezunu olmak. Bu Alanlardan Birinde Tezli Yüksek Lisans ve Doktora Yapmış Olmak. Üniversitemiz Senatosu Kararı Uyarınca Merkezi Yabancı Dil Sınavından En Az 90 (doksan) Puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "YABANCI DİLLER YÜKSEKOKULU",
+          "department": "YABANCI DİLLER",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Fakültelerin Fransızca Öğretmenliği, Fransız Dili ve Edebiyatı, Mütercim Tercümanlık (Fransızca) Bölümlerinin Birinden Lisans Mezunu Olmak. Bu alanlardan birinde tezli yüksek lisans yapmış olmak. Üniversitemiz Senatosu Kararı Uyarınca Merkezi Yabancı Dil Sınavından En Az 90 (doksan) Puan almış olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": 90,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Filoloji",
+          "sartlar": [
+            "Fakültelerin Fransızca Öğretmenliği, Fransız Dili ve Edebiyatı, Mütercim Tercümanlık (Fransızc.",
+            "Bölümlerinin Birinden Lisans Mezunu Olmak. Bu alanlardan birinde tezli yüksek lisans yapmış olmak. Üniversitemiz Senatosu Kararı Uyarınca Merkezi Yabancı Dil Sınavından En Az 90 (doksan) Puan almış olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "REKTÖRLÜK",
+          "department": "",
+          "title": "ÖĞRETİM GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Üniversitemiz Bilimsel Araştırma Projeleri (BAP) Koordinatörlüğünde görevlendirilmek üzere. Sosyoloji, Felsefe, Tarih veya Coğrafya alanlarının birinden lisans mezunu olup, lisans mezuniyeti alanında tezli yüksek lisans ve doktora yapmış olmak. Fikri ve Sınai Haklar Bilirkişilik Eğitimi, Eğiticilerin Eğitimi ve Bilimsel Proje Yazma Eğitimi sertifikalarına sahip olmak. Avrupa Birliği (AB) projesi deneyimi bulunmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": null,
+          "sartlar": [
+            "Üniversitemiz Bilimsel Araştırma Projeleri (BAP) Koordinatörlüğünde görevlendirilmek üzere.",
+            "Sosyoloji, Felsefe, Tarih veya Coğrafya alanlarının birinden lisans mezunu olup, lisans mezuniyeti alanında tezli yüksek lisans ve doktora yapmış olmak.",
+            "Fikri ve Sınai Haklar Bilirkişilik Eğitimi, Eğiticilerin Eğitimi ve Bilimsel Proje Yazma Eğitimi sertifikalarına sahip olmak.",
+            "Avrupa Birliği (AB) projesi deneyimi bulunmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "HASAN FERDİ TURGUTLU TEKNOLOJİ FAKÜLTESİ",
+          "department": "BİLGİSAYAR DONANIMI",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Bilgisayar Bilimleri, Bilgisayar Bilimleri Mühendisliği, Yazılım Mühendisliği, Bilgisayar Mühendisliği, Bilişim Sistemleri Mühendisliği, Kontrol ve Bilgisayar Mühendisliği, Matematik ve Bilgisayar Bilimleri programlarının birinden lisans mezunu olup, bu alanların birinde tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Bilgisayar Bilimleri, Bilgisayar Bilimleri Mühendisliği, Yazılım Mühendisliği, Bilgisayar Mühendisliği, Bilişim Sistemleri Mühendisliği, Kontrol ve Bilgisayar Mühendisliği, Matematik ve Bilgisayar Bilimleri programlarının birinden lisans mezunu olup, bu alanların birinde tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "HASAN FERDİ TURGUTLU TEKNOLOJİ FAKÜLTESİ",
+          "department": "ELEKTRONİK SİSTEMLER",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Mekatronik Mühendisliği lisans mezunu olup, aynı alanda tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Mühendislik",
+          "sartlar": [
+            "Mekatronik Mühendisliği lisans mezunu olup, aynı alanda tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "İLAHİYAT FAKÜLTESİ",
+          "department": "İSLAM FELSEFESİ",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "İslam Felsefesi alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "İlahiyat",
+          "sartlar": [
+            "İslam Felsefesi alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SAĞLIK BİLİMLERİ FAKÜLTESİ",
+          "department": "EBELİK",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Ebelik bölümü lisans mezunu olup, aynı alanda tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Ebelik bölümü lisans mezunu olup, aynı alanda tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        },
+        {
+          "faculty": "SAĞLIK BİLİMLERİ FAKÜLTESİ",
+          "department": "İÇ HASTALIKLARI HEMŞİRELİĞİ",
+          "title": "ARAŞTIRMA GÖREVLİSİ",
+          "count": 1,
+          "requirements": "Hemşirelik bölümü lisans mezunu olup, İç Hastalıkları Hemşireliği alanında tezli yüksek lisans yapıyor olmak.",
+          "alesRequired": true,
+          "alesScore": 70,
+          "alesType": "SAY",
+          "foreignLanguageRequired": true,
+          "foreignLanguageScore": null,
+          "foreignLanguageExam": null,
+          "derece": 6,
+          "temelAlan": "Sağlık Bilimleri",
+          "sartlar": [
+            "Hemşirelik bölümü lisans mezunu olup, İç Hastalıkları Hemşireliği alanında tezli yüksek lisans yapıyor olmak."
+          ],
+          "kanunMaddesi": null,
+          "yasSiniri": null
+        }
+      ],
+      "contentSnippet": "Manisa Celal Bayar Üniversitesi Rektörlüğünden: A) ÖĞRETİM ÜYESİ KADROLARINA (PROFESÖR, DOÇENT, DOKTOR ÖĞRETİM ÜYESİ) AİT İLAN Üniversitemiz Akademik birimlerine, 2547 sayılı Yükseköğretim Kanunu ve Öğretim Üyeliğine Yükseltilme ve Atanma Yönetmeliği’nin ilgili hükümleri ile Manisa Celal Bayar Ünive",
+      "applicationDocuments": []
+    },
     {
       "university": "MARMARA ÜNİVERSİTESİ",
       "city": "İstanbul",
